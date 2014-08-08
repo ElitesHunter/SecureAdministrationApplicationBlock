@@ -27,6 +27,15 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "OpenAPIs", "OpenAPIs", "{32
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EH.Security.OpenAPIs.Web", "EH.Security.OpenAPIs.Web\EH.Security.OpenAPIs.Web.csproj", "{0C895BE7-279F-4F2A-8B94-136344798B4D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EH.Security.OperationModel", "EH.Security.OperationModel\EH.Security.OperationModel.csproj", "{7AB04CB4-1FFB-4ACC-95B1-9E1940B2DEAC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Management Studio", "Management Studio", "{E825EEE9-4CE6-4383-802E-1313BBC425F7}"
+	ProjectSection(SolutionItems) = preProject
+		EH.ManagementStudio.AssemblyInfo.cs = EH.ManagementStudio.AssemblyInfo.cs
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EH.ManagementStudio.Application", "EH.ManagementStudio.Application\EH.ManagementStudio.Application.csproj", "{4E6FE6D3-FC31-4BBA-840F-AA7B74AAE36F}"
+EndProject
 Global
 	GlobalSection(SubversionScc) = preSolution
 		Svn-Managed = True
@@ -101,6 +110,26 @@ Global
 		{0C895BE7-279F-4F2A-8B94-136344798B4D}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{0C895BE7-279F-4F2A-8B94-136344798B4D}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{0C895BE7-279F-4F2A-8B94-136344798B4D}.Release|x86.ActiveCfg = Release|Any CPU
+		{7AB04CB4-1FFB-4ACC-95B1-9E1940B2DEAC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7AB04CB4-1FFB-4ACC-95B1-9E1940B2DEAC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7AB04CB4-1FFB-4ACC-95B1-9E1940B2DEAC}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{7AB04CB4-1FFB-4ACC-95B1-9E1940B2DEAC}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{7AB04CB4-1FFB-4ACC-95B1-9E1940B2DEAC}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{7AB04CB4-1FFB-4ACC-95B1-9E1940B2DEAC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7AB04CB4-1FFB-4ACC-95B1-9E1940B2DEAC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7AB04CB4-1FFB-4ACC-95B1-9E1940B2DEAC}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{7AB04CB4-1FFB-4ACC-95B1-9E1940B2DEAC}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{7AB04CB4-1FFB-4ACC-95B1-9E1940B2DEAC}.Release|x86.ActiveCfg = Release|Any CPU
+		{4E6FE6D3-FC31-4BBA-840F-AA7B74AAE36F}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{4E6FE6D3-FC31-4BBA-840F-AA7B74AAE36F}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
+		{4E6FE6D3-FC31-4BBA-840F-AA7B74AAE36F}.Debug|Mixed Platforms.Build.0 = Debug|x86
+		{4E6FE6D3-FC31-4BBA-840F-AA7B74AAE36F}.Debug|x86.ActiveCfg = Debug|x86
+		{4E6FE6D3-FC31-4BBA-840F-AA7B74AAE36F}.Debug|x86.Build.0 = Debug|x86
+		{4E6FE6D3-FC31-4BBA-840F-AA7B74AAE36F}.Release|Any CPU.ActiveCfg = Release|x86
+		{4E6FE6D3-FC31-4BBA-840F-AA7B74AAE36F}.Release|Mixed Platforms.ActiveCfg = Release|x86
+		{4E6FE6D3-FC31-4BBA-840F-AA7B74AAE36F}.Release|Mixed Platforms.Build.0 = Release|x86
+		{4E6FE6D3-FC31-4BBA-840F-AA7B74AAE36F}.Release|x86.ActiveCfg = Release|x86
+		{4E6FE6D3-FC31-4BBA-840F-AA7B74AAE36F}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -111,7 +140,9 @@ Global
 		{181B1D5C-1686-4ACB-8DA7-89671DC93BCF} = {1BDCE37C-F328-477C-B43F-49144F2739D3}
 		{0F96E731-D9D3-4F82-99CE-5277D8C704AC} = {1BDCE37C-F328-477C-B43F-49144F2739D3}
 		{32B6BE71-385B-49A8-BFEC-6814A04BCCD8} = {1BDCE37C-F328-477C-B43F-49144F2739D3}
+		{7AB04CB4-1FFB-4ACC-95B1-9E1940B2DEAC} = {1BDCE37C-F328-477C-B43F-49144F2739D3}
 		{6A216E40-77F4-42B6-B73D-F918EFE2A898} = {33333D2C-F5D0-4C3E-A1F2-1703127EA0E8}
 		{0C895BE7-279F-4F2A-8B94-136344798B4D} = {32B6BE71-385B-49A8-BFEC-6814A04BCCD8}
+		{4E6FE6D3-FC31-4BBA-840F-AA7B74AAE36F} = {E825EEE9-4CE6-4383-802E-1313BBC425F7}
 	EndGlobalSection
 EndGlobal
