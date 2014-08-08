@@ -1,0 +1,21 @@
+﻿@model EnterpriseServices.SecurityService.OpenAPIs.Models.ApiResultBase
+@{
+    Layout = null;
+}
+<eh:enterpriseservices xmlns:eh="urn:Masterduner@@Yeah.net">
+    <eh:securityservice>
+        <eh:openapis>
+            <eh:expando>
+                <eh:signature url="@this.Request.Url.AbsoluteUri" />
+                <eh:apiversion value="@Model.Version" />
+            </eh:expando>
+            <eh:api type="@Model.ResultType.AssemblyQualifiedName">
+                <eh:successful value="@Model.Successful" />
+                <eh:errorcode value="@Model.ErrorCode" />
+                <eh:returncontent>
+                    @RenderBody()
+                </eh:returncontent>
+            </eh:api>
+        </eh:openapis>
+    </eh:securityservice>
+</eh:enterpriseservices>

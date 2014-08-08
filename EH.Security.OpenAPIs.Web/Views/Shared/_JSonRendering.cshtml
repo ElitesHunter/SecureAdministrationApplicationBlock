@@ -1,0 +1,6 @@
+﻿@model EnterpriseServices.SecurityService.OpenAPIs.Models.ApiResultBase
+
+@{
+    Layout = null;
+}
+{"Successful":@Model.Successful.ToString().ToLower(), "Error":"@Model.ErrorCode", "Expando":{"ApiVersion":"@Model.Version", "ResultType":"@Model.ResultType.AssemblyQualifiedName"}, "Content":@RenderBody()}
