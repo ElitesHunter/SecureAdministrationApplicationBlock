@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<eh:EnterpriseServices xmlns:eh="urn:Masterduner@Yeah.net">
+  <eh:InitializationUtil>
+    <eh:SystemCodesDeclaration>
+      <eh:Codes Count="16">
+        <eh:Item Index="0" Code="ERROR::00000001" BlockID="1174311B-8031-4ACC-AA44-314D4DB193F2" />
+        <eh:Item Index="1" Code="ERROR::00000002" BlockID="1174311B-8031-4ACC-AA44-314D4DB193F2" />
+        <eh:Item Index="2" Code="ERROR::00000003" BlockID="1174311B-8031-4ACC-AA44-314D4DB193F2" />
+        <eh:Item Index="3" Code="ERROR::00000004" BlockID="1174311B-8031-4ACC-AA44-314D4DB193F2" />
+        <eh:Item Index="4" Code="ERROR::00000014" BlockID="1174311B-8031-4ACC-AA44-314D4DB193F2" />
+        <eh:Item Index="5" Code="ERROR::00000005" BlockID="5D08B596-5C54-453E-AB45-45C326E72F5E" />
+        <eh:Item Index="6" Code="ERROR::00000006" BlockID="5D08B596-5C54-453E-AB45-45C326E72F5E" />
+        <eh:Item Index="7" Code="ERROR::00000007" BlockID="2D82B4CB-A03C-4403-97D8-8542FF2A80A6" />
+        <eh:Item Index="8" Code="ERROR::00000008" BlockID="2D82B4CB-A03C-4403-97D8-8542FF2A80A6" />
+        <eh:Item Index="9" Code="ERROR::00000009" BlockID="2D82B4CB-A03C-4403-97D8-8542FF2A80A6" />
+        <eh:Item Index="10" Code="ERROR::00000010" BlockID="2D82B4CB-A03C-4403-97D8-8542FF2A80A6" />
+        <eh:Item Index="11" Code="ERROR::00000011" BlockID="2D82B4CB-A03C-4403-97D8-8542FF2A80A6" />
+        <eh:Item Index="12" Code="ERROR::00000012" BlockID="2D82B4CB-A03C-4403-97D8-8542FF2A80A6" />
+        <eh:Item Index="13" Code="ERROR::00000013" BlockID="2D82B4CB-A03C-4403-97D8-8542FF2A80A6" />
+        <eh:Item Index="14" Code="ERROR::00000015" BlockID="2D82B4CB-A03C-4403-97D8-8542FF2A80A6" />
+        <eh:Item Index="15" Code="ERROR::00000016" BlockID="2D82B4CB-A03C-4403-97D8-8542FF2A80A6" />
+      </eh:Codes>
+    </eh:SystemCodesDeclaration>
+  </eh:InitializationUtil>
+</eh:EnterpriseServices>

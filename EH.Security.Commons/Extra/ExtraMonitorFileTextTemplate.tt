@@ -1,0 +1,36 @@
+﻿<#@ template language="C#" #>
+<#@ import namespace="EnterpriseServices.SecurityService.Framework.Commons.Extra" #>
+<?xml version="1.0" encoding="utf-8"?>
+<eh:EnterpriseServices xmlns:eh="urn:Yucai.Wang-Public@Outlook.com">
+	<eh:SecurityService FrameworkVersion="Microsoft .Net Framework 3.5" DeveloperName="Wang Yucai" Version="1.0">
+		<!--
+		附加的方法拦截器
+		Generate : <#= typeof(ExtraMonitorFileTextTemplate).AssemblyQualifiedName #>
+		-->
+		<eh:ExtraMethodMonitor>
+			<!--头信息-->
+			<eh:HeadDescription TypeName="<#= this.ExtraMonitor.TypeName #>" MethodName="<#= this.ExtraMonitor.MethodName #>" />
+			<!--方法监听器信息-->
+			<eh:MonitorResources>
+				<eh:Assemblies>
+					<# foreach(var item in this.ExtraMonitor.MonitorAssemblyCollection)
+				{
+					 #>
+					 <eh:Reference Path="<#= item.FileName #>" />
+					 <# 
+				}
+						#>
+				</eh:Assemblies>
+				<eh:Monitors>
+					<# foreach(var item in this.ExtraMonitor.MonitorCollection)
+				{
+					 #>
+					 <eh:Attach ID="<#= item.MonitorID #>" Order="<#= item.Order.ToString() #>" TypeName="<#= item.TypeName #>" />
+					 <# 
+				}
+						#>
+				</eh:Monitors>
+			</eh:MonitorResources />
+		</eh:ExtraMethodMonitor>
+	</eh:SecurityService>
+</eh:EnterpriseServices>

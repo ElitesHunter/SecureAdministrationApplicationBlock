@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<eh:EnterpriseServices xmlns:eh="urn:Masterduner@Yeah.net">
+  <eh:InitializationUtil>
+    <eh:ApplicationBlockDeclaration>
+      <eh:ApplicationBlocks Count="6">
+        <eh:Item Index="0" UniqueID="1174311B-8031-4ACC-AA44-314D4DB193F2" Name="基本模块" Code="BASIC" Parent="(none)" />
+        <eh:Item Index="1" UniqueID="2D82B4CB-A03C-4403-97D8-8542FF2A80A6" Name="安全控制模块" Code="SECURECTRL" Parent="(none)" />
+        <eh:Item Index="2" UniqueID="63A1FE18-D7FF-40BB-BC15-5C603388B965" Name="管理控制台" Code="SECURECTRL::MANAGEMENTCLIENT" Parent="2D82B4CB-A03C-4403-97D8-8542FF2A80A6" />
+        <eh:Item Index="3" UniqueID="5D08B596-5C54-453E-AB45-45C326E72F5E" Name="身份认证" Code="SECURECTRL::AUTHENTICATE" Parent="2D82B4CB-A03C-4403-97D8-8542FF2A80A6" />
+        <eh:Item Index="4" UniqueID="53F1E2CD-785A-4E36-BC13-4335016F6250" Name="组织机构管理" Code="SECURECTRL::ORGANIZATION" Parent="2D82B4CB-A03C-4403-97D8-8542FF2A80A6" />
+        <eh:Item Index="5" UniqueID="3454B2E9-19BF-4BE9-976C-6F6F20917DC3" Name="角色授权管理" Code="SECURECTRL::AUTHORIZE" Parent="2D82B4CB-A03C-4403-97D8-8542FF2A80A6" />
+      </eh:ApplicationBlocks>
+    </eh:ApplicationBlockDeclaration>
+  </eh:InitializationUtil>
+</eh:EnterpriseServices>

@@ -1,0 +1,9 @@
+﻿<#@ template language="C#" #>
+************************************{<#= DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") #>}************************************
+
+Type : <#= this.Type.AssemblyQualifiedName #>
+Level : <#= this.TraceEventLevel.ToString() #>
+Message : <#= this.Message #>
+
+**********************************************************************************************************************************
+

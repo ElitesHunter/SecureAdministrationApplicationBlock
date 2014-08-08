@@ -1,0 +1,131 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{181B1D5C-1686-4ACB-8DA7-89671DC93BCF}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>EnterpriseServices.SecurityService.Framework.Commons</RootNamespace>
+    <AssemblyName>EH.Security.Commons</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>
+    </DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>none</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\Releases\Security Control\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>..\Releases\Security Control\EH.Security.Commons.XML</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>Properties\Signature.pfx</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\EH.Security.AssemblyInfo.cs">
+      <Link>Properties\EH.Security.AssemblyInfo.cs</Link>
+    </Compile>
+    <Compile Include="Extra\ExtraMethodMonitor.public.cs" />
+    <Compile Include="Extra\ExtraMonitor.public.cs" />
+    <Compile Include="Extra\ExtraMonitorAssembly.public.cs" />
+    <Compile Include="Extra\ExtraMonitorError.public.cs" />
+    <Compile Include="Extra\ExtraMonitorFileGenerator.public.cs" />
+    <Compile Include="Extra\ExtraMonitorFileTextTemplate.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ExtraMonitorFileTextTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Extra\ExtraMonitorFileTextTemplate.partial.cs" />
+    <Compile Include="ICredentials.cs" />
+    <Compile Include="IMethodMonitor.cs" />
+    <Compile Include="IsNotSystemAdministratorError.sealed.cs" />
+    <Compile Include="MethodMonitorAttribute.abstract.cs" />
+    <Compile Include="MethodMonitorBoundAttribute.sealed.cs" />
+    <Compile Include="MethodMonitorOrder.cs" />
+    <Compile Include="MonitorAttribute.public.cs" />
+    <Compile Include="MonitorContext.public.cs" />
+    <Compile Include="MonitorError.sealed.cs" />
+    <Compile Include="MonitorObjectProxy.public.cs" />
+    <Compile Include="NotFormallyStaffError.sealed.cs" />
+    <Compile Include="NotInOrganizationError.sealed.cs" />
+    <Compile Include="ParttimeError.sealed.cs" />
+    <Compile Include="Permission\ISystemAdministrator.cs" />
+    <Compile Include="PositionError.sealed.cs" />
+    <Compile Include="Principal\IUserIdentity.cs" />
+    <Compile Include="Principal\IUserPrincipal.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UserDisabledError.sealed.cs" />
+    <Compile Include="WithoutPermissionError.sealed.cs" />
+    <Compile Include="WrongPasswordError.sealed.cs" />
+    <Compile Include="WrongUserNameError.sealed.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\EH.Framework.Commons\EH.Framework.Commons.csproj">
+      <Project>{5DE9985D-BB7E-460F-AB3A-399F26C60BE4}</Project>
+      <Name>EH.Framework.Commons</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\EH.Framework.Resources\EH.Framework.Resources.csproj">
+      <Project>{E2EA0F1F-CDF2-4592-9FA5-4F63593E01FC}</Project>
+      <Name>EH.Framework.Resources</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\EH.Security.Resources\EH.Security.Resources.csproj">
+      <Project>{0F96E731-D9D3-4F82-99CE-5277D8C704AC}</Project>
+      <Name>EH.Security.Resources</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <None Include="Extra\ExtraMonitorFileTextTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>ExtraMonitorFileTextTemplate.cs</LastGenOutput>
+    </None>
+    <None Include="Properties\Signature.pfx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

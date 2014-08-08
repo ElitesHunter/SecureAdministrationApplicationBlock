@@ -1,0 +1,110 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{5DE9985D-BB7E-460F-AB3A-399F26C60BE4}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>EnterpriseServices.Framework.Commons</RootNamespace>
+    <AssemblyName>EH.Framework.Commons</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Debug\EH.Framework.Commons.XML</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>none</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\Releases\Framework\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>..\Releases\Framework\EH.Framework.Commons.XML</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>Properties\Signature.pfx</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\EH.Framework.AssemblyInfo.cs">
+      <Link>Properties\EH.Framework.AssemblyInfo.cs</Link>
+    </Compile>
+    <Compile Include="ApplicationBlockCodeAttribute.public.cs" />
+    <Compile Include="BooleanExtensions.static.cs" />
+    <Compile Include="Error.public.cs" />
+    <Compile Include="ErrorCodeAttribute.public.cs" />
+    <Compile Include="IgnoreThisMethodAttribute.sealed.cs" />
+    <Compile Include="IObjectBase.cs" />
+    <Compile Include="IObjectEnableTag.cs" />
+    <Compile Include="IObjectID.cs" />
+    <Compile Include="IObjectOpenID.cs" />
+    <Compile Include="IObjectRemoveTag.cs" />
+    <Compile Include="IObjectVisibilityTag.cs" />
+    <Compile Include="IO\CommonConfigurationFileInfo.sealed.cs" />
+    <Compile Include="IO\CommonsDirectoryInfo.sealed.cs" />
+    <Compile Include="IO\DirectoryNotFoundError.sealed.cs" />
+    <Compile Include="IO\FileNotFoundError.sealed.cs" />
+    <Compile Include="ObjectBase.abstract.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reflection\DynamicAssembly.public.cs" />
+    <Compile Include="Reflection\ReflectionError.sealed.cs" />
+    <Compile Include="Runtime\Running.public.cs" />
+    <Compile Include="Runtime\TraceEvent.public.cs" />
+    <Compile Include="Runtime\TraceEventLevel.cs" />
+    <Compile Include="Runtime\TraceMessageGenerator.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TraceMessageGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Runtime\TraceMessageGenerator.partial.cs" />
+    <Compile Include="_Object.abstract.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Signature.pfx" />
+    <None Include="Runtime\TraceMessageGenerator.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>TraceMessageGenerator.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\EH.Framework.Resources\EH.Framework.Resources.csproj">
+      <Project>{E2EA0F1F-CDF2-4592-9FA5-4F63593E01FC}</Project>
+      <Name>EH.Framework.Resources</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
