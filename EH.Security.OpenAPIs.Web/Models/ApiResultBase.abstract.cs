@@ -45,6 +45,8 @@ namespace EnterpriseServices.SecurityService.OpenAPIs.Models
         private Type _resultType;
         private static readonly string VersionString = typeof(ApiResultBase).Assembly.GetName().Version.ToString();
         private string _renderMode;
+        private string _stateCode;
+        private bool _isXml;
 
         #region RenderMode
         /// <summary>
@@ -101,19 +103,42 @@ namespace EnterpriseServices.SecurityService.OpenAPIs.Models
         }
         #endregion
 
+        #region StateCode
+        /// <summary>
+        /// 设置或获取状态代码。
+        /// </summary>
+        public virtual string StateCode
+        {
+            get { return _stateCode; }
+            set { _stateCode = value; }
+        }
+        #endregion
+
         #region Constructor
 
         /// <summary>
         /// <para>构造函数：</para>
         /// <para>初始化一个<see cref="ApiResultBase" />对象实例。</para>
         /// </summary>
-        /// <param name="renderMode">呈现方式。</param>
-        protected ApiResultBase(string renderMode = "xml")
+        protected ApiResultBase()
         {
             this.Version = VersionString;
-            this.RenderMode = renderMode;
+            this.RenderMode = "xml";
+            this.ResultType = this.GetType();
+            this.IsXml = this.RenderMode.ToLower().Equals("xml");
         }
 
+        #endregion
+
+        #region IsXml
+        /// <summary>
+        /// 获取是否已XML形式展现。
+        /// </summary>
+        public virtual bool IsXml
+        {
+            get { return _isXml; }
+            protected set { _isXml = value; }
+        }
         #endregion
     }
 }

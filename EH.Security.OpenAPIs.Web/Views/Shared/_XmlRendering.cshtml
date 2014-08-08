@@ -1,7 +1,9 @@
 ﻿@model EnterpriseServices.SecurityService.OpenAPIs.Models.ApiResultBase
 @{
     Layout = null;
+    this.Response.ContentType = "text/xml";
 }
+<?xml version="1.0" encoding="utf-8"?>
 <eh:enterpriseservices xmlns:eh="urn:Masterduner@@Yeah.net">
     <eh:securityservice>
         <eh:openapis>
@@ -10,7 +12,7 @@
                 <eh:apiversion value="@Model.Version" />
             </eh:expando>
             <eh:api type="@Model.ResultType.AssemblyQualifiedName">
-                <eh:successful value="@Model.Successful" />
+                <eh:state successful="@Model.Successful" code="@Model.StateCode" />
                 <eh:errorcode value="@Model.ErrorCode" />
                 <eh:returncontent>
                     @RenderBody()

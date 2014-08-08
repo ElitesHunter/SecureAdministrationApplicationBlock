@@ -60,7 +60,7 @@ namespace EnterpriseServices.SecurityService.OpenAPIs.RouterMenagement
         {
             routes.MapRoute(
                 "DefaultRoutes_Default",
-                "{controller}/{action}/{render}.api",
+                "{render}/{controller}/{action}.api",
                 new { controller = "Test", action = "TryConnect", render = "xml" }
                 );
         }
