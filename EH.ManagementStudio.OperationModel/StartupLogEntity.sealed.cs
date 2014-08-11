@@ -1,17 +1,17 @@
-#region "ClientStartup"
+#region "StartupLogEntity"
 
 /*
  * ####     Developer Name : Wang Yucai
  * 
  * ####     Development Tool : Microsoft VisualStudio 2010 Ultimate Edition
  * 
- * ####     Create Time : 2014-08-11 10:52:32
+ * ####     Create Time : 2014-08-11 11:52:01
  * 
  * ####     Namespace : EnterpriseServices.ManagementClient.Operations
  * 
- * ####     Type Name : ClientStartup
+ * ####     Type Name : StartupLogEntity
  * 
- * ####     Full Name : EnterpriseServices.ManagementClient.Operations.ClientStartup
+ * ####     Full Name : EnterpriseServices.ManagementClient.Operations.StartupLogEntity
  * 
  * ####     Machine Name : GLCHQWYCWINW7
  * 
@@ -25,47 +25,48 @@
 #endregion
 
 using System;
-using System.Windows.Forms;
-using EnterpriseServices.Framework.Commons;
 using EnterpriseServices.SecurityService.Framework.Commons;
+using EnterpriseServices.ManagementClient.Operations.Resources;
 
 namespace EnterpriseServices.ManagementClient.Operations
 {
     /// <summary>
-    /// <para>EnterpriseServices.ManagementClient.Operations.ClientStartup</para>
+    /// <para>EnterpriseServices.ManagementClient.Operations.StartupLogEntity</para>
     /// <para>
-    /// 定义了启动管理客户端的基本方法。
+    /// 用于记录管理客户端启动日志。
     /// </para>
     /// </summary>
     /// <remarks>
     /// <para>Target Framework Version : 3.5</para>
+    /// <para>此类不可继承。</para>
     /// </remarks>
-    [Monitor]
-    public class ClientStartup : _Object, IApplicationStartup
+    public sealed class StartupLogEntity : EventViewerLogEntity
     {
         #region Constructor
 
         /// <summary>
         /// <para>构造函数：</para>
-        /// <para>初始化一个<see cref="ClientStartup" />对象实例。</para>
+        /// <para>初始化一个<see cref="StartupLogEntity" />对象实例。</para>
         /// </summary>
-        public ClientStartup()
+        /// <param name="ctx"><see cref="MonitorContext"/>对象实例。</param>
+        public StartupLogEntity(MonitorContext ctx)
+            : base(ctx)
         {
         }
 
         #endregion
 
-        #region Run
+        #region CreateMessage
         /// <summary>
-        /// 启动此应用。
+        /// 创建消息。
         /// </summary>
-        /// <param name="mainForm"><see cref="Form"/>对象实例。</param>
-        [BeforeStartup]
-        [InWindowsAdministratorGroup]
-        public void Run(Form mainForm)
+        /// <returns>日志消息。</returns>
+        protected override string CreateMessage()
         {
-            Application.Run(mainForm);
-       }
+            base.MessageBuilder.AppendFormat(string.Format(Messages.StartupLogMessage, Environment.UserDomainName + "\\" + Environment.UserName));
+            base.CreateMessage();
+            return base.MessageBuilder.ToString();
+        }
         #endregion
     }
 }

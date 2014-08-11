@@ -1,17 +1,17 @@
-#region "ClientStartup"
+#region "BeforeStartupAttribute"
 
 /*
  * ####     Developer Name : Wang Yucai
  * 
  * ####     Development Tool : Microsoft VisualStudio 2010 Ultimate Edition
  * 
- * ####     Create Time : 2014-08-11 10:52:32
+ * ####     Create Time : 2014-08-11 13:46:33
  * 
  * ####     Namespace : EnterpriseServices.ManagementClient.Operations
  * 
- * ####     Type Name : ClientStartup
+ * ####     Type Name : BeforeStartupAttribute
  * 
- * ####     Full Name : EnterpriseServices.ManagementClient.Operations.ClientStartup
+ * ####     Full Name : EnterpriseServices.ManagementClient.Operations.BeforeStartupAttribute
  * 
  * ####     Machine Name : GLCHQWYCWINW7
  * 
@@ -25,47 +25,35 @@
 #endregion
 
 using System;
-using System.Windows.Forms;
-using EnterpriseServices.Framework.Commons;
 using EnterpriseServices.SecurityService.Framework.Commons;
 
 namespace EnterpriseServices.ManagementClient.Operations
 {
     /// <summary>
-    /// <para>EnterpriseServices.ManagementClient.Operations.ClientStartup</para>
+    /// <para>EnterpriseServices.ManagementClient.Operations.BeforeStartupAttribute</para>
     /// <para>
-    /// 定义了启动管理客户端的基本方法。
+    /// 用于标记启动Management Studio前需要验证的方法。
     /// </para>
     /// </summary>
     /// <remarks>
     /// <para>Target Framework Version : 3.5</para>
+    /// <para>此类不可继承。</para>
     /// </remarks>
-    [Monitor]
-    public class ClientStartup : _Object, IApplicationStartup
+    [AttributeUsage(AttributeTargets.Method | AttributeTargets.Property, Inherited = false, AllowMultiple = false)]
+    [MethodMonitorBound(typeof(BeforeStartup))]
+    public sealed class BeforeStartupAttribute : MethodMonitorAttribute
     {
         #region Constructor
 
         /// <summary>
         /// <para>构造函数：</para>
-        /// <para>初始化一个<see cref="ClientStartup" />对象实例。</para>
+        /// <para>初始化一个<see cref="BeforeStartupAttribute" />对象实例。</para>
         /// </summary>
-        public ClientStartup()
+        public BeforeStartupAttribute()
+            : base(MethodMonitorOrder.Before)
         {
         }
 
-        #endregion
-
-        #region Run
-        /// <summary>
-        /// 启动此应用。
-        /// </summary>
-        /// <param name="mainForm"><see cref="Form"/>对象实例。</param>
-        [BeforeStartup]
-        [InWindowsAdministratorGroup]
-        public void Run(Form mainForm)
-        {
-            Application.Run(mainForm);
-       }
         #endregion
     }
 }

@@ -39,7 +39,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Data" />
@@ -49,8 +51,15 @@
     <Compile Include="..\EH.ManagementStudio.AssemblyInfo.cs">
       <Link>Properties\EH.ManagementStudio.AssemblyInfo.cs</Link>
     </Compile>
+    <Compile Include="BeforeStartup.sealed.cs" />
+    <Compile Include="BeforeStartupAttribute.sealed.cs" />
+    <Compile Include="ClientStartup.public.cs" />
+    <Compile Include="EventViewerLogEntity.public.cs" />
+    <Compile Include="IApplicationStartup.cs" />
+    <Compile Include="InWindowsAdministratorGroupAttribute.sealed.cs" />
     <Compile Include="InWindowsAdministratorGroup.sealed.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StartupLogEntity.sealed.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\signature.pfx" />
@@ -72,6 +81,9 @@
       <Project>{0F96E731-D9D3-4F82-99CE-5277D8C704AC}</Project>
       <Name>EH.Security.Resources</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
