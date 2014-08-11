@@ -37,7 +37,7 @@ namespace EnterpriseServices.SecurityService.Framework.Commons.Logging
     /// <remarks>
     /// <para>Target Framework Version : 3.5</para>
     /// </remarks>
-    public interface IMethodLoggingMonitor
+    public interface IMethodLoggingMonitor : IMethodMonitor
     {
         #region Register
         /// <summary>
