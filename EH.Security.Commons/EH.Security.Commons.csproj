@@ -73,6 +73,8 @@
     <Compile Include="ICredentials.cs" />
     <Compile Include="IMethodMonitor.cs" />
     <Compile Include="IsNotSystemAdministratorError.sealed.cs" />
+    <Compile Include="Logging\IMethodLoggingMonitor.cs" />
+    <Compile Include="Logging\LogEntityBase.abstract.cs" />
     <Compile Include="MethodMonitorAttribute.abstract.cs" />
     <Compile Include="MethodMonitorBoundAttribute.sealed.cs" />
     <Compile Include="MethodMonitorOrder.cs" />

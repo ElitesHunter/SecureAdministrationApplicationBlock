@@ -58,8 +58,10 @@ namespace EnterpriseServices.SecurityService.Framework.Commons.Logging
         /// <para>构造函数：</para>
         /// <para>初始化一个<see cref="LogEntityBase" />对象实例。</para>
         /// </summary>
-        protected LogEntityBase()
+        /// <param name="ctx"><see cref="MethodContext"/>对象实例。</param>
+        protected LogEntityBase(MonitorContext ctx)
         {
+            this.MethodContext = ctx;
         }
 
         #endregion
