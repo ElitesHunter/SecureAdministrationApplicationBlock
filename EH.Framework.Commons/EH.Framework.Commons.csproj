@@ -56,6 +56,8 @@
     <Compile Include="BooleanExtensions.static.cs" />
     <Compile Include="Error.public.cs" />
     <Compile Include="ErrorCodeAttribute.public.cs" />
+    <Compile Include="Globalization\LocaleID.cs" />
+    <Compile Include="Globalization\ThreadCultureInfo.public.cs" />
     <Compile Include="IgnoreThisMethodAttribute.sealed.cs" />
     <Compile Include="IObjectBase.cs" />
     <Compile Include="IObjectEnableTag.cs" />
