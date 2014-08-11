@@ -51,6 +51,7 @@
     <Compile Include="..\EH.ManagementStudio.AssemblyInfo.cs">
       <Link>Properties\EH.ManagementStudio.AssemblyInfo.cs</Link>
     </Compile>
+    <Compile Include="ApplicationCultureInfo.static.cs" />
     <Compile Include="BeforeStartup.sealed.cs" />
     <Compile Include="BeforeStartupAttribute.sealed.cs" />
     <Compile Include="ClientStartup.public.cs" />
@@ -59,6 +60,21 @@
     <Compile Include="InWindowsAdministratorGroupAttribute.sealed.cs" />
     <Compile Include="InWindowsAdministratorGroup.sealed.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Resources\Messages.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Messages.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Messages.zh-CN.Designer.cs">
+      <DependentUpon>Messages.zh-CN.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Resources\Messages.en-US.Designer.cs">
+      <DependentUpon>Messages.en-US.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
     <Compile Include="StartupLogEntity.sealed.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -84,6 +100,20 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Messages.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Messages.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Messages.zh-CN.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Messages.zh-CN.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Messages.en-US.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Messages.en-US.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

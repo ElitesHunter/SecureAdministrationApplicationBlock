@@ -24,9 +24,8 @@
 
 #endregion
 
-using System;
-using EnterpriseServices.Framework.Commons.Globalization;
 using System.Globalization;
+using EnterpriseServices.Framework.Commons.Globalization;
 
 namespace EnterpriseServices.ManagementClient.Operations
 {
