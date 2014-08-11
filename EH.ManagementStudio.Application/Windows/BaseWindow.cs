@@ -29,7 +29,7 @@ namespace EnterpriseServices.ManagementClient.Windows
         /// <summary>
         /// 初始化窗体。
         /// </summary>
-        protected void InitializeForm()
+        protected virtual void InitializeForm()
         {
             if (this.ShowIcon)
                 this.Icon = new Icon(this.GetType().Assembly.GetManifestResourceStream("EnterpriseServices.ManagementClient.Resources.Images.Icon.ico"));

@@ -61,6 +61,24 @@ namespace EnterpriseServices.ManagementClient.Operations.Resources {
         }
         
         /// <summary>
+        ///   查找类似 ElitesHunter Management Studio 的本地化字符串。
+        /// </summary>
+        public static string ApplicationCaption {
+            get {
+                return ResourceManager.GetString("ApplicationCaption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Are you sure to exit the management studio? 的本地化字符串。
+        /// </summary>
+        public static string ExitApplication {
+            get {
+                return ResourceManager.GetString("ExitApplication", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 User &quot; {0} &quot; is trying to start management studio! This process needs to verify that he is in the Windows Administrators group, if the validation is successful, it will start. 的本地化字符串。
         /// </summary>
         public static string StartupLogMessage {
