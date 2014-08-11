@@ -115,18 +115,21 @@ namespace EnterpriseServices.SecurityService.Framework.Commons
             {
                 IMethodCallMessage method = msg as IMethodCallMessage;
                 Attribute[] attributes = this.GetCustomAttributes(method.MethodBase);
+                MonitorContext context = this.CreateMonitorContext(method, attributes);
+                bool ignore = this.IsIgnore(attributes);
                 try
                 {
-                    bool ignore = this.IsIgnore(attributes);
                     if (!ignore)
                     {
-                        MonitorContext context = this.CreateMonitorContext(method, attributes);
                         this.InitializeExtras(method.MethodName);
                         this.ExecuteBeforeInterceptor(context, attributes);
                         IMethodReturnMessage returnMsg = RemotingServices.ExecuteMessage(this.Instance, method);
+                        context.ExpandoProperties.Add("Successful", true);
+                        context.ExpandoProperties.Add("Error", null);
                         this.ExecuteAfterInterceptor(context, attributes);
                         return returnMsg;
                     }
+                    else return RemotingServices.ExecuteMessage(this.Instance, method);
                 }
                 catch (ExtraMonitorError err)
                 {
@@ -134,6 +137,12 @@ namespace EnterpriseServices.SecurityService.Framework.Commons
                         TraceEventLevel.Exception,
                         string.Format("{0}(Extra File : {1}; Extra Monitor ID : {2})", err.Message, err.ExtraFileName, err.MonitorID)
                         );
+                    if (!ignore)
+                    {
+                        context.ExpandoProperties.Add("Successful", false);
+                        context.ExpandoProperties.Add("Error", err);
+                        this.ExecuteAfterInterceptor(context, attributes);
+                    }
                     return new ReturnMessage(err, method);
                 }
                 catch (Exception ex) { return new ReturnMessage(new MonitorError(ex), method); }
