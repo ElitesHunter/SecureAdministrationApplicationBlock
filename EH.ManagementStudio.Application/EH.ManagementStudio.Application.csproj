@@ -79,6 +79,18 @@
     <Compile Include="Windows\BaseWindow.Designer.cs">
       <DependentUpon>BaseWindow.cs</DependentUpon>
     </Compile>
+    <Compile Include="Windows\MainWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Windows\MainWindow.Designer.cs">
+      <DependentUpon>MainWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\SplashWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Windows\SplashWindow.Designer.cs">
+      <DependentUpon>SplashWindow.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -92,6 +104,9 @@
     <EmbeddedResource Include="Windows\BaseWindow.resx">
       <DependentUpon>BaseWindow.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Windows\SplashWindow.resx">
+      <DependentUpon>SplashWindow.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -104,6 +119,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Icon.ico" />
+    <EmbeddedResource Include="Resources\Images\Splash.PNG" />
     <EmbeddedResource Include="Resources\Images\Icon.ico" />
   </ItemGroup>
   <ItemGroup>
@@ -131,6 +147,10 @@
     <ProjectReference Include="..\EH.Framework.Resources\EH.Framework.Resources.csproj">
       <Project>{E2EA0F1F-CDF2-4592-9FA5-4F63593E01FC}</Project>
       <Name>EH.Framework.Resources</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EH.ManagementStudio.OperationModel\EH.ManagementStudio.OperationModel.csproj">
+      <Project>{B69F057E-7894-456A-91C6-47726A3B2AB0}</Project>
+      <Name>EH.ManagementStudio.OperationModel</Name>
     </ProjectReference>
     <ProjectReference Include="..\EH.Security.Commons\EH.Security.Commons.csproj">
       <Project>{181B1D5C-1686-4ACB-8DA7-89671DC93BCF}</Project>

@@ -1,7 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Windows.Forms;
+using EnterpriseServices.ManagementClient.Operations;
 using EnterpriseServices.ManagementClient.Windows;
 
 namespace EnterpriseServices.ManagementClient
@@ -14,9 +13,23 @@ namespace EnterpriseServices.ManagementClient
         [STAThread]
         static void Main()
         {
+            SetCurrentThreadCultureInfo();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new BaseWindow());
+            ClientStartup start = new ClientStartup();
+            start.Run(new SplashWindow());
         }
+
+        #region SetCurrentThreadCultureInfo
+        /// <summary>
+        /// 设置当前线程的语言区域。
+        /// </summary>
+        static private void SetCurrentThreadCultureInfo()
+        {
+            ApplicationCultureInfo culture = new ApplicationCultureInfo();
+            culture.SetUI();
+            culture.Set();
+        }
+        #endregion
     }
 }
