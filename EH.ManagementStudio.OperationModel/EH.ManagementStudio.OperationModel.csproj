@@ -35,7 +35,7 @@
     <SignAssembly>true</SignAssembly>
   </PropertyGroup>
   <PropertyGroup>
-    <AssemblyOriginatorKeyFile>signature.pfx</AssemblyOriginatorKeyFile>
+    <AssemblyOriginatorKeyFile>Properties\signature.pfx</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -46,10 +46,32 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\EH.ManagementStudio.AssemblyInfo.cs">
+      <Link>Properties\EH.ManagementStudio.AssemblyInfo.cs</Link>
+    </Compile>
+    <Compile Include="InWindowsAdministratorGroup.sealed.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="signature.pfx" />
+    <None Include="Properties\signature.pfx" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\EH.Framework.Commons\EH.Framework.Commons.csproj">
+      <Project>{5DE9985D-BB7E-460F-AB3A-399F26C60BE4}</Project>
+      <Name>EH.Framework.Commons</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EH.Framework.Resources\EH.Framework.Resources.csproj">
+      <Project>{E2EA0F1F-CDF2-4592-9FA5-4F63593E01FC}</Project>
+      <Name>EH.Framework.Resources</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EH.Security.Commons\EH.Security.Commons.csproj">
+      <Project>{181B1D5C-1686-4ACB-8DA7-89671DC93BCF}</Project>
+      <Name>EH.Security.Commons</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EH.Security.Resources\EH.Security.Resources.csproj">
+      <Project>{0F96E731-D9D3-4F82-99CE-5277D8C704AC}</Project>
+      <Name>EH.Security.Resources</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
