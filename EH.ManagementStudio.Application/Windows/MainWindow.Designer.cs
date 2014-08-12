@@ -410,6 +410,7 @@
             this.Text = "MainWindow";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.HandleMainFormClosingEvent);
+            this.Load += new System.EventHandler(this.MainWindow_Load);
             this.ctrlMainFeaturesMenu.ResumeLayout(false);
             this.ctrlMainFeaturesMenu.PerformLayout();
             this.ctrlFeaturesToolmenu.ResumeLayout(false);

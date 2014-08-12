@@ -2,6 +2,7 @@
 using System.Windows.Forms;
 using EnterpriseServices.ManagementClient.Commons;
 using EnterpriseServices.ManagementClient.Operations.Resources;
+using EnterpriseServices.ManagementClient.Dialogs;
 
 namespace EnterpriseServices.ManagementClient.Windows
 {
@@ -96,6 +97,46 @@ namespace EnterpriseServices.ManagementClient.Windows
         private void ShowOrHidePreloaderImage(bool flag)
         {
             this.ctrlLoadingImage.Visible = flag;
+        }
+        #endregion
+
+        #region ShowConnectDialog
+        /// <summary>
+        /// 显示连接服务器对话框。
+        /// </summary>
+        /// <returns><see cref="DialogResult"/>中的一个值。</returns>
+        private DialogResult ShowConnectDialog()
+        {
+            DialogResult result =DialogResult.OK;
+            using (ConnectionDialog dialog = new ConnectionDialog())
+            {
+                result = dialog.ShowDialog();
+            }
+            return result;
+        }
+        #endregion
+
+        #region MainWindow_Load
+        /// <summary>
+        /// 窗体初次加载时执行的方法。
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void MainWindow_Load(object sender, EventArgs e)
+        {
+            this.InitializeThread();
+        }
+        #endregion
+
+        #region InitializeThread
+        /// <summary>
+        /// 初始化当前的线程。
+        /// </summary>
+        private void InitializeThread()
+        {
+            if (this.ShowConnectDialog() == DialogResult.OK)
+            {
+            }
         }
         #endregion
     }
