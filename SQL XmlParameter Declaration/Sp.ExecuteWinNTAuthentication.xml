@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<eh:EnterpriseServices xmlns:eh="urn:Masterduner@Yeah.net">
+	<eh:SqlServerDatabase>
+		<eh:VariableDeclarations>
+			<eh:StoredProcedure Name="Sp.ExecuteWinNTAuthentication">
+				<eh:Parameter Name="xData">
+					<eh:Client IPAddress="127.0.0.1" HostName="localhost"></eh:Client>
+					<eh:UserID Value="MACHINENAME\wangyucai"></eh:UserID>
+					<eh:Expiration Value="2014-08-12"></eh:Expiration>
+				</eh:Parameter>
+			</eh:StoredProcedure>
+		</eh:VariableDeclarations>
+	</eh:SqlServerDatabase>
+</eh:EnterpriseServices>
