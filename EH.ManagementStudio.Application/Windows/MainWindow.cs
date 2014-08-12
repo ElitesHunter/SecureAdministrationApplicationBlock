@@ -11,9 +11,23 @@ namespace EnterpriseServices.ManagementClient.Windows
     /// </summary>
     public partial class MainWindow : BaseWindow
     {
+        private bool _confirmExit;
+
+        #region ConfirmExit
+        /// <summary>
+        /// 用于标记是否确认退出。
+        /// </summary>
+        private bool ConfirmExit
+        {
+            get { return _confirmExit; }
+            set { _confirmExit = value; }
+        }
+        #endregion
+
         public MainWindow()
         {
             InitializeComponent();
+            this.InitializeVariables();
         }
 
         #region InitializeForm
@@ -27,6 +41,16 @@ namespace EnterpriseServices.ManagementClient.Windows
         }
         #endregion
 
+        #region InitializeVariables
+        /// <summary>
+        /// 初始化全局变量。
+        /// </summary>
+        private void InitializeVariables()
+        {
+            this.ConfirmExit = false;
+        }
+        #endregion
+
         #region HandleMainFormClosingEvent
         /// <summary>
         /// 处理主窗体将要关闭事件。
@@ -35,11 +59,20 @@ namespace EnterpriseServices.ManagementClient.Windows
         /// <param name="e"></param>
         private void HandleMainFormClosingEvent(object sender, FormClosingEventArgs e)
         {
-            if (DialogMethods.Ask(Messages.ExitApplication) == DialogResult.OK)
+            if (!this.ConfirmExit)
             {
-                Application.Exit();
+                if (DialogMethods.Ask(Messages.ExitApplication) == DialogResult.OK)
+                {
+                    this.ConfirmExit = true;
+                    Application.Exit();
+                }
+                else
+                {
+                    e.Cancel = true;
+                    this.ConfirmExit = false;
+                }
             }
-            else e.Cancel = true;
+            else Application.Exit();
         }
         #endregion
 
