@@ -70,6 +70,24 @@ namespace EnterpriseServices.ManagementClient.Operations.Resources {
         }
         
         /// <summary>
+        ///   查找类似 Connect 的本地化字符串。
+        /// </summary>
+        public static string Connect {
+            get {
+                return ResourceManager.GetString("Connect", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Connect To Server 的本地化字符串。
+        /// </summary>
+        public static string ConnectToServer {
+            get {
+                return ResourceManager.GetString("ConnectToServer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 Are you sure to exit the management studio? 的本地化字符串。
         /// </summary>
         public static string ExitApplication {
@@ -79,11 +97,38 @@ namespace EnterpriseServices.ManagementClient.Operations.Resources {
         }
         
         /// <summary>
+        ///   查找类似 Server Authentication 的本地化字符串。
+        /// </summary>
+        public static string ServerAuthenticate {
+            get {
+                return ResourceManager.GetString("ServerAuthenticate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Sign In Method 的本地化字符串。
+        /// </summary>
+        public static string SignInMethod {
+            get {
+                return ResourceManager.GetString("SignInMethod", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 User &quot; {0} &quot; is trying to start management studio! This process needs to verify that he is in the Windows Administrators group, if the validation is successful, it will start. 的本地化字符串。
         /// </summary>
         public static string StartupLogMessage {
             get {
                 return ResourceManager.GetString("StartupLogMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Windows Authentication 的本地化字符串。
+        /// </summary>
+        public static string WindowsNTAuthenticate {
+            get {
+                return ResourceManager.GetString("WindowsNTAuthenticate", resourceCulture);
             }
         }
     }

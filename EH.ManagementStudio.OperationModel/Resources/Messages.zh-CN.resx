@@ -120,10 +120,25 @@
   <data name="ApplicationCaption" xml:space="preserve">
     <value>猎头业务管理系统（管理控制台）</value>
   </data>
+  <data name="Connect" xml:space="preserve">
+    <value>连接</value>
+  </data>
+  <data name="ConnectToServer" xml:space="preserve">
+    <value>连接到服务器</value>
+  </data>
   <data name="ExitApplication" xml:space="preserve">
     <value>您是否确认退出管理控制台？</value>
   </data>
+  <data name="ServerAuthenticate" xml:space="preserve">
+    <value>猎头服务器身份认证</value>
+  </data>
+  <data name="SignInMethod" xml:space="preserve">
+    <value>登录方式</value>
+  </data>
   <data name="StartupLogMessage" xml:space="preserve">
     <value>用户 "{0}" 正在尝试启动Management Studio！此过程需要验证他是否在Windows的管理员组，如果验证成功，则启动。</value>
+  </data>
+  <data name="WindowsNTAuthenticate" xml:space="preserve">
+    <value>Windows 身份认证</value>
   </data>
 </root>

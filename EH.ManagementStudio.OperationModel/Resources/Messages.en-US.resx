@@ -120,10 +120,25 @@
   <data name="ApplicationCaption" xml:space="preserve">
     <value>ElitesHunter Management Studio</value>
   </data>
+  <data name="Connect" xml:space="preserve">
+    <value>Connect</value>
+  </data>
+  <data name="ConnectToServer" xml:space="preserve">
+    <value>Connect To Server</value>
+  </data>
   <data name="ExitApplication" xml:space="preserve">
     <value>Are you sure to exit the management studio?</value>
   </data>
+  <data name="ServerAuthenticate" xml:space="preserve">
+    <value>Server Authentication</value>
+  </data>
+  <data name="SignInMethod" xml:space="preserve">
+    <value>Sign In Method</value>
+  </data>
   <data name="StartupLogMessage" xml:space="preserve">
     <value>User " {0} " is trying to start management studio! This process needs to verify that he is in the Windows Administrators group, if the validation is successful, it will start.</value>
+  </data>
+  <data name="WindowsNTAuthenticate" xml:space="preserve">
+    <value>Windows Authentication</value>
   </data>
 </root>

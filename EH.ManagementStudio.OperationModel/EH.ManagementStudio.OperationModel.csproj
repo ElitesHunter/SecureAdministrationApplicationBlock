@@ -55,6 +55,8 @@
     <Compile Include="BeforeStartup.sealed.cs" />
     <Compile Include="BeforeStartupAttribute.sealed.cs" />
     <Compile Include="ClientStartup.public.cs" />
+    <Compile Include="Entity\UIAuthenticationType.sealed.cs" />
+    <Compile Include="Entity\UIEntityBase.public.cs" />
     <Compile Include="EventViewerLogEntity.public.cs" />
     <Compile Include="IApplicationStartup.cs" />
     <Compile Include="InWindowsAdministratorGroupAttribute.sealed.cs" />
