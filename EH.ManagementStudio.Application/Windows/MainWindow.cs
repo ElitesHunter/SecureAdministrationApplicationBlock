@@ -87,6 +87,17 @@ namespace EnterpriseServices.ManagementClient.Windows
             this.Close();
         }
         #endregion
+
+        #region ShowOrHidePreloaderImage
+        /// <summary>
+        /// 显示或隐藏Loading图片。
+        /// </summary>
+        /// <param name="flag">显示或隐藏标记。</param>
+        private void ShowOrHidePreloaderImage(bool flag)
+        {
+            this.ctrlLoadingImage.Visible = flag;
+        }
+        #endregion
     }
     #endregion
 }
