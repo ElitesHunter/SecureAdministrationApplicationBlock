@@ -120,6 +120,9 @@
   <data name="ConfigurationError" xml:space="preserve">
     <value>配置系统抛出了一个异常！</value>
   </data>
+  <data name="DatabaseError" xml:space="preserve">
+    <value>数据库命令执行异常！</value>
+  </data>
   <data name="DirectoryNotFoundError" xml:space="preserve">
     <value>系统未能找到指定目录！</value>
   </data>

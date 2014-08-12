@@ -54,6 +54,8 @@
     </Compile>
     <Compile Include="ApplicationBlockCodeAttribute.public.cs" />
     <Compile Include="BooleanExtensions.static.cs" />
+    <Compile Include="Data\DbConnectionString.public.cs" />
+    <Compile Include="Data\DbHelper.public.cs" />
     <Compile Include="Error.public.cs" />
     <Compile Include="ErrorCodeAttribute.public.cs" />
     <Compile Include="Globalization\LocaleID.cs" />
@@ -82,6 +84,7 @@
       <DependentUpon>TraceMessageGenerator.tt</DependentUpon>
     </Compile>
     <Compile Include="Runtime\TraceMessageGenerator.partial.cs" />
+    <Compile Include="TerminalPlatform.cs" />
     <Compile Include="_Object.abstract.cs" />
   </ItemGroup>
   <ItemGroup>

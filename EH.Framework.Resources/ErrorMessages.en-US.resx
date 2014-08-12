@@ -120,6 +120,9 @@
   <data name="ConfigurationError" xml:space="preserve">
     <value>Configuration system threw an exception!</value>
   </data>
+  <data name="DatabaseError" xml:space="preserve">
+    <value>When the system was performing SQL commands, threw an exception!</value>
+  </data>
   <data name="DirectoryNotFoundError" xml:space="preserve">
     <value>System could not find the specified directory!</value>
   </data>

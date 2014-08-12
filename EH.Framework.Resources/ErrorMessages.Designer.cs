@@ -70,6 +70,15 @@ namespace EnterpriseServices.Framework.Resources {
         }
         
         /// <summary>
+        ///   查找类似 数据库命令执行异常！ 的本地化字符串。
+        /// </summary>
+        public static string DatabaseError {
+            get {
+                return ResourceManager.GetString("DatabaseError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 系统未能找到指定目录！ 的本地化字符串。
         /// </summary>
         public static string DirectoryNotFoundError {
