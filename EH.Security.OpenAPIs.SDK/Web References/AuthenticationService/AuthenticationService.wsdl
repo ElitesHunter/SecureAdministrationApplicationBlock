@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="urn:Masterduner@Yeah.net" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="urn:Masterduner@Yeah.net" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="urn:Masterduner@Yeah.net">
+      <s:element name="WindowsAuthentication">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ipAddress" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="hostName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="WindowsAuthenticationResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="WindowsAuthenticationResult" type="tns:WinNTAuthenticateStatus" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="WinNTAuthenticateStatus">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="StatusCode" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Successful" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="Token" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="WindowsAuthenticationSoapIn">
+    <wsdl:part name="parameters" element="tns:WindowsAuthentication" />
+  </wsdl:message>
+  <wsdl:message name="WindowsAuthenticationSoapOut">
+    <wsdl:part name="parameters" element="tns:WindowsAuthenticationResponse" />
+  </wsdl:message>
+  <wsdl:portType name="AuthenticationServiceSoap">
+    <wsdl:operation name="ExecuteWinNTAuthenticate">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">userName:登录到Windows的当前用户名。&lt;br /&gt;ipAddress:当前主机的IP地址。&lt;br /&gt;hostName:当前主机在网络中的名称。</wsdl:documentation>
+      <wsdl:input name="WindowsAuthentication" message="tns:WindowsAuthenticationSoapIn" />
+      <wsdl:output name="WindowsAuthentication" message="tns:WindowsAuthenticationSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="AuthenticationServiceSoap" type="tns:AuthenticationServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ExecuteWinNTAuthenticate">
+      <soap:operation soapAction="urn:Masterduner@Yeah.net/WindowsAuthentication" style="document" />
+      <wsdl:input name="WindowsAuthentication">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="WindowsAuthentication">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="AuthenticationServiceSoap12" type="tns:AuthenticationServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ExecuteWinNTAuthenticate">
+      <soap12:operation soapAction="urn:Masterduner@Yeah.net/WindowsAuthentication" style="document" />
+      <wsdl:input name="WindowsAuthentication">
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="WindowsAuthentication">
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="AuthenticationService">
+    <wsdl:port name="AuthenticationServiceSoap" binding="tns:AuthenticationServiceSoap">
+      <soap:address location="http://localhost:1/AuthenticationService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="AuthenticationServiceSoap12" binding="tns:AuthenticationServiceSoap12">
+      <soap12:address location="http://localhost:1/AuthenticationService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
