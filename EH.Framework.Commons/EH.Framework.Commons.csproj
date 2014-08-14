@@ -43,8 +43,6 @@
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Web" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
   </ItemGroup>
@@ -54,6 +52,7 @@
     </Compile>
     <Compile Include="ApplicationBlockCodeAttribute.public.cs" />
     <Compile Include="BooleanExtensions.static.cs" />
+    <Compile Include="Data\DatabaseError.sealed.cs" />
     <Compile Include="Data\DbConnectionString.public.cs" />
     <Compile Include="Data\DbHelper.public.cs" />
     <Compile Include="Error.public.cs" />

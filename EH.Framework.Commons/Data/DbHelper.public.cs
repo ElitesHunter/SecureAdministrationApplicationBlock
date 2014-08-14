@@ -25,8 +25,8 @@
 #endregion
 
 using System;
-using System.Data.SqlClient;
 using System.Data;
+using System.Data.SqlClient;
 
 namespace EnterpriseServices.Framework.Commons.Data
 {
@@ -137,15 +137,63 @@ namespace EnterpriseServices.Framework.Commons.Data
         {
             try
             {
+                this.Connection.Open();
+                return cmd.ExecuteNonQuery();
             }
             catch (Exception ex)
             {
-                
+                throw new DatabaseError(ex);
             }
             finally
             {
+                this.Connection.Close();
             }
+        }
+        #endregion
 
+        #region ExecuteDataSet
+        /// <summary>
+        /// 执行SQL Server查询命令，并返回数据集。
+        /// </summary>
+        /// <param name="selectCmd"><see cref="SqlCommand"/>对象实例。</param>
+        /// <returns><see cref="DataSet"/>对象实例。</returns>
+        public virtual DataSet ExecuteDataSet(SqlCommand selectCmd)
+        {
+            DataSet dataSet = new DataSet("EnterpriseServices.QueryDataSet");
+            try
+            {
+                SqlDataAdapter adapter = new SqlDataAdapter(selectCmd);
+                adapter.Fill(dataSet);
+            }
+            catch (Exception ex)
+            {
+                throw new DatabaseError(ex);
+            }
+            return dataSet;
+        }
+        #endregion
+
+        #region ExecuteScalar
+        /// <summary>
+        /// 执行SQL Server数据库命令并返回标量值。
+        /// </summary>
+        /// <param name="cmd"><see cref="SqlCommand"/>对象实例。</param>
+        /// <returns><see cref="Object"/>标量值。</returns>
+        public virtual object ExecuteScalar(SqlCommand cmd)
+        {
+            try
+            {
+                this.Connection.Open();
+                return cmd.ExecuteScalar();
+            }
+            catch (Exception ex)
+            {
+                throw new DatabaseError(ex);
+            }
+            finally
+            {
+                this.Connection.Close();
+            }
         }
         #endregion
     }
