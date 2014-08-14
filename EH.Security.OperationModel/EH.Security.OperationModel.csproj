@@ -49,9 +49,23 @@
     <Compile Include="..\EH.Security.AssemblyInfo.cs">
       <Link>Properties\EH.Security.AssemblyInfo.cs</Link>
     </Compile>
+    <Compile Include="Generators\WinNTAuthencationXParameterGenerator.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>WinNTAuthencationXParameterGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Generators\WinNTAuthencationXParameterGenerator.partial.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WinNTAuthenticateResult.sealed.cs" />
+    <Compile Include="WinNTAuthenticateToken.sealed.cs" />
+    <Compile Include="WinNTAuthentication.sealed.cs" />
+    <Compile Include="WinNTCredentials.sealed.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Generators\WinNTAuthencationXParameterGenerator.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>WinNTAuthencationXParameterGenerator.cs</LastGenOutput>
+    </None>
     <None Include="Properties\signature.pfx" />
   </ItemGroup>
   <ItemGroup>
@@ -71,6 +85,10 @@
       <Project>{0F96E731-D9D3-4F82-99CE-5277D8C704AC}</Project>
       <Name>EH.Security.Resources</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

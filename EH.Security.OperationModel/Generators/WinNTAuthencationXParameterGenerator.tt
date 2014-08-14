@@ -1,0 +1,14 @@
+﻿<#@ template language="C#" #>
+<eh:EnterpriseServices xmlns:eh="urn:Masterduner@Yeah.net">
+	<eh:SqlServerDatabase>
+		<eh:VariableDeclarations>
+			<eh:StoredProcedure Name="Sp.ExecuteWinNTAuthentication">
+				<eh:Parameter Name="xData">
+					<eh:Client IPAddress="<#= this.IPAddress #>" HostName="<#= this.HostName #>"></eh:Client>
+					<eh:UserID Value="<#= this.UserName #>"></eh:UserID>
+					<eh:Expiration Value="<#= this.AbsoluteExpiration.ToString("yyyy-MM-dd HH:mm:ss") #>"></eh:Expiration>
+				</eh:Parameter>
+			</eh:StoredProcedure>
+		</eh:VariableDeclarations>
+	</eh:SqlServerDatabase>
+</eh:EnterpriseServices>
