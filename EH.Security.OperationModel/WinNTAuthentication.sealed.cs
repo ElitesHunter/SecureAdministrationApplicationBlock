@@ -115,7 +115,9 @@ namespace EnterpriseServices.SecurityService.Framework.OperationModel
         {
             SqlParameter xData = this.CreateParameter(XData, this.GenerateXmlParameterValue(credentials), SqlDbType.Xml, ParameterDirection.Input);
             SqlParameter token = this.CreateParameter(Token, DBNull.Value, SqlDbType.VarChar, ParameterDirection.Output);
+            token.Size = 8000;
             SqlParameter state = this.CreateParameter(State, DBNull.Value, SqlDbType.VarChar, ParameterDirection.Output);
+            state.Size = 64;
             this.ExecuteNonQuery(this.CreateCommand(StoredProcedureName, CommandType.StoredProcedure, xData, token, state));
             return this.CreateResult(token, state);
         }
