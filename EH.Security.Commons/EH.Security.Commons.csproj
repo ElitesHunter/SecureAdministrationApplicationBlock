@@ -59,6 +59,8 @@
     <Compile Include="..\EH.Security.AssemblyInfo.cs">
       <Link>Properties\EH.Security.AssemblyInfo.cs</Link>
     </Compile>
+    <Compile Include="AuthenticateResult.abstract.cs" />
+    <Compile Include="AuthenticateToken.abstract.cs" />
     <Compile Include="Extra\ExtraMethodMonitor.public.cs" />
     <Compile Include="Extra\ExtraMonitor.public.cs" />
     <Compile Include="Extra\ExtraMonitorAssembly.public.cs" />
@@ -70,9 +72,11 @@
       <DependentUpon>ExtraMonitorFileTextTemplate.tt</DependentUpon>
     </Compile>
     <Compile Include="Extra\ExtraMonitorFileTextTemplate.partial.cs" />
+    <Compile Include="IAuthentication.cs" />
     <Compile Include="ICredentials.cs" />
     <Compile Include="IMethodMonitor.cs" />
     <Compile Include="IsNotSystemAdministratorError.sealed.cs" />
+    <Compile Include="IWinNTCredentials.cs" />
     <Compile Include="Logging\IMethodLoggingMonitor.cs" />
     <Compile Include="Logging\LogEntityBase.abstract.cs" />
     <Compile Include="MethodMonitorAttribute.abstract.cs" />
