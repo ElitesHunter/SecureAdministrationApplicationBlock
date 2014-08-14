@@ -52,6 +52,10 @@
       <Link>Properties\EH.ManagementStudio.AssemblyInfo.cs</Link>
     </Compile>
     <Compile Include="ApplicationCultureInfo.static.cs" />
+    <Compile Include="AuthenticateService\TraceUserSignInBehaviorAttribute.sealed.cs" />
+    <Compile Include="AuthenticateService\TraceUserSignInBehaviorMonitor.sealed.cs" />
+    <Compile Include="AuthenticateService\WindowsAuthentication.sealed.cs" />
+    <Compile Include="AuthenticateService\WindowsCredentials.sealed.cs" />
     <Compile Include="BeforeStartup.sealed.cs" />
     <Compile Include="BeforeStartupAttribute.sealed.cs" />
     <Compile Include="ClientStartup.public.cs" />

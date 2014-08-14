@@ -126,6 +126,7 @@ namespace EnterpriseServices.SecurityService.Framework.Commons
                         IMethodReturnMessage returnMsg = RemotingServices.ExecuteMessage(this.Instance, method);
                         context.ExpandoProperties.Add("Successful", true);
                         context.ExpandoProperties.Add("Error", null);
+                        context.ExpandoProperties.Add("ReturnValue", returnMsg.ReturnValue);
                         this.ExecuteAfterInterceptor(context, attributes);
                         return returnMsg;
                     }

@@ -59,6 +59,7 @@
     <Compile Include="..\EH.Security.AssemblyInfo.cs">
       <Link>Properties\EH.Security.AssemblyInfo.cs</Link>
     </Compile>
+    <Compile Include="AuthenticateMode.cs" />
     <Compile Include="AuthenticateResult.abstract.cs" />
     <Compile Include="AuthenticateToken.abstract.cs" />
     <Compile Include="Extra\ExtraMethodMonitor.public.cs" />
