@@ -1,5 +1,0 @@
-﻿@model EnterpriseServices.SecurityService.OpenAPIs.Models.ApiResultBase
-@{
-    Layout = this.Url.Content(string.Format("~/Views/Shared/{0}.cshtml", Model.IsXml ? "_XmlRendering" : "_JSonRendering"));
-}
-@RenderBody()

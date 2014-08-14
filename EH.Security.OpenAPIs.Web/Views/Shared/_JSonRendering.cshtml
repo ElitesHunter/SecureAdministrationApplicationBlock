@@ -1,7 +1,0 @@
-﻿@model EnterpriseServices.SecurityService.OpenAPIs.Models.ApiResultBase
-
-@{
-    Layout = null;
-    this.Response.ContentType = "application/json;charset=UTF-8";
-}
-{"Successful":@Model.Successful.ToString().ToLower(), "State":"@Model.StateCode", "Error":"@Model.ErrorCode", "Expando":{"ApiVersion":"@Model.Version", "ResultType":"@Model.ResultType.AssemblyQualifiedName"}, "Content":@RenderBody()}
