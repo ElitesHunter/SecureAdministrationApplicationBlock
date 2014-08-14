@@ -24,9 +24,8 @@
 
 #endregion
 
-using System;
-using EnterpriseServices.SecurityService.Framework.Commons.Logging;
 using EnterpriseServices.SecurityService.Framework.Commons;
+using EnterpriseServices.SecurityService.Framework.Commons.Logging;
 
 namespace EnterpriseServices.ManagementClient.Operations
 {

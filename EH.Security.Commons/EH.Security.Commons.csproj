@@ -75,6 +75,7 @@
     <Compile Include="IAuthentication.cs" />
     <Compile Include="ICredentials.cs" />
     <Compile Include="IMethodMonitor.cs" />
+    <Compile Include="InOut.cs" />
     <Compile Include="IsNotSystemAdministratorError.sealed.cs" />
     <Compile Include="IWinNTCredentials.cs" />
     <Compile Include="Logging\IMethodLoggingMonitor.cs" />

@@ -24,7 +24,6 @@
 
 #endregion
 
-using System;
 using EnterpriseServices.ManagementClient.Operations.Resources;
 
 namespace EnterpriseServices.ManagementClient.Operations.Entity

@@ -24,7 +24,6 @@
 
 #endregion
 
-using System;
 
 namespace EnterpriseServices.SecurityService.Framework.Commons.Logging
 {

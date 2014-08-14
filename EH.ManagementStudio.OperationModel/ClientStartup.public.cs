@@ -24,7 +24,6 @@
 
 #endregion
 
-using System;
 using System.Windows.Forms;
 using EnterpriseServices.Framework.Commons;
 using EnterpriseServices.SecurityService.Framework.Commons;

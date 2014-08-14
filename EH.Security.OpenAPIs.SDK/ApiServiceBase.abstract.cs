@@ -24,9 +24,8 @@
 
 #endregion
 
-using System;
-using EnterpriseServices.SecurityService.API.Configuration;
 using System.Configuration;
+using EnterpriseServices.SecurityService.API.Configuration;
 
 namespace EnterpriseServices.SecurityService.API
 {

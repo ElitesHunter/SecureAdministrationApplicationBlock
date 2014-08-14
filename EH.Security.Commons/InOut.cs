@@ -1,17 +1,17 @@
-#region "IMethodLoggingMonitor"
+#region "InOut"
 
 /*
  * ####     Developer Name : Wang Yucai
  * 
  * ####     Development Tool : Microsoft VisualStudio 2010 Ultimate Edition
  * 
- * ####     Create Time : 2014-08-11 10:21:45
+ * ####     Create Time : 2014-08-14 15:27:55
  * 
- * ####     Namespace : EnterpriseServices.SecurityService.Framework.Commons.Logging
+ * ####     Namespace : EnterpriseServices.SecurityService.Framework.Commons
  * 
- * ####     Type Name : IMethodLoggingMonitor
+ * ####     Type Name : InOut
  * 
- * ####     Full Name : EnterpriseServices.SecurityService.Framework.Commons.Logging.IMethodLoggingMonitor
+ * ####     Full Name : EnterpriseServices.SecurityService.Framework.Commons.InOut
  * 
  * ####     Machine Name : GLCHQWYCWINW7
  * 
@@ -24,27 +24,30 @@
 
 #endregion
 
+using System;
 
-namespace EnterpriseServices.SecurityService.Framework.Commons.Logging
+namespace EnterpriseServices.SecurityService.Framework.Commons
 {
     /// <summary>
-    /// <para>EnterpriseServices.SecurityService.Framework.Commons.Logging.IMethodLoggingMonitor</para>
+    /// <para>EnterpriseServices.SecurityService.Framework.Commons.InOut</para>
     /// <para>
-    /// 用于监控方法执行的日志。
+    /// 用于标记登录或登出。
     /// </para>
     /// </summary>
     /// <remarks>
     /// <para>Target Framework Version : 3.5</para>
     /// </remarks>
-    public interface IMethodLoggingMonitor : IMethodMonitor
+    [Serializable()]
+    public enum InOut
     {
-        #region Register
         /// <summary>
-        /// 记录日志。
+        /// 登录。
         /// </summary>
-        /// <param name="ctx"><see cref="MonitorContext"/>对象实例。</param>
-        void Register(MonitorContext ctx);
-        #endregion
+        In = 'I',
+        /// <summary>
+        /// 登出。
+        /// </summary>
+        Out = 'O'
     }
 }
 

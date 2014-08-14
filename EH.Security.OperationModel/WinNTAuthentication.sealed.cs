@@ -25,11 +25,11 @@
 #endregion
 
 using System;
-using EnterpriseServices.SecurityService.Framework.Commons;
-using EnterpriseServices.Framework.Commons.Data;
-using EnterpriseServices.SecurityService.Framework.OperationModel.Generators;
-using System.Data.SqlClient;
 using System.Data;
+using System.Data.SqlClient;
+using EnterpriseServices.Framework.Commons.Data;
+using EnterpriseServices.SecurityService.Framework.Commons;
+using EnterpriseServices.SecurityService.Framework.OperationModel.Generators;
 
 namespace EnterpriseServices.SecurityService.Framework.OperationModel
 {

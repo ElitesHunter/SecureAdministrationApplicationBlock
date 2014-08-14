@@ -55,6 +55,8 @@
       <DependentUpon>WinNTAuthencationXParameterGenerator.tt</DependentUpon>
     </Compile>
     <Compile Include="Generators\WinNTAuthencationXParameterGenerator.partial.cs" />
+    <Compile Include="Logging\UserBehaviorBlogBase.abstract.cs" />
+    <Compile Include="Logging\UserInOutBehaviorBlog.sealed.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WinNTAuthenticateResult.sealed.cs" />
     <Compile Include="WinNTAuthenticateToken.sealed.cs" />

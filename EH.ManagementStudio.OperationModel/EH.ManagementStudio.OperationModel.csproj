@@ -95,6 +95,10 @@
       <Project>{181B1D5C-1686-4ACB-8DA7-89671DC93BCF}</Project>
       <Name>EH.Security.Commons</Name>
     </ProjectReference>
+    <ProjectReference Include="..\EH.Security.OpenAPIs.SDK\EH.Security.OpenAPIs.SDK.csproj">
+      <Project>{580C11C3-A5C9-4095-8819-5C02D571F021}</Project>
+      <Name>EH.Security.OpenAPIs.SDK</Name>
+    </ProjectReference>
     <ProjectReference Include="..\EH.Security.Resources\EH.Security.Resources.csproj">
       <Project>{0F96E731-D9D3-4F82-99CE-5277D8C704AC}</Project>
       <Name>EH.Security.Resources</Name>

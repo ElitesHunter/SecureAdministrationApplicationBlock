@@ -25,8 +25,8 @@
 #endregion
 
 using System;
-using EnterpriseServices.SecurityService.Framework.Commons;
 using EnterpriseServices.ManagementClient.Operations.Resources;
+using EnterpriseServices.SecurityService.Framework.Commons;
 
 namespace EnterpriseServices.ManagementClient.Operations
 {

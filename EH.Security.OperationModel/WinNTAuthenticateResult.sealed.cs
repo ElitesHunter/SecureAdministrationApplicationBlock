@@ -24,7 +24,6 @@
 
 #endregion
 
-using System;
 using EnterpriseServices.SecurityService.Framework.Commons;
 
 namespace EnterpriseServices.SecurityService.Framework.OperationModel
