@@ -2,7 +2,7 @@
 <eh:EnterpriseServices xmlns:eh="urn:Masterduner@Yeah.net">
   <eh:InitializationUtil>
     <eh:SystemCodesDeclaration>
-      <eh:Codes Count="19">
+      <eh:Codes Count="20">
         <eh:Item Index="0" Code="ERROR::00000001" BlockID="1174311B-8031-4ACC-AA44-314D4DB193F2" />
         <eh:Item Index="1" Code="ERROR::00000002" BlockID="1174311B-8031-4ACC-AA44-314D4DB193F2" />
         <eh:Item Index="2" Code="ERROR::00000003" BlockID="1174311B-8031-4ACC-AA44-314D4DB193F2" />
@@ -22,6 +22,7 @@
         <eh:Item Index="16" Code="STATE::00000001" BlockID="DCB327CA-57FC-49AF-8707-691025316C17" />
         <eh:Item Index="17" Code="ERROR::00000017" BlockID="2D82B4CB-A03C-4403-97D8-8542FF2A80A6" />
         <eh:Item Index="18" Code="ERROR::00000018" BlockID="1174311B-8031-4ACC-AA44-314D4DB193F2" />
+        <eh:Item Index="19" Code="STATE::00000002" BlockID="DCB327CA-57FC-49AF-8707-691025316C17" />
       </eh:Codes>
     </eh:SystemCodesDeclaration>
   </eh:InitializationUtil>
