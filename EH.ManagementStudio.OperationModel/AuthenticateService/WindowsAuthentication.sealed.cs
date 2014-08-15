@@ -27,6 +27,8 @@
 using System;
 using EnterpriseServices.SecurityService.Framework.Commons;
 using EnterpriseServices.Framework.Commons;
+using EnterpriseServices.SecurityService.API;
+using EnterpriseServices.ManagementClient.Operations.Networks;
 
 namespace EnterpriseServices.ManagementClient.Operations.AuthenticateService
 {
@@ -64,7 +66,15 @@ namespace EnterpriseServices.ManagementClient.Operations.AuthenticateService
         [TraceUserSignInBehavior]
         public AuthenticateResult Authenticate(ICredentials credentials)
         {
-            throw new NotImplementedException();
+            WinNTAuthenticateApi api = new WinNTAuthenticateApi()
+            {
+                UserName = credentials.UserName,
+                IPAddress = IPAddress.GetIPAddress()[0].Value,
+                HostName = Environment.MachineName
+            };
+            string status = string.Empty, token = string.Empty;
+            bool isLegitimateUser = api.Authenticate(out status, out token);
+
         }
         #endregion
     }
