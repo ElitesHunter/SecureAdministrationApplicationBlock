@@ -28,6 +28,7 @@ using System.Threading;
 using EnterpriseServices.SecurityService.API;
 using EnterpriseServices.SecurityService.Framework.Commons;
 using EnterpriseServices.SecurityService.Framework.Commons.Logging;
+using EnterpriseServices.ManagementClient.Operations.Principal;
 
 namespace EnterpriseServices.ManagementClient.Operations.AuthenticateService
 {
@@ -74,7 +75,7 @@ namespace EnterpriseServices.ManagementClient.Operations.AuthenticateService
                             MethodName = ctx.MethodName,
                             Type = ctx.TypeName,
                             Version = typeof(TraceUserSignInBehaviorMonitor).Assembly.GetName().Version.ToString(),
-                            UserID = Thread.CurrentPrincipal.Identity.Name
+                            UserID = ClientPrincipal.GetCurrentPrincipal().User.Name
                         }.Trace();
                     }
                 }

@@ -69,6 +69,7 @@
     <Compile Include="InWindowsAdministratorGroup.sealed.cs" />
     <Compile Include="Networks\IPAddress.sealed.cs" />
     <Compile Include="Principal\ClientIdentity.sealed.cs" />
+    <Compile Include="Principal\ClientPrincipal.sealed.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resources\Messages.Designer.cs">
       <AutoGen>True</AutoGen>

@@ -25,6 +25,9 @@
 #endregion
 
 using System;
+using EnterpriseServices.SecurityService.API;
+using EnterpriseServices.SecurityService.API.IdentityService;
+using EnterpriseServices.SecurityService.Framework.Commons;
 using EnterpriseServices.SecurityService.Framework.Commons.Principal;
 
 namespace EnterpriseServices.ManagementClient.Operations.Principal
@@ -42,6 +45,10 @@ namespace EnterpriseServices.ManagementClient.Operations.Principal
     public sealed class ClientIdentity : IUserIdentity
     {
         private string _token;
+        private AuthenticateMode _authenticateMode;
+        private string _openID;
+        private Guid _uniqueID;
+        private string _userName;
 
         #region Token
         /// <summary>
@@ -61,32 +68,67 @@ namespace EnterpriseServices.ManagementClient.Operations.Principal
         /// <para>初始化一个<see cref="ClientIdentity" />对象实例。</para>
         /// </summary>
         /// <param name="token">身份令牌。</param>
-        internal ClientIdentity(string token)
+        /// <param name="authenMode"><see cref="AuthenticateMode"/>中的一个值。</param>
+        internal ClientIdentity(string token, AuthenticateMode authenMode)
         {
-
+            this._authenticateMode = authenMode;
+            ClientAccountStatus status = new ClientIdentityApi().GetAccountUseToken(token);
+            this._userName = status.UserName;
+            this._uniqueID = status.AccountID;
+            this._openID = status.AccountOID;
         }
 
         #endregion
 
+        #region UniqueID
+        /// <summary>
+        /// 获取当前用户的唯一标识。
+        /// </summary>
         public Guid UniqueID
         {
-            get { throw new NotImplementedException(); }
+            get { return this._uniqueID; }
         }
+        #endregion
 
+        #region AuthenticationType
+        /// <summary>
+        /// 获取当前用户的身份认证类型。
+        /// </summary>
         public string AuthenticationType
         {
-            get { throw new NotImplementedException(); }
+            get { return this._authenticateMode.ToString(); }
         }
+        #endregion
 
+        #region IsAuthenticated
+        /// <summary>
+        /// 获取当前用户是否已经经过身份认证。
+        /// </summary>
         public bool IsAuthenticated
         {
-            get { throw new NotImplementedException(); }
+            get { return true; }
         }
+        #endregion
 
+        #region Name
+        /// <summary>
+        /// 获取登录当前线程的用户名。
+        /// </summary>
         public string Name
         {
-            get { throw new NotImplementedException(); }
+            get { return this._userName; }
         }
+        #endregion
+
+        #region OpenID
+        /// <summary>
+        /// 获取当前用户的开放标识。
+        /// </summary>
+        public string OpenID
+        {
+            get { return this._openID; }
+        }
+        #endregion
     }
 }
 

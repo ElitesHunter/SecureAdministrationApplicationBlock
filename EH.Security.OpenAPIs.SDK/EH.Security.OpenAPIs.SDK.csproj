@@ -50,6 +50,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApiServiceBase.abstract.cs" />
+    <Compile Include="ClientIdentityApi.sealed.cs" />
     <Compile Include="Configuration\ApiServiceConfiguration.csd.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

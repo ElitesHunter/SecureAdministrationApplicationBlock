@@ -46,6 +46,13 @@ namespace EnterpriseServices.SecurityService.Framework.Commons.Principal
         /// </summary>
         Guid UniqueID { get; }
         #endregion
+
+        #region OpenID
+        /// <summary>
+        /// 获取当前用户的开放标识。
+        /// </summary>
+        string OpenID { get; }
+        #endregion
     }
 }
 

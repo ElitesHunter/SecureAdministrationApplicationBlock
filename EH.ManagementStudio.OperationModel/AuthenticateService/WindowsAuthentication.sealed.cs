@@ -29,6 +29,8 @@ using EnterpriseServices.SecurityService.Framework.Commons;
 using EnterpriseServices.Framework.Commons;
 using EnterpriseServices.SecurityService.API;
 using EnterpriseServices.ManagementClient.Operations.Networks;
+using System.Threading;
+using EnterpriseServices.ManagementClient.Operations.Principal;
 
 namespace EnterpriseServices.ManagementClient.Operations.AuthenticateService
 {
@@ -74,7 +76,12 @@ namespace EnterpriseServices.ManagementClient.Operations.AuthenticateService
             };
             string status = string.Empty, token = string.Empty;
             bool isLegitimateUser = api.Authenticate(out status, out token);
-            
+            if (isLegitimateUser)
+            {
+                Thread.CurrentPrincipal = new ClientPrincipal(new ClientIdentity(token, AuthenticateMode.WindowsAuthentication));
+                return new WindowsAuthenticateResult(new WindowsAuthenticateToken(token), string.Empty);
+            }
+            else return new WindowsAuthenticateResult(new WindowsAuthenticateToken(string.Empty), status);
         }
         #endregion
     }
