@@ -49,6 +49,8 @@
     <Compile Include="..\EH.Security.AssemblyInfo.cs">
       <Link>Properties\EH.Security.AssemblyInfo.cs</Link>
     </Compile>
+    <Compile Include="ClientAccount.sealed.cs" />
+    <Compile Include="ClientAccountCreator.sealed.cs" />
     <Compile Include="Generators\WinNTAuthencationXParameterGenerator.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

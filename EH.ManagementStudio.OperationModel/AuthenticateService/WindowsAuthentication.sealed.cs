@@ -74,7 +74,7 @@ namespace EnterpriseServices.ManagementClient.Operations.AuthenticateService
             };
             string status = string.Empty, token = string.Empty;
             bool isLegitimateUser = api.Authenticate(out status, out token);
-
+            
         }
         #endregion
     }

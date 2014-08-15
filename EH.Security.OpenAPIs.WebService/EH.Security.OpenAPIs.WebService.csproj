@@ -48,6 +48,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AuthenticationService.asmx" />
+    <Content Include="IdentityService.asmx" />
     <Content Include="UserBehaviorService.asmx" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -65,7 +66,12 @@
       <DependentUpon>AuthenticationService.asmx</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="IdentityService.asmx.cs">
+      <DependentUpon>IdentityService.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Results\ClientAccountStatus.public.cs" />
     <Compile Include="Results\WinNTAuthenticateStatus.sealed.cs" />
     <Compile Include="UserBehaviorService.asmx.cs">
       <DependentUpon>UserBehaviorService.asmx</DependentUpon>

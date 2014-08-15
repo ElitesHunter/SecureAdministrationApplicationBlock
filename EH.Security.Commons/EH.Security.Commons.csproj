@@ -81,6 +81,7 @@
     <Compile Include="IWinNTCredentials.cs" />
     <Compile Include="Logging\IMethodLoggingMonitor.cs" />
     <Compile Include="Logging\LogEntityBase.abstract.cs" />
+    <Compile Include="Management\AccountBase.abstract.cs" />
     <Compile Include="MethodMonitorAttribute.abstract.cs" />
     <Compile Include="MethodMonitorBoundAttribute.sealed.cs" />
     <Compile Include="MethodMonitorOrder.cs" />

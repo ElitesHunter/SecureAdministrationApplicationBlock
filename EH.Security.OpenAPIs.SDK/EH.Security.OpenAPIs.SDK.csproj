@@ -73,6 +73,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.map</DependentUpon>
     </Compile>
+    <Compile Include="Web References\IdentityService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
     <Compile Include="WinNTAuthenticateApi.sealed.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -109,6 +114,14 @@
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
     <None Include="Web References\BehaviorService\UserBehaviorService.wsdl" />
+    <None Include="Web References\IdentityService\ClientAccountStatus.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\IdentityService\IdentityService.wsdl" />
+    <None Include="Web References\IdentityService\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
@@ -127,6 +140,17 @@
       </CachedDynamicPropName>
       <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
       <CachedSettingsPropName>EH_Security_OpenAPIs_SDK_AuthenticationService_AuthenticationService</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://localhost:1/IdentityService.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\IdentityService\</RelPath>
+      <UpdateFromURL>http://localhost:1/IdentityService.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>EH_Security_OpenAPIs_SDK_IdentityService_IdentityService</CachedSettingsPropName>
     </WebReferenceUrl>
     <WebReferenceUrl Include="http://localhost:1/UserBehaviorService.asmx">
       <UrlBehavior>Dynamic</UrlBehavior>
@@ -148,6 +172,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Web References\BehaviorService\UserBehaviorService.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Web References\IdentityService\IdentityService.disco" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
