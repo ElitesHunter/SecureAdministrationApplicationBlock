@@ -129,6 +129,9 @@
   <data name="ApplicationCaption" xml:space="preserve">
     <value>猎头业务管理系统（管理控制台）</value>
   </data>
+  <data name="Attribute" xml:space="preserve">
+    <value>属性值</value>
+  </data>
   <data name="AuthenticateFailed" xml:space="preserve">
     <value>身份认证失败！</value>
   </data>
@@ -149,6 +152,9 @@
   </data>
   <data name="ConnectToServer" xml:space="preserve">
     <value>连接到服务器</value>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>描述</value>
   </data>
   <data name="Disconnect" xml:space="preserve">
     <value>断开连接</value>

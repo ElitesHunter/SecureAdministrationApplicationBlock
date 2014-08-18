@@ -77,7 +77,7 @@ namespace EnterpriseServices.ManagementClient.Dialogs
             {
                 WindowsAuthentication authenticate = new WindowsAuthentication();
                 WindowsAuthenticateResult result = authenticate.Authenticate(credentials) as WindowsAuthenticateResult;
-
+                this.AfterAuthenticate(result);
             }
             this.SetControlsStateInSignProgress(false);
         }

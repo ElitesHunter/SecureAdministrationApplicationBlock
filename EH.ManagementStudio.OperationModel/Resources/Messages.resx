@@ -129,6 +129,9 @@
   <data name="ApplicationCaption" xml:space="preserve">
     <value>ElitesHunter Management Studio</value>
   </data>
+  <data name="Attribute" xml:space="preserve">
+    <value>Attribute Collection</value>
+  </data>
   <data name="AuthenticateFailed" xml:space="preserve">
     <value>Authentication failed!</value>
   </data>
@@ -149,6 +152,9 @@
   </data>
   <data name="ConnectToServer" xml:space="preserve">
     <value>Connect To Server</value>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>Description</value>
   </data>
   <data name="Disconnect" xml:space="preserve">
     <value>Disconnect</value>

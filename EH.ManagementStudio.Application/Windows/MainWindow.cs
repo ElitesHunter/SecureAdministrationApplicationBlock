@@ -3,6 +3,7 @@ using System.Windows.Forms;
 using EnterpriseServices.ManagementClient.Commons;
 using EnterpriseServices.ManagementClient.Dialogs;
 using EnterpriseServices.ManagementClient.Operations.Resources;
+using EnterpriseServices.ManagementClient.Controls;
 
 namespace EnterpriseServices.ManagementClient.Windows
 {
@@ -139,6 +140,7 @@ namespace EnterpriseServices.ManagementClient.Windows
             if (this.ShowConnectDialog() == DialogResult.OK)
             {
                 this.ClearFeatureObjects();
+                this.CreateDescriptionControl();
             }
         }
         #endregion
@@ -195,6 +197,18 @@ namespace EnterpriseServices.ManagementClient.Windows
         {
             this.ctrlObjectsTree.Nodes.Clear();
             this.ctrlObjectTabContainer.TabPages.Clear();
+        }
+        #endregion
+
+        #region CreateDescriptionControl
+        /// <summary>
+        /// 创建描述控件。
+        /// </summary>
+        private void CreateDescriptionControl()
+        {
+            TabPage page = new TabPage(Messages.Description);
+            page.Controls.Add(new DescriptionControl());
+            this.ctrlObjectTabContainer.TabPages.Add(page);
         }
         #endregion
     }

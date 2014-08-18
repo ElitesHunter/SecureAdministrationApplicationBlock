@@ -97,6 +97,15 @@ namespace EnterpriseServices.ManagementClient.Operations.Resources {
         }
         
         /// <summary>
+        ///   查找类似 Attribute Collection 的本地化字符串。
+        /// </summary>
+        public static string Attribute {
+            get {
+                return ResourceManager.GetString("Attribute", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 Authentication failed! 的本地化字符串。
         /// </summary>
         public static string AuthenticateFailed {
@@ -156,6 +165,15 @@ namespace EnterpriseServices.ManagementClient.Operations.Resources {
         public static string ConnectToServer {
             get {
                 return ResourceManager.GetString("ConnectToServer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Description 的本地化字符串。
+        /// </summary>
+        public static string Description {
+            get {
+                return ResourceManager.GetString("Description", resourceCulture);
             }
         }
         

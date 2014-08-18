@@ -78,6 +78,12 @@
     <Compile Include="Controls\BaseControl.Designer.cs">
       <DependentUpon>BaseControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controls\DescriptionControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\DescriptionControl.Designer.cs">
+      <DependentUpon>DescriptionControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Dialogs\BaseDialog.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -112,6 +118,9 @@
     </Compile>
     <EmbeddedResource Include="Controls\BaseControl.resx">
       <DependentUpon>BaseControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\DescriptionControl.resx">
+      <DependentUpon>DescriptionControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Dialogs\BaseDialog.resx">
       <DependentUpon>BaseDialog.cs</DependentUpon>
