@@ -132,6 +132,9 @@
   <data name="Attribute" xml:space="preserve">
     <value>Attribute Collection</value>
   </data>
+  <data name="AttributeName" xml:space="preserve">
+    <value>Attribute</value>
+  </data>
   <data name="AuthenticateFailed" xml:space="preserve">
     <value>Authentication failed!</value>
   </data>

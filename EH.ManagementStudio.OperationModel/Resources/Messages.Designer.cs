@@ -106,6 +106,15 @@ namespace EnterpriseServices.ManagementClient.Operations.Resources {
         }
         
         /// <summary>
+        ///   查找类似 Attribute 的本地化字符串。
+        /// </summary>
+        public static string AttributeName {
+            get {
+                return ResourceManager.GetString("AttributeName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 Authentication failed! 的本地化字符串。
         /// </summary>
         public static string AuthenticateFailed {

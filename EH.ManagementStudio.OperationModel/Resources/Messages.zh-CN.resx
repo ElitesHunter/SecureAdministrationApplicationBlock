@@ -132,6 +132,9 @@
   <data name="Attribute" xml:space="preserve">
     <value>属性值</value>
   </data>
+  <data name="AttributeName" xml:space="preserve">
+    <value>属性</value>
+  </data>
   <data name="AuthenticateFailed" xml:space="preserve">
     <value>身份认证失败！</value>
   </data>
