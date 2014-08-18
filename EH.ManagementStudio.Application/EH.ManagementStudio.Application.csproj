@@ -72,6 +72,12 @@
       <Link>Properties\EH.ManagementStudio.AssemblyInfo.cs</Link>
     </Compile>
     <Compile Include="Commons\DialogMethods.static.cs" />
+    <Compile Include="Controls\BaseControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\BaseControl.Designer.cs">
+      <DependentUpon>BaseControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Dialogs\BaseDialog.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -104,6 +110,9 @@
     <Compile Include="Windows\SplashWindow.Designer.cs">
       <DependentUpon>SplashWindow.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Controls\BaseControl.resx">
+      <DependentUpon>BaseControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Dialogs\BaseDialog.resx">
       <DependentUpon>BaseDialog.cs</DependentUpon>
     </EmbeddedResource>
