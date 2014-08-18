@@ -1,7 +1,12 @@
 ﻿using System;
+using System.Threading;
 using System.Windows.Forms;
+using EnterpriseServices.Framework.Commons.Runtime;
+using EnterpriseServices.Framework.Resources;
 using EnterpriseServices.ManagementClient.Operations;
+using EnterpriseServices.ManagementClient.Operations.Resources;
 using EnterpriseServices.ManagementClient.Windows;
+using EnterpriseServices.SecurityService.Framework.Commons;
 
 namespace EnterpriseServices.ManagementClient
 {
@@ -13,12 +18,47 @@ namespace EnterpriseServices.ManagementClient
         [STAThread]
         static void Main()
         {
+            AppDomain.CurrentDomain.UnhandledException += new UnhandledExceptionEventHandler(ProcessUnhandleException);
+            Application.SetUnhandledExceptionMode(UnhandledExceptionMode.CatchException);
+            Application.ThreadException += new ThreadExceptionEventHandler(ProcessApplicationThreadException);
             SetCurrentThreadCultureInfo();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             ClientStartup start = new ClientStartup();
             start.Run(new SplashWindow());
         }
+
+        #region ProcessApplicationThreadException
+        static void ProcessApplicationThreadException(object sender, ThreadExceptionEventArgs e)
+        {
+            if (e.Exception is IsNotSystemAdministratorError)
+            {
+                MessageBox.Show(Messages.IsNotAdministrator, CommonPhrases.Warning, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                Application.Exit();
+            }
+            else
+            {
+                TraceEvent<Object> trace = new TraceEvent<Object>();
+                trace.AttachTraceEvent(TraceEventLevel.Exception, e.Exception.Message);
+            }
+        }
+        #endregion
+
+        #region ProcessUnhandleException
+        static void ProcessUnhandleException(object sender, UnhandledExceptionEventArgs e)
+        {
+            if (e.ExceptionObject is Exception && e.ExceptionObject is IsNotSystemAdministratorError)
+            {
+                MessageBox.Show(Messages.IsNotAdministrator, CommonPhrases.Warning, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                Application.Exit();
+            }
+            else
+            {
+                TraceEvent<Object> trace = new TraceEvent<Object>();
+                trace.AttachTraceEvent(TraceEventLevel.Exception, (e.ExceptionObject as Exception).Message);
+            }
+        }
+        #endregion
 
         #region SetCurrentThreadCultureInfo
         /// <summary>

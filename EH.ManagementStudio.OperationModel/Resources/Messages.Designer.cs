@@ -61,11 +61,83 @@ namespace EnterpriseServices.ManagementClient.Operations.Resources {
         }
         
         /// <summary>
+        ///   查找类似 About(&amp;A) Management Studio 的本地化字符串。
+        /// </summary>
+        public static string AboutClient {
+            get {
+                return ResourceManager.GetString("AboutClient", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Administrators 的本地化字符串。
+        /// </summary>
+        public static string AdminGroup {
+            get {
+                return ResourceManager.GetString("AdminGroup", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Application 的本地化字符串。
+        /// </summary>
+        public static string Application {
+            get {
+                return ResourceManager.GetString("Application", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 ElitesHunter Management Studio 的本地化字符串。
         /// </summary>
         public static string ApplicationCaption {
             get {
                 return ResourceManager.GetString("ApplicationCaption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Authentication failed! 的本地化字符串。
+        /// </summary>
+        public static string AuthenticateFailed {
+            get {
+                return ResourceManager.GetString("AuthenticateFailed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Authorization Management 的本地化字符串。
+        /// </summary>
+        public static string AuthorizationManagement {
+            get {
+                return ResourceManager.GetString("AuthorizationManagement", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Authorize 的本地化字符串。
+        /// </summary>
+        public static string Authorize {
+            get {
+                return ResourceManager.GetString("Authorize", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Application Blocks 的本地化字符串。
+        /// </summary>
+        public static string Blocks {
+            get {
+                return ResourceManager.GetString("Blocks", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Pre-Codes 的本地化字符串。
+        /// </summary>
+        public static string Code {
+            get {
+                return ResourceManager.GetString("Code", resourceCulture);
             }
         }
         
@@ -88,11 +160,137 @@ namespace EnterpriseServices.ManagementClient.Operations.Resources {
         }
         
         /// <summary>
+        ///   查找类似 Disconnect 的本地化字符串。
+        /// </summary>
+        public static string Disconnect {
+            get {
+                return ResourceManager.GetString("Disconnect", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Exit 的本地化字符串。
+        /// </summary>
+        public static string Exit {
+            get {
+                return ResourceManager.GetString("Exit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 Are you sure to exit the management studio? 的本地化字符串。
         /// </summary>
         public static string ExitApplication {
             get {
                 return ResourceManager.GetString("ExitApplication", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Help 的本地化字符串。
+        /// </summary>
+        public static string Help {
+            get {
+                return ResourceManager.GetString("Help", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Please run this program as an administrator! 的本地化字符串。
+        /// </summary>
+        public static string IsNotAdministrator {
+            get {
+                return ResourceManager.GetString("IsNotAdministrator", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Behavior Trace 的本地化字符串。
+        /// </summary>
+        public static string LoggingViewer {
+            get {
+                return ResourceManager.GetString("LoggingViewer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 ElitesHunter Management Studio 的本地化字符串。
+        /// </summary>
+        public static string MainWindowCaption {
+            get {
+                return ResourceManager.GetString("MainWindowCaption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Organization 的本地化字符串。
+        /// </summary>
+        public static string Organization {
+            get {
+                return ResourceManager.GetString("Organization", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Organization Management 的本地化字符串。
+        /// </summary>
+        public static string OrganizationManagement {
+            get {
+                return ResourceManager.GetString("OrganizationManagement", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Parameters 的本地化字符串。
+        /// </summary>
+        public static string ParameterDeclaration {
+            get {
+                return ResourceManager.GetString("ParameterDeclaration", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Password Expiration Policy 的本地化字符串。
+        /// </summary>
+        public static string PasswordExpirationPolicy {
+            get {
+                return ResourceManager.GetString("PasswordExpirationPolicy", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Permission 的本地化字符串。
+        /// </summary>
+        public static string Permission {
+            get {
+                return ResourceManager.GetString("Permission", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Position 的本地化字符串。
+        /// </summary>
+        public static string Position {
+            get {
+                return ResourceManager.GetString("Position", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Report Line 的本地化字符串。
+        /// </summary>
+        public static string ReportLine {
+            get {
+                return ResourceManager.GetString("ReportLine", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Role 的本地化字符串。
+        /// </summary>
+        public static string Role {
+            get {
+                return ResourceManager.GetString("Role", resourceCulture);
             }
         }
         
@@ -111,6 +309,15 @@ namespace EnterpriseServices.ManagementClient.Operations.Resources {
         public static string SignInMethod {
             get {
                 return ResourceManager.GetString("SignInMethod", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Staff 的本地化字符串。
+        /// </summary>
+        public static string Staff {
+            get {
+                return ResourceManager.GetString("Staff", resourceCulture);
             }
         }
         

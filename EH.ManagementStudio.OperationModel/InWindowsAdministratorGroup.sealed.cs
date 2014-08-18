@@ -79,7 +79,9 @@ namespace EnterpriseServices.ManagementClient.Operations
         public void Intercept(MonitorContext context)
         {
             if (!this.IsAdministrator())
+            {
                 throw new IsNotSystemAdministratorError();
+            }
         }
         #endregion
     }

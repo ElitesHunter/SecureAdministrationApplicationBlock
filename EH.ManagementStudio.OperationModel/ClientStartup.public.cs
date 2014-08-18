@@ -26,6 +26,8 @@
 
 using System.Windows.Forms;
 using EnterpriseServices.Framework.Commons;
+using EnterpriseServices.Framework.Resources;
+using EnterpriseServices.ManagementClient.Operations.Resources;
 using EnterpriseServices.SecurityService.Framework.Commons;
 
 namespace EnterpriseServices.ManagementClient.Operations
@@ -63,8 +65,16 @@ namespace EnterpriseServices.ManagementClient.Operations
         [InWindowsAdministratorGroup]
         public void Run(Form mainForm)
         {
-            Application.Run(mainForm);
-       }
+            try
+            {
+                Application.Run(mainForm);
+            }
+            catch
+            {
+                MessageBox.Show(Messages.IsNotAdministrator, CommonPhrases.Warning, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                Application.Exit();
+            }
+        }
         #endregion
     }
 }

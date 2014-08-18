@@ -38,6 +38,8 @@
             this.ctrlConnectButton = new System.Windows.Forms.Button();
             this.ctrlCancelButton = new System.Windows.Forms.Button();
             this.ctrlUserID = new System.Windows.Forms.TextBox();
+            this.ctrlSigninLoadingImage = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.ctrlSigninLoadingImage)).BeginInit();
             this.SuspendLayout();
             // 
             // ctrlLoginMethodDescription
@@ -95,7 +97,6 @@
             // 
             // ctrlConnectButton
             // 
-            this.ctrlConnectButton.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.ctrlConnectButton.Location = new System.Drawing.Point(66, 250);
             this.ctrlConnectButton.Name = "ctrlConnectButton";
             this.ctrlConnectButton.Size = new System.Drawing.Size(100, 30);
@@ -121,15 +122,27 @@
             this.ctrlUserID.Size = new System.Drawing.Size(200, 25);
             this.ctrlUserID.TabIndex = 2;
             // 
+            // ctrlSigninLoadingImage
+            // 
+            this.ctrlSigninLoadingImage.Image = ((System.Drawing.Image)(resources.GetObject("ctrlSigninLoadingImage.Image")));
+            this.ctrlSigninLoadingImage.InitialImage = ((System.Drawing.Image)(resources.GetObject("ctrlSigninLoadingImage.InitialImage")));
+            this.ctrlSigninLoadingImage.Location = new System.Drawing.Point(40, 253);
+            this.ctrlSigninLoadingImage.Name = "ctrlSigninLoadingImage";
+            this.ctrlSigninLoadingImage.Size = new System.Drawing.Size(24, 24);
+            this.ctrlSigninLoadingImage.TabIndex = 6;
+            this.ctrlSigninLoadingImage.TabStop = false;
+            this.ctrlSigninLoadingImage.Visible = false;
+            this.ctrlSigninLoadingImage.WaitOnLoad = true;
+            // 
             // ConnectionDialog
             // 
-            this.AcceptButton = this.ctrlConnectButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.CancelButton = this.ctrlCancelButton;
             this.ClientSize = new System.Drawing.Size(394, 292);
+            this.Controls.Add(this.ctrlSigninLoadingImage);
             this.Controls.Add(this.ctrlCancelButton);
             this.Controls.Add(this.ctrlConnectButton);
             this.Controls.Add(this.ctrlHSplitLine);
@@ -143,6 +156,7 @@
             this.MinimizeBox = false;
             this.Name = "ConnectionDialog";
             this.Text = "连接服务器";
+            ((System.ComponentModel.ISupportInitialize)(this.ctrlSigninLoadingImage)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -159,6 +173,7 @@
         private System.Windows.Forms.Button ctrlConnectButton;
         private System.Windows.Forms.Button ctrlCancelButton;
         private System.Windows.Forms.TextBox ctrlUserID;
+        private System.Windows.Forms.PictureBox ctrlSigninLoadingImage;
 
 
     }

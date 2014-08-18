@@ -108,7 +108,7 @@ namespace EnterpriseServices.SecurityService.API
         /// <para>初始化一个<see cref="UserInOutBehaviorTraceApi" />对象实例。</para>
         /// </summary>
         public UserInOutBehaviorTraceApi()
-            : base("UserBehaviorService")
+            : base("UserBahaviorService")
         {
         }
 

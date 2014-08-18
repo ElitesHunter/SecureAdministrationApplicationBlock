@@ -1,14 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
-using EnterpriseServices.ManagementClient.Operations.Resources;
 using EnterpriseServices.Framework.Resources;
+using EnterpriseServices.ManagementClient.Operations.AuthenticateService;
 using EnterpriseServices.ManagementClient.Operations.Entity;
+using EnterpriseServices.ManagementClient.Operations.Resources;
+using EnterpriseServices.SecurityService.Framework.Commons;
 
 namespace EnterpriseServices.ManagementClient.Dialogs
 {
@@ -63,6 +59,7 @@ namespace EnterpriseServices.ManagementClient.Dialogs
             {
                 this.ctrlLoginMethods.Items.Add(item);
             }
+            this.ctrlLoginMethods.SelectedItem = types[0];
         }
         #endregion
 
@@ -74,7 +71,69 @@ namespace EnterpriseServices.ManagementClient.Dialogs
         /// <param name="e"></param>
         private void HandleConnectButtonClickEvent(object sender, EventArgs e)
         {
+            this.SetControlsStateInSignProgress(true);
+            ICredentials credentials = this.CreateCredentials();
+            if (!object.ReferenceEquals(credentials, null))
+            {
+                WindowsAuthentication authenticate = new WindowsAuthentication();
+                WindowsAuthenticateResult result = authenticate.Authenticate(credentials) as WindowsAuthenticateResult;
 
+            }
+            this.SetControlsStateInSignProgress(false);
+        }
+        #endregion
+
+        #region SetControlsStateInSignProgress
+        /// <summary>
+        /// 设置登录进程中的控件状态。
+        /// </summary>
+        /// <param name="flag">标记。</param>
+        private void SetControlsStateInSignProgress(bool flag)
+        {
+            this.ctrlSigninLoadingImage.Visible = flag;
+            this.ctrlLoginMethods.Enabled = !flag;
+            this.ctrlUserID.Enabled = !flag;
+            this.ctrlPassword.Enabled = !flag;
+            this.ctrlConnectButton.Enabled = !flag;
+            this.ctrlCancelButton.Enabled = !flag;
+        }
+        #endregion
+
+        #region AfterAuthenticate
+        /// <summary>
+        /// 身份认证后执行的方法。
+        /// </summary>
+        /// <param name="result"><see cref="AuthenticateResult"/>对象实例。</param>
+        private void AfterAuthenticate(AuthenticateResult result)
+        {
+            if (string.IsNullOrEmpty(result.Token.Token))
+            {
+                MessageBox.Show(string.Format("{0}({1})", Messages.AuthenticateFailed), CommonPhrases.Error, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                this.DialogResult = DialogResult.OK;
+                this.Close();
+            }
+        }
+        #endregion
+
+        #region CreateCredentials （待完善）
+        /// <summary>
+        /// 创建身份认证凭据。
+        /// </summary>
+        /// <returns><see cref="ICredentials"/>对象实例。</returns>
+        private ICredentials CreateCredentials()
+        {
+            UIAuthenticationType type = this.ctrlLoginMethods.SelectedItem as UIAuthenticationType;
+            if (type.Type.Equals(0))
+            {
+                return WindowsCredentials.GetCurrent();
+            }
+            else
+            {
+                return null;
+            }
         }
         #endregion
 

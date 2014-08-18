@@ -50,7 +50,8 @@ namespace EnterpriseServices.ManagementClient.Operations
             try
             {
                 CultureInfo osCultureInfo = CultureInfo.InstalledUICulture;
-                base.LocaleID = osCultureInfo.LCID.Equals(2052) ? LocaleID.SimplifiedChinese : LocaleID.English;
+                //base.LocaleID = LocaleID.English;
+                base.LocaleID = osCultureInfo.LCID.Equals(2052) ? LocaleID.SimplifiedChinese : LocaleID.English; 
                 return base.CreateCultureInfo();
             }
             catch

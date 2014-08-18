@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Windows.Forms;
 using EnterpriseServices.ManagementClient.Commons;
-using EnterpriseServices.ManagementClient.Operations.Resources;
 using EnterpriseServices.ManagementClient.Dialogs;
+using EnterpriseServices.ManagementClient.Operations.Resources;
 
 namespace EnterpriseServices.ManagementClient.Windows
 {
@@ -124,6 +124,8 @@ namespace EnterpriseServices.ManagementClient.Windows
         /// <param name="e"></param>
         private void MainWindow_Load(object sender, EventArgs e)
         {
+            this.ResetControlsState();
+            this.DisableToolbars(false);
             this.InitializeThread();
         }
         #endregion
@@ -136,7 +138,63 @@ namespace EnterpriseServices.ManagementClient.Windows
         {
             if (this.ShowConnectDialog() == DialogResult.OK)
             {
+                this.ClearFeatureObjects();
             }
+        }
+        #endregion
+
+        #region ResetControlsState
+        /// <summary>
+        /// 重置所有控件的状态。
+        /// </summary>
+        private void ResetControlsState()
+        {
+            this.Text = Messages.MainWindowCaption;
+            this.ctrlConnectMenuItem.Text = string.Format("{0}(&C)", Messages.Connect);
+            this.ctrlConnectToServerMenuItem.Text = Messages.ConnectToServer;
+            this.ctrlDisconnectToServerMenuItem.Text = Messages.Disconnect;
+            this.ctrlExitMenuItem.Text = Messages.Exit;
+            this.ctrlHelpMenuItem.Text = string.Format("{0}(&H)", Messages.Help);
+            this.ctrlAboutMenuItem.Text = Messages.AboutClient;
+            this.ctrlBasicCreationButton.Text = Messages.ParameterDeclaration;
+            this.ctrlCreateAppBlockMenuItem.Text = Messages.Blocks;
+            this.ctrlCreatePrecodeMenuItem.Text = Messages.Code;
+            this.ctrlCreateAdministratorMenuItem.Text = Messages.AdminGroup;
+            this.ctrlOrgManagementMenuItem.Text = Messages.OrganizationManagement;
+            this.ctrlCreateOrgMenuItem.Text = Messages.Organization;
+            this.ctrlCreatePositionMenuItem.Text = Messages.Position;
+            this.ctrlCreateUserMenuItem.Text = Messages.Staff;
+            this.ctrlPositionRelationMenuItem.Text = Messages.ReportLine;
+            this.ctrlPermissionMenuItem.Text = Messages.AuthorizationManagement;
+            this.ctrlCreateAppMenuItem.Text = Messages.Application;
+            this.ctrlCreateRoleMenuItem.Text = Messages.Role;
+            this.ctrlCreatePermissionMenuItem.Text = Messages.Permission;
+            this.ctrlAuthorizeMenuItem.Text = Messages.Authorize;
+            this.ctrlViewLogMenuItem.Text = Messages.LoggingViewer;
+            this.ctrlCreatePwdPolicyMenuItem.Text = Messages.PasswordExpirationPolicy;
+        }
+        #endregion
+
+        #region DisableToolbars
+        /// <summary>
+        /// 禁用或启用功能菜单。
+        /// </summary>
+        /// <param name="flag">标记。</param>
+        private void DisableToolbars(bool flag)
+        {
+            this.ctrlDisconnectToServerMenuItem.Enabled = flag;
+            this.ctrlFeaturesToolmenu.Enabled = flag;
+        }
+        #endregion
+
+        #region ClearFeatureObjects
+        /// <summary>
+        /// 清空功能对象。
+        /// </summary>
+        private void ClearFeatureObjects()
+        {
+            this.ctrlObjectsTree.Nodes.Clear();
+            this.ctrlObjectTabContainer.TabPages.Clear();
         }
         #endregion
     }

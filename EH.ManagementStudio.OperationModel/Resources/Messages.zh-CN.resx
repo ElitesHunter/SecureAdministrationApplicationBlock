@@ -117,8 +117,32 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AboutClient" xml:space="preserve">
+    <value>关于(&amp;A) Management Studio</value>
+  </data>
+  <data name="AdminGroup" xml:space="preserve">
+    <value>系统管理员组</value>
+  </data>
+  <data name="Application" xml:space="preserve">
+    <value>应用管理</value>
+  </data>
   <data name="ApplicationCaption" xml:space="preserve">
     <value>猎头业务管理系统（管理控制台）</value>
+  </data>
+  <data name="AuthenticateFailed" xml:space="preserve">
+    <value>身份认证失败！</value>
+  </data>
+  <data name="AuthorizationManagement" xml:space="preserve">
+    <value>授权管理</value>
+  </data>
+  <data name="Authorize" xml:space="preserve">
+    <value>应用授权</value>
+  </data>
+  <data name="Blocks" xml:space="preserve">
+    <value>应用模块定义</value>
+  </data>
+  <data name="Code" xml:space="preserve">
+    <value>预定义代码</value>
   </data>
   <data name="Connect" xml:space="preserve">
     <value>连接</value>
@@ -126,14 +150,59 @@
   <data name="ConnectToServer" xml:space="preserve">
     <value>连接到服务器</value>
   </data>
+  <data name="Disconnect" xml:space="preserve">
+    <value>断开连接</value>
+  </data>
+  <data name="Exit" xml:space="preserve">
+    <value>退出</value>
+  </data>
   <data name="ExitApplication" xml:space="preserve">
     <value>您是否确认退出管理控制台？</value>
+  </data>
+  <data name="Help" xml:space="preserve">
+    <value>帮助</value>
+  </data>
+  <data name="IsNotAdministrator" xml:space="preserve">
+    <value>请以管理员身份运行此程序！</value>
+  </data>
+  <data name="LoggingViewer" xml:space="preserve">
+    <value>日志查看器</value>
+  </data>
+  <data name="MainWindowCaption" xml:space="preserve">
+    <value>猎头业务管理系统（管理客户端）</value>
+  </data>
+  <data name="Organization" xml:space="preserve">
+    <value>组织机构</value>
+  </data>
+  <data name="OrganizationManagement" xml:space="preserve">
+    <value>组织机构管理</value>
+  </data>
+  <data name="ParameterDeclaration" xml:space="preserve">
+    <value>系统参数</value>
+  </data>
+  <data name="PasswordExpirationPolicy" xml:space="preserve">
+    <value>口令过期策略</value>
+  </data>
+  <data name="Permission" xml:space="preserve">
+    <value>权限</value>
+  </data>
+  <data name="Position" xml:space="preserve">
+    <value>职位</value>
+  </data>
+  <data name="ReportLine" xml:space="preserve">
+    <value>汇报关系</value>
+  </data>
+  <data name="Role" xml:space="preserve">
+    <value>角色</value>
   </data>
   <data name="ServerAuthenticate" xml:space="preserve">
     <value>猎头服务器身份认证</value>
   </data>
   <data name="SignInMethod" xml:space="preserve">
     <value>登录方式</value>
+  </data>
+  <data name="Staff" xml:space="preserve">
+    <value>人员</value>
   </data>
   <data name="StartupLogMessage" xml:space="preserve">
     <value>用户 "{0}" 正在尝试启动Management Studio！此过程需要验证他是否在Windows的管理员组，如果验证成功，则启动。</value>
