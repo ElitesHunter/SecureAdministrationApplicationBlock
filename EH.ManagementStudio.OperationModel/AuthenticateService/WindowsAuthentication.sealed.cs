@@ -25,12 +25,12 @@
 #endregion
 
 using System;
-using EnterpriseServices.SecurityService.Framework.Commons;
-using EnterpriseServices.Framework.Commons;
-using EnterpriseServices.SecurityService.API;
-using EnterpriseServices.ManagementClient.Operations.Networks;
 using System.Threading;
+using EnterpriseServices.Framework.Commons;
+using EnterpriseServices.ManagementClient.Operations.Networks;
 using EnterpriseServices.ManagementClient.Operations.Principal;
+using EnterpriseServices.SecurityService.API;
+using EnterpriseServices.SecurityService.Framework.Commons;
 
 namespace EnterpriseServices.ManagementClient.Operations.AuthenticateService
 {

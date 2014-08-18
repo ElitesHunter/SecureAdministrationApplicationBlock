@@ -24,11 +24,10 @@
 
 #endregion
 
-using System.Threading;
+using EnterpriseServices.ManagementClient.Operations.Principal;
 using EnterpriseServices.SecurityService.API;
 using EnterpriseServices.SecurityService.Framework.Commons;
 using EnterpriseServices.SecurityService.Framework.Commons.Logging;
-using EnterpriseServices.ManagementClient.Operations.Principal;
 
 namespace EnterpriseServices.ManagementClient.Operations.AuthenticateService
 {

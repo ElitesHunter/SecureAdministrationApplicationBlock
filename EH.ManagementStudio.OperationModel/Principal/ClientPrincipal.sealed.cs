@@ -25,9 +25,9 @@
 #endregion
 
 using System;
-using EnterpriseServices.SecurityService.Framework.Commons.Principal;
 using System.Security.Principal;
 using System.Threading;
+using EnterpriseServices.SecurityService.Framework.Commons.Principal;
 
 namespace EnterpriseServices.ManagementClient.Operations.Principal
 {
