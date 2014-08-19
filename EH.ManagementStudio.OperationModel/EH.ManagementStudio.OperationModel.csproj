@@ -87,6 +87,7 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <Compile Include="StartupLogEntity.sealed.cs" />
+    <Compile Include="TreeNodeBoundControlAttribute.sealed.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\signature.pfx" />

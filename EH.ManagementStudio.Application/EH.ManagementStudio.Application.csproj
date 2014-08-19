@@ -72,6 +72,7 @@
       <Link>Properties\EH.ManagementStudio.AssemblyInfo.cs</Link>
     </Compile>
     <Compile Include="Commons\DialogMethods.static.cs" />
+    <Compile Include="Commons\FeatureTreeNodeType.cs" />
     <Compile Include="Controls\BaseControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -84,6 +85,8 @@
     <Compile Include="Controls\DescriptionControl.Designer.cs">
       <DependentUpon>DescriptionControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controls\FeatureTreeNodeBase.abstract.cs" />
+    <Compile Include="Controls\RootTreeNode.sealed.cs" />
     <Compile Include="Dialogs\BaseDialog.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -95,6 +98,9 @@
     </Compile>
     <Compile Include="Dialogs\ConnectionDialog.Designer.cs">
       <DependentUpon>ConnectionDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Partials\MainWindow.partial.cs">
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

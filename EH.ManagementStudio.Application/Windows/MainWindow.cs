@@ -141,6 +141,8 @@ namespace EnterpriseServices.ManagementClient.Windows
             {
                 this.ClearFeatureObjects();
                 this.CreateDescriptionControl();
+                this.DisableToolbars(true);
+                this.ctrlObjectsTree.Nodes.Add(this.CreateRootNode());
             }
         }
         #endregion

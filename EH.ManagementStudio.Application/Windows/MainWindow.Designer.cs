@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainWindow));
             this.ctrlMainFeaturesMenu = new System.Windows.Forms.MenuStrip();
             this.ctrlConnectMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -65,6 +66,7 @@
             this.ctrlSplitContainer = new System.Windows.Forms.SplitContainer();
             this.ctrlObjectsTree = new System.Windows.Forms.TreeView();
             this.ctrlObjectTabContainer = new System.Windows.Forms.TabControl();
+            this.ctrlImageList = new System.Windows.Forms.ImageList(this.components);
             this.ctrlMainFeaturesMenu.SuspendLayout();
             this.ctrlFeaturesToolmenu.SuspendLayout();
             this.ctrlStatusControlsPanel.SuspendLayout();
@@ -381,8 +383,11 @@
             this.ctrlObjectsTree.BackColor = System.Drawing.Color.White;
             this.ctrlObjectsTree.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.ctrlObjectsTree.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ctrlObjectsTree.ImageIndex = 0;
+            this.ctrlObjectsTree.ImageList = this.ctrlImageList;
             this.ctrlObjectsTree.Location = new System.Drawing.Point(0, 0);
             this.ctrlObjectsTree.Name = "ctrlObjectsTree";
+            this.ctrlObjectsTree.SelectedImageIndex = 0;
             this.ctrlObjectsTree.Size = new System.Drawing.Size(312, 282);
             this.ctrlObjectsTree.TabIndex = 0;
             // 
@@ -394,6 +399,12 @@
             this.ctrlObjectTabContainer.SelectedIndex = 0;
             this.ctrlObjectTabContainer.Size = new System.Drawing.Size(620, 282);
             this.ctrlObjectTabContainer.TabIndex = 0;
+            // 
+            // ctrlImageList
+            // 
+            this.ctrlImageList.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("ctrlImageList.ImageStream")));
+            this.ctrlImageList.TransparentColor = System.Drawing.Color.Transparent;
+            this.ctrlImageList.Images.SetKeyName(0, "box.png");
             // 
             // MainWindow
             // 
@@ -463,5 +474,6 @@
         private System.Windows.Forms.SplitContainer ctrlSplitContainer;
         private System.Windows.Forms.TreeView ctrlObjectsTree;
         private System.Windows.Forms.TabControl ctrlObjectTabContainer;
+        private System.Windows.Forms.ImageList ctrlImageList;
     }
 }
