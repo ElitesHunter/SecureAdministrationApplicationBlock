@@ -63,6 +63,8 @@ namespace EnterpriseServices.ManagementClient.Controls
         protected FeatureTreeNodeBase(int imageIndex, FeatureTreeNodeType type)
         {
             this.ImageIndex = imageIndex;
+            this.SelectedImageIndex = imageIndex;
+            this.StateImageIndex = imageIndex;
             this.FeatureTreeNodeType = type;
             this.NodeFont = this.CreateFont();
         }
@@ -76,7 +78,7 @@ namespace EnterpriseServices.ManagementClient.Controls
         /// <returns><see cref="Font"/>对象实例。</returns>
         protected virtual Font CreateFont()
         {
-            return new Font(new FontFamily("微软雅黑"), 8, FontStyle.Regular);
+            return new Font(new FontFamily("微软雅黑"), 9, FontStyle.Regular);
         }
         #endregion
     }

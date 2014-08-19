@@ -40,7 +40,14 @@ namespace EnterpriseServices.ManagementClient.Commons
     [Serializable()]
     public enum FeatureTreeNodeType
     {
-        Root = 0
+        Root = 0,
+        Empty = -1,
+        ParametersRoot = 1,
+        AdministratorsRoot = 2,
+        OrganizationsRoot = 3,
+        AuthorizationsRoot = 4,
+        LoggingsRoot = 5,
+        ExpirationPolicyRoot = 6
     }
 }
 

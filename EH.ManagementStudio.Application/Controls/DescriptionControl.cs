@@ -43,5 +43,16 @@ namespace EnterpriseServices.ManagementClient.Controls
 
         }
         #endregion
+
+        #region GetDescriptionInTabContainer
+        /// <summary>
+        /// 获取此控件在分页卡中的描述信息。
+        /// </summary>
+        /// <returns>描述信息。</returns>
+        public override string GetDescriptionInTabContainer()
+        {
+            return Messages.Description;
+        }
+        #endregion
     }
 }

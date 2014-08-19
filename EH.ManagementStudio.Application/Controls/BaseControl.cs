@@ -42,6 +42,17 @@ namespace EnterpriseServices.ManagementClient.Controls
             this.ctrlDescription.Text = description;
         }
         #endregion
+
+        #region GetDescriptionInTabContainer
+        /// <summary>
+        /// 获取控件在分页卡中的描述信息。
+        /// </summary>
+        /// <returns>描述信息。</returns>
+        public virtual string GetDescriptionInTabContainer()
+        {
+            return string.Empty;
+        }
+        #endregion
     }
     #endregion
 }

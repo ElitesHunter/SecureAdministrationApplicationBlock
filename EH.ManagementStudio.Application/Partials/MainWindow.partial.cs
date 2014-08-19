@@ -26,6 +26,7 @@
 
 using System;
 using EnterpriseServices.ManagementClient.Controls;
+using System.Windows.Forms;
 
 namespace EnterpriseServices.ManagementClient.Windows
 {
@@ -48,7 +49,60 @@ namespace EnterpriseServices.ManagementClient.Windows
         private FeatureTreeNodeBase CreateRootNode()
         {
             RootTreeNode rootNode = new RootTreeNode();
+            this.CreateChildNodes(rootNode);
+            rootNode.Expand();
             return rootNode;
+        }
+        #endregion
+
+        #region CreateChildNodes
+        /// <summary>
+        /// 创建子节点。
+        /// </summary>
+        /// <param name="treeNode">节点。</param>
+        private void CreateChildNodes(FeatureTreeNodeBase treeNode)
+        {
+            treeNode.Nodes.Add(new ParameterDeclarationRootTreeNode());
+            treeNode.Nodes.Add(new AdministratorsRootTreeNode());
+            treeNode.Nodes.Add(new OrganizationRootTreeNode() { ContextMenuStrip = this.ctrlOrganizationCtxMenu });
+            treeNode.Nodes.Add(new AuthorizationRootTreeNode());
+            treeNode.Nodes.Add(new ExpirationPolicyRootTreeNode());
+            treeNode.Nodes.Add(new LoggingsRootTeeNode());
+        }
+        #endregion
+
+        #region TabIsExists
+        /// <summary>
+        /// 验证包含指定类型控件的分页卡是否存在。
+        /// </summary>
+        /// <returns>true/false。</returns>
+        private bool TabIsExists(Type ctrlType)
+        {
+            bool isExists = false;
+            foreach (TabPage item in this.ctrlObjectTabContainer.TabPages)
+            {
+                if (item.Controls.Count > 0 && item.Controls[0].GetType().Equals(ctrlType))
+                {
+                    isExists = true;
+                    item.Select();
+                    break;
+                }
+            }
+            return isExists;
+        }
+        #endregion
+
+        #region ClearChildNodes
+        /// <summary>
+        /// 清空指定节点的子节点。
+        /// </summary>
+        /// <param name="node">指定节点。</param>
+        private void ClearChildNodes(TreeNode node)
+        {
+            if (node.Nodes.Count.Equals(1) && node.Nodes[0].GetType().Equals(typeof(EmptyTreeNode)))
+            {
+                node.Nodes.Clear();
+            }
         }
         #endregion
     }

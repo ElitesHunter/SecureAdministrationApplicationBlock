@@ -4,6 +4,7 @@ using EnterpriseServices.ManagementClient.Commons;
 using EnterpriseServices.ManagementClient.Dialogs;
 using EnterpriseServices.ManagementClient.Operations.Resources;
 using EnterpriseServices.ManagementClient.Controls;
+using EnterpriseServices.ManagementClient.Operations;
 
 namespace EnterpriseServices.ManagementClient.Windows
 {
@@ -108,7 +109,7 @@ namespace EnterpriseServices.ManagementClient.Windows
         /// <returns><see cref="DialogResult"/>中的一个值。</returns>
         private DialogResult ShowConnectDialog()
         {
-            DialogResult result =DialogResult.OK;
+            DialogResult result = DialogResult.OK;
             using (ConnectionDialog dialog = new ConnectionDialog())
             {
                 result = dialog.ShowDialog();
@@ -211,6 +212,71 @@ namespace EnterpriseServices.ManagementClient.Windows
             TabPage page = new TabPage(Messages.Description);
             page.Controls.Add(new DescriptionControl());
             this.ctrlObjectTabContainer.TabPages.Add(page);
+        }
+        #endregion
+
+        #region HandleFeatureTabPageDoubleClick
+        /// <summary>
+        /// 处理分页卡双击事件。
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void HandleFeatureTabPageDoubleClick(object sender, EventArgs e)
+        {
+            if (this.ctrlObjectTabContainer.SelectedTab != null)
+                this.ctrlObjectTabContainer.TabPages.RemoveAt(this.ctrlObjectTabContainer.SelectedIndex);
+        }
+        #endregion
+
+        #region HandleFeatureTreeNodeClick
+        /// <summary>
+        /// 处理功能树节点单击事件。
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void HandleFeatureTreeNodeClick(object sender, TreeNodeMouseClickEventArgs e)
+        {
+            if (e.Node != null)
+            {
+                FeatureTreeNodeBase node = e.Node as FeatureTreeNodeBase;
+                Attribute attr = Attribute.GetCustomAttribute(e.Node.GetType(), typeof(TreeNodeBoundControlAttribute));
+                if (!object.ReferenceEquals(attr, null))
+                {
+                    Type ctrlType = (attr as TreeNodeBoundControlAttribute).ControlType;
+                    if (!this.TabIsExists(ctrlType))
+                    {
+                        BaseControl ctrl = Activator.CreateInstance(ctrlType) as BaseControl;
+                        TabPage page = new TabPage(ctrl.GetDescriptionInTabContainer());
+                        page.Controls.Add(ctrl);
+                        this.ctrlObjectTabContainer.TabPages.Add(page);
+                    }
+                }
+            }
+        }
+        #endregion
+
+        #region HandleAfterTreeNodeExpanded
+        /// <summary>
+        /// 用于处理节点展开后的事件。
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void HandleAfterTreeNodeExpanded(object sender, TreeViewEventArgs e)
+        {
+            this.ctrlObjectsTree.SelectedNode = e.Node;
+            this.ClearChildNodes(e.Node);
+        }
+        #endregion
+
+        #region HandleAfterTreeNodeCollapsed
+        /// <summary>
+        /// 用于处理节点折叠后的事件。
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void HandleAfterTreeNodeCollapsed(object sender, TreeViewEventArgs e)
+        {
+            this.ctrlObjectsTree.SelectedNode = e.Node;
         }
         #endregion
     }

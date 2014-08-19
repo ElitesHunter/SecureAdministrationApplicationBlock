@@ -73,6 +73,8 @@
     </Compile>
     <Compile Include="Commons\DialogMethods.static.cs" />
     <Compile Include="Commons\FeatureTreeNodeType.cs" />
+    <Compile Include="Controls\AdministratorsRootTreeNode.sealed.cs" />
+    <Compile Include="Controls\AuthorizationRootTreeNode.sealed.cs" />
     <Compile Include="Controls\BaseControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -85,7 +87,13 @@
     <Compile Include="Controls\DescriptionControl.Designer.cs">
       <DependentUpon>DescriptionControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controls\EmptyTreeNode.sealed.cs" />
+    <Compile Include="Controls\ExpirationPolicyRootTreeNode.sealed.cs" />
+    <Compile Include="Controls\FeaturesRootTreeNode.public.cs" />
     <Compile Include="Controls\FeatureTreeNodeBase.abstract.cs" />
+    <Compile Include="Controls\LoggingsRootTeeNode.sealed.cs" />
+    <Compile Include="Controls\OrganizationRootTreeNode.sealed.cs" />
+    <Compile Include="Controls\ParameterDeclarationRootTreeNode.sealed.cs" />
     <Compile Include="Controls\RootTreeNode.sealed.cs" />
     <Compile Include="Dialogs\BaseDialog.cs">
       <SubType>Form</SubType>
