@@ -5,6 +5,7 @@ using EnterpriseServices.ManagementClient.Dialogs;
 using EnterpriseServices.ManagementClient.Operations.Resources;
 using EnterpriseServices.ManagementClient.Controls;
 using EnterpriseServices.ManagementClient.Operations;
+using System.ComponentModel;
 
 namespace EnterpriseServices.ManagementClient.Windows
 {
@@ -236,6 +237,8 @@ namespace EnterpriseServices.ManagementClient.Windows
         /// <param name="e"></param>
         private void HandleFeatureTreeNodeClick(object sender, TreeNodeMouseClickEventArgs e)
         {
+            if (e.Button == MouseButtons.Right)
+                this.ctrlObjectsTree.SelectedNode = e.Node;
             if (e.Node != null)
             {
                 FeatureTreeNodeBase node = e.Node as FeatureTreeNodeBase;
@@ -277,6 +280,39 @@ namespace EnterpriseServices.ManagementClient.Windows
         private void HandleAfterTreeNodeCollapsed(object sender, TreeViewEventArgs e)
         {
             this.ctrlObjectsTree.SelectedNode = e.Node;
+        }
+        #endregion
+
+        #region HandleOrganizationRootNodeCtxMenuOpen
+        /// <summary>
+        /// 处理上下文菜单打开事件。
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void HandleOrganizationRootNodeCtxMenuOpen(object sender, CancelEventArgs e)
+        {
+            if (this.ctrlObjectsTree.SelectedNode.Nodes.Count.Equals(0) || (this.ctrlObjectsTree.SelectedNode.Nodes.Count == 1 && this.ctrlObjectsTree.SelectedNode.Nodes[0] is EmptyTreeNode))
+            {
+                this.ctrlCreateRootOrganization.Enabled = true;
+            }
+            else
+                this.ctrlCreateRootOrganization.Enabled = false;
+        }
+        #endregion
+
+        #region CreateRootOrganizationObject
+        /// <summary>
+        /// 用于创建根组织机构对象。
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void CreateRootOrganizationObject(object sender, EventArgs e)
+        {
+            using (OrganizationEditorDialog dialog = new OrganizationEditorDialog() { Action = EditorAction.Create })
+            {
+                if (dialog.ShowDialog() == DialogResult.OK)
+                { }
+            }
         }
         #endregion
     }

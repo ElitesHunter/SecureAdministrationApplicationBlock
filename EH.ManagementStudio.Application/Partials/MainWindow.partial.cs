@@ -64,7 +64,7 @@ namespace EnterpriseServices.ManagementClient.Windows
         {
             treeNode.Nodes.Add(new ParameterDeclarationRootTreeNode());
             treeNode.Nodes.Add(new AdministratorsRootTreeNode());
-            treeNode.Nodes.Add(new OrganizationRootTreeNode() { ContextMenuStrip = this.ctrlOrganizationCtxMenu });
+            treeNode.Nodes.Add(new OrganizationRootTreeNode() { ContextMenuStrip = this.ctrlOrganizationRootCtxMenu });
             treeNode.Nodes.Add(new AuthorizationRootTreeNode());
             treeNode.Nodes.Add(new ExpirationPolicyRootTreeNode());
             treeNode.Nodes.Add(new LoggingsRootTeeNode());
