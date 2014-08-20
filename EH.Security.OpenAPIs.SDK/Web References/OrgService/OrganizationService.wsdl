@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="urn:Masterduner@Yeah.net" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:s1="http://microsoft.com/wsdl/types/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="urn:Masterduner@Yeah.net" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">组织机构对象服务</wsdl:documentation>
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="urn:Masterduner@Yeah.net">
+      <s:import namespace="http://microsoft.com/wsdl/types/" />
+      <s:element name="GetRootOrganization">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetRootOrganizationResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetRootOrganizationResult" type="tns:Organization" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Organization">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:OrganizationObjectBase">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="IsVirtual" type="s:boolean" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="OrganizationObjectBase">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:DbHelper">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="UniqueID" type="s1:guid" />
+              <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="OpenID" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="ParentID" type="s1:guid" />
+              <s:element minOccurs="1" maxOccurs="1" name="Category" type="tns:OrganizationObjectCategory" />
+              <s:element minOccurs="0" maxOccurs="1" name="VirtualName" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="VirtualPath" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="LogicalRemovedState" type="s:boolean" />
+              <s:element minOccurs="1" maxOccurs="1" name="Enabled" type="s:boolean" />
+              <s:element minOccurs="1" maxOccurs="1" name="Visible" type="s:boolean" />
+              <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="DbHelper" />
+      <s:simpleType name="OrganizationObjectCategory">
+        <s:restriction base="s:string">
+          <s:enumeration value="Organization" />
+          <s:enumeration value="VirtualOrganization" />
+          <s:enumeration value="Position" />
+          <s:enumeration value="Staff" />
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="CreateOrganization">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="obj" type="tns:Organization" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateOrganizationResponse">
+        <s:complexType />
+      </s:element>
+    </s:schema>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://microsoft.com/wsdl/types/">
+      <s:simpleType name="guid">
+        <s:restriction base="s:string">
+          <s:pattern value="[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}" />
+        </s:restriction>
+      </s:simpleType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetRootOrganizationSoapIn">
+    <wsdl:part name="parameters" element="tns:GetRootOrganization" />
+  </wsdl:message>
+  <wsdl:message name="GetRootOrganizationSoapOut">
+    <wsdl:part name="parameters" element="tns:GetRootOrganizationResponse" />
+  </wsdl:message>
+  <wsdl:message name="CreateOrganizationSoapIn">
+    <wsdl:part name="parameters" element="tns:CreateOrganization" />
+  </wsdl:message>
+  <wsdl:message name="CreateOrganizationSoapOut">
+    <wsdl:part name="parameters" element="tns:CreateOrganizationResponse" />
+  </wsdl:message>
+  <wsdl:portType name="OrganizationServiceSoap">
+    <wsdl:operation name="GetRootOrganization">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">获取根组织机构信息</wsdl:documentation>
+      <wsdl:input message="tns:GetRootOrganizationSoapIn" />
+      <wsdl:output message="tns:GetRootOrganizationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateOrganization">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">创建一个组织机构。&lt;br /&gt;obj：Organization对象实例。</wsdl:documentation>
+      <wsdl:input message="tns:CreateOrganizationSoapIn" />
+      <wsdl:output message="tns:CreateOrganizationSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="OrganizationServiceSoap" type="tns:OrganizationServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetRootOrganization">
+      <soap:operation soapAction="urn:Masterduner@Yeah.net/GetRootOrganization" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateOrganization">
+      <soap:operation soapAction="urn:Masterduner@Yeah.net/CreateOrganization" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="OrganizationServiceSoap12" type="tns:OrganizationServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetRootOrganization">
+      <soap12:operation soapAction="urn:Masterduner@Yeah.net/GetRootOrganization" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateOrganization">
+      <soap12:operation soapAction="urn:Masterduner@Yeah.net/CreateOrganization" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="OrganizationService">
+    <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">组织机构对象服务</wsdl:documentation>
+    <wsdl:port name="OrganizationServiceSoap" binding="tns:OrganizationServiceSoap">
+      <soap:address location="http://localhost:1/OrganizationService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="OrganizationServiceSoap12" binding="tns:OrganizationServiceSoap12">
+      <soap12:address location="http://localhost:1/OrganizationService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

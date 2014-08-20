@@ -24,10 +24,10 @@
 
 #endregion
 
+using System;
 using System.Diagnostics;
 using System.IO;
 using System.Web.Hosting;
-using System;
 
 namespace EnterpriseServices.Framework.Commons.Runtime
 {

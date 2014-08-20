@@ -24,9 +24,9 @@
 
 #endregion
 
+using System.Drawing;
 using System.Windows.Forms;
 using EnterpriseServices.ManagementClient.Commons;
-using System.Drawing;
 
 namespace EnterpriseServices.ManagementClient.Controls
 {

@@ -9,10 +9,10 @@
 // ------------------------------------------------------------------------------
 namespace EnterpriseServices.SecurityService.Framework.OperationModel.Generators
 {
-    using System;
-    
-    
-    #line 1 "E:\CSharp\Customizations\人力资源管理系统\EH\EH.Security.OperationModel\Generators\WinNTAuthencationXParameterGenerator.tt"
+
+
+
+#line 1 "E:\CSharp\Customizations\人力资源管理系统\EH\EH.Security.OperationModel\Generators\WinNTAuthencationXParameterGenerator.tt"
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "10.0.0.0")]
     internal partial class WinNTAuthencationXParameterGenerator : WinNTAuthencationXParameterGeneratorBase
     {
@@ -21,41 +21,41 @@ namespace EnterpriseServices.SecurityService.Framework.OperationModel.Generators
             this.Write("<eh:EnterpriseServices xmlns:eh=\"urn:Masterduner@Yeah.net\">\r\n\t<eh:SqlServerDataba" +
                     "se>\r\n\t\t<eh:VariableDeclarations>\r\n\t\t\t<eh:StoredProcedure Name=\"Sp.ExecuteWinNTAu" +
                     "thentication\">\r\n\t\t\t\t<eh:Parameter Name=\"xData\">\r\n\t\t\t\t\t<eh:Client IPAddress=\"");
-            
-            #line 7 "E:\CSharp\Customizations\人力资源管理系统\EH\EH.Security.OperationModel\Generators\WinNTAuthencationXParameterGenerator.tt"
+
+#line 7 "E:\CSharp\Customizations\人力资源管理系统\EH\EH.Security.OperationModel\Generators\WinNTAuthencationXParameterGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(this.IPAddress));
-            
-            #line default
-            #line hidden
+
+#line default
+#line hidden
             this.Write("\" HostName=\"");
-            
-            #line 7 "E:\CSharp\Customizations\人力资源管理系统\EH\EH.Security.OperationModel\Generators\WinNTAuthencationXParameterGenerator.tt"
+
+#line 7 "E:\CSharp\Customizations\人力资源管理系统\EH\EH.Security.OperationModel\Generators\WinNTAuthencationXParameterGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(this.HostName));
-            
-            #line default
-            #line hidden
+
+#line default
+#line hidden
             this.Write("\"></eh:Client>\r\n\t\t\t\t\t<eh:UserID Value=\"");
-            
-            #line 8 "E:\CSharp\Customizations\人力资源管理系统\EH\EH.Security.OperationModel\Generators\WinNTAuthencationXParameterGenerator.tt"
+
+#line 8 "E:\CSharp\Customizations\人力资源管理系统\EH\EH.Security.OperationModel\Generators\WinNTAuthencationXParameterGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(this.UserName));
-            
-            #line default
-            #line hidden
+
+#line default
+#line hidden
             this.Write("\"></eh:UserID>\r\n\t\t\t\t\t<eh:Expiration Value=\"");
-            
-            #line 9 "E:\CSharp\Customizations\人力资源管理系统\EH\EH.Security.OperationModel\Generators\WinNTAuthencationXParameterGenerator.tt"
+
+#line 9 "E:\CSharp\Customizations\人力资源管理系统\EH\EH.Security.OperationModel\Generators\WinNTAuthencationXParameterGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(this.AbsoluteExpiration.ToString("yyyy-MM-dd HH:mm:ss")));
-            
-            #line default
-            #line hidden
+
+#line default
+#line hidden
             this.Write("\"></eh:Expiration>\r\n\t\t\t\t</eh:Parameter>\r\n\t\t\t</eh:StoredProcedure>\r\n\t\t</eh:Variabl" +
                     "eDeclarations>\r\n\t</eh:SqlServerDatabase>\r\n</eh:EnterpriseServices>");
             return this.GenerationEnvironment.ToString();
         }
     }
-    
-    #line default
-    #line hidden
+
+#line default
+#line hidden
     #region Base class
     /// <summary>
     /// Base class for this transformation
@@ -155,7 +155,7 @@ namespace EnterpriseServices.SecurityService.Framework.OperationModel.Generators
             }
             // If we're starting off, or if the previous text ended with a newline,
             // we have to append the current indent first.
-            if (((this.GenerationEnvironment.Length == 0) 
+            if (((this.GenerationEnvironment.Length == 0)
                         || this.endsWithNewline))
             {
                 this.GenerationEnvironment.Append(this.currentIndentField);
@@ -273,7 +273,7 @@ namespace EnterpriseServices.SecurityService.Framework.OperationModel.Generators
         /// </summary>
         internal class ToStringInstanceHelper
         {
-            private System.IFormatProvider formatProviderField  = global::System.Globalization.CultureInfo.InvariantCulture;
+            private System.IFormatProvider formatProviderField = global::System.Globalization.CultureInfo.InvariantCulture;
             /// <summary>
             /// Gets or sets format provider to be used by ToStringWithCulture method.
             /// </summary>
@@ -281,13 +281,13 @@ namespace EnterpriseServices.SecurityService.Framework.OperationModel.Generators
             {
                 get
                 {
-                    return this.formatProviderField ;
+                    return this.formatProviderField;
                 }
                 set
                 {
                     if ((value != null))
                     {
-                        this.formatProviderField  = value;
+                        this.formatProviderField = value;
                     }
                 }
             }

@@ -52,5 +52,15 @@ namespace EnterpriseServices.SecurityService.API.Properties {
                 return ((string)(this["EH_Security_OpenAPIs_SDK_IdentityService_IdentityService"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://localhost:1/OrganizationService.asmx")]
+        public string EH_Security_OpenAPIs_SDK_OrgService_OrganizationService {
+            get {
+                return ((string)(this["EH_Security_OpenAPIs_SDK_OrgService_OrganizationService"]));
+            }
+        }
     }
 }

@@ -22,99 +22,99 @@ namespace EnterpriseServices.SecurityService.Framework.Commons.Extra
                     "i.Wang-Public@Outlook.com\">\r\n\t<eh:SecurityService FrameworkVersion=\"Microsoft .N" +
                     "et Framework 3.5\" DeveloperName=\"Wang Yucai\" Version=\"1.0\">\r\n\t\t<!--\r\n\t\t附加的方法拦截器\r" +
                     "\n\t\tGenerate : ");
-            
-            #line 8 "E:\CSharp\Customizations\人力资源管理系统\EH\EH.Security.Commons\Extra\ExtraMonitorFileTextTemplate.tt"
+
+#line 8 "E:\CSharp\Customizations\人力资源管理系统\EH\EH.Security.Commons\Extra\ExtraMonitorFileTextTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(typeof(ExtraMonitorFileTextTemplate).AssemblyQualifiedName));
-            
-            #line default
-            #line hidden
+
+#line default
+#line hidden
             this.Write("\r\n\t\t-->\r\n\t\t<eh:ExtraMethodMonitor>\r\n\t\t\t<!--头信息-->\r\n\t\t\t<eh:HeadDescription TypeNam" +
                     "e=\"");
-            
-            #line 12 "E:\CSharp\Customizations\人力资源管理系统\EH\EH.Security.Commons\Extra\ExtraMonitorFileTextTemplate.tt"
+
+#line 12 "E:\CSharp\Customizations\人力资源管理系统\EH\EH.Security.Commons\Extra\ExtraMonitorFileTextTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(this.ExtraMonitor.TypeName));
-            
-            #line default
-            #line hidden
+
+#line default
+#line hidden
             this.Write("\" MethodName=\"");
-            
-            #line 12 "E:\CSharp\Customizations\人力资源管理系统\EH\EH.Security.Commons\Extra\ExtraMonitorFileTextTemplate.tt"
+
+#line 12 "E:\CSharp\Customizations\人力资源管理系统\EH\EH.Security.Commons\Extra\ExtraMonitorFileTextTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(this.ExtraMonitor.MethodName));
-            
-            #line default
-            #line hidden
+
+#line default
+#line hidden
             this.Write("\" />\r\n\t\t\t<!--方法监听器信息-->\r\n\t\t\t<eh:MonitorResources>\r\n\t\t\t\t<eh:Assemblies>\r\n\t\t\t\t\t");
-            
-            #line 16 "E:\CSharp\Customizations\人力资源管理系统\EH\EH.Security.Commons\Extra\ExtraMonitorFileTextTemplate.tt"
- foreach(var item in this.ExtraMonitor.MonitorAssemblyCollection)
-				{
-					 
-            
-            #line default
-            #line hidden
-            this.Write("\t\t\t\t\t <eh:Reference Path=\"");
-            
-            #line 19 "E:\CSharp\Customizations\人力资源管理系统\EH\EH.Security.Commons\Extra\ExtraMonitorFileTextTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(item.FileName));
-            
-            #line default
-            #line hidden
-            this.Write("\" />\r\n\t\t\t\t\t ");
-            
-            #line 20 "E:\CSharp\Customizations\人力资源管理系统\EH\EH.Security.Commons\Extra\ExtraMonitorFileTextTemplate.tt"
- 
-				}
-						
-            
-            #line default
-            #line hidden
+
+#line 16 "E:\CSharp\Customizations\人力资源管理系统\EH\EH.Security.Commons\Extra\ExtraMonitorFileTextTemplate.tt"
+            foreach (var item in this.ExtraMonitor.MonitorAssemblyCollection)
+            {
+
+
+#line default
+#line hidden
+                this.Write("\t\t\t\t\t <eh:Reference Path=\"");
+
+#line 19 "E:\CSharp\Customizations\人力资源管理系统\EH\EH.Security.Commons\Extra\ExtraMonitorFileTextTemplate.tt"
+                this.Write(this.ToStringHelper.ToStringWithCulture(item.FileName));
+
+#line default
+#line hidden
+                this.Write("\" />\r\n\t\t\t\t\t ");
+
+#line 20 "E:\CSharp\Customizations\人力资源管理系统\EH\EH.Security.Commons\Extra\ExtraMonitorFileTextTemplate.tt"
+
+            }
+
+
+#line default
+#line hidden
             this.Write("\t\t\t\t</eh:Assemblies>\r\n\t\t\t\t<eh:Monitors>\r\n\t\t\t\t\t");
-            
-            #line 25 "E:\CSharp\Customizations\人力资源管理系统\EH\EH.Security.Commons\Extra\ExtraMonitorFileTextTemplate.tt"
- foreach(var item in this.ExtraMonitor.MonitorCollection)
-				{
-					 
-            
-            #line default
-            #line hidden
-            this.Write("\t\t\t\t\t <eh:Attach ID=\"");
-            
-            #line 28 "E:\CSharp\Customizations\人力资源管理系统\EH\EH.Security.Commons\Extra\ExtraMonitorFileTextTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(item.MonitorID));
-            
-            #line default
-            #line hidden
-            this.Write("\" Order=\"");
-            
-            #line 28 "E:\CSharp\Customizations\人力资源管理系统\EH\EH.Security.Commons\Extra\ExtraMonitorFileTextTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(item.Order.ToString()));
-            
-            #line default
-            #line hidden
-            this.Write("\" TypeName=\"");
-            
-            #line 28 "E:\CSharp\Customizations\人力资源管理系统\EH\EH.Security.Commons\Extra\ExtraMonitorFileTextTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(item.TypeName));
-            
-            #line default
-            #line hidden
-            this.Write("\" />\r\n\t\t\t\t\t ");
-            
-            #line 29 "E:\CSharp\Customizations\人力资源管理系统\EH\EH.Security.Commons\Extra\ExtraMonitorFileTextTemplate.tt"
- 
-				}
-						
-            
-            #line default
-            #line hidden
+
+#line 25 "E:\CSharp\Customizations\人力资源管理系统\EH\EH.Security.Commons\Extra\ExtraMonitorFileTextTemplate.tt"
+            foreach (var item in this.ExtraMonitor.MonitorCollection)
+            {
+
+
+#line default
+#line hidden
+                this.Write("\t\t\t\t\t <eh:Attach ID=\"");
+
+#line 28 "E:\CSharp\Customizations\人力资源管理系统\EH\EH.Security.Commons\Extra\ExtraMonitorFileTextTemplate.tt"
+                this.Write(this.ToStringHelper.ToStringWithCulture(item.MonitorID));
+
+#line default
+#line hidden
+                this.Write("\" Order=\"");
+
+#line 28 "E:\CSharp\Customizations\人力资源管理系统\EH\EH.Security.Commons\Extra\ExtraMonitorFileTextTemplate.tt"
+                this.Write(this.ToStringHelper.ToStringWithCulture(item.Order.ToString()));
+
+#line default
+#line hidden
+                this.Write("\" TypeName=\"");
+
+#line 28 "E:\CSharp\Customizations\人力资源管理系统\EH\EH.Security.Commons\Extra\ExtraMonitorFileTextTemplate.tt"
+                this.Write(this.ToStringHelper.ToStringWithCulture(item.TypeName));
+
+#line default
+#line hidden
+                this.Write("\" />\r\n\t\t\t\t\t ");
+
+#line 29 "E:\CSharp\Customizations\人力资源管理系统\EH\EH.Security.Commons\Extra\ExtraMonitorFileTextTemplate.tt"
+
+            }
+
+
+#line default
+#line hidden
             this.Write("\t\t\t\t</eh:Monitors>\r\n\t\t\t</eh:MonitorResources />\r\n\t\t</eh:ExtraMethodMonitor>\r\n\t</e" +
                     "h:SecurityService>\r\n</eh:EnterpriseServices>");
             return this.GenerationEnvironment.ToString();
         }
     }
-    
-    #line default
-    #line hidden
+
+#line default
+#line hidden
     #region Base class
     /// <summary>
     /// Base class for this transformation
@@ -214,7 +214,7 @@ namespace EnterpriseServices.SecurityService.Framework.Commons.Extra
             }
             // If we're starting off, or if the previous text ended with a newline,
             // we have to append the current indent first.
-            if (((this.GenerationEnvironment.Length == 0) 
+            if (((this.GenerationEnvironment.Length == 0)
                         || this.endsWithNewline))
             {
                 this.GenerationEnvironment.Append(this.currentIndentField);
@@ -332,7 +332,7 @@ namespace EnterpriseServices.SecurityService.Framework.Commons.Extra
         /// </summary>
         internal class ToStringInstanceHelper
         {
-            private System.IFormatProvider formatProviderField  = global::System.Globalization.CultureInfo.InvariantCulture;
+            private System.IFormatProvider formatProviderField = global::System.Globalization.CultureInfo.InvariantCulture;
             /// <summary>
             /// Gets or sets format provider to be used by ToStringWithCulture method.
             /// </summary>
@@ -340,13 +340,13 @@ namespace EnterpriseServices.SecurityService.Framework.Commons.Extra
             {
                 get
                 {
-                    return this.formatProviderField ;
+                    return this.formatProviderField;
                 }
                 set
                 {
                     if ((value != null))
                     {
-                        this.formatProviderField  = value;
+                        this.formatProviderField = value;
                     }
                 }
             }

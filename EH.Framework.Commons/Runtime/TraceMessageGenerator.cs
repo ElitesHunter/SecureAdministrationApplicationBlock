@@ -10,50 +10,50 @@
 namespace EnterpriseServices.Framework.Commons.Runtime
 {
     using System;
-    
-    
-    #line 1 "E:\CSharp\Customizations\人力资源管理系统\EH\EH.Framework.Commons\Runtime\TraceMessageGenerator.tt"
+
+
+#line 1 "E:\CSharp\Customizations\人力资源管理系统\EH\EH.Framework.Commons\Runtime\TraceMessageGenerator.tt"
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "10.0.0.0")]
     internal partial class TraceMessageGenerator : TraceMessageGeneratorBase
     {
         internal virtual string TransformText()
         {
             this.Write("************************************{");
-            
-            #line 2 "E:\CSharp\Customizations\人力资源管理系统\EH\EH.Framework.Commons\Runtime\TraceMessageGenerator.tt"
+
+#line 2 "E:\CSharp\Customizations\人力资源管理系统\EH\EH.Framework.Commons\Runtime\TraceMessageGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")));
-            
-            #line default
-            #line hidden
+
+#line default
+#line hidden
             this.Write("}************************************\r\n\r\nType : ");
-            
-            #line 4 "E:\CSharp\Customizations\人力资源管理系统\EH\EH.Framework.Commons\Runtime\TraceMessageGenerator.tt"
+
+#line 4 "E:\CSharp\Customizations\人力资源管理系统\EH\EH.Framework.Commons\Runtime\TraceMessageGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(this.Type.AssemblyQualifiedName));
-            
-            #line default
-            #line hidden
+
+#line default
+#line hidden
             this.Write("\r\nLevel : ");
-            
-            #line 5 "E:\CSharp\Customizations\人力资源管理系统\EH\EH.Framework.Commons\Runtime\TraceMessageGenerator.tt"
+
+#line 5 "E:\CSharp\Customizations\人力资源管理系统\EH\EH.Framework.Commons\Runtime\TraceMessageGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(this.TraceEventLevel.ToString()));
-            
-            #line default
-            #line hidden
+
+#line default
+#line hidden
             this.Write("\r\nMessage : ");
-            
-            #line 6 "E:\CSharp\Customizations\人力资源管理系统\EH\EH.Framework.Commons\Runtime\TraceMessageGenerator.tt"
+
+#line 6 "E:\CSharp\Customizations\人力资源管理系统\EH\EH.Framework.Commons\Runtime\TraceMessageGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(this.Message));
-            
-            #line default
-            #line hidden
+
+#line default
+#line hidden
             this.Write("\r\n\r\n*****************************************************************************" +
                     "*****************************************************\r\n\r\n");
             return this.GenerationEnvironment.ToString();
         }
     }
-    
-    #line default
-    #line hidden
+
+#line default
+#line hidden
     #region Base class
     /// <summary>
     /// Base class for this transformation
@@ -153,7 +153,7 @@ namespace EnterpriseServices.Framework.Commons.Runtime
             }
             // If we're starting off, or if the previous text ended with a newline,
             // we have to append the current indent first.
-            if (((this.GenerationEnvironment.Length == 0) 
+            if (((this.GenerationEnvironment.Length == 0)
                         || this.endsWithNewline))
             {
                 this.GenerationEnvironment.Append(this.currentIndentField);
@@ -271,7 +271,7 @@ namespace EnterpriseServices.Framework.Commons.Runtime
         /// </summary>
         internal class ToStringInstanceHelper
         {
-            private System.IFormatProvider formatProviderField  = global::System.Globalization.CultureInfo.InvariantCulture;
+            private System.IFormatProvider formatProviderField = global::System.Globalization.CultureInfo.InvariantCulture;
             /// <summary>
             /// Gets or sets format provider to be used by ToStringWithCulture method.
             /// </summary>
@@ -279,13 +279,13 @@ namespace EnterpriseServices.Framework.Commons.Runtime
             {
                 get
                 {
-                    return this.formatProviderField ;
+                    return this.formatProviderField;
                 }
                 set
                 {
                     if ((value != null))
                     {
-                        this.formatProviderField  = value;
+                        this.formatProviderField = value;
                     }
                 }
             }

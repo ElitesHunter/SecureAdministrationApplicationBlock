@@ -56,6 +56,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ApiServiceConfiguration.csd</DependentUpon>
     </Compile>
+    <Compile Include="OrganizationApi.sealed.cs" />
     <Compile Include="Properties\EH.Security.AssemblyInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
@@ -75,6 +76,11 @@
       <DependentUpon>Reference.map</DependentUpon>
     </Compile>
     <Compile Include="Web References\IdentityService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\OrgService\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.map</DependentUpon>
@@ -123,6 +129,14 @@
       <Generator>MSDiscoCodeGenerator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+    <None Include="Web References\OrgService\Organization.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\OrgService\OrganizationService.wsdl" />
+    <None Include="Web References\OrgService\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
@@ -153,6 +167,17 @@
       <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
       <CachedSettingsPropName>EH_Security_OpenAPIs_SDK_IdentityService_IdentityService</CachedSettingsPropName>
     </WebReferenceUrl>
+    <WebReferenceUrl Include="http://localhost:1/OrganizationService.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\OrgService\</RelPath>
+      <UpdateFromURL>http://localhost:1/OrganizationService.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>EH_Security_OpenAPIs_SDK_OrgService_OrganizationService</CachedSettingsPropName>
+    </WebReferenceUrl>
     <WebReferenceUrl Include="http://localhost:1/UserBehaviorService.asmx">
       <UrlBehavior>Dynamic</UrlBehavior>
       <RelPath>Web References\BehaviorService\</RelPath>
@@ -176,6 +201,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Web References\IdentityService\IdentityService.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Web References\OrgService\OrganizationService.disco" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

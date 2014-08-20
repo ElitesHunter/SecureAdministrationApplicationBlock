@@ -11,5 +11,8 @@
     <Setting Name="EH_Security_OpenAPIs_SDK_IdentityService_IdentityService" Type="(Web Service URL)" Scope="Application">
       <Value Profile="(Default)">http://localhost:1/IdentityService.asmx</Value>
     </Setting>
+    <Setting Name="EH_Security_OpenAPIs_SDK_OrgService_OrganizationService" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://localhost:1/OrganizationService.asmx</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

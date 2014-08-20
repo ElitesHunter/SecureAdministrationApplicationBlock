@@ -10,14 +10,14 @@
 
 namespace EnterpriseServices.SecurityService.API.Configuration
 {
-    
-    
+
+
     /// <summary>
     /// 服务引用配置。
     /// </summary>
     public sealed partial class ServiceReferenceUrlConfigureElement : global::System.Configuration.ConfigurationElement
     {
-        
+
         #region IsReadOnly override
         /// <summary>
         /// Gets a value indicating whether the element is read-only.
@@ -28,20 +28,20 @@ namespace EnterpriseServices.SecurityService.API.Configuration
             return false;
         }
         #endregion
-        
+
         #region Name Property
         /// <summary>
         /// The XML name of the <see cref="Name"/> property.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.0.0")]
         internal const string NamePropertyName = "name";
-        
+
         /// <summary>
         /// Gets or sets 设置或获取服务名称。
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.0.0")]
         [global::System.ComponentModel.DescriptionAttribute("设置或获取服务名称。")]
-        [global::System.Configuration.ConfigurationPropertyAttribute(global::EnterpriseServices.SecurityService.API.Configuration.ServiceReferenceUrlConfigureElement.NamePropertyName, IsRequired=true, IsKey=true, IsDefaultCollection=false)]
+        [global::System.Configuration.ConfigurationPropertyAttribute(global::EnterpriseServices.SecurityService.API.Configuration.ServiceReferenceUrlConfigureElement.NamePropertyName, IsRequired = true, IsKey = true, IsDefaultCollection = false)]
         public string Name
         {
             get
@@ -54,20 +54,20 @@ namespace EnterpriseServices.SecurityService.API.Configuration
             }
         }
         #endregion
-        
+
         #region Url Property
         /// <summary>
         /// The XML name of the <see cref="Url"/> property.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.0.0")]
         internal const string UrlPropertyName = "url";
-        
+
         /// <summary>
         /// Gets or sets 设置或获取服务地址。
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.0.0")]
         [global::System.ComponentModel.DescriptionAttribute("设置或获取服务地址。")]
-        [global::System.Configuration.ConfigurationPropertyAttribute(global::EnterpriseServices.SecurityService.API.Configuration.ServiceReferenceUrlConfigureElement.UrlPropertyName, IsRequired=true, IsKey=false, IsDefaultCollection=false)]
+        [global::System.Configuration.ConfigurationPropertyAttribute(global::EnterpriseServices.SecurityService.API.Configuration.ServiceReferenceUrlConfigureElement.UrlPropertyName, IsRequired = true, IsKey = false, IsDefaultCollection = false)]
         public string Url
         {
             get
@@ -84,15 +84,15 @@ namespace EnterpriseServices.SecurityService.API.Configuration
 }
 namespace EnterpriseServices.SecurityService.API.Configuration
 {
-    
-    
+
+
     /// <summary>
     /// ServiceReferenceUrlConfigureElement集合。
     /// </summary>
-    [global::System.Configuration.ConfigurationCollectionAttribute(typeof(global::EnterpriseServices.SecurityService.API.Configuration.ServiceReferenceUrlConfigureElement), CollectionType=global::System.Configuration.ConfigurationElementCollectionType.BasicMapAlternate, AddItemName=global::EnterpriseServices.SecurityService.API.Configuration.ServiceReferenceUrlConfigureElementCollection.ServiceReferenceUrlConfigureElementPropertyName)]
+    [global::System.Configuration.ConfigurationCollectionAttribute(typeof(global::EnterpriseServices.SecurityService.API.Configuration.ServiceReferenceUrlConfigureElement), CollectionType = global::System.Configuration.ConfigurationElementCollectionType.BasicMapAlternate, AddItemName = global::EnterpriseServices.SecurityService.API.Configuration.ServiceReferenceUrlConfigureElementCollection.ServiceReferenceUrlConfigureElementPropertyName)]
     public sealed partial class ServiceReferenceUrlConfigureElementCollection : global::System.Configuration.ConfigurationElementCollection
     {
-        
+
         #region Constants
         /// <summary>
         /// The XML name of the individual <see cref="global::EnterpriseServices.SecurityService.API.Configuration.ServiceReferenceUrlConfigureElement"/> instances in this collection.
@@ -100,7 +100,7 @@ namespace EnterpriseServices.SecurityService.API.Configuration
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.0.0")]
         internal const string ServiceReferenceUrlConfigureElementPropertyName = "add";
         #endregion
-        
+
         #region Overrides
         /// <summary>
         /// Gets the type of the <see cref="global::System.Configuration.ConfigurationElementCollection"/>.
@@ -114,7 +114,7 @@ namespace EnterpriseServices.SecurityService.API.Configuration
                 return global::System.Configuration.ConfigurationElementCollectionType.BasicMapAlternate;
             }
         }
-        
+
         /// <summary>
         /// Gets the name used to identify this collection of elements
         /// </summary>
@@ -126,7 +126,7 @@ namespace EnterpriseServices.SecurityService.API.Configuration
                 return global::EnterpriseServices.SecurityService.API.Configuration.ServiceReferenceUrlConfigureElementCollection.ServiceReferenceUrlConfigureElementPropertyName;
             }
         }
-        
+
         /// <summary>
         /// Indicates whether the specified <see cref="global::System.Configuration.ConfigurationElement"/> exists in the <see cref="global::System.Configuration.ConfigurationElementCollection"/>.
         /// </summary>
@@ -139,7 +139,7 @@ namespace EnterpriseServices.SecurityService.API.Configuration
         {
             return (elementName == global::EnterpriseServices.SecurityService.API.Configuration.ServiceReferenceUrlConfigureElementCollection.ServiceReferenceUrlConfigureElementPropertyName);
         }
-        
+
         /// <summary>
         /// Gets the element key for the specified configuration element.
         /// </summary>
@@ -152,7 +152,7 @@ namespace EnterpriseServices.SecurityService.API.Configuration
         {
             return ((global::EnterpriseServices.SecurityService.API.Configuration.ServiceReferenceUrlConfigureElement)(element)).Name;
         }
-        
+
         /// <summary>
         /// Creates a new <see cref="global::EnterpriseServices.SecurityService.API.Configuration.ServiceReferenceUrlConfigureElement"/>.
         /// </summary>
@@ -165,7 +165,7 @@ namespace EnterpriseServices.SecurityService.API.Configuration
             return new global::EnterpriseServices.SecurityService.API.Configuration.ServiceReferenceUrlConfigureElement();
         }
         #endregion
-        
+
         #region Indexer
         /// <summary>
         /// Gets the <see cref="global::EnterpriseServices.SecurityService.API.Configuration.ServiceReferenceUrlConfigureElement"/> at the specified index.
@@ -179,7 +179,7 @@ namespace EnterpriseServices.SecurityService.API.Configuration
                 return ((global::EnterpriseServices.SecurityService.API.Configuration.ServiceReferenceUrlConfigureElement)(base.BaseGet(index)));
             }
         }
-        
+
         /// <summary>
         /// Gets the <see cref="global::EnterpriseServices.SecurityService.API.Configuration.ServiceReferenceUrlConfigureElement"/> with the specified key.
         /// </summary>
@@ -193,7 +193,7 @@ namespace EnterpriseServices.SecurityService.API.Configuration
             }
         }
         #endregion
-        
+
         #region IsReadOnly override
         /// <summary>
         /// Gets a value indicating whether the element is read-only.
@@ -208,21 +208,21 @@ namespace EnterpriseServices.SecurityService.API.Configuration
 }
 namespace EnterpriseServices.SecurityService.API.Configuration
 {
-    
-    
+
+
     /// <summary>
     /// 服务引用地址配置。
     /// </summary>
     public sealed partial class ApiServiceReferenceUrlSection : global::System.Configuration.ConfigurationSection
     {
-        
+
         #region Xmlns Property
         /// <summary>
         /// The XML name of the <see cref="Xmlns"/> property.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.0.0")]
         internal const string XmlnsPropertyName = "xmlns";
-        
+
         /// <summary>
         /// Gets the XML namespace of this Configuration Section.
         /// </summary>
@@ -231,7 +231,7 @@ namespace EnterpriseServices.SecurityService.API.Configuration
         /// the parser doesn't throw an exception because it encounters the unknown "xmlns" attribute.
         /// </remarks>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.0.0")]
-        [global::System.Configuration.ConfigurationPropertyAttribute(global::EnterpriseServices.SecurityService.API.Configuration.ApiServiceReferenceUrlSection.XmlnsPropertyName, IsRequired=false, IsKey=false, IsDefaultCollection=false)]
+        [global::System.Configuration.ConfigurationPropertyAttribute(global::EnterpriseServices.SecurityService.API.Configuration.ApiServiceReferenceUrlSection.XmlnsPropertyName, IsRequired = false, IsKey = false, IsDefaultCollection = false)]
         public string Xmlns
         {
             get
@@ -240,7 +240,7 @@ namespace EnterpriseServices.SecurityService.API.Configuration
             }
         }
         #endregion
-        
+
         #region IsReadOnly override
         /// <summary>
         /// Gets a value indicating whether the element is read-only.
@@ -251,20 +251,20 @@ namespace EnterpriseServices.SecurityService.API.Configuration
             return false;
         }
         #endregion
-        
+
         #region BaseUrl Property
         /// <summary>
         /// The XML name of the <see cref="BaseUrl"/> property.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.0.0")]
         internal const string BaseUrlPropertyName = "baseUrl";
-        
+
         /// <summary>
         /// Gets or sets 设置或获取服务基地址。
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.0.0")]
         [global::System.ComponentModel.DescriptionAttribute("设置或获取服务基地址。")]
-        [global::System.Configuration.ConfigurationPropertyAttribute(global::EnterpriseServices.SecurityService.API.Configuration.ApiServiceReferenceUrlSection.BaseUrlPropertyName, IsRequired=true, IsKey=false, IsDefaultCollection=false)]
+        [global::System.Configuration.ConfigurationPropertyAttribute(global::EnterpriseServices.SecurityService.API.Configuration.ApiServiceReferenceUrlSection.BaseUrlPropertyName, IsRequired = true, IsKey = false, IsDefaultCollection = false)]
         public string BaseUrl
         {
             get
@@ -277,20 +277,20 @@ namespace EnterpriseServices.SecurityService.API.Configuration
             }
         }
         #endregion
-        
+
         #region References Property
         /// <summary>
         /// The XML name of the <see cref="References"/> property.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.0.0")]
         internal const string ReferencesPropertyName = "";
-        
+
         /// <summary>
         /// Gets or sets the References.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.0.0")]
         [global::System.ComponentModel.DescriptionAttribute("The References.")]
-        [global::System.Configuration.ConfigurationPropertyAttribute(global::EnterpriseServices.SecurityService.API.Configuration.ApiServiceReferenceUrlSection.ReferencesPropertyName, IsRequired=false, IsKey=false, IsDefaultCollection=true)]
+        [global::System.Configuration.ConfigurationPropertyAttribute(global::EnterpriseServices.SecurityService.API.Configuration.ApiServiceReferenceUrlSection.ReferencesPropertyName, IsRequired = false, IsKey = false, IsDefaultCollection = true)]
         public global::EnterpriseServices.SecurityService.API.Configuration.ServiceReferenceUrlConfigureElementCollection References
         {
             get

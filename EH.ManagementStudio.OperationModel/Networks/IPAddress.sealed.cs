@@ -25,9 +25,9 @@
 #endregion
 
 using System;
+using System.Net;
 using System.Net.NetworkInformation;
 using IP = System.Net.IPAddress;
-using System.Net;
 
 namespace EnterpriseServices.ManagementClient.Operations.Networks
 {

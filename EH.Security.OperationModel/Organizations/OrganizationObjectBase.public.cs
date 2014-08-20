@@ -220,6 +220,15 @@ namespace EnterpriseServices.SecurityService.Framework.OperationModel.Organizati
             return object.ReferenceEquals(data, null) || object.ReferenceEquals(data, DBNull.Value);
         }
         #endregion
+
+        #region Create
+        /// <summary>
+        /// 创建一个组织机构对象。
+        /// </summary>
+        public virtual void Create()
+        {
+        }
+        #endregion
     }
 }
 

@@ -85,7 +85,8 @@ namespace EnterpriseServices.SecurityService.Framework.Commons
         /// <para>构造函数：</para>
         /// <para>初始化一个<see cref="WithoutPermissionError" />对象实例。</para>
         /// </summary>
-        public WithoutPermissionError():this(null)
+        public WithoutPermissionError()
+            : this(null)
         {
         }
 

@@ -24,7 +24,6 @@
 
 #endregion
 
-using System;
 using EnterpriseServices.ManagementClient.Operations.Resources;
 
 namespace EnterpriseServices.ManagementClient.Controls
@@ -47,7 +46,8 @@ namespace EnterpriseServices.ManagementClient.Controls
         /// <para>构造函数：</para>
         /// <para>初始化一个<see cref="LoggingsRootTeeNode" />对象实例。</para>
         /// </summary>
-        public LoggingsRootTeeNode():base(Commons.FeatureTreeNodeType.LoggingsRoot)
+        public LoggingsRootTeeNode()
+            : base(Commons.FeatureTreeNodeType.LoggingsRoot)
         {
             this.Text = Messages.LoggingViewer;
         }
