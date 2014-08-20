@@ -31,6 +31,8 @@ namespace EnterpriseServices.SecurityService.API.BehaviorService {
         
         private System.Threading.SendOrPostCallback TraceInOutBehaviorOperationCompleted;
         
+        private System.Threading.SendOrPostCallback TraceOperateBehaviorOperationCompleted;
+        
         private bool useDefaultCredentialsSetExplicitly;
         
         /// <remarks/>
@@ -73,6 +75,9 @@ namespace EnterpriseServices.SecurityService.API.BehaviorService {
         public event TraceInOutBehaviorCompletedEventHandler TraceInOutBehaviorCompleted;
         
         /// <remarks/>
+        public event TraceOperateBehaviorCompletedEventHandler TraceOperateBehaviorCompleted;
+        
+        /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:Masterduner@Yeah.net/TraceInOutBehavior", RequestNamespace="urn:Masterduner@Yeah.net", ResponseNamespace="urn:Masterduner@Yeah.net", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         public void TraceInOutBehavior(string methodName, string typeName, string version, InOut mark, string userName) {
             this.Invoke("TraceInOutBehavior", new object[] {
@@ -105,6 +110,40 @@ namespace EnterpriseServices.SecurityService.API.BehaviorService {
             if ((this.TraceInOutBehaviorCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
                 this.TraceInOutBehaviorCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:Masterduner@Yeah.net/TraceOperateBehavior", RequestNamespace="urn:Masterduner@Yeah.net", ResponseNamespace="urn:Masterduner@Yeah.net", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public void TraceOperateBehavior(string methodName, string typeName, string version, System.Guid userID) {
+            this.Invoke("TraceOperateBehavior", new object[] {
+                        methodName,
+                        typeName,
+                        version,
+                        userID});
+        }
+        
+        /// <remarks/>
+        public void TraceOperateBehaviorAsync(string methodName, string typeName, string version, System.Guid userID) {
+            this.TraceOperateBehaviorAsync(methodName, typeName, version, userID, null);
+        }
+        
+        /// <remarks/>
+        public void TraceOperateBehaviorAsync(string methodName, string typeName, string version, System.Guid userID, object userState) {
+            if ((this.TraceOperateBehaviorOperationCompleted == null)) {
+                this.TraceOperateBehaviorOperationCompleted = new System.Threading.SendOrPostCallback(this.OnTraceOperateBehaviorOperationCompleted);
+            }
+            this.InvokeAsync("TraceOperateBehavior", new object[] {
+                        methodName,
+                        typeName,
+                        version,
+                        userID}, this.TraceOperateBehaviorOperationCompleted, userState);
+        }
+        
+        private void OnTraceOperateBehaviorOperationCompleted(object arg) {
+            if ((this.TraceOperateBehaviorCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.TraceOperateBehaviorCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -143,6 +182,10 @@ namespace EnterpriseServices.SecurityService.API.BehaviorService {
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.18408")]
     public delegate void TraceInOutBehaviorCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.18408")]
+    public delegate void TraceOperateBehaviorCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
 }
 
 #pragma warning restore 1591

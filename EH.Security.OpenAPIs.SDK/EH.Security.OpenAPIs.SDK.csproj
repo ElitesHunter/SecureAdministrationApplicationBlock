@@ -56,6 +56,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ApiServiceConfiguration.csd</DependentUpon>
     </Compile>
+    <Compile Include="OperationBehaviorTraceApi.sealed.cs" />
     <Compile Include="OrganizationApi.sealed.cs" />
     <Compile Include="Properties\EH.Security.AssemblyInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

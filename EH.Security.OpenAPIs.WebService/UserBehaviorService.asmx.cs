@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using System;
+using System.ComponentModel;
 using System.Web.Services;
 using EnterpriseServices.SecurityService.Framework.Commons;
 using EnterpriseServices.SecurityService.Framework.OperationModel.Logging;
@@ -34,6 +35,27 @@ namespace EnterpriseServices.SecurityService.API.OpenServices
                 Version = version,
                 InOut = mark,
                 UserName = userName
+            }.Trace();
+        }
+        #endregion
+
+        #region TraceOperateBehavior
+        /// <summary>
+        /// 记录用户操作行为。
+        /// </summary>
+        /// <param name="methodName"></param>
+        /// <param name="typeName"></param>
+        /// <param name="version"></param>
+        /// <param name="userID"></param>
+        [WebMethod(Description = "methodName:方法名称。<br />typeName:类型的完全限定名称。<br />version:版本号。<br />mark:InOut值。<br />userID:当前用户的唯一标识。")]
+        public void TraceOperateBehavior(string methodName, string typeName, string version, Guid userID)
+        {
+            new UserOperateBehaviorBlog()
+            {
+                MethodName = methodName,
+                TypeName = typeName,
+                Version = version,
+                UserUniqueID = userID
             }.Trace();
         }
         #endregion

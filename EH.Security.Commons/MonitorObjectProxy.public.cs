@@ -233,6 +233,7 @@ namespace EnterpriseServices.SecurityService.Framework.Commons
             context.ExpandoProperties.Add("IsGenericMethod", msg.MethodBase.IsGenericMethod);
             context.ExpandoProperties.Add("DeclaringType", msg.MethodBase.DeclaringType.AssemblyQualifiedName);
             context.ExpandoProperties.Add("CustomAttributes", attributes);
+            context.ExpandoProperties.Add("AssemblyVersion", msg.MethodBase.DeclaringType.Assembly.GetName().Version.ToString());
             return context;
         }
         #endregion

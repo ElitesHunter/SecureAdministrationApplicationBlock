@@ -89,6 +89,7 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <Compile Include="StartupLogEntity.sealed.cs" />
+    <Compile Include="TraceOperationBehavior.sealed.cs" />
     <Compile Include="TreeNodeBoundControlAttribute.sealed.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -132,6 +133,9 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Messages.en-US.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Organizations\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
