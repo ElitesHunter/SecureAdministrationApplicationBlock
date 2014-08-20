@@ -39,6 +39,7 @@ namespace EnterpriseServices.Framework.Commons.Data
     /// <remarks>
     /// <para>Target Framework Version : 3.5</para>
     /// </remarks>
+    [Serializable]
     public class DbHelper
     {
         private DbConnectionString _connectionString;

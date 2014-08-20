@@ -1,11 +1,11 @@
 ﻿using System;
+using System.ComponentModel;
 using System.Windows.Forms;
 using EnterpriseServices.ManagementClient.Commons;
-using EnterpriseServices.ManagementClient.Dialogs;
-using EnterpriseServices.ManagementClient.Operations.Resources;
 using EnterpriseServices.ManagementClient.Controls;
+using EnterpriseServices.ManagementClient.Dialogs;
 using EnterpriseServices.ManagementClient.Operations;
-using System.ComponentModel;
+using EnterpriseServices.ManagementClient.Operations.Resources;
 
 namespace EnterpriseServices.ManagementClient.Windows
 {

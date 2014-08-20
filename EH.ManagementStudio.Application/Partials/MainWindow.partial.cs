@@ -25,8 +25,8 @@
 #endregion
 
 using System;
-using EnterpriseServices.ManagementClient.Controls;
 using System.Windows.Forms;
+using EnterpriseServices.ManagementClient.Controls;
 
 namespace EnterpriseServices.ManagementClient.Windows
 {

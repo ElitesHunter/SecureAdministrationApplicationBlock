@@ -83,6 +83,7 @@
       <DependentUpon>TraceMessageGenerator.tt</DependentUpon>
     </Compile>
     <Compile Include="Runtime\TraceMessageGenerator.partial.cs" />
+    <Compile Include="StringExtensions.static.cs" />
     <Compile Include="TerminalPlatform.cs" />
     <Compile Include="_Object.abstract.cs" />
   </ItemGroup>

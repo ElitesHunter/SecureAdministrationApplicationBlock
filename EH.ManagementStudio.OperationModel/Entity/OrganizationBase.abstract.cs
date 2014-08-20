@@ -25,7 +25,6 @@
 #endregion
 
 using System;
-using EnterpriseServices.Framework.Commons;
 using System.ComponentModel;
 
 namespace EnterpriseServices.ManagementClient.Operations.Entity
