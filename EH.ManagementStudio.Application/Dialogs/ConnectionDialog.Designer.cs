@@ -156,6 +156,7 @@
             this.MinimizeBox = false;
             this.Name = "ConnectionDialog";
             this.Text = "连接服务器";
+            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.FormKeyPressEvent);
             ((System.ComponentModel.ISupportInitialize)(this.ctrlSigninLoadingImage)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -71,6 +71,17 @@
             this.ctrlCreateRootOrganization = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
             this.ctrlRefreshRootOrganization = new System.Windows.Forms.ToolStripMenuItem();
+            this.ctrlOrganizationObjCtxMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.ctrlCreateOrgObject = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator8 = new System.Windows.Forms.ToolStripSeparator();
+            this.ctrlCreatePosition = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator9 = new System.Windows.Forms.ToolStripSeparator();
+            this.ctrlCreateStaff = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator10 = new System.Windows.Forms.ToolStripSeparator();
+            this.ctrlDisableOrgObject = new System.Windows.Forms.ToolStripMenuItem();
+            this.ctrlRemoveOrgObject = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator11 = new System.Windows.Forms.ToolStripSeparator();
+            this.ctrlRefreshOrgObject = new System.Windows.Forms.ToolStripMenuItem();
             this.ctrlMainFeaturesMenu.SuspendLayout();
             this.ctrlFeaturesToolmenu.SuspendLayout();
             this.ctrlStatusControlsPanel.SuspendLayout();
@@ -79,6 +90,7 @@
             this.ctrlSplitContainer.Panel2.SuspendLayout();
             this.ctrlSplitContainer.SuspendLayout();
             this.ctrlOrganizationRootCtxMenu.SuspendLayout();
+            this.ctrlOrganizationObjCtxMenu.SuspendLayout();
             this.SuspendLayout();
             // 
             // ctrlMainFeaturesMenu
@@ -447,6 +459,80 @@
             this.ctrlRefreshRootOrganization.Text = "刷新(&R)";
             this.ctrlRefreshRootOrganization.Click += new System.EventHandler(this.ctrlRefreshRootOrganization_Click);
             // 
+            // ctrlOrganizationObjCtxMenu
+            // 
+            this.ctrlOrganizationObjCtxMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ctrlCreateOrgObject,
+            this.toolStripSeparator8,
+            this.ctrlCreatePosition,
+            this.toolStripSeparator9,
+            this.ctrlCreateStaff,
+            this.toolStripSeparator10,
+            this.ctrlDisableOrgObject,
+            this.ctrlRemoveOrgObject,
+            this.toolStripSeparator11,
+            this.ctrlRefreshOrgObject});
+            this.ctrlOrganizationObjCtxMenu.Name = "ctrlOrganizationObjCtxMenu";
+            this.ctrlOrganizationObjCtxMenu.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
+            this.ctrlOrganizationObjCtxMenu.Size = new System.Drawing.Size(149, 160);
+            // 
+            // ctrlCreateOrgObject
+            // 
+            this.ctrlCreateOrgObject.Name = "ctrlCreateOrgObject";
+            this.ctrlCreateOrgObject.Size = new System.Drawing.Size(148, 22);
+            this.ctrlCreateOrgObject.Text = "创建组织机构";
+            this.ctrlCreateOrgObject.Click += new System.EventHandler(this.CreateSubOrganization);
+            // 
+            // toolStripSeparator8
+            // 
+            this.toolStripSeparator8.Name = "toolStripSeparator8";
+            this.toolStripSeparator8.Size = new System.Drawing.Size(145, 6);
+            // 
+            // ctrlCreatePosition
+            // 
+            this.ctrlCreatePosition.Name = "ctrlCreatePosition";
+            this.ctrlCreatePosition.Size = new System.Drawing.Size(148, 22);
+            this.ctrlCreatePosition.Text = "创建职位";
+            // 
+            // toolStripSeparator9
+            // 
+            this.toolStripSeparator9.Name = "toolStripSeparator9";
+            this.toolStripSeparator9.Size = new System.Drawing.Size(145, 6);
+            // 
+            // ctrlCreateStaff
+            // 
+            this.ctrlCreateStaff.Name = "ctrlCreateStaff";
+            this.ctrlCreateStaff.Size = new System.Drawing.Size(148, 22);
+            this.ctrlCreateStaff.Text = "创建人员";
+            // 
+            // toolStripSeparator10
+            // 
+            this.toolStripSeparator10.Name = "toolStripSeparator10";
+            this.toolStripSeparator10.Size = new System.Drawing.Size(145, 6);
+            // 
+            // ctrlDisableOrgObject
+            // 
+            this.ctrlDisableOrgObject.Name = "ctrlDisableOrgObject";
+            this.ctrlDisableOrgObject.Size = new System.Drawing.Size(148, 22);
+            this.ctrlDisableOrgObject.Text = "禁用";
+            // 
+            // ctrlRemoveOrgObject
+            // 
+            this.ctrlRemoveOrgObject.Name = "ctrlRemoveOrgObject";
+            this.ctrlRemoveOrgObject.Size = new System.Drawing.Size(148, 22);
+            this.ctrlRemoveOrgObject.Text = "移除";
+            // 
+            // toolStripSeparator11
+            // 
+            this.toolStripSeparator11.Name = "toolStripSeparator11";
+            this.toolStripSeparator11.Size = new System.Drawing.Size(145, 6);
+            // 
+            // ctrlRefreshOrgObject
+            // 
+            this.ctrlRefreshOrgObject.Name = "ctrlRefreshOrgObject";
+            this.ctrlRefreshOrgObject.Size = new System.Drawing.Size(148, 22);
+            this.ctrlRefreshOrgObject.Text = "刷新";
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 19F);
@@ -473,6 +559,7 @@
             this.ctrlSplitContainer.Panel2.ResumeLayout(false);
             this.ctrlSplitContainer.ResumeLayout(false);
             this.ctrlOrganizationRootCtxMenu.ResumeLayout(false);
+            this.ctrlOrganizationObjCtxMenu.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -521,5 +608,16 @@
         private System.Windows.Forms.ToolStripMenuItem ctrlCreateRootOrganization;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator7;
         private System.Windows.Forms.ToolStripMenuItem ctrlRefreshRootOrganization;
+        private System.Windows.Forms.ContextMenuStrip ctrlOrganizationObjCtxMenu;
+        private System.Windows.Forms.ToolStripMenuItem ctrlCreateOrgObject;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator8;
+        private System.Windows.Forms.ToolStripMenuItem ctrlCreatePosition;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator9;
+        private System.Windows.Forms.ToolStripMenuItem ctrlCreateStaff;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator10;
+        private System.Windows.Forms.ToolStripMenuItem ctrlDisableOrgObject;
+        private System.Windows.Forms.ToolStripMenuItem ctrlRemoveOrgObject;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator11;
+        private System.Windows.Forms.ToolStripMenuItem ctrlRefreshOrgObject;
     }
 }

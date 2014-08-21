@@ -26,6 +26,7 @@
 
 using System;
 using System.Windows.Forms;
+using EnterpriseServices.ManagementClient.Commons;
 using EnterpriseServices.ManagementClient.Controls;
 using EnterpriseServices.ManagementClient.Operations;
 
@@ -77,15 +78,17 @@ namespace EnterpriseServices.ManagementClient.Windows
         /// 验证包含指定类型控件的分页卡是否存在。
         /// </summary>
         /// <returns>true/false。</returns>
-        private bool TabIsExists(Type ctrlType)
+        private bool TabIsExists(Type ctrlType, out TabPage page)
         {
             bool isExists = false;
+            page = null;
             foreach (TabPage item in this.ctrlObjectTabContainer.TabPages)
             {
                 if (item.Controls.Count > 0 && item.Controls[0].GetType().Equals(ctrlType))
                 {
                     isExists = true;
                     item.Select();
+                    page = item;
                     break;
                 }
             }
@@ -120,9 +123,31 @@ namespace EnterpriseServices.ManagementClient.Windows
                 if (!object.ReferenceEquals(attr, null))
                 {
                     Type handlerType = (attr as FilterAfterExpandedAttribute).HandlerType;
-                    (Activator.CreateInstance(handlerType) as IAfterTreeNodeExpandedHandler).Execute(node);
+                    IAfterTreeNodeExpandedHandler handler = (Activator.CreateInstance(handlerType) as IAfterTreeNodeExpandedHandler);
+                    handler.BoundContextMenu = this.GetBoundContextMenuStrip(node);
+                    handler.Execute(node);
                 }
             }
+        }
+        #endregion
+
+        #region GetBoundContextMenuStrip
+        /// <summary>
+        /// 获取指定节点绑定的上下文菜单。
+        /// </summary>
+        /// <param name="node">节点。</param>
+        private ContextMenuStrip GetBoundContextMenuStrip(TreeNode node)
+        {
+            FeatureTreeNodeBase n = node as FeatureTreeNodeBase;
+            ContextMenuStrip ctxMenu = null;
+            switch (n.FeatureTreeNodeType)
+            {
+                case FeatureTreeNodeType.Organzation:
+                case FeatureTreeNodeType.OrganizationsRoot:
+                    ctxMenu = this.ctrlOrganizationObjCtxMenu;
+                    break;
+            }
+            return ctxMenu;
         }
         #endregion
     }

@@ -6,6 +6,7 @@ namespace EnterpriseServices.ManagementClient.Controls
     #region BaseControl
     public partial class BaseControl : UserControl
     {
+        private TreeNode _boundTreeNode;
         public BaseControl()
         {
             InitializeComponent();
@@ -53,6 +54,29 @@ namespace EnterpriseServices.ManagementClient.Controls
             return string.Empty;
         }
         #endregion
+
+        #region BoundTreeNode
+        /// <summary>
+        /// 设置或获取此控件绑定的树控件。
+        /// </summary>
+        public TreeNode BoundTreeNode
+        {
+            get { return _boundTreeNode; }
+            set
+            {
+                _boundTreeNode = value;
+                if (!object.ReferenceEquals(this.OnBoundTreeNodeChanged, null))
+                {
+                    this.OnBoundTreeNodeChanged(this, new EventArgs());
+                }
+            }
+        }
+        #endregion
+
+        /// <summary>
+        /// 当绑定的树节点发生变更时触发。
+        /// </summary>
+        public event EventHandler OnBoundTreeNodeChanged;
     }
     #endregion
 }

@@ -169,6 +169,21 @@ namespace EnterpriseServices.ManagementClient.Dialogs
             this.ctrlUserID.Enabled = flag;
         }
         #endregion
+
+        #region FormKeyPressEvent
+        /// <summary>
+        /// 当释放某个键时，触发此事件。
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void FormKeyPressEvent(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)13)
+            {
+                this.HandleConnectButtonClickEvent(this.ctrlConnectButton, new EventArgs());
+            }
+        }
+        #endregion
     }
     #endregion
 }

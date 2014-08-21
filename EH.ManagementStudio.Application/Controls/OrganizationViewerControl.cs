@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Windows.Forms;
 using EnterpriseServices.ManagementClient.Operations.Entity;
 
 namespace EnterpriseServices.ManagementClient.Controls
@@ -18,7 +11,20 @@ namespace EnterpriseServices.ManagementClient.Controls
         public OrganizationViewerControl()
         {
             InitializeComponent();
+            this.OnBoundTreeNodeChanged += new EventHandler(BoundNodeChanged);
         }
+
+        #region BoundNodeChanged
+        /// <summary>
+        /// 当绑定的组织机构节点发生变化时触发。
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        void BoundNodeChanged(object sender, EventArgs e)
+        {
+            this.ctrlProperties.SelectedObject = this.BoundTreeNode.Tag;
+        }
+        #endregion
 
         #region InitializeThis
         /// <summary>

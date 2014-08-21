@@ -5,6 +5,7 @@ using EnterpriseServices.ManagementClient.Commons;
 using EnterpriseServices.ManagementClient.Controls;
 using EnterpriseServices.ManagementClient.Dialogs;
 using EnterpriseServices.ManagementClient.Operations;
+using EnterpriseServices.ManagementClient.Operations.Entity;
 using EnterpriseServices.ManagementClient.Operations.Resources;
 
 namespace EnterpriseServices.ManagementClient.Windows
@@ -241,19 +242,28 @@ namespace EnterpriseServices.ManagementClient.Windows
                 this.ctrlObjectsTree.SelectedNode = e.Node;
             if (e.Node != null)
             {
-                FeatureTreeNodeBase node = e.Node as FeatureTreeNodeBase;
-                Attribute attr = Attribute.GetCustomAttribute(e.Node.GetType(), typeof(TreeNodeBoundControlAttribute));
-                if (!object.ReferenceEquals(attr, null))
+                if (e.Button == MouseButtons.Left)
                 {
-                    Type ctrlType = (attr as TreeNodeBoundControlAttribute).ControlType;
-                    if (!this.TabIsExists(ctrlType))
+                    FeatureTreeNodeBase node = e.Node as FeatureTreeNodeBase;
+                    Attribute attr = Attribute.GetCustomAttribute(e.Node.GetType(), typeof(TreeNodeBoundControlAttribute));
+                    if (!object.ReferenceEquals(attr, null))
                     {
-                        BaseControl ctrl = Activator.CreateInstance(ctrlType) as BaseControl;
-                        ctrl.Tag = e.Node;
-                        TabPage page = new TabPage(ctrl.GetDescriptionInTabContainer());
-                        page.Controls.Add(ctrl);
-                        this.ctrlObjectTabContainer.TabPages.Add(page);
-                        this.ctrlObjectTabContainer.SelectedTab = page;
+                        Type ctrlType = (attr as TreeNodeBoundControlAttribute).ControlType;
+                        TabPage curPage = null;
+                        if (!this.TabIsExists(ctrlType, out curPage))
+                        {
+                            BaseControl ctrl = Activator.CreateInstance(ctrlType) as BaseControl;
+                            ctrl.Tag = e.Node;
+                            TabPage page = new TabPage(ctrl.GetDescriptionInTabContainer());
+                            page.Controls.Add(ctrl);
+                            this.ctrlObjectTabContainer.TabPages.Add(page);
+                            this.ctrlObjectTabContainer.SelectedTab = page;
+                        }
+                        else
+                        {
+                            (curPage.Controls[0] as BaseControl).BoundTreeNode = e.Node;
+                            this.ctrlObjectTabContainer.SelectedTab = curPage;
+                        }
                     }
                 }
             }
@@ -329,6 +339,26 @@ namespace EnterpriseServices.ManagementClient.Windows
         {
             this.ctrlObjectsTree.SelectedNode.Nodes.Clear();
             new AfterOrgRootNodeExpanded().Execute(this.ctrlObjectsTree.SelectedNode);
+        }
+        #endregion
+
+        #region CreateSubOrganization 创建子组织机构
+        /// <summary>
+        /// 创建子组织机构。
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void CreateSubOrganization(object sender, EventArgs e)
+        {
+            using (OrganizationEditorDialog dialog = new OrganizationEditorDialog()
+            {
+                ParentOrganizationObject = this.ctrlObjectsTree.SelectedNode.Tag as Organization,
+                Action = EditorAction.Create
+            })
+            {
+                if (dialog.ShowDialog() == DialogResult.OK)
+                { }
+            }
         }
         #endregion
     }

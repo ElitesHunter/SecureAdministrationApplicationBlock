@@ -44,7 +44,7 @@ namespace EnterpriseServices.ManagementClient.Dialogs
             {
                 this.ctrlOrganizationProperties.Enabled = true;
                 this.ctrlOKButton.Enabled = true;
-                return new Organization() { ParentUniqueID = (object.ReferenceEquals(_parentOrganizationObject, null) ? Guid.Empty : _parentOrganizationObject.ParentUniqueID) };
+                return new Organization() { ParentUniqueID = (object.ReferenceEquals(_parentOrganizationObject, null) ? Guid.Empty : _parentOrganizationObject.UniqueID) };
             }
             return null;
         }
