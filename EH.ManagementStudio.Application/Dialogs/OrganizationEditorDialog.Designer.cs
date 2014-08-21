@@ -63,6 +63,7 @@
             this.ctrlOKButton.TabIndex = 0;
             this.ctrlOKButton.Text = "确定";
             this.ctrlOKButton.UseVisualStyleBackColor = true;
+            this.ctrlOKButton.Click += new System.EventHandler(this.HandleOkButtonClickEvent);
             // 
             // ctrlOrganizationProperties
             // 

@@ -70,11 +70,7 @@
             this.ctrlOrganizationRootCtxMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.ctrlCreateRootOrganization = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
-            this.ctrlViewRootOrganizationProperties = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator8 = new System.Windows.Forms.ToolStripSeparator();
             this.ctrlRefreshRootOrganization = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator9 = new System.Windows.Forms.ToolStripSeparator();
-            this.ctrlOrganizationRecycleBin = new System.Windows.Forms.ToolStripMenuItem();
             this.ctrlMainFeaturesMenu.SuspendLayout();
             this.ctrlFeaturesToolmenu.SuspendLayout();
             this.ctrlStatusControlsPanel.SuspendLayout();
@@ -426,14 +422,10 @@
             this.ctrlOrganizationRootCtxMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.ctrlCreateRootOrganization,
             this.toolStripSeparator7,
-            this.ctrlViewRootOrganizationProperties,
-            this.toolStripSeparator8,
-            this.ctrlRefreshRootOrganization,
-            this.toolStripSeparator9,
-            this.ctrlOrganizationRecycleBin});
+            this.ctrlRefreshRootOrganization});
             this.ctrlOrganizationRootCtxMenu.Name = "ctrlOrganizationRootCtxMenu";
             this.ctrlOrganizationRootCtxMenu.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-            this.ctrlOrganizationRootCtxMenu.Size = new System.Drawing.Size(185, 110);
+            this.ctrlOrganizationRootCtxMenu.Size = new System.Drawing.Size(185, 54);
             this.ctrlOrganizationRootCtxMenu.Opening += new System.ComponentModel.CancelEventHandler(this.HandleOrganizationRootNodeCtxMenuOpen);
             // 
             // ctrlCreateRootOrganization
@@ -448,34 +440,12 @@
             this.toolStripSeparator7.Name = "toolStripSeparator7";
             this.toolStripSeparator7.Size = new System.Drawing.Size(181, 6);
             // 
-            // ctrlViewRootOrganizationProperties
-            // 
-            this.ctrlViewRootOrganizationProperties.Name = "ctrlViewRootOrganizationProperties";
-            this.ctrlViewRootOrganizationProperties.Size = new System.Drawing.Size(184, 22);
-            this.ctrlViewRootOrganizationProperties.Text = "查看属性(&V)";
-            // 
-            // toolStripSeparator8
-            // 
-            this.toolStripSeparator8.Name = "toolStripSeparator8";
-            this.toolStripSeparator8.Size = new System.Drawing.Size(181, 6);
-            // 
             // ctrlRefreshRootOrganization
             // 
             this.ctrlRefreshRootOrganization.Name = "ctrlRefreshRootOrganization";
             this.ctrlRefreshRootOrganization.Size = new System.Drawing.Size(184, 22);
             this.ctrlRefreshRootOrganization.Text = "刷新(&R)";
-            // 
-            // toolStripSeparator9
-            // 
-            this.toolStripSeparator9.Name = "toolStripSeparator9";
-            this.toolStripSeparator9.Size = new System.Drawing.Size(181, 6);
-            // 
-            // ctrlOrganizationRecycleBin
-            // 
-            this.ctrlOrganizationRecycleBin.Image = ((System.Drawing.Image)(resources.GetObject("ctrlOrganizationRecycleBin.Image")));
-            this.ctrlOrganizationRecycleBin.Name = "ctrlOrganizationRecycleBin";
-            this.ctrlOrganizationRecycleBin.Size = new System.Drawing.Size(184, 22);
-            this.ctrlOrganizationRecycleBin.Text = "回收站";
+            this.ctrlRefreshRootOrganization.Click += new System.EventHandler(this.ctrlRefreshRootOrganization_Click);
             // 
             // MainWindow
             // 
@@ -550,10 +520,6 @@
         private System.Windows.Forms.ContextMenuStrip ctrlOrganizationRootCtxMenu;
         private System.Windows.Forms.ToolStripMenuItem ctrlCreateRootOrganization;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator7;
-        private System.Windows.Forms.ToolStripMenuItem ctrlViewRootOrganizationProperties;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator8;
         private System.Windows.Forms.ToolStripMenuItem ctrlRefreshRootOrganization;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator9;
-        private System.Windows.Forms.ToolStripMenuItem ctrlOrganizationRecycleBin;
     }
 }

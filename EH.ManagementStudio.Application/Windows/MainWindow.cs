@@ -316,6 +316,19 @@ namespace EnterpriseServices.ManagementClient.Windows
             }
         }
         #endregion
+
+        #region ctrlRefreshRootOrganization_Click
+        /// <summary>
+        /// 处理刷新组织机构事件。
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ctrlRefreshRootOrganization_Click(object sender, EventArgs e)
+        {
+            this.ctrlObjectsTree.SelectedNode.Nodes.Clear();
+            new AfterOrgRootNodeExpanded().Execute(this.ctrlObjectsTree.SelectedNode);
+        }
+        #endregion
     }
     #endregion
 }

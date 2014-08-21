@@ -27,10 +27,10 @@
 using System;
 using EnterpriseServices.Framework.Commons;
 using EnterpriseServices.ManagementClient.Operations.Entity;
-using EnterpriseServices.SecurityService.Framework.Commons;
-using Org = EnterpriseServices.SecurityService.API.OrgService.Organization;
-using API = EnterpriseServices.SecurityService.API.OrgService;
 using EnterpriseServices.SecurityService.API;
+using EnterpriseServices.SecurityService.Framework.Commons;
+using API = EnterpriseServices.SecurityService.API.OrgService;
+using Org = EnterpriseServices.SecurityService.API.OrgService.Organization;
 
 namespace EnterpriseServices.ManagementClient.Operations.Organizations
 {
@@ -127,6 +127,7 @@ namespace EnterpriseServices.ManagementClient.Operations.Organizations
         /// 创建组织机构。
         /// </summary>
         /// <param name="org"><see cref="Organization"/>对象实例。</param>
+        [TraceOperation]
         public void Create(Organization org)
         {
             new OrganizationApi().Create(org.Name, org.ParentUniqueID, org.IsVirtual);

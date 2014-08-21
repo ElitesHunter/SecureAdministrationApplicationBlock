@@ -51,6 +51,18 @@ namespace EnterpriseServices.ManagementClient.Commons
             return MessageBox.Show(question, CommonPhrases.Information, MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
         }
         #endregion
+
+        #region Prompt
+        /// <summary>
+        /// 弹出提示对话框。
+        /// </summary>
+        /// <param name="message">提示消息。</param>
+        /// <returns><see cref="DialogResult"/>中的一个值。</returns>
+        static public DialogResult Prompt(string message)
+        {
+            return MessageBox.Show(message, "提示", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+        }
+        #endregion
     }
 }
 

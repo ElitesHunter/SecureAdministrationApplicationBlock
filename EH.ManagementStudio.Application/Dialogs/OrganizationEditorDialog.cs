@@ -1,5 +1,8 @@
 ﻿using System;
+using System.Windows.Forms;
+using EnterpriseServices.ManagementClient.Commons;
 using EnterpriseServices.ManagementClient.Operations.Entity;
+using EnterpriseServices.ManagementClient.Operations.Organizations;
 
 namespace EnterpriseServices.ManagementClient.Dialogs
 {
@@ -41,9 +44,36 @@ namespace EnterpriseServices.ManagementClient.Dialogs
             {
                 this.ctrlOrganizationProperties.Enabled = true;
                 this.ctrlOKButton.Enabled = true;
-                return new Organization();
+                return new Organization() { ParentUniqueID = (object.ReferenceEquals(_parentOrganizationObject, null) ? Guid.Empty : _parentOrganizationObject.ParentUniqueID) };
             }
             return null;
+        }
+        #endregion
+
+        #region HandleOkButtonClickEvent
+        /// <summary>
+        /// 处理确定按钮单击事件。
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void HandleOkButtonClickEvent(object sender, EventArgs e)
+        {
+            if (this.Action == Commons.EditorAction.Create || this.Action == Commons.EditorAction.Modify)
+            {
+                Organization org = this.ctrlOrganizationProperties.SelectedObject as Organization;
+                if (!string.IsNullOrEmpty(org.Name))
+                {
+                    new OrganizationHandler().Create(org);
+                    this.DialogResult = DialogResult.OK;
+                    this.Close();
+                }
+                else DialogMethods.Prompt("组织机构名称不可以为空！");
+            }
+            else
+            {
+                this.DialogResult = DialogResult.OK;
+                this.Close();
+            }
         }
         #endregion
     }

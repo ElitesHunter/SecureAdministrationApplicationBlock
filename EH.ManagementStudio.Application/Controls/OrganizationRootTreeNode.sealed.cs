@@ -24,9 +24,9 @@
 
 #endregion
 
-using EnterpriseServices.ManagementClient.Operations.Resources;
-using EnterpriseServices.ManagementClient.Operations;
 using EnterpriseServices.ManagementClient.Commons;
+using EnterpriseServices.ManagementClient.Operations;
+using EnterpriseServices.ManagementClient.Operations.Resources;
 
 namespace EnterpriseServices.ManagementClient.Controls
 {

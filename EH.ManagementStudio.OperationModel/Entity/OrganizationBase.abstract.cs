@@ -178,6 +178,7 @@ namespace EnterpriseServices.ManagementClient.Operations.Entity
         /// <summary>
         /// 设置或获取组织机构对象的虚拟路径。
         /// </summary>
+        [Browsable(false)]
         public string VirtualPath
         {
             get { return _virtualPath; }
