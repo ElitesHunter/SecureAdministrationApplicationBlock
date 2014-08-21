@@ -93,9 +93,12 @@ namespace EnterpriseServices.SecurityService.Framework.OperationModel.Organizati
         /// </summary>
         public override void Create()
         {
+            object parentID = null;
+            if (base.ParentID.Equals(Guid.Empty)) parentID = DBNull.Value;
+            else parentID = base.ParentID;
             SqlCommand cmd = base.CreateCommand("Sp.CreateOrganization", CommandType.StoredProcedure,
                 base.CreateParameter("name", base.Name, SqlDbType.NVarChar, ParameterDirection.Input),
-                base.CreateParameter("parentID", base.ParentID, SqlDbType.UniqueIdentifier, ParameterDirection.Input),
+                base.CreateParameter("parentID", parentID, SqlDbType.UniqueIdentifier, ParameterDirection.Input),
                 base.CreateParameter("isVirtual", this.IsVirtual.ToSqlValue(), SqlDbType.Char, ParameterDirection.Input));
             base.ExecuteNonQuery(cmd);
         }

@@ -47,7 +47,7 @@ namespace EnterpriseServices.SecurityService.API
         /// <para>初始化一个<see cref="OperationBehaviorTraceApi" />对象实例。</para>
         /// </summary>
         public OperationBehaviorTraceApi()
-            : base("UserBahaviorService")
+            : base("UserBehaviorService")
         {
         }
 

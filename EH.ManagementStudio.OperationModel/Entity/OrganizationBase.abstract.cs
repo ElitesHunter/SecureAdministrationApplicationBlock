@@ -50,6 +50,8 @@ namespace EnterpriseServices.ManagementClient.Operations.Entity
         private bool _visible;
         private string _parentOpenID;
         private string _openID;
+        private Guid _parentUniqueID;
+        private string _virtualPath;
 
         #region UniqueID
         /// <summary>
@@ -157,6 +159,29 @@ namespace EnterpriseServices.ManagementClient.Operations.Entity
         {
             get { return _openID; }
             set { _openID = value; }
+        }
+        #endregion
+
+        #region ParentUniqueID
+        /// <summary>
+        /// 设置或获取父级组织机构对象标识。
+        /// </summary>
+        [Browsable(false)]
+        public Guid ParentUniqueID
+        {
+            get { return _parentUniqueID; }
+            set { _parentUniqueID = value; }
+        }
+        #endregion
+
+        #region VirtualPath
+        /// <summary>
+        /// 设置或获取组织机构对象的虚拟路径。
+        /// </summary>
+        public string VirtualPath
+        {
+            get { return _virtualPath; }
+            set { _virtualPath = value; }
         }
         #endregion
 

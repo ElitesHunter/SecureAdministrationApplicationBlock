@@ -51,6 +51,7 @@
     <Compile Include="..\EH.ManagementStudio.AssemblyInfo.cs">
       <Link>Properties\EH.ManagementStudio.AssemblyInfo.cs</Link>
     </Compile>
+    <Compile Include="IAfterTreeNodeExpandedHandler.cs" />
     <Compile Include="ApplicationCultureInfo.static.cs" />
     <Compile Include="AuthenticateService\TraceUserSignInBehaviorAttribute.sealed.cs" />
     <Compile Include="AuthenticateService\TraceUserSignInBehaviorMonitor.sealed.cs" />
@@ -66,10 +67,13 @@
     <Compile Include="Entity\UIAuthenticationType.sealed.cs" />
     <Compile Include="Entity\UIEntityBase.public.cs" />
     <Compile Include="EventViewerLogEntity.public.cs" />
+    <Compile Include="FilterAfterExpandedAttribute.sealed.cs" />
     <Compile Include="IApplicationStartup.cs" />
     <Compile Include="InWindowsAdministratorGroupAttribute.sealed.cs" />
     <Compile Include="InWindowsAdministratorGroup.sealed.cs" />
     <Compile Include="Networks\IPAddress.sealed.cs" />
+    <Compile Include="Organizations\IOrganizationObjectHandler.cs" />
+    <Compile Include="Organizations\OrganizationHandler.sealed.cs" />
     <Compile Include="Principal\ClientIdentity.sealed.cs" />
     <Compile Include="Principal\ClientPrincipal.sealed.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -89,6 +93,7 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <Compile Include="StartupLogEntity.sealed.cs" />
+    <Compile Include="TraceOperationAttribute.sealed.cs" />
     <Compile Include="TraceOperationBehavior.sealed.cs" />
     <Compile Include="TreeNodeBoundControlAttribute.sealed.cs" />
   </ItemGroup>
@@ -134,9 +139,7 @@
       <LastGenOutput>Messages.en-US.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Organizations\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

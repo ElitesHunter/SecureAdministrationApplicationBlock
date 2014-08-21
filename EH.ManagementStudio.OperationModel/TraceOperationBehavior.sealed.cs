@@ -62,8 +62,11 @@ namespace EnterpriseServices.ManagementClient.Operations
         /// <param name="ctx"><see cref="MonitorContext"/>对象实例。</param>
         public void Register(MonitorContext ctx)
         {
-            OperationBehaviorTraceApi api = new OperationBehaviorTraceApi();
-            api.Trace(ctx.MethodName, ctx.TypeName, ctx.ExpandoProperties["AssemblyVersion"].ToString(), ClientPrincipal.GetCurrentPrincipal().User.UniqueID);
+            if (!object.ReferenceEquals(ctx.ExpandoProperties["Successful"], null) && (bool)ctx.ExpandoProperties["Successful"])
+            {
+                OperationBehaviorTraceApi api = new OperationBehaviorTraceApi();
+                api.Trace(ctx.MethodName, ctx.TypeName, ctx.ExpandoProperties["AssemblyVersion"].ToString(), ClientPrincipal.GetCurrentPrincipal().User.UniqueID);
+            }
         }
         #endregion
 

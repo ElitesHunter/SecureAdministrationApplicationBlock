@@ -409,6 +409,7 @@
             this.ctrlImageList.TransparentColor = System.Drawing.Color.Transparent;
             this.ctrlImageList.Images.SetKeyName(0, "box.png");
             this.ctrlImageList.Images.SetKeyName(1, "folder.png");
+            this.ctrlImageList.Images.SetKeyName(2, "users.png");
             // 
             // ctrlObjectTabContainer
             // 
@@ -432,7 +433,7 @@
             this.ctrlOrganizationRecycleBin});
             this.ctrlOrganizationRootCtxMenu.Name = "ctrlOrganizationRootCtxMenu";
             this.ctrlOrganizationRootCtxMenu.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-            this.ctrlOrganizationRootCtxMenu.Size = new System.Drawing.Size(185, 132);
+            this.ctrlOrganizationRootCtxMenu.Size = new System.Drawing.Size(185, 110);
             this.ctrlOrganizationRootCtxMenu.Opening += new System.ComponentModel.CancelEventHandler(this.HandleOrganizationRootNodeCtxMenuOpen);
             // 
             // ctrlCreateRootOrganization

@@ -71,6 +71,7 @@
     <Compile Include="..\EH.ManagementStudio.AssemblyInfo.cs">
       <Link>Properties\EH.ManagementStudio.AssemblyInfo.cs</Link>
     </Compile>
+    <Compile Include="Commons\AfterOrgRootNodeExpanded.sealed.cs" />
     <Compile Include="Commons\DialogMethods.static.cs" />
     <Compile Include="Commons\EditorAction.cs" />
     <Compile Include="Commons\FeatureTreeNodeType.cs" />
@@ -94,6 +95,7 @@
     <Compile Include="Controls\FeatureTreeNodeBase.abstract.cs" />
     <Compile Include="Controls\LoggingsRootTeeNode.sealed.cs" />
     <Compile Include="Controls\OrganizationRootTreeNode.sealed.cs" />
+    <Compile Include="Controls\OrganizationTreeNode.sealed.cs" />
     <Compile Include="Controls\ParameterDeclarationRootTreeNode.sealed.cs" />
     <Compile Include="Controls\RootTreeNode.sealed.cs" />
     <Compile Include="Dialogs\BaseDialog.cs">

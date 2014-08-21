@@ -27,6 +27,7 @@
 using System;
 using System.Windows.Forms;
 using EnterpriseServices.ManagementClient.Controls;
+using EnterpriseServices.ManagementClient.Operations;
 
 namespace EnterpriseServices.ManagementClient.Windows
 {
@@ -102,6 +103,25 @@ namespace EnterpriseServices.ManagementClient.Windows
             if (node.Nodes.Count.Equals(1) && node.Nodes[0].GetType().Equals(typeof(EmptyTreeNode)))
             {
                 node.Nodes.Clear();
+            }
+        }
+        #endregion
+
+        #region FilterExpandedTreeNode
+        /// <summary>
+        /// 过滤当前展开的节点。
+        /// </summary>
+        /// <param name="node">节点。</param>
+        private void FilterExpandedTreeNode(TreeNode node)
+        {
+            if (node is FeatureTreeNodeBase)
+            {
+                Attribute attr = Attribute.GetCustomAttribute(node.GetType(), typeof(FilterAfterExpandedAttribute));
+                if (!object.ReferenceEquals(attr, null))
+                {
+                    Type handlerType = (attr as FilterAfterExpandedAttribute).HandlerType;
+                    (Activator.CreateInstance(handlerType) as IAfterTreeNodeExpandedHandler).Execute(node);
+                }
             }
         }
         #endregion

@@ -1,17 +1,17 @@
-#region "OrganizationRootTreeNode"
+#region "OrganizationTreeNode"
 
 /*
  * ####     Developer Name : Wang Yucai
  * 
  * ####     Development Tool : Microsoft VisualStudio 2010 Ultimate Edition
  * 
- * ####     Create Time : 2014-08-19 10:43:42
+ * ####     Create Time : 2014-08-21 10:58:17
  * 
  * ####     Namespace : EnterpriseServices.ManagementClient.Controls
  * 
- * ####     Type Name : OrganizationRootTreeNode
+ * ####     Type Name : OrganizationTreeNode
  * 
- * ####     Full Name : EnterpriseServices.ManagementClient.Controls.OrganizationRootTreeNode
+ * ####     Full Name : EnterpriseServices.ManagementClient.Controls.OrganizationTreeNode
  * 
  * ####     Machine Name : GLCHQWYCWINW7
  * 
@@ -24,35 +24,36 @@
 
 #endregion
 
-using EnterpriseServices.ManagementClient.Operations.Resources;
-using EnterpriseServices.ManagementClient.Operations;
-using EnterpriseServices.ManagementClient.Commons;
+using System;
+using EnterpriseServices.ManagementClient.Operations.Entity;
 
 namespace EnterpriseServices.ManagementClient.Controls
 {
     /// <summary>
-    /// <para>EnterpriseServices.ManagementClient.Controls.OrganizationRootTreeNode</para>
+    /// <para>EnterpriseServices.ManagementClient.Controls.OrganizationTreeNode</para>
     /// <para>
-    /// 组织结构管理根节点。
+    /// 组织机构节点。
     /// </para>
     /// </summary>
     /// <remarks>
     /// <para>Target Framework Version : 3.5</para>
     /// <para>此类不可继承。</para>
     /// </remarks>
-    [FilterAfterExpanded(typeof(AfterOrgRootNodeExpanded))]
-    public sealed class OrganizationRootTreeNode : FeaturesRootTreeNode
+    public sealed class OrganizationTreeNode : FeatureTreeNodeBase
     {
         #region Constructor
 
         /// <summary>
         /// <para>构造函数：</para>
-        /// <para>初始化一个<see cref="OrganizationRootTreeNode" />对象实例。</para>
+        /// <para>初始化一个<see cref="OrganizationTreeNode" />对象实例。</para>
         /// </summary>
-        public OrganizationRootTreeNode()
-            : base(Commons.FeatureTreeNodeType.OrganizationsRoot)
+        public OrganizationTreeNode(Organization org)
+            : base(2, Commons.FeatureTreeNodeType.Organzation)
         {
-            this.Text = Messages.OrganizationManagement;
+            this.Text = org.Name;
+            this.Tag = org;
+            this.ToolTipText = org.VirtualName;
+            this.Nodes.Add(new EmptyTreeNode());
         }
 
         #endregion

@@ -268,6 +268,7 @@ namespace EnterpriseServices.ManagementClient.Windows
         {
             this.ctrlObjectsTree.SelectedNode = e.Node;
             this.ClearChildNodes(e.Node);
+            this.FilterExpandedTreeNode(e.Node);
         }
         #endregion
 
