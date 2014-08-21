@@ -38,6 +38,7 @@ namespace EnterpriseServices.ManagementClient.Controls
     /// <para>Target Framework Version : 3.5</para>
     /// <para>此类不可继承。</para>
     /// </remarks>
+    [EnterpriseServices.ManagementClient.Operations.TreeNodeBoundControl(typeof(OrganizationViewerControl))]
     public sealed class OrganizationTreeNode : FeatureTreeNodeBase
     {
         #region Constructor

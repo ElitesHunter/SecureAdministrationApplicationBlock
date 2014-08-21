@@ -46,6 +46,13 @@ namespace EnterpriseServices.ManagementClient.Operations
         /// <param name="ctxNode">当前展开的节点。</param>
         void Execute(TreeNode ctxNode);
         #endregion
+
+        #region BoundContextMenu
+        /// <summary>
+        /// 设置当前节点的上下文菜单。
+        /// </summary>
+        ContextMenuStrip BoundContextMenu { set; }
+        #endregion
     }
 }
 

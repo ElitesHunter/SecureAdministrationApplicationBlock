@@ -249,9 +249,11 @@ namespace EnterpriseServices.ManagementClient.Windows
                     if (!this.TabIsExists(ctrlType))
                     {
                         BaseControl ctrl = Activator.CreateInstance(ctrlType) as BaseControl;
+                        ctrl.Tag = e.Node;
                         TabPage page = new TabPage(ctrl.GetDescriptionInTabContainer());
                         page.Controls.Add(ctrl);
                         this.ctrlObjectTabContainer.TabPages.Add(page);
+                        this.ctrlObjectTabContainer.SelectedTab = page;
                     }
                 }
             }

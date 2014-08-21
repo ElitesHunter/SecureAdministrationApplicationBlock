@@ -44,6 +44,8 @@ namespace EnterpriseServices.ManagementClient.Commons
     /// </remarks>
     public sealed class AfterOrgRootNodeExpanded : IAfterTreeNodeExpandedHandler
     {
+        private ContextMenuStrip _contextMenuStrip;
+
         #region Constructor
 
         /// <summary>
@@ -69,9 +71,19 @@ namespace EnterpriseServices.ManagementClient.Commons
                 {
                     Organization rootOrg = new OrganizationHandler().GetRoot();
                     if (!object.ReferenceEquals(rootOrg, null))
-                        ctxNode.Nodes.Add(new OrganizationTreeNode(rootOrg));
+                        ctxNode.Nodes.Add(new OrganizationTreeNode(rootOrg) { ContextMenuStrip = this._contextMenuStrip });
                 }
             }
+        }
+        #endregion
+
+        #region BoundContextMenu
+        /// <summary>
+        /// 设置当前节点的上下文菜单。
+        /// </summary>
+        public ContextMenuStrip BoundContextMenu
+        {
+            set { this._contextMenuStrip = value; }
         }
         #endregion
     }

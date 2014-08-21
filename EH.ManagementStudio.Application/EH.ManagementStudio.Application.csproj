@@ -96,6 +96,12 @@
     <Compile Include="Controls\LoggingsRootTeeNode.sealed.cs" />
     <Compile Include="Controls\OrganizationRootTreeNode.sealed.cs" />
     <Compile Include="Controls\OrganizationTreeNode.sealed.cs" />
+    <Compile Include="Controls\OrganizationViewerControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\OrganizationViewerControl.Designer.cs">
+      <DependentUpon>OrganizationViewerControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controls\ParameterDeclarationRootTreeNode.sealed.cs" />
     <Compile Include="Controls\RootTreeNode.sealed.cs" />
     <Compile Include="Dialogs\BaseDialog.cs">
@@ -150,6 +156,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\DescriptionControl.resx">
       <DependentUpon>DescriptionControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\OrganizationViewerControl.resx">
+      <DependentUpon>OrganizationViewerControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Dialogs\BaseDialog.resx">
       <DependentUpon>BaseDialog.cs</DependentUpon>
