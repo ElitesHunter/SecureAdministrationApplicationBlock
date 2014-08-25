@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using System.Collections.Generic;
+using System.ComponentModel;
 using System.Web.Services;
 using EnterpriseServices.SecurityService.Framework.OperationModel.Organizations;
 
@@ -35,6 +36,19 @@ namespace EnterpriseServices.SecurityService.API.OpenServices
         public void CreateOrganization(Organization obj)
         {
             obj.Create();
+        }
+        #endregion
+
+        #region GetSubOrganizations
+        /// <summary>
+        /// 获取子级组织机构对象集合。
+        /// </summary>
+        /// <param name="organizationOpenID">父级组织机构对象的开放标识。</param>
+        /// <returns></returns>
+        [WebMethod(Description = "获取子级组织机构对象集合<br />organizationOpenID：指定组织机构对象的开放标识。")]
+        public List<OrganizationObjectBase> GetSubOrganizations(string organizationOpenID)
+        {
+            return OrganizationObjectBase.GetSubs(organizationOpenID);
         }
         #endregion
     }

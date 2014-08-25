@@ -90,6 +90,21 @@ namespace EnterpriseServices.SecurityService.API
             }
         }
         #endregion
+
+        #region GetSubs
+        /// <summary>
+        /// 获取子级组织机构对象集合。
+        /// </summary>
+        /// <param name="openID">指定的组织机构对象标识。</param>
+        /// <returns></returns>
+        public OrganizationObjectBase[] GetSubs(string openID)
+        {
+            using (OrgSvc service = new OrgSvc() { Url = base.ServiceUrl })
+            {
+                return service.GetSubOrganizations(openID);
+            }
+        }
+        #endregion
     }
 }
 

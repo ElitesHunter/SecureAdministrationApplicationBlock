@@ -74,6 +74,7 @@
     <Compile Include="Networks\IPAddress.sealed.cs" />
     <Compile Include="Organizations\IOrganizationObjectHandler.cs" />
     <Compile Include="Organizations\OrganizationHandler.sealed.cs" />
+    <Compile Include="Organizations\OrganizationObjectHandler.sealed.cs" />
     <Compile Include="Principal\ClientIdentity.sealed.cs" />
     <Compile Include="Principal\ClientPrincipal.sealed.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

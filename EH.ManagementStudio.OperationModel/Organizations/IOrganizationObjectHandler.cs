@@ -57,6 +57,15 @@ namespace EnterpriseServices.ManagementClient.Operations.Organizations
         /// <returns><typeparamref name="TOrganizationObject"/>类型的组织机构对象。</returns>
         TOrganizationObject GetSingle(string openID);
         #endregion
+
+        #region GetSubs
+        /// <summary>
+        /// 获取子级组织机构对象集合。
+        /// </summary>
+        /// <param name="openID">指定的组织机构对象开放标识。</param>
+        /// <returns><typeparamref name="TOrganizationObject"/>类型的数组。</returns>
+        TOrganizationObject[] GetSubs(string openID);
+        #endregion
     }
 }
 

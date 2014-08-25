@@ -40,7 +40,7 @@ namespace EnterpriseServices.ManagementClient.Operations.Entity
     /// </remarks>
     [Serializable]
     [DefaultProperty("Name")]
-    public abstract class OrganizationBase
+    public class OrganizationBase
     {
         private Guid _uniqueID;
         private string _name;
@@ -192,7 +192,7 @@ namespace EnterpriseServices.ManagementClient.Operations.Entity
         /// <para>构造函数：</para>
         /// <para>初始化一个<see cref="OrganizationBase" />对象实例。</para>
         /// </summary>
-        protected OrganizationBase()
+        public OrganizationBase()
         {
             this.UniqueID = Guid.NewGuid();
         }

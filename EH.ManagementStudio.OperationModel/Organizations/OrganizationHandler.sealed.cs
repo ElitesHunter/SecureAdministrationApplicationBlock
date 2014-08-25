@@ -138,6 +138,12 @@ namespace EnterpriseServices.ManagementClient.Operations.Organizations
         {
             throw new NotImplementedException();
         }
+
+
+        public Organization[] GetSubs(string openID)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
 

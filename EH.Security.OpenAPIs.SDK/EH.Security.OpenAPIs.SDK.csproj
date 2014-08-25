@@ -133,6 +133,9 @@
     <None Include="Web References\OrgService\Organization.datasource">
       <DependentUpon>Reference.map</DependentUpon>
     </None>
+    <None Include="Web References\OrgService\OrganizationObjectBase.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
     <None Include="Web References\OrgService\OrganizationService.wsdl" />
     <None Include="Web References\OrgService\Reference.map">
       <Generator>MSDiscoCodeGenerator</Generator>

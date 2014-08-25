@@ -25,7 +25,9 @@
 #endregion
 
 using System;
+using System.Collections.Generic;
 using System.Data;
+using System.Data.SqlClient;
 using EnterpriseServices.Framework.Commons.Data;
 
 namespace EnterpriseServices.SecurityService.Framework.OperationModel.Organizations
@@ -227,6 +229,33 @@ namespace EnterpriseServices.SecurityService.Framework.OperationModel.Organizati
         /// </summary>
         public virtual void Create()
         {
+        }
+        #endregion
+
+        #region GetSubs
+        /// <summary>
+        /// 获取指定开放标识的组织机构对象的子级组织机构对象。
+        /// </summary>
+        /// <param name="openID">开放表示。</param>
+        /// <returns>组织机构对象集合。</returns>
+        static public List<OrganizationObjectBase> GetSubs(string openID)
+        {
+            DbHelper helper = new DbHelper(DbConnectionString.Current);
+            SqlCommand cmd = helper.CreateCommand("Sp.GetSubOrganizationObjects", CommandType.StoredProcedure,
+                helper.CreateParameter("openID", openID, SqlDbType.VarChar, ParameterDirection.Input)
+                );
+            List<OrganizationObjectBase> objects = new List<OrganizationObjectBase>();
+            DataSet data = helper.ExecuteDataSet(cmd);
+            if (!object.ReferenceEquals(data, null) && data.Tables.Count.Equals(1))
+            {
+                foreach (DataRow item in data.Tables[0].Rows)
+                {
+                    OrganizationObjectBase obj = new OrganizationObjectBase();
+                    obj.InitializeInstance(item);
+                    objects.Add(obj);
+                }
+            }
+            return objects;
         }
         #endregion
     }

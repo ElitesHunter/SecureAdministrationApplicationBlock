@@ -34,6 +34,8 @@ namespace EnterpriseServices.SecurityService.API.OrgService {
         
         private System.Threading.SendOrPostCallback CreateOrganizationOperationCompleted;
         
+        private System.Threading.SendOrPostCallback GetSubOrganizationsOperationCompleted;
+        
         private bool useDefaultCredentialsSetExplicitly;
         
         /// <remarks/>
@@ -77,6 +79,9 @@ namespace EnterpriseServices.SecurityService.API.OrgService {
         
         /// <remarks/>
         public event CreateOrganizationCompletedEventHandler CreateOrganizationCompleted;
+        
+        /// <remarks/>
+        public event GetSubOrganizationsCompletedEventHandler GetSubOrganizationsCompleted;
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:Masterduner@Yeah.net/GetRootOrganization", RequestNamespace="urn:Masterduner@Yeah.net", ResponseNamespace="urn:Masterduner@Yeah.net", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
@@ -130,6 +135,35 @@ namespace EnterpriseServices.SecurityService.API.OrgService {
             if ((this.CreateOrganizationCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
                 this.CreateOrganizationCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:Masterduner@Yeah.net/GetSubOrganizations", RequestNamespace="urn:Masterduner@Yeah.net", ResponseNamespace="urn:Masterduner@Yeah.net", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public OrganizationObjectBase[] GetSubOrganizations(string organizationOpenID) {
+            object[] results = this.Invoke("GetSubOrganizations", new object[] {
+                        organizationOpenID});
+            return ((OrganizationObjectBase[])(results[0]));
+        }
+        
+        /// <remarks/>
+        public void GetSubOrganizationsAsync(string organizationOpenID) {
+            this.GetSubOrganizationsAsync(organizationOpenID, null);
+        }
+        
+        /// <remarks/>
+        public void GetSubOrganizationsAsync(string organizationOpenID, object userState) {
+            if ((this.GetSubOrganizationsOperationCompleted == null)) {
+                this.GetSubOrganizationsOperationCompleted = new System.Threading.SendOrPostCallback(this.OnGetSubOrganizationsOperationCompleted);
+            }
+            this.InvokeAsync("GetSubOrganizations", new object[] {
+                        organizationOpenID}, this.GetSubOrganizationsOperationCompleted, userState);
+        }
+        
+        private void OnGetSubOrganizationsOperationCompleted(object arg) {
+            if ((this.GetSubOrganizationsCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.GetSubOrganizationsCompleted(this, new GetSubOrganizationsCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -374,6 +408,32 @@ namespace EnterpriseServices.SecurityService.API.OrgService {
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.18408")]
     public delegate void CreateOrganizationCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.18408")]
+    public delegate void GetSubOrganizationsCompletedEventHandler(object sender, GetSubOrganizationsCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.18408")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class GetSubOrganizationsCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal GetSubOrganizationsCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public OrganizationObjectBase[] Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((OrganizationObjectBase[])(this.results[0]));
+            }
+        }
+    }
 }
 
 #pragma warning restore 1591
