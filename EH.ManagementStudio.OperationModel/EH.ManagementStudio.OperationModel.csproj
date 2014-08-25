@@ -41,6 +41,7 @@
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -51,6 +52,23 @@
     <Compile Include="..\EH.ManagementStudio.AssemblyInfo.cs">
       <Link>Properties\EH.ManagementStudio.AssemblyInfo.cs</Link>
     </Compile>
+    <Compile Include="Entity\CredentialsType.sealed.cs" />
+    <Compile Include="Entity\Editors\ChooseCredentialsTypeDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Entity\Editors\ChooseCredentialsTypeDialog.Designer.cs">
+      <DependentUpon>ChooseCredentialsTypeDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\Editors\ChooseDateDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Entity\Editors\ChooseDateDialog.Designer.cs">
+      <DependentUpon>ChooseDateDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\Editors\ChooseDateEditor.sealed.cs" />
+    <Compile Include="Entity\ParameterBase.abstract.cs" />
+    <Compile Include="Entity\Position.sealed.cs" />
+    <Compile Include="Entity\Staff.sealed.cs" />
     <Compile Include="IAfterTreeNodeExpandedHandler.cs" />
     <Compile Include="ApplicationCultureInfo.static.cs" />
     <Compile Include="AuthenticateService\TraceUserSignInBehaviorAttribute.sealed.cs" />
@@ -71,6 +89,7 @@
     <Compile Include="IApplicationStartup.cs" />
     <Compile Include="InWindowsAdministratorGroupAttribute.sealed.cs" />
     <Compile Include="InWindowsAdministratorGroup.sealed.cs" />
+    <Compile Include="LocaleCacheHelper.static.cs" />
     <Compile Include="Networks\IPAddress.sealed.cs" />
     <Compile Include="Organizations\IOrganizationObjectHandler.cs" />
     <Compile Include="Organizations\OrganizationHandler.sealed.cs" />
@@ -127,6 +146,12 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Entity\Editors\ChooseCredentialsTypeDialog.resx">
+      <DependentUpon>ChooseCredentialsTypeDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Entity\Editors\ChooseDateDialog.resx">
+      <DependentUpon>ChooseDateDialog.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Resources\Messages.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Messages.Designer.cs</LastGenOutput>

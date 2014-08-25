@@ -71,6 +71,7 @@
     <Compile Include="..\EH.ManagementStudio.AssemblyInfo.cs">
       <Link>Properties\EH.ManagementStudio.AssemblyInfo.cs</Link>
     </Compile>
+    <Compile Include="Commons\AfterOrgNodeExpanded.sealed.cs" />
     <Compile Include="Commons\AfterOrgRootNodeExpanded.sealed.cs" />
     <Compile Include="Commons\DialogMethods.static.cs" />
     <Compile Include="Commons\EditorAction.cs" />

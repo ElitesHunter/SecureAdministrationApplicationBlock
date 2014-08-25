@@ -63,7 +63,10 @@
     <Compile Include="Organizations\Organization.sealed.cs" />
     <Compile Include="Organizations\OrganizationObjectBase.public.cs" />
     <Compile Include="Organizations\OrganizationObjectCategory.cs" />
+    <Compile Include="ParameterDeclaration.abstract.cs" />
+    <Compile Include="PlaceRegion.sealed.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UserCredentialsType.sealed.cs" />
     <Compile Include="WinNTAuthenticateResult.sealed.cs" />
     <Compile Include="WinNTAuthenticateToken.sealed.cs" />
     <Compile Include="WinNTAuthentication.sealed.cs" />

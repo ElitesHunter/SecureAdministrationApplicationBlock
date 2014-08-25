@@ -50,6 +50,7 @@
     <Content Include="AuthenticationService.asmx" />
     <Content Include="IdentityService.asmx" />
     <Content Include="OrganizationService.asmx" />
+    <Content Include="ParametersService.asmx" />
     <Content Include="UserBehaviorService.asmx" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -73,6 +74,10 @@
     </Compile>
     <Compile Include="OrganizationService.asmx.cs">
       <DependentUpon>OrganizationService.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ParametersService.asmx.cs">
+      <DependentUpon>ParametersService.asmx</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -57,6 +57,7 @@
     <Compile Include="Data\DbHelper.public.cs" />
     <Compile Include="Error.public.cs" />
     <Compile Include="ErrorCodeAttribute.public.cs" />
+    <Compile Include="Gender.cs" />
     <Compile Include="Globalization\LocaleID.cs" />
     <Compile Include="Globalization\ThreadCultureInfo.public.cs" />
     <Compile Include="IgnoreThisMethodAttribute.sealed.cs" />

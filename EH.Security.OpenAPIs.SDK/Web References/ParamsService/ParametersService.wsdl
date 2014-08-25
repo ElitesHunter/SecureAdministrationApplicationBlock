@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="urn:Masterduner@Yeah.net" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:s1="http://microsoft.com/wsdl/types/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="urn:Masterduner@Yeah.net" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">系统参数WEB服务</wsdl:documentation>
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="urn:Masterduner@Yeah.net">
+      <s:import namespace="http://microsoft.com/wsdl/types/" />
+      <s:element name="GetCredentialsTypes">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetCredentialsTypesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCredentialsTypesResult" type="tns:ArrayOfUserCredentialsType" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfUserCredentialsType">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="UserCredentialsType" nillable="true" type="tns:UserCredentialsType" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="UserCredentialsType">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:ParameterDeclaration" />
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ParameterDeclaration" abstract="true">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:DbHelper">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="UniqueID" type="s1:guid" />
+              <s:element minOccurs="0" maxOccurs="1" name="Value" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="OpenID" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="Enabled" type="s:boolean" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="DbHelper" />
+      <s:element name="GetPlaceRegions">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetPlaceRegionsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPlaceRegionsResult" type="tns:ArrayOfPlaceRegion" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfPlaceRegion">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="PlaceRegion" nillable="true" type="tns:PlaceRegion" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="PlaceRegion">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:ParameterDeclaration">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="ParentID" type="s1:guid" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+    </s:schema>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://microsoft.com/wsdl/types/">
+      <s:simpleType name="guid">
+        <s:restriction base="s:string">
+          <s:pattern value="[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}" />
+        </s:restriction>
+      </s:simpleType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetCredentialsTypesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCredentialsTypes" />
+  </wsdl:message>
+  <wsdl:message name="GetCredentialsTypesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCredentialsTypesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPlaceRegionsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPlaceRegions" />
+  </wsdl:message>
+  <wsdl:message name="GetPlaceRegionsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPlaceRegionsResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ParametersServiceSoap">
+    <wsdl:operation name="GetCredentialsTypes">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">获取所有的用户证件类型</wsdl:documentation>
+      <wsdl:input message="tns:GetCredentialsTypesSoapIn" />
+      <wsdl:output message="tns:GetCredentialsTypesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPlaceRegions">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">获取所有的地区区域定义</wsdl:documentation>
+      <wsdl:input message="tns:GetPlaceRegionsSoapIn" />
+      <wsdl:output message="tns:GetPlaceRegionsSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ParametersServiceSoap" type="tns:ParametersServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetCredentialsTypes">
+      <soap:operation soapAction="urn:Masterduner@Yeah.net/GetCredentialsTypes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPlaceRegions">
+      <soap:operation soapAction="urn:Masterduner@Yeah.net/GetPlaceRegions" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ParametersServiceSoap12" type="tns:ParametersServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetCredentialsTypes">
+      <soap12:operation soapAction="urn:Masterduner@Yeah.net/GetCredentialsTypes" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPlaceRegions">
+      <soap12:operation soapAction="urn:Masterduner@Yeah.net/GetPlaceRegions" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ParametersService">
+    <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">系统参数WEB服务</wsdl:documentation>
+    <wsdl:port name="ParametersServiceSoap" binding="tns:ParametersServiceSoap">
+      <soap:address location="http://localhost:1/ParametersService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ParametersServiceSoap12" binding="tns:ParametersServiceSoap12">
+      <soap12:address location="http://localhost:1/ParametersService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

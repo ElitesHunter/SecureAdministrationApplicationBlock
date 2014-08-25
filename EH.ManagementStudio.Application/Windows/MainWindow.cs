@@ -361,6 +361,11 @@ namespace EnterpriseServices.ManagementClient.Windows
             }
         }
         #endregion
+
+        private void ctrlRefreshOrgObject_Click(object sender, EventArgs e)
+        {
+
+        }
     }
     #endregion
 }
