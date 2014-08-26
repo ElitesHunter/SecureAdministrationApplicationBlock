@@ -24,7 +24,6 @@
 
 #endregion
 
-using System;
 using EnterpriseServices.SecurityService.API.ParamsService;
 
 namespace EnterpriseServices.SecurityService.API

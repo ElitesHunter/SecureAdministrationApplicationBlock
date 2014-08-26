@@ -1,17 +1,17 @@
-#region "ChooseDateEditor"
+#region "ChooseCredentialsTypeEditor"
 
 /*
  * ####     Developer Name : Wang Yucai
  * 
  * ####     Development Tool : Microsoft VisualStudio 2010 Ultimate Edition
  * 
- * ####     Create Time : 2014-08-25 13:59:29
+ * ####     Create Time : 2014-08-26 9:38:09
  * 
  * ####     Namespace : EnterpriseServices.ManagementClient.Operations.Entity.Editors
  * 
- * ####     Type Name : ChooseDateEditor
+ * ####     Type Name : ChooseCredentialsTypeEditor
  * 
- * ####     Full Name : EnterpriseServices.ManagementClient.Operations.Entity.Editors.ChooseDateEditor
+ * ####     Full Name : EnterpriseServices.ManagementClient.Operations.Entity.Editors.ChooseCredentialsTypeEditor
  * 
  * ####     Machine Name : GLCHQWYCWINW7
  * 
@@ -32,24 +32,24 @@ using System.Windows.Forms;
 namespace EnterpriseServices.ManagementClient.Operations.Entity.Editors
 {
     /// <summary>
-    /// <para>EnterpriseServices.ManagementClient.Operations.Entity.Editors.ChooseDateEditor</para>
+    /// <para>EnterpriseServices.ManagementClient.Operations.Entity.Editors.ChooseCredentialsTypeEditor</para>
     /// <para>
-    /// 选择日期编辑器。
+    /// 选择证件类型编辑器。
     /// </para>
     /// </summary>
     /// <remarks>
     /// <para>Target Framework Version : 3.5</para>
     /// <para>此类不可继承。</para>
     /// </remarks>
-    public sealed class ChooseDateEditor : UITypeEditor
+    public sealed class ChooseCredentialsTypeEditor : UITypeEditor
     {
         #region Constructor
 
         /// <summary>
         /// <para>构造函数：</para>
-        /// <para>初始化一个<see cref="ChooseDateEditor" />对象实例。</para>
+        /// <para>初始化一个<see cref="ChooseCredentialsTypeEditor" />对象实例。</para>
         /// </summary>
-        public ChooseDateEditor()
+        public ChooseCredentialsTypeEditor()
         {
         }
 
@@ -68,11 +68,21 @@ namespace EnterpriseServices.ManagementClient.Operations.Entity.Editors
         #endregion
 
         #region EditValue
+        /// <summary>
+        /// 编辑属性值。
+        /// </summary>
+        /// <param name="context"></param>
+        /// <param name="provider"></param>
+        /// <param name="value"></param>
+        /// <returns></returns>
         public override object EditValue(ITypeDescriptorContext context, IServiceProvider provider, object value)
         {
-            using (ChooseDateDialog dialog = new ChooseDateDialog() { SelectedDate = (DateTime)value })
+            using (ChooseCredentialsTypeDialog dialog = new ChooseCredentialsTypeDialog() { SelectedCredentialsType = value as CredentialsType })
             {
-                if (dialog.ShowDialog() == DialogResult.OK) return dialog.SelectedDate;
+                if (dialog.ShowDialog() == DialogResult.OK)
+                {
+                    return dialog.SelectedCredentialsType;
+                }
                 else return value;
             }
         }

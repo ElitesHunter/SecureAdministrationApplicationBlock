@@ -25,10 +25,12 @@
 #endregion
 
 using System;
-using System.ComponentModel;
-using EnterpriseServices.SecurityService.API.ParamsService;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Drawing.Design;
+using EnterpriseServices.ManagementClient.Operations.Entity.Editors;
 using EnterpriseServices.SecurityService.API;
+using EnterpriseServices.SecurityService.API.ParamsService;
 
 namespace EnterpriseServices.ManagementClient.Operations.Entity
 {
@@ -54,6 +56,7 @@ namespace EnterpriseServices.ManagementClient.Operations.Entity
         [ReadOnly(true)]
         [DisplayName("证件类型")]
         [Description("用户证件类型")]
+        [Editor(typeof(ChooseCredentialsTypeEditor), typeof(UITypeEditor))]
         public override string Value
         {
             get

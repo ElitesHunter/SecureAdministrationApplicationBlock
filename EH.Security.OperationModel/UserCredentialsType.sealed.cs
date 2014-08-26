@@ -25,8 +25,8 @@
 #endregion
 
 using System;
-using System.Data;
 using System.Collections.Generic;
+using System.Data;
 using EnterpriseServices.Framework.Commons.Data;
 
 namespace EnterpriseServices.SecurityService.Framework.OperationModel

@@ -59,6 +59,7 @@
     <Compile Include="Entity\Editors\ChooseCredentialsTypeDialog.Designer.cs">
       <DependentUpon>ChooseCredentialsTypeDialog.cs</DependentUpon>
     </Compile>
+    <Compile Include="Entity\Editors\ChooseCredentialsTypeEditor.sealed.cs" />
     <Compile Include="Entity\Editors\ChooseDateDialog.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -66,7 +67,15 @@
       <DependentUpon>ChooseDateDialog.cs</DependentUpon>
     </Compile>
     <Compile Include="Entity\Editors\ChooseDateEditor.sealed.cs" />
+    <Compile Include="Entity\Editors\ChoosePlaceDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Entity\Editors\ChoosePlaceDialog.Designer.cs">
+      <DependentUpon>ChoosePlaceDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\Editors\ChoosePlaceEditor.sealed.cs" />
     <Compile Include="Entity\ParameterBase.abstract.cs" />
+    <Compile Include="Entity\Place.sealed.cs" />
     <Compile Include="Entity\Position.sealed.cs" />
     <Compile Include="Entity\Staff.sealed.cs" />
     <Compile Include="IAfterTreeNodeExpandedHandler.cs" />
@@ -151,6 +160,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Entity\Editors\ChooseDateDialog.resx">
       <DependentUpon>ChooseDateDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Entity\Editors\ChoosePlaceDialog.resx">
+      <DependentUpon>ChoosePlaceDialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\Messages.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
