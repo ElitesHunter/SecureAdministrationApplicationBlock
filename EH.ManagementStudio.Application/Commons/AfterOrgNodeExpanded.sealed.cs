@@ -24,6 +24,10 @@
 
 #endregion
 
+using System.Windows.Forms;
+using EnterpriseServices.ManagementClient.Controls;
+using EnterpriseServices.ManagementClient.Operations.Entity;
+using EnterpriseServices.ManagementClient.Operations.Organizations;
 
 namespace EnterpriseServices.ManagementClient.Commons
 {
@@ -37,8 +41,10 @@ namespace EnterpriseServices.ManagementClient.Commons
     /// <para>Target Framework Version : 3.5</para>
     /// <para>此类不可继承。</para>
     /// </remarks>
-    public sealed class AfterOrgNodeExpanded
+    public sealed class AfterOrgNodeExpanded : EnterpriseServices.ManagementClient.Operations.IAfterTreeNodeExpandedHandler
     {
+        private ContextMenuStrip _boundContextMenu;
+
         #region Constructor
 
         /// <summary>
@@ -49,6 +55,41 @@ namespace EnterpriseServices.ManagementClient.Commons
         {
         }
 
+        #endregion
+
+        #region Execute
+        /// <summary>
+        /// 执行展开后事件处理函数。
+        /// </summary>
+        /// <param name="ctxNode">当前的树节点。</param>
+        public void Execute(TreeNode ctxNode)
+        {
+            if (ctxNode.Nodes.Count.Equals(0) || (ctxNode.Nodes.Count.Equals(1) && ctxNode.Nodes[0] is EmptyTreeNode))
+            {
+                OrganizationBase[] orgObjects = new OrganizationObjectHandler().GetSubs((ctxNode.Tag as OrganizationBase).OpenID);
+                foreach (OrganizationBase item in orgObjects)
+                {
+                    if (item is Organization)
+                    {
+                        ctxNode.Nodes.Add(new OrganizationTreeNode(item as Organization) { ContextMenuStrip = this._boundContextMenu });
+                    }
+                    else
+                    {
+                        ctxNode.Nodes.Add(new PositionTreeNode(item as Position) { ContextMenuStrip = this._boundContextMenu });
+                    }
+                }
+            }
+        }
+        #endregion
+
+        #region BoundContextMenu
+        /// <summary>
+        /// 设置绑定的上下文菜单。
+        /// </summary>
+        public ContextMenuStrip BoundContextMenu
+        {
+            set { this._boundContextMenu = value; }
+        }
         #endregion
     }
 }

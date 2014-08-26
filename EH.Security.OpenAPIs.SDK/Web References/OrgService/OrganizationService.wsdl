@@ -80,6 +80,16 @@
           <s:element minOccurs="0" maxOccurs="unbounded" name="OrganizationObjectBase" nillable="true" type="tns:OrganizationObjectBase" />
         </s:sequence>
       </s:complexType>
+      <s:element name="UpdateOrganization">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="org" type="tns:Organization" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateOrganizationResponse">
+        <s:complexType />
+      </s:element>
     </s:schema>
     <s:schema elementFormDefault="qualified" targetNamespace="http://microsoft.com/wsdl/types/">
       <s:simpleType name="guid">
@@ -107,6 +117,12 @@
   <wsdl:message name="GetSubOrganizationsSoapOut">
     <wsdl:part name="parameters" element="tns:GetSubOrganizationsResponse" />
   </wsdl:message>
+  <wsdl:message name="UpdateOrganizationSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateOrganization" />
+  </wsdl:message>
+  <wsdl:message name="UpdateOrganizationSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateOrganizationResponse" />
+  </wsdl:message>
   <wsdl:portType name="OrganizationServiceSoap">
     <wsdl:operation name="GetRootOrganization">
       <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">获取根组织机构信息</wsdl:documentation>
@@ -122,6 +138,11 @@
       <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">获取子级组织机构对象集合&lt;br /&gt;organizationOpenID：指定组织机构对象的开放标识。</wsdl:documentation>
       <wsdl:input message="tns:GetSubOrganizationsSoapIn" />
       <wsdl:output message="tns:GetSubOrganizationsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOrganization">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">更新组织机构信息&lt;br /&gt;org：组织机构信息</wsdl:documentation>
+      <wsdl:input message="tns:UpdateOrganizationSoapIn" />
+      <wsdl:output message="tns:UpdateOrganizationSoapOut" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="OrganizationServiceSoap" type="tns:OrganizationServiceSoap">
@@ -153,6 +174,15 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="UpdateOrganization">
+      <soap:operation soapAction="urn:Masterduner@Yeah.net/UpdateOrganization" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:binding name="OrganizationServiceSoap12" type="tns:OrganizationServiceSoap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
@@ -176,6 +206,15 @@
     </wsdl:operation>
     <wsdl:operation name="GetSubOrganizations">
       <soap12:operation soapAction="urn:Masterduner@Yeah.net/GetSubOrganizations" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOrganization">
+      <soap12:operation soapAction="urn:Masterduner@Yeah.net/UpdateOrganization" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

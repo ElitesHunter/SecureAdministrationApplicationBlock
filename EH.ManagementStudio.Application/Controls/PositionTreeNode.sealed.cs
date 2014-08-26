@@ -1,17 +1,17 @@
-#region "OrganizationTreeNode"
+#region "PositionTreeNode"
 
 /*
  * ####     Developer Name : Wang Yucai
  * 
  * ####     Development Tool : Microsoft VisualStudio 2010 Ultimate Edition
  * 
- * ####     Create Time : 2014-08-21 10:58:17
+ * ####     Create Time : 2014-08-26 11:20:47
  * 
  * ####     Namespace : EnterpriseServices.ManagementClient.Controls
  * 
- * ####     Type Name : OrganizationTreeNode
+ * ####     Type Name : PositionTreeNode
  * 
- * ####     Full Name : EnterpriseServices.ManagementClient.Controls.OrganizationTreeNode
+ * ####     Full Name : EnterpriseServices.ManagementClient.Controls.PositionTreeNode
  * 
  * ####     Machine Name : GLCHQWYCWINW7
  * 
@@ -24,38 +24,34 @@
 
 #endregion
 
-using EnterpriseServices.ManagementClient.Operations;
+using System;
 using EnterpriseServices.ManagementClient.Operations.Entity;
-using EnterpriseServices.ManagementClient.Commons;
 
 namespace EnterpriseServices.ManagementClient.Controls
 {
     /// <summary>
-    /// <para>EnterpriseServices.ManagementClient.Controls.OrganizationTreeNode</para>
+    /// <para>EnterpriseServices.ManagementClient.Controls.PositionTreeNode</para>
     /// <para>
-    /// 组织机构节点。
+    /// 职位树节点。
     /// </para>
     /// </summary>
     /// <remarks>
     /// <para>Target Framework Version : 3.5</para>
     /// <para>此类不可继承。</para>
     /// </remarks>
-    [TreeNodeBoundControl(typeof(OrganizationViewerControl))]
-    [FilterAfterExpanded(typeof(AfterOrgNodeExpanded))]
-    public sealed class OrganizationTreeNode : FeatureTreeNodeBase
+    public sealed class PositionTreeNode : FeatureTreeNodeBase
     {
         #region Constructor
 
         /// <summary>
         /// <para>构造函数：</para>
-        /// <para>初始化一个<see cref="OrganizationTreeNode" />对象实例。</para>
+        /// <para>初始化一个<see cref="PositionTreeNode" />对象实例。</para>
         /// </summary>
-        public OrganizationTreeNode(Organization org)
-            : base(2, Commons.FeatureTreeNodeType.Organzation)
+        public PositionTreeNode(Position p):base(3, Commons.FeatureTreeNodeType.Position)
         {
-            this.Text = org.Name;
-            this.Tag = org;
-            this.ToolTipText = org.VirtualName;
+            this.Text = p.Name;
+            this.Tag = p;
+            this.ToolTipText = p.VirtualName;
             this.Nodes.Add(new EmptyTreeNode());
         }
 

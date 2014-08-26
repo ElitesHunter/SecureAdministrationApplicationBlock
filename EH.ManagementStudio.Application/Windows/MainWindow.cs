@@ -338,7 +338,7 @@ namespace EnterpriseServices.ManagementClient.Windows
         private void ctrlRefreshRootOrganization_Click(object sender, EventArgs e)
         {
             this.ctrlObjectsTree.SelectedNode.Nodes.Clear();
-            new AfterOrgRootNodeExpanded().Execute(this.ctrlObjectsTree.SelectedNode);
+            new AfterOrgRootNodeExpanded() { BoundContextMenu = this.ctrlOrganizationObjCtxMenu }.Execute(this.ctrlObjectsTree.SelectedNode);
         }
         #endregion
 
@@ -362,10 +362,50 @@ namespace EnterpriseServices.ManagementClient.Windows
         }
         #endregion
 
-        private void ctrlRefreshOrgObject_Click(object sender, EventArgs e)
+        #region RefreshOrganizationObjectClick
+        /// <summary>
+        /// 刷新组织机构对象。
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void RefreshOrganizationObjectClick(object sender, EventArgs e)
         {
+            if (this.ctrlObjectsTree.SelectedNode is OrganizationTreeNode)
+            {
+                this.ctrlObjectsTree.SelectedNode.Nodes.Clear();
+                new AfterOrgNodeExpanded() { BoundContextMenu = this.ctrlOrganizationObjCtxMenu }.Execute(this.ctrlObjectsTree.SelectedNode);
+            }
+            else
+            {
+            }
+        }
+        #endregion
+
+        #region OrganizationObjectCtxMenuOpening
+        private void OrganizationObjectCtxMenuOpening(object sender, CancelEventArgs e)
+        {
+            if (this.ctrlObjectsTree.SelectedNode is OrganizationTreeNode)
+            {
+                this.ctrlCreateStaff.Enabled = false;
+                this.ctrlCreateOrgObject.Enabled = true;
+                this.ctrlCreatePosition.Enabled = true;
+                if (this.ctrlObjectsTree.SelectedNode.Parent is OrganizationRootTreeNode)
+                {
+                    this.ctrlDisableOrgObject.Enabled = false;
+                    this.ctrlRemoveOrgObject.Enabled = false;
+                }
+                else
+                {
+                    this.ctrlDisableOrgObject.Enabled = true;
+                    this.ctrlRemoveOrgObject.Enabled = true;
+                }
+            }
+            else
+            {
+            }
 
         }
+        #endregion
     }
     #endregion
 }

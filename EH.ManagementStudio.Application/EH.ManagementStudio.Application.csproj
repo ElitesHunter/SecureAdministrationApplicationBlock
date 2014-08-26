@@ -104,6 +104,7 @@
       <DependentUpon>OrganizationViewerControl.cs</DependentUpon>
     </Compile>
     <Compile Include="Controls\ParameterDeclarationRootTreeNode.sealed.cs" />
+    <Compile Include="Controls\PositionTreeNode.sealed.cs" />
     <Compile Include="Controls\RootTreeNode.sealed.cs" />
     <Compile Include="Dialogs\BaseDialog.cs">
       <SubType>Form</SubType>

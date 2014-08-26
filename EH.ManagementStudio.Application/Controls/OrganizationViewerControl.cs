@@ -1,5 +1,7 @@
 ﻿using System;
 using EnterpriseServices.ManagementClient.Operations.Entity;
+using EnterpriseServices.ManagementClient.Commons;
+using EnterpriseServices.ManagementClient.Operations.Organizations;
 
 namespace EnterpriseServices.ManagementClient.Controls
 {
@@ -23,6 +25,8 @@ namespace EnterpriseServices.ManagementClient.Controls
         void BoundNodeChanged(object sender, EventArgs e)
         {
             this.ctrlProperties.SelectedObject = this.BoundTreeNode.Tag;
+            this.SetDescription((this.BoundTreeNode.Tag as Organization).Name);
+            this.ctrlVPathDescription.Text = (this.BoundTreeNode.Tag as Organization).VirtualPath;
         }
         #endregion
 
@@ -44,6 +48,26 @@ namespace EnterpriseServices.ManagementClient.Controls
         public override string GetDescriptionInTabContainer()
         {
             return "组织机构";
+        }
+        #endregion
+
+        #region SaveButtonClick
+        /// <summary>
+        /// 保存按钮单击事件处理函数。
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void SaveButtonClick(object sender, EventArgs e)
+        {
+            Organization org = this.ctrlProperties.SelectedObject as Organization;
+            if (!string.IsNullOrEmpty(org.Name))
+            {
+                if (DialogMethods.Ask("确认更新组织机构信息？") == System.Windows.Forms.DialogResult.OK)
+                {
+                    new OrganizationHandler().Update(org);
+                }
+            }
+            else DialogMethods.Prompt("请输入组织机构名称！");
         }
         #endregion
     }

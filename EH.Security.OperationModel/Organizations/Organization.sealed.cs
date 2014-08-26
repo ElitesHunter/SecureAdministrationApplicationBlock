@@ -51,7 +51,11 @@ namespace EnterpriseServices.SecurityService.Framework.OperationModel.Organizati
         /// </summary>
         public bool IsVirtual
         {
-            get { return _isVirtual; }
+            get
+            {
+                _isVirtual = base.Category.Equals(OrganizationObjectCategory.VirtualOrganization);
+                return _isVirtual;
+            }
             set { _isVirtual = base.Category.Equals(OrganizationObjectCategory.VirtualOrganization); }
         }
         #endregion
@@ -99,6 +103,22 @@ namespace EnterpriseServices.SecurityService.Framework.OperationModel.Organizati
             SqlCommand cmd = base.CreateCommand("Sp.CreateOrganization", CommandType.StoredProcedure,
                 base.CreateParameter("name", base.Name, SqlDbType.NVarChar, ParameterDirection.Input),
                 base.CreateParameter("parentID", parentID, SqlDbType.UniqueIdentifier, ParameterDirection.Input),
+                base.CreateParameter("isVirtual", this.IsVirtual.ToSqlValue(), SqlDbType.Char, ParameterDirection.Input));
+            base.ExecuteNonQuery(cmd);
+        }
+        #endregion
+
+        #region Update
+        /// <summary>
+        /// 更新此组织机构数据。
+        /// </summary>
+        public override void Update()
+        {
+            SqlCommand cmd = base.CreateCommand("Sp.UpgradeOrganization", CommandType.StoredProcedure,
+                base.CreateParameter("openID", this.OpenID, SqlDbType.VarChar, ParameterDirection.Input),
+                base.CreateParameter("name", base.Name, SqlDbType.NVarChar, ParameterDirection.Input),
+                base.CreateParameter("enabled", base.Enabled.ToSqlValue(), SqlDbType.Char, ParameterDirection.Input),
+                base.CreateParameter("remove", base.LogicalRemovedState.ToSqlValue(), SqlDbType.Char, ParameterDirection.Input),
                 base.CreateParameter("isVirtual", this.IsVirtual.ToSqlValue(), SqlDbType.Char, ParameterDirection.Input));
             base.ExecuteNonQuery(cmd);
         }

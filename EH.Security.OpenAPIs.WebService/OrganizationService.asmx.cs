@@ -51,5 +51,17 @@ namespace EnterpriseServices.SecurityService.API.OpenServices
             return OrganizationObjectBase.GetSubs(organizationOpenID);
         }
         #endregion
+
+        #region UpdateOrganization
+        /// <summary>
+        /// 更新组织机构信息。
+        /// </summary>
+        /// <param name="org"></param>
+        [WebMethod(Description = "更新组织机构信息<br />org：组织机构信息")]
+        public void UpdateOrganization(Organization org)
+        {
+            org.Update();
+        }
+        #endregion
     }
 }

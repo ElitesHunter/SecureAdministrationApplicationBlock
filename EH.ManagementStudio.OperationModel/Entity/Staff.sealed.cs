@@ -147,11 +147,11 @@ namespace EnterpriseServices.ManagementClient.Operations.Entity
         /// <summary>
         /// 设置或获取证件类型。
         /// </summary>
-        [Description("证件类型")]
         [TypeConverter(typeof(ExpandableObjectConverter))]
         [Category("基本属性")]
         [Description("用户的证件类型")]
         [DisplayName("证件类型")]
+        [Editor(typeof(ChooseCredentialsTypeEditor), typeof(UITypeEditor))]
         public CredentialsType CredentialsType
         {
             get { return _credentialsType; }

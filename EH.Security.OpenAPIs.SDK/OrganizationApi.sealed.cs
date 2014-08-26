@@ -105,6 +105,20 @@ namespace EnterpriseServices.SecurityService.API
             }
         }
         #endregion
+
+        #region UpgradeOrganizationInfo
+        /// <summary>
+        /// 更新组织机构信息。
+        /// </summary>
+        /// <param name="org"></param>
+        public void UpgradeOrganizationInfo(Organization org)
+        {
+            using (OrgSvc service = new OrgSvc() { Url = base.ServiceUrl })
+            {
+                service.UpdateOrganization(org);
+            }
+        }
+        #endregion
     }
 }
 

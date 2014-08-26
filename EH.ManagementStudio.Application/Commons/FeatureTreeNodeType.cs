@@ -48,7 +48,9 @@ namespace EnterpriseServices.ManagementClient.Commons
         AuthorizationsRoot = 4,
         LoggingsRoot = 5,
         ExpirationPolicyRoot = 6,
-        Organzation = 7
+        Organzation = 7,
+        Position = 8,
+        Staff = 9
     }
 }
 

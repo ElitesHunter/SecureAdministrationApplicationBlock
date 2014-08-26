@@ -82,22 +82,47 @@ namespace EnterpriseServices.ManagementClient.Operations.Organizations
             List<OrganizationBase> list = new List<OrganizationBase>();
             foreach (OrganizationObjectBase item in objects)
             {
-                list.Add(new OrganizationBase()
+                if (item.Category == OrganizationObjectCategory.Organization || item.Category == OrganizationObjectCategory.VirtualOrganization)
                 {
-                    UniqueID = item.UniqueID,
-                    Name = item.Name,
-                    VirtualName = item.VirtualName,
-                    VirtualPath = item.VirtualPath,
-                    Visible = item.Visible,
-                    Enabled = item.Enabled,
-                    HasRemoved = item.LogicalRemovedState,
-                    OpenID = item.OpenID,
-                    ParentUniqueID = item.ParentID
-                });
+                    list.Add(new EnterpriseServices.ManagementClient.Operations.Entity.Organization()
+                    {
+                        UniqueID = item.UniqueID,
+                        Name = item.Name,
+                        VirtualName = item.VirtualName,
+                        VirtualPath = item.VirtualPath,
+                        Visible = item.Visible,
+                        Enabled = item.Enabled,
+                        HasRemoved = item.LogicalRemovedState,
+                        OpenID = item.OpenID,
+                        ParentUniqueID = item.ParentID,
+                        IsVirtual = item.Category == OrganizationObjectCategory.VirtualOrganization
+                    });
+                }
+                else if (item.Category == OrganizationObjectCategory.Position)
+                {
+                    list.Add(new Position()
+                    {
+                        UniqueID = item.UniqueID,
+                        Name = item.Name,
+                        VirtualName = item.VirtualName,
+                        VirtualPath = item.VirtualPath,
+                        Visible = item.Visible,
+                        Enabled = item.Enabled,
+                        HasRemoved = item.LogicalRemovedState,
+                        OpenID = item.OpenID,
+                        ParentUniqueID = item.ParentID,
+                    });
+                }
             }
             return list.ToArray();
         }
         #endregion
+
+
+        public void Update(Entity.Organization org)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
 

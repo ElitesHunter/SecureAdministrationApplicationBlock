@@ -66,6 +66,14 @@ namespace EnterpriseServices.ManagementClient.Operations.Organizations
         /// <returns><typeparamref name="TOrganizationObject"/>类型的数组。</returns>
         TOrganizationObject[] GetSubs(string openID);
         #endregion
+
+        #region Update
+        /// <summary>
+        /// 更新组织机构信息。
+        /// </summary>
+        /// <param name="org"></param>
+        void Update(Organization org);
+        #endregion
     }
 }
 

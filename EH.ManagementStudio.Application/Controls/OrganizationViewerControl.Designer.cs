@@ -30,14 +30,14 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(OrganizationViewerControl));
             this.ctrlBackgroundContainer = new System.Windows.Forms.Panel();
-            this.ctrlButtonsContainer = new System.Windows.Forms.Panel();
-            this.btnSave = new System.Windows.Forms.Button();
+            this.ctrlProperties = new System.Windows.Forms.PropertyGrid();
             this.ctrlVirtualPathContainer = new System.Windows.Forms.Panel();
             this.ctrlVPathDescription = new System.Windows.Forms.Label();
-            this.ctrlProperties = new System.Windows.Forms.PropertyGrid();
+            this.ctrlButtonsContainer = new System.Windows.Forms.Panel();
+            this.ctrlSaveButton = new System.Windows.Forms.Button();
             this.ctrlBackgroundContainer.SuspendLayout();
-            this.ctrlButtonsContainer.SuspendLayout();
             this.ctrlVirtualPathContainer.SuspendLayout();
+            this.ctrlButtonsContainer.SuspendLayout();
             this.SuspendLayout();
             // 
             // ctrlBackgroundContainer
@@ -52,26 +52,14 @@
             this.ctrlBackgroundContainer.Size = new System.Drawing.Size(660, 289);
             this.ctrlBackgroundContainer.TabIndex = 7;
             // 
-            // ctrlButtonsContainer
+            // ctrlProperties
             // 
-            this.ctrlButtonsContainer.Controls.Add(this.btnSave);
-            this.ctrlButtonsContainer.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.ctrlButtonsContainer.Location = new System.Drawing.Point(0, 239);
-            this.ctrlButtonsContainer.Name = "ctrlButtonsContainer";
-            this.ctrlButtonsContainer.Size = new System.Drawing.Size(660, 50);
-            this.ctrlButtonsContainer.TabIndex = 0;
-            // 
-            // btnSave
-            // 
-            this.btnSave.Image = ((System.Drawing.Image)(resources.GetObject("btnSave.Image")));
-            this.btnSave.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSave.Location = new System.Drawing.Point(8, 10);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(80, 30);
-            this.btnSave.TabIndex = 0;
-            this.btnSave.Text = "保存变更";
-            this.btnSave.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnSave.UseVisualStyleBackColor = true;
+            this.ctrlProperties.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ctrlProperties.HelpBackColor = System.Drawing.Color.White;
+            this.ctrlProperties.Location = new System.Drawing.Point(0, 25);
+            this.ctrlProperties.Name = "ctrlProperties";
+            this.ctrlProperties.Size = new System.Drawing.Size(660, 214);
+            this.ctrlProperties.TabIndex = 2;
             // 
             // ctrlVirtualPathContainer
             // 
@@ -93,14 +81,27 @@
             this.ctrlVPathDescription.TabIndex = 0;
             this.ctrlVPathDescription.Text = "label1";
             // 
-            // ctrlProperties
+            // ctrlButtonsContainer
             // 
-            this.ctrlProperties.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ctrlProperties.HelpBackColor = System.Drawing.Color.White;
-            this.ctrlProperties.Location = new System.Drawing.Point(0, 25);
-            this.ctrlProperties.Name = "ctrlProperties";
-            this.ctrlProperties.Size = new System.Drawing.Size(660, 214);
-            this.ctrlProperties.TabIndex = 2;
+            this.ctrlButtonsContainer.Controls.Add(this.ctrlSaveButton);
+            this.ctrlButtonsContainer.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.ctrlButtonsContainer.Location = new System.Drawing.Point(0, 239);
+            this.ctrlButtonsContainer.Name = "ctrlButtonsContainer";
+            this.ctrlButtonsContainer.Size = new System.Drawing.Size(660, 50);
+            this.ctrlButtonsContainer.TabIndex = 0;
+            // 
+            // ctrlSaveButton
+            // 
+            this.ctrlSaveButton.Image = ((System.Drawing.Image)(resources.GetObject("ctrlSaveButton.Image")));
+            this.ctrlSaveButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.ctrlSaveButton.Location = new System.Drawing.Point(8, 10);
+            this.ctrlSaveButton.Name = "ctrlSaveButton";
+            this.ctrlSaveButton.Size = new System.Drawing.Size(80, 30);
+            this.ctrlSaveButton.TabIndex = 0;
+            this.ctrlSaveButton.Text = "保存变更";
+            this.ctrlSaveButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.ctrlSaveButton.UseVisualStyleBackColor = true;
+            this.ctrlSaveButton.Click += new System.EventHandler(this.SaveButtonClick);
             // 
             // OrganizationViewerControl
             // 
@@ -110,9 +111,9 @@
             this.Name = "OrganizationViewerControl";
             this.Controls.SetChildIndex(this.ctrlBackgroundContainer, 0);
             this.ctrlBackgroundContainer.ResumeLayout(false);
-            this.ctrlButtonsContainer.ResumeLayout(false);
             this.ctrlVirtualPathContainer.ResumeLayout(false);
             this.ctrlVirtualPathContainer.PerformLayout();
+            this.ctrlButtonsContainer.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -121,7 +122,7 @@
 
         private System.Windows.Forms.Panel ctrlBackgroundContainer;
         private System.Windows.Forms.Panel ctrlButtonsContainer;
-        private System.Windows.Forms.Button btnSave;
+        private System.Windows.Forms.Button ctrlSaveButton;
         private System.Windows.Forms.Panel ctrlVirtualPathContainer;
         private System.Windows.Forms.Label ctrlVPathDescription;
         private System.Windows.Forms.PropertyGrid ctrlProperties;

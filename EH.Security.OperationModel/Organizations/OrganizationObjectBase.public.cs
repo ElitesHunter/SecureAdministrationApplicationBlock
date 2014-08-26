@@ -258,6 +258,16 @@ namespace EnterpriseServices.SecurityService.Framework.OperationModel.Organizati
             return objects;
         }
         #endregion
+
+        #region Update
+        /// <summary>
+        /// 更新组织机构对象数据。
+        /// </summary>
+        public virtual void Update()
+        {
+            throw new NotImplementedException();
+        }
+        #endregion
     }
 }
 

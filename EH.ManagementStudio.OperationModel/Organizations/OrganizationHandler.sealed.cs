@@ -109,14 +109,15 @@ namespace EnterpriseServices.ManagementClient.Operations.Organizations
             return new Org()
             {
                 UniqueID = org.UniqueID,
-                Category = org.IsVirtual ? API.OrganizationObjectCategory.Organization : API.OrganizationObjectCategory.VirtualOrganization,
+                Category = !org.IsVirtual ? API.OrganizationObjectCategory.Organization : API.OrganizationObjectCategory.VirtualOrganization,
                 Description = string.Empty,
                 Enabled = org.Enabled,
                 LogicalRemovedState = org.Enabled,
                 Name = org.Name,
                 OpenID = org.OpenID,
                 ParentID = org.ParentUniqueID,
-                Visible = org.Visible
+                Visible = org.Visible,
+                IsVirtual = org.IsVirtual
             };
         }
         #endregion
@@ -144,6 +145,19 @@ namespace EnterpriseServices.ManagementClient.Operations.Organizations
         {
             throw new NotImplementedException();
         }
+
+
+        #region Update
+        /// <summary>
+        /// 更新组织机构信息。
+        /// </summary>
+        /// <param name="org"></param>
+        [TraceOperation]
+        public void Update(Organization org)
+        {
+            new OrganizationApi().UpgradeOrganizationInfo(Transfer(org));
+        }
+        #endregion
     }
 }
 

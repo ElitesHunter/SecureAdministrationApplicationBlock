@@ -36,6 +36,8 @@ namespace EnterpriseServices.SecurityService.API.OrgService {
         
         private System.Threading.SendOrPostCallback GetSubOrganizationsOperationCompleted;
         
+        private System.Threading.SendOrPostCallback UpdateOrganizationOperationCompleted;
+        
         private bool useDefaultCredentialsSetExplicitly;
         
         /// <remarks/>
@@ -82,6 +84,9 @@ namespace EnterpriseServices.SecurityService.API.OrgService {
         
         /// <remarks/>
         public event GetSubOrganizationsCompletedEventHandler GetSubOrganizationsCompleted;
+        
+        /// <remarks/>
+        public event UpdateOrganizationCompletedEventHandler UpdateOrganizationCompleted;
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:Masterduner@Yeah.net/GetRootOrganization", RequestNamespace="urn:Masterduner@Yeah.net", ResponseNamespace="urn:Masterduner@Yeah.net", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
@@ -164,6 +169,34 @@ namespace EnterpriseServices.SecurityService.API.OrgService {
             if ((this.GetSubOrganizationsCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
                 this.GetSubOrganizationsCompleted(this, new GetSubOrganizationsCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:Masterduner@Yeah.net/UpdateOrganization", RequestNamespace="urn:Masterduner@Yeah.net", ResponseNamespace="urn:Masterduner@Yeah.net", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public void UpdateOrganization(Organization org) {
+            this.Invoke("UpdateOrganization", new object[] {
+                        org});
+        }
+        
+        /// <remarks/>
+        public void UpdateOrganizationAsync(Organization org) {
+            this.UpdateOrganizationAsync(org, null);
+        }
+        
+        /// <remarks/>
+        public void UpdateOrganizationAsync(Organization org, object userState) {
+            if ((this.UpdateOrganizationOperationCompleted == null)) {
+                this.UpdateOrganizationOperationCompleted = new System.Threading.SendOrPostCallback(this.OnUpdateOrganizationOperationCompleted);
+            }
+            this.InvokeAsync("UpdateOrganization", new object[] {
+                        org}, this.UpdateOrganizationOperationCompleted, userState);
+        }
+        
+        private void OnUpdateOrganizationOperationCompleted(object arg) {
+            if ((this.UpdateOrganizationCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.UpdateOrganizationCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -434,6 +467,10 @@ namespace EnterpriseServices.SecurityService.API.OrgService {
             }
         }
     }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.18408")]
+    public delegate void UpdateOrganizationCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
 }
 
 #pragma warning restore 1591
