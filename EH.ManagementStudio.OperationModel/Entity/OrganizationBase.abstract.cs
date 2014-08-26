@@ -195,6 +195,7 @@ namespace EnterpriseServices.ManagementClient.Operations.Entity
         public OrganizationBase()
         {
             this.UniqueID = Guid.NewGuid();
+            this.HasRemoved = false;
         }
 
         #endregion
