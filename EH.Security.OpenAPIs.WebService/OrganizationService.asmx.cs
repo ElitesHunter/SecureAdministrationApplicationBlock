@@ -63,5 +63,20 @@ namespace EnterpriseServices.SecurityService.API.OpenServices
             org.Update();
         }
         #endregion
+
+        #region CreatePosition
+        /// <summary>
+        /// 创建一个职位信息。
+        /// </summary>
+        /// <param name="obj"><see cref="Position"/>对象实例。</param>
+        /// <param name="isPrincipal">是否为负责人职位。</param>
+        /// <param name="force">是否强制创建。</param>
+        /// <returns></returns>
+        [WebMethod(Description = "创建一个职位信息<br />obj:职位对象实例<br />isPrincipal:是否为负责人职位<br />force:是否强行创建此职位")]
+        public int CreatePosition(Position obj, bool isPrincipal, bool force)
+        {
+            return obj.Create(isPrincipal, force);
+        }
+        #endregion
     }
 }

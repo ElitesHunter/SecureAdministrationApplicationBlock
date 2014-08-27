@@ -406,6 +406,22 @@ namespace EnterpriseServices.ManagementClient.Windows
 
         }
         #endregion
+
+        #region CreatePositionClick
+        /// <summary>
+        /// 创建职位菜单单击事件处理函数。
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void CreatePositionClick(object sender, EventArgs e)
+        {
+            using (PositionEditorDialog dialog = new PositionEditorDialog() { OwnedOrganization = this.ctrlObjectsTree.SelectedNode.Tag as Organization, PositionObject = new Position() })
+            {
+                if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                { }
+            }
+        }
+        #endregion
     }
     #endregion
 }

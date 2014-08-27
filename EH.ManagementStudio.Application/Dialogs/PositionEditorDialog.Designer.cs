@@ -32,8 +32,8 @@
             this.CtrlCancelButton = new System.Windows.Forms.Button();
             this.CtrlOkButton = new System.Windows.Forms.Button();
             this.CtrlIsPrincipalPositionContainer = new System.Windows.Forms.Panel();
-            this.CtrlPositionPropertyGrid = new System.Windows.Forms.PropertyGrid();
             this.CtrlIsPrincipal = new System.Windows.Forms.CheckBox();
+            this.CtrlPositionPropertyGrid = new System.Windows.Forms.PropertyGrid();
             this.CtrlButtonsContainer.SuspendLayout();
             this.CtrlIsPrincipalPositionContainer.SuspendLayout();
             this.SuspendLayout();
@@ -66,6 +66,7 @@
             this.CtrlOkButton.TabIndex = 0;
             this.CtrlOkButton.Text = "确定";
             this.CtrlOkButton.UseVisualStyleBackColor = true;
+            this.CtrlOkButton.Click += new System.EventHandler(this.OkButtonClick);
             // 
             // CtrlIsPrincipalPositionContainer
             // 
@@ -77,15 +78,6 @@
             this.CtrlIsPrincipalPositionContainer.Size = new System.Drawing.Size(394, 50);
             this.CtrlIsPrincipalPositionContainer.TabIndex = 1;
             // 
-            // CtrlPositionPropertyGrid
-            // 
-            this.CtrlPositionPropertyGrid.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.CtrlPositionPropertyGrid.HelpBackColor = System.Drawing.Color.White;
-            this.CtrlPositionPropertyGrid.Location = new System.Drawing.Point(0, 0);
-            this.CtrlPositionPropertyGrid.Name = "CtrlPositionPropertyGrid";
-            this.CtrlPositionPropertyGrid.Size = new System.Drawing.Size(394, 272);
-            this.CtrlPositionPropertyGrid.TabIndex = 2;
-            // 
             // CtrlIsPrincipal
             // 
             this.CtrlIsPrincipal.AutoSize = true;
@@ -95,6 +87,15 @@
             this.CtrlIsPrincipal.TabIndex = 0;
             this.CtrlIsPrincipal.Text = "将这个职位设置为主要负责职位";
             this.CtrlIsPrincipal.UseVisualStyleBackColor = true;
+            // 
+            // CtrlPositionPropertyGrid
+            // 
+            this.CtrlPositionPropertyGrid.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.CtrlPositionPropertyGrid.HelpBackColor = System.Drawing.Color.White;
+            this.CtrlPositionPropertyGrid.Location = new System.Drawing.Point(0, 0);
+            this.CtrlPositionPropertyGrid.Name = "CtrlPositionPropertyGrid";
+            this.CtrlPositionPropertyGrid.Size = new System.Drawing.Size(394, 272);
+            this.CtrlPositionPropertyGrid.TabIndex = 2;
             // 
             // PositionEditorDialog
             // 

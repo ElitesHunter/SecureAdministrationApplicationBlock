@@ -100,7 +100,7 @@ namespace EnterpriseServices.ManagementClient.Operations.Organizations
                 }
                 else if (item.Category == OrganizationObjectCategory.Position)
                 {
-                    list.Add(new Position()
+                    list.Add(new EnterpriseServices.ManagementClient.Operations.Entity.Position()
                     {
                         UniqueID = item.UniqueID,
                         Name = item.Name,

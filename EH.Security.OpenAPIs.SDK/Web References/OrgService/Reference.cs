@@ -38,6 +38,8 @@ namespace EnterpriseServices.SecurityService.API.OrgService {
         
         private System.Threading.SendOrPostCallback UpdateOrganizationOperationCompleted;
         
+        private System.Threading.SendOrPostCallback CreatePositionOperationCompleted;
+        
         private bool useDefaultCredentialsSetExplicitly;
         
         /// <remarks/>
@@ -87,6 +89,9 @@ namespace EnterpriseServices.SecurityService.API.OrgService {
         
         /// <remarks/>
         public event UpdateOrganizationCompletedEventHandler UpdateOrganizationCompleted;
+        
+        /// <remarks/>
+        public event CreatePositionCompletedEventHandler CreatePositionCompleted;
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:Masterduner@Yeah.net/GetRootOrganization", RequestNamespace="urn:Masterduner@Yeah.net", ResponseNamespace="urn:Masterduner@Yeah.net", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
@@ -201,6 +206,39 @@ namespace EnterpriseServices.SecurityService.API.OrgService {
         }
         
         /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:Masterduner@Yeah.net/CreatePosition", RequestNamespace="urn:Masterduner@Yeah.net", ResponseNamespace="urn:Masterduner@Yeah.net", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public int CreatePosition(Position obj, bool isPrincipal, bool force) {
+            object[] results = this.Invoke("CreatePosition", new object[] {
+                        obj,
+                        isPrincipal,
+                        force});
+            return ((int)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void CreatePositionAsync(Position obj, bool isPrincipal, bool force) {
+            this.CreatePositionAsync(obj, isPrincipal, force, null);
+        }
+        
+        /// <remarks/>
+        public void CreatePositionAsync(Position obj, bool isPrincipal, bool force, object userState) {
+            if ((this.CreatePositionOperationCompleted == null)) {
+                this.CreatePositionOperationCompleted = new System.Threading.SendOrPostCallback(this.OnCreatePositionOperationCompleted);
+            }
+            this.InvokeAsync("CreatePosition", new object[] {
+                        obj,
+                        isPrincipal,
+                        force}, this.CreatePositionOperationCompleted, userState);
+        }
+        
+        private void OnCreatePositionOperationCompleted(object arg) {
+            if ((this.CreatePositionCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.CreatePositionCompleted(this, new CreatePositionCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
         public new void CancelAsync(object userState) {
             base.CancelAsync(userState);
         }
@@ -241,6 +279,7 @@ namespace EnterpriseServices.SecurityService.API.OrgService {
     }
     
     /// <remarks/>
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(Position))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Organization))]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.18408")]
     [System.SerializableAttribute()]
@@ -403,6 +442,7 @@ namespace EnterpriseServices.SecurityService.API.OrgService {
     
     /// <remarks/>
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(OrganizationObjectBase))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(Position))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Organization))]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.18408")]
     [System.SerializableAttribute()]
@@ -410,6 +450,27 @@ namespace EnterpriseServices.SecurityService.API.OrgService {
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:Masterduner@Yeah.net")]
     public partial class DbHelper {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.18408")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:Masterduner@Yeah.net")]
+    public partial class Position : OrganizationObjectBase {
+        
+        private System.Guid organizationIDField;
+        
+        /// <remarks/>
+        public System.Guid OrganizationID {
+            get {
+                return this.organizationIDField;
+            }
+            set {
+                this.organizationIDField = value;
+            }
+        }
     }
     
     /// <remarks/>
@@ -471,6 +532,32 @@ namespace EnterpriseServices.SecurityService.API.OrgService {
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.18408")]
     public delegate void UpdateOrganizationCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.18408")]
+    public delegate void CreatePositionCompletedEventHandler(object sender, CreatePositionCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.18408")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class CreatePositionCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal CreatePositionCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public int Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((int)(this.results[0]));
+            }
+        }
+    }
 }
 
 #pragma warning restore 1591

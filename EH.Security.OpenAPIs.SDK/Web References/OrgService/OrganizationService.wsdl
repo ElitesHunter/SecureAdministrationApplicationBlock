@@ -90,6 +90,31 @@
       <s:element name="UpdateOrganizationResponse">
         <s:complexType />
       </s:element>
+      <s:element name="CreatePosition">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="obj" type="tns:Position" />
+            <s:element minOccurs="1" maxOccurs="1" name="isPrincipal" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="force" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Position">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:OrganizationObjectBase">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="OrganizationID" type="s1:guid" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="CreatePositionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CreatePositionResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
     </s:schema>
     <s:schema elementFormDefault="qualified" targetNamespace="http://microsoft.com/wsdl/types/">
       <s:simpleType name="guid">
@@ -123,6 +148,12 @@
   <wsdl:message name="UpdateOrganizationSoapOut">
     <wsdl:part name="parameters" element="tns:UpdateOrganizationResponse" />
   </wsdl:message>
+  <wsdl:message name="CreatePositionSoapIn">
+    <wsdl:part name="parameters" element="tns:CreatePosition" />
+  </wsdl:message>
+  <wsdl:message name="CreatePositionSoapOut">
+    <wsdl:part name="parameters" element="tns:CreatePositionResponse" />
+  </wsdl:message>
   <wsdl:portType name="OrganizationServiceSoap">
     <wsdl:operation name="GetRootOrganization">
       <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">获取根组织机构信息</wsdl:documentation>
@@ -143,6 +174,11 @@
       <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">更新组织机构信息&lt;br /&gt;org：组织机构信息</wsdl:documentation>
       <wsdl:input message="tns:UpdateOrganizationSoapIn" />
       <wsdl:output message="tns:UpdateOrganizationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CreatePosition">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">创建一个职位信息&lt;br /&gt;obj:职位对象实例&lt;br /&gt;isPrincipal:是否为负责人职位&lt;br /&gt;force:是否强行创建此职位</wsdl:documentation>
+      <wsdl:input message="tns:CreatePositionSoapIn" />
+      <wsdl:output message="tns:CreatePositionSoapOut" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="OrganizationServiceSoap" type="tns:OrganizationServiceSoap">
@@ -183,6 +219,15 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="CreatePosition">
+      <soap:operation soapAction="urn:Masterduner@Yeah.net/CreatePosition" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:binding name="OrganizationServiceSoap12" type="tns:OrganizationServiceSoap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
@@ -215,6 +260,15 @@
     </wsdl:operation>
     <wsdl:operation name="UpdateOrganization">
       <soap12:operation soapAction="urn:Masterduner@Yeah.net/UpdateOrganization" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreatePosition">
+      <soap12:operation soapAction="urn:Masterduner@Yeah.net/CreatePosition" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

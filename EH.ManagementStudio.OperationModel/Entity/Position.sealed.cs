@@ -24,6 +24,8 @@
 
 #endregion
 
+using System;
+using System.ComponentModel;
 
 namespace EnterpriseServices.ManagementClient.Operations.Entity
 {
@@ -48,9 +50,31 @@ namespace EnterpriseServices.ManagementClient.Operations.Entity
         public Position()
             : base()
         {
-            
+            base.UniqueID = Guid.NewGuid();
         }
 
+        #endregion
+
+        #region Name
+        /// <summary>
+        /// 设置或获取职位名称。
+        /// </summary>
+        [Browsable(true)]
+        [Category("基本属性")]
+        [DisplayName("职位名称")]
+        [Description("职位名称")]
+        [DefaultValue("新的组织机构")]
+        public override string Name
+        {
+            get
+            {
+                return base.Name;
+            }
+            set
+            {
+                base.Name = value;
+            }
+        }
         #endregion
     }
 }

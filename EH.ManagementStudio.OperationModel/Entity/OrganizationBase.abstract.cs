@@ -77,7 +77,7 @@ namespace EnterpriseServices.ManagementClient.Operations.Entity
         [DisplayName("组织机构名称")]
         [Description("组织机构对象名称")]
         [DefaultValue("新的组织机构")]
-        public string Name
+        public virtual string Name
         {
             get { return _name; }
             set { _name = value; }

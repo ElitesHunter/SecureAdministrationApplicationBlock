@@ -63,6 +63,7 @@
     <Compile Include="Organizations\Organization.sealed.cs" />
     <Compile Include="Organizations\OrganizationObjectBase.public.cs" />
     <Compile Include="Organizations\OrganizationObjectCategory.cs" />
+    <Compile Include="Organizations\Position.sealed.cs" />
     <Compile Include="ParameterDeclaration.abstract.cs" />
     <Compile Include="PlaceRegion.sealed.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
