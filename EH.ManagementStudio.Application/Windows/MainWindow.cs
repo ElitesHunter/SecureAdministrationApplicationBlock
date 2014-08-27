@@ -400,10 +400,14 @@ namespace EnterpriseServices.ManagementClient.Windows
                     this.ctrlRemoveOrgObject.Enabled = true;
                 }
             }
-            else
+            else if (this.ctrlObjectsTree.SelectedNode is PositionTreeNode)
             {
+                this.ctrlCreateStaff.Enabled = true;
+                this.ctrlCreateOrgObject.Enabled = false;
+                this.ctrlCreatePosition.Enabled = false;
+                this.ctrlDisableOrgObject.Enabled = true;
+                this.ctrlRemoveOrgObject.Enabled = true;
             }
-
         }
         #endregion
 

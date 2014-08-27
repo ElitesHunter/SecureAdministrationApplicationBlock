@@ -39,6 +39,7 @@ namespace EnterpriseServices.ManagementClient.Controls
     /// <para>Target Framework Version : 3.5</para>
     /// <para>此类不可继承。</para>
     /// </remarks>
+    [EnterpriseServices.ManagementClient.Operations.TreeNodeBoundControl(typeof(PositionViewerControl))]
     public sealed class PositionTreeNode : FeatureTreeNodeBase
     {
         #region Constructor
@@ -47,7 +48,8 @@ namespace EnterpriseServices.ManagementClient.Controls
         /// <para>构造函数：</para>
         /// <para>初始化一个<see cref="PositionTreeNode" />对象实例。</para>
         /// </summary>
-        public PositionTreeNode(Position p):base(3, Commons.FeatureTreeNodeType.Position)
+        public PositionTreeNode(Position p)
+            : base(3, Commons.FeatureTreeNodeType.Position)
         {
             this.Text = p.Name;
             this.Tag = p;
