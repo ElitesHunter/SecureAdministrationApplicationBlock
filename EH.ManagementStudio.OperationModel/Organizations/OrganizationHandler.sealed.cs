@@ -112,7 +112,7 @@ namespace EnterpriseServices.ManagementClient.Operations.Organizations
                 Category = !org.IsVirtual ? API.OrganizationObjectCategory.Organization : API.OrganizationObjectCategory.VirtualOrganization,
                 Description = string.Empty,
                 Enabled = org.Enabled,
-                LogicalRemovedState = org.Enabled,
+                LogicalRemovedState = org.HasRemoved,
                 Name = org.Name,
                 OpenID = org.OpenID,
                 ParentID = org.ParentUniqueID,

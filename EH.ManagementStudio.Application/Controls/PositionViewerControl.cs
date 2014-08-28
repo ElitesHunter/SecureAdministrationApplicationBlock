@@ -1,11 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
+using EnterpriseServices.ManagementClient.Dialogs;
 using EnterpriseServices.ManagementClient.Operations.Entity;
 
 namespace EnterpriseServices.ManagementClient.Controls
@@ -16,6 +11,37 @@ namespace EnterpriseServices.ManagementClient.Controls
     /// </summary>
     public partial class PositionViewerControl : BaseControl
     {
+        private Position _currentPosition;
+        private int _isPrincipalState;
+        private Guid _superiorPositionID;
+
+        #region CurrentPosition
+        private Position CurrentPosition
+        {
+            get { return _currentPosition; }
+            set { _currentPosition = value; }
+        }
+        #endregion
+
+        #region IsPrincipalState
+        /// <summary>
+        /// 
+        /// </summary>
+        public int IsPrincipalState
+        {
+            get { return _isPrincipalState; }
+            set { _isPrincipalState = value; }
+        }
+        #endregion
+
+        #region SuperiorPositionID
+        public Guid SuperiorPositionID
+        {
+            get { return _superiorPositionID; }
+            set { _superiorPositionID = value; }
+        }
+        #endregion
+
         public PositionViewerControl()
         {
             InitializeComponent();
@@ -29,6 +55,7 @@ namespace EnterpriseServices.ManagementClient.Controls
             this.SetDescription(pos.Name);
             this.CtrlPositionPropertyGrid.SelectedObject = pos;
             this.CtrlVirtualPathDescription.Text = pos.VirtualPath;
+            this.CurrentPosition = pos;
         }
         #endregion
 
@@ -40,6 +67,7 @@ namespace EnterpriseServices.ManagementClient.Controls
         {
             base.InitializeThis();
             Position pos = (this.Tag as PositionTreeNode).Tag as Position;
+            this.CurrentPosition = pos;
             this.SetDescription(pos.Name);
             this.CtrlVirtualPathDescription.Text = pos.VirtualPath;
             this.CtrlPositionPropertyGrid.SelectedObject = pos;
@@ -66,6 +94,24 @@ namespace EnterpriseServices.ManagementClient.Controls
         private void ControlLoad(object sender, EventArgs e)
         {
 
+        }
+        #endregion
+
+        #region AdvancedButtonClick
+        /// <summary>
+        /// 高级按钮单击事件处理函数。
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void AdvancedButtonClick(object sender, EventArgs e)
+        {
+            using (PositionAdvancedDialog dialog = new PositionAdvancedDialog() { PositionID = this.CurrentPosition.UniqueID })
+            {
+                if (dialog.ShowDialog() == DialogResult.OK)
+                {
+
+                }
+            }
         }
         #endregion
     }

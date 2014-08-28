@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Web.Services;
 using EnterpriseServices.SecurityService.Framework.OperationModel.Organizations;
@@ -76,6 +77,14 @@ namespace EnterpriseServices.SecurityService.API.OpenServices
         public int CreatePosition(Position obj, bool isPrincipal, bool force)
         {
             return obj.Create(isPrincipal, force);
+        }
+        #endregion
+
+        #region GetPositionCollectionExcludeSpecified
+        [WebMethod(Description = "获取除指定职位以外的所有职位信息<br />thisPositionID:指定的职位标识")]
+        public List<Position> GetPositionCollectionExcludeSpecified(Guid thisPositionID)
+        {
+            return Position.GetPositionsExcludeCurrent(thisPositionID);
         }
         #endregion
     }

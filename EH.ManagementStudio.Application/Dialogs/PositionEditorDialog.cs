@@ -1,13 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
-using EnterpriseServices.ManagementClient.Operations.Entity;
 using EnterpriseServices.ManagementClient.Commons;
+using EnterpriseServices.ManagementClient.Operations.Entity;
 using EnterpriseServices.ManagementClient.Operations.Organizations;
 
 namespace EnterpriseServices.ManagementClient.Dialogs
@@ -81,6 +75,11 @@ namespace EnterpriseServices.ManagementClient.Dialogs
                         this.DialogResult = System.Windows.Forms.DialogResult.OK;
                         this.Close();
                     }
+                }
+                if (state.Equals(0))
+                {
+                    this.DialogResult = System.Windows.Forms.DialogResult.OK;
+                    this.Close();
                 }
             }
             else DialogMethods.Prompt("请输入职位的名称！");

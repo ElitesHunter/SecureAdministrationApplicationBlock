@@ -25,9 +25,10 @@
 #endregion
 
 using System;
+using System.Collections.Generic;
 using EnterpriseServices.ManagementClient.Operations.Entity;
-using P = EnterpriseServices.SecurityService.API.OrgService.Position;
 using EnterpriseServices.SecurityService.API;
+using P = EnterpriseServices.SecurityService.API.OrgService.Position;
 
 namespace EnterpriseServices.ManagementClient.Operations.Organizations
 {
@@ -70,10 +71,26 @@ namespace EnterpriseServices.ManagementClient.Operations.Organizations
                 Name = p.Name,
                 OrganizationID = orgID,
                 ParentID = orgID,
-                Visible = true,
+                Visible = p.Visible,
                 Category = SecurityService.API.OrgService.OrganizationObjectCategory.Position,
-                Enabled = true,
-                LogicalRemovedState = false
+                Enabled = p.Enabled,
+                LogicalRemovedState = p.HasRemoved
+            };
+        }
+
+        static private Position TransferTo(P position)
+        {
+            return new Position()
+            {
+                UniqueID = position.UniqueID,
+                Name = position.Name,
+                ParentUniqueID = position.OrganizationID,
+                Enabled = position.Enabled,
+                HasRemoved = position.LogicalRemovedState,
+                OpenID = position.OpenID,
+                VirtualName = position.VirtualName,
+                VirtualPath = position.VirtualPath,
+                Visible = position.Visible
             };
         }
         #endregion
@@ -90,6 +107,22 @@ namespace EnterpriseServices.ManagementClient.Operations.Organizations
         public int CreatePosition(Position obj, Guid orgID, bool isPrincipal, bool forceCreate)
         {
             return new PositionApi().Create(TransferTo(obj, orgID), isPrincipal, forceCreate);
+        }
+        #endregion
+
+        #region GetPositionsExcludeSpeified
+        /// <summary>
+        /// 获取除指定的职位标识外的职位信息。
+        /// </summary>
+        /// <param name="specifiedPositionID"></param>
+        /// <returns></returns>
+        public List<Position> GetPositionsExcludeSpeified(Guid specifiedPositionID)
+        {
+            P[] input = new PositionApi().GetPositionsExcludeSpecified(specifiedPositionID);
+            List<Position> list = new List<Position>();
+            foreach (P item in input)
+                list.Add(TransferTo(item));
+            return list;
         }
         #endregion
 

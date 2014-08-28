@@ -22,7 +22,7 @@ namespace EnterpriseServices.SecurityService.API.OpenServices
         #endregion
 
         #region GetPlaceRegions
-        [WebMethod(Description="获取所有的地区区域定义")]
+        [WebMethod(Description = "获取所有的地区区域定义")]
         public List<PlaceRegion> GetPlaceRegions()
         {
             return PlaceRegion.GetAll();

@@ -136,6 +136,12 @@
     <Compile Include="Dialogs\OrganizationEditorDialog.Designer.cs">
       <DependentUpon>OrganizationEditorDialog.cs</DependentUpon>
     </Compile>
+    <Compile Include="Dialogs\PositionAdvancedDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\PositionAdvancedDialog.Designer.cs">
+      <DependentUpon>PositionAdvancedDialog.cs</DependentUpon>
+    </Compile>
     <Compile Include="Dialogs\PositionEditorDialog.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -185,6 +191,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Dialogs\OrganizationEditorDialog.resx">
       <DependentUpon>OrganizationEditorDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\PositionAdvancedDialog.resx">
+      <DependentUpon>PositionAdvancedDialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Dialogs\PositionEditorDialog.resx">
       <DependentUpon>PositionEditorDialog.cs</DependentUpon>

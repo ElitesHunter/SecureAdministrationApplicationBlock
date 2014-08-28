@@ -70,6 +70,21 @@ namespace EnterpriseServices.SecurityService.API
             }
         }
         #endregion
+
+        #region GetPositionsExcludeSpecified
+        /// <summary>
+        /// 获取处指定职位外的所有职位信息。
+        /// </summary>
+        /// <param name="pid">职位信息。</param>
+        /// <returns></returns>
+        public Position[] GetPositionsExcludeSpecified(Guid pid)
+        {
+            using (OrganizationService service = new OrganizationService() { Url = base.ServiceUrl })
+            {
+                return service.GetPositionCollectionExcludeSpecified(pid);
+            }
+        }
+        #endregion
     }
 }
 

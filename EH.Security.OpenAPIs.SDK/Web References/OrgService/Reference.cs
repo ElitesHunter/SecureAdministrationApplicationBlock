@@ -40,6 +40,8 @@ namespace EnterpriseServices.SecurityService.API.OrgService {
         
         private System.Threading.SendOrPostCallback CreatePositionOperationCompleted;
         
+        private System.Threading.SendOrPostCallback GetPositionCollectionExcludeSpecifiedOperationCompleted;
+        
         private bool useDefaultCredentialsSetExplicitly;
         
         /// <remarks/>
@@ -92,6 +94,9 @@ namespace EnterpriseServices.SecurityService.API.OrgService {
         
         /// <remarks/>
         public event CreatePositionCompletedEventHandler CreatePositionCompleted;
+        
+        /// <remarks/>
+        public event GetPositionCollectionExcludeSpecifiedCompletedEventHandler GetPositionCollectionExcludeSpecifiedCompleted;
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:Masterduner@Yeah.net/GetRootOrganization", RequestNamespace="urn:Masterduner@Yeah.net", ResponseNamespace="urn:Masterduner@Yeah.net", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
@@ -235,6 +240,35 @@ namespace EnterpriseServices.SecurityService.API.OrgService {
             if ((this.CreatePositionCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
                 this.CreatePositionCompleted(this, new CreatePositionCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:Masterduner@Yeah.net/GetPositionCollectionExcludeSpecified", RequestNamespace="urn:Masterduner@Yeah.net", ResponseNamespace="urn:Masterduner@Yeah.net", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public Position[] GetPositionCollectionExcludeSpecified(System.Guid thisPositionID) {
+            object[] results = this.Invoke("GetPositionCollectionExcludeSpecified", new object[] {
+                        thisPositionID});
+            return ((Position[])(results[0]));
+        }
+        
+        /// <remarks/>
+        public void GetPositionCollectionExcludeSpecifiedAsync(System.Guid thisPositionID) {
+            this.GetPositionCollectionExcludeSpecifiedAsync(thisPositionID, null);
+        }
+        
+        /// <remarks/>
+        public void GetPositionCollectionExcludeSpecifiedAsync(System.Guid thisPositionID, object userState) {
+            if ((this.GetPositionCollectionExcludeSpecifiedOperationCompleted == null)) {
+                this.GetPositionCollectionExcludeSpecifiedOperationCompleted = new System.Threading.SendOrPostCallback(this.OnGetPositionCollectionExcludeSpecifiedOperationCompleted);
+            }
+            this.InvokeAsync("GetPositionCollectionExcludeSpecified", new object[] {
+                        thisPositionID}, this.GetPositionCollectionExcludeSpecifiedOperationCompleted, userState);
+        }
+        
+        private void OnGetPositionCollectionExcludeSpecifiedOperationCompleted(object arg) {
+            if ((this.GetPositionCollectionExcludeSpecifiedCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.GetPositionCollectionExcludeSpecifiedCompleted(this, new GetPositionCollectionExcludeSpecifiedCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -555,6 +589,32 @@ namespace EnterpriseServices.SecurityService.API.OrgService {
             get {
                 this.RaiseExceptionIfNecessary();
                 return ((int)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.18408")]
+    public delegate void GetPositionCollectionExcludeSpecifiedCompletedEventHandler(object sender, GetPositionCollectionExcludeSpecifiedCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.18408")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class GetPositionCollectionExcludeSpecifiedCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal GetPositionCollectionExcludeSpecifiedCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public Position[] Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((Position[])(this.results[0]));
             }
         }
     }

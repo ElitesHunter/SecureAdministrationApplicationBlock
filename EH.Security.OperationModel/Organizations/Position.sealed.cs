@@ -25,8 +25,10 @@
 #endregion
 
 using System;
-using System.Data.SqlClient;
+using System.Collections.Generic;
 using System.Data;
+using System.Data.SqlClient;
+using EnterpriseServices.Framework.Commons.Data;
 
 namespace EnterpriseServices.SecurityService.Framework.OperationModel.Organizations
 {
@@ -66,6 +68,16 @@ namespace EnterpriseServices.SecurityService.Framework.OperationModel.Organizati
         {
         }
 
+        /// <summary>
+        /// <para>构造函数：</para>
+        /// <para>初始化一个<see cref="Position" />对象实例。</para>
+        /// </summary>
+        /// <param name="data">职位数据。</param>
+        private Position(DataRow data)
+        {
+            this.InitializeInstance(data);
+        }
+
         #endregion
 
         #region Create
@@ -82,6 +94,41 @@ namespace EnterpriseServices.SecurityService.Framework.OperationModel.Organizati
                 base.CreateParameter("forceCreate", forceCreate.ToSqlValue(), SqlDbType.Char, ParameterDirection.Input),
                 base.CreateParameter("isPrincipal", isPrincipal.ToSqlValue(), SqlDbType.Char, ParameterDirection.Input));
             return (int)base.ExecuteScalar(cmd);
+        }
+        #endregion
+
+        #region InitializeInstance
+        /// <summary>
+        /// 初始化当前的职位实例。
+        /// </summary>
+        /// <param name="data"></param>
+        protected override void InitializeInstance(DataRow data)
+        {
+            base.InitializeInstance(data);
+            this.OrganizationID = (Guid)data["ParentOrganizationObjectID"];
+        }
+        #endregion
+
+        #region GetPositionsExcludeCurrent
+        /// <summary>
+        /// 获取除指定职位意外的职位信息集合。
+        /// </summary>
+        /// <param name="currentPositionID"></param>
+        /// <returns></returns>
+        static public List<Position> GetPositionsExcludeCurrent(Guid currentPositionID)
+        {
+            string sql = "Select * From Secure.PositionVisibleCollection Where PositionUniqueID <> @positionID";
+            DbHelper helper = new DbHelper(DbConnectionString.Current);
+            SqlCommand cmd = helper.CreateCommand(sql, CommandType.Text,
+                helper.CreateParameter("positionID", currentPositionID, SqlDbType.UniqueIdentifier, ParameterDirection.Input));
+            DataSet data = helper.ExecuteDataSet(cmd);
+            List<Position> list = new List<Position>();
+            if (!object.ReferenceEquals(data, null))
+            {
+                foreach (DataRow item in data.Tables[0].Rows)
+                    list.Add(new Position(item));
+            }
+            return list;
         }
         #endregion
     }

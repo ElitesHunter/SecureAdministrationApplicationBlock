@@ -97,7 +97,8 @@ namespace EnterpriseServices.SecurityService.Framework.OperationModel
         /// <para>构造函数：</para>
         /// <para>初始化一个<see cref="ParameterDeclaration" />对象实例。</para>
         /// </summary>
-        protected ParameterDeclaration():base(DbConnectionString.Current)
+        protected ParameterDeclaration()
+            : base(DbConnectionString.Current)
         {
         }
 
