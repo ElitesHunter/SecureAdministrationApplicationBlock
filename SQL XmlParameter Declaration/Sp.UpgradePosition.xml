@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<eh:EnterpriseServices xmlns:eh="urn:Masterduner@Yeah.net">
+	<eh:SqlServerDatabase>
+		<eh:VariableDeclarations>
+			<eh:StoredProcedure Name="Sp.UpgradePosition">
+				<eh:Parameter Name="xData">
+					<eh:PositionName Value=""></eh:PositionName>
+					<eh:UniqueID Value=""></eh:UniqueID>
+					<eh:Enabled Value=""></eh:Enabled>
+					<eh:Visibility Value=""></eh:Visibility>
+					<eh:Removed Value=""></eh:Removed>
+					<eh:PrincipalSettingState>
+						<eh:State Value=""></eh:State>
+					</eh:PrincipalSettingState>
+					<eh:ReportLineSetting>
+						<eh:SuperiorPositionID Value=""></eh:SuperiorPositionID>
+					</eh:ReportLineSetting>
+					<eh:UpdateLevel Value="1"></eh:UpdateLevel>
+				</eh:Parameter>
+			</eh:StoredProcedure>
+		</eh:VariableDeclarations>
+	</eh:SqlServerDatabase>
+</eh:EnterpriseServices>

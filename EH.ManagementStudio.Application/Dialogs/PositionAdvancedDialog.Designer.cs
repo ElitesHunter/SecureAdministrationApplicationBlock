@@ -60,6 +60,7 @@
             this.CtrlIsPrincipal.TabIndex = 0;
             this.CtrlIsPrincipal.Text = "将此职位设置为本部门的负责人职位";
             this.CtrlIsPrincipal.UseVisualStyleBackColor = true;
+            this.CtrlIsPrincipal.CheckedChanged += new System.EventHandler(this.PrincipalCheckedChanged);
             // 
             // CtrlButtonsContainer
             // 
