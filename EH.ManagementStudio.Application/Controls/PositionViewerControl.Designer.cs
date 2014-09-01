@@ -90,6 +90,7 @@
             this.CtrlSaveButton.Text = "保存变更";
             this.CtrlSaveButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.CtrlSaveButton.UseVisualStyleBackColor = true;
+            this.CtrlSaveButton.Click += new System.EventHandler(this.SaveButtonClick);
             // 
             // CtrlPositionPropertyGrid
             // 

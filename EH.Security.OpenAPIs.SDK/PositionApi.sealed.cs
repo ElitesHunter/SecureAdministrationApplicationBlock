@@ -85,6 +85,16 @@ namespace EnterpriseServices.SecurityService.API
             }
         }
         #endregion
+
+        #region Update
+        public void Update(Position position, bool forceUpdate, bool isPrincipal, Guid superiorID)
+        {
+            using (OrganizationService service = new OrganizationService() { Url = base.ServiceUrl })
+            {
+                service.UpdatePosition(position, forceUpdate, isPrincipal, superiorID);
+            }
+        }
+        #endregion
     }
 }
 

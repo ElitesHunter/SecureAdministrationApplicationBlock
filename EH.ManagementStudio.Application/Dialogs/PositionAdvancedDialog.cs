@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
+using EnterpriseServices.ManagementClient.Commons;
 using EnterpriseServices.ManagementClient.Operations.Entity;
 using EnterpriseServices.ManagementClient.Operations.Organizations;
-using EnterpriseServices.ManagementClient.Commons;
 
 namespace EnterpriseServices.ManagementClient.Dialogs
 {
@@ -98,7 +98,7 @@ namespace EnterpriseServices.ManagementClient.Dialogs
         {
             if (!object.ReferenceEquals(this.CtrlPositionList.SelectedItems, null) && this.CtrlPositionList.SelectedItems.Count > 0)
             {
-                this.SuperiorID = (this.CtrlPositionList.Tag as Position).UniqueID;
+                this.SuperiorID = (this.CtrlPositionList.SelectedItems[0].Tag as Position).UniqueID;
             }
             this.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.Close();

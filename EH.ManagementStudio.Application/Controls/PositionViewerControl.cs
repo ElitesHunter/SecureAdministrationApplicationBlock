@@ -2,6 +2,7 @@
 using System.Windows.Forms;
 using EnterpriseServices.ManagementClient.Dialogs;
 using EnterpriseServices.ManagementClient.Operations.Entity;
+using EnterpriseServices.ManagementClient.Operations.Organizations;
 
 namespace EnterpriseServices.ManagementClient.Controls
 {
@@ -14,6 +15,7 @@ namespace EnterpriseServices.ManagementClient.Controls
         private Position _currentPosition;
         private int _isPrincipalState;
         private Guid _superiorPositionID;
+        private bool _forceUpdate;
 
         #region CurrentPosition
         private Position CurrentPosition
@@ -42,10 +44,22 @@ namespace EnterpriseServices.ManagementClient.Controls
         }
         #endregion
 
+        #region ForceUpdate
+        /// <summary>
+        /// 设置或获取是否强制更新职位的附加信息。
+        /// </summary>
+        private bool ForceUpdate
+        {
+            get { return _forceUpdate; }
+            set { _forceUpdate = value; }
+        }
+        #endregion
+
         public PositionViewerControl()
         {
             InitializeComponent();
             this.OnBoundTreeNodeChanged += new EventHandler(BoundTreeNodeChanged);
+            this.ForceUpdate = false;
         }
 
         #region BoundTreeNodeChanged
@@ -109,9 +123,19 @@ namespace EnterpriseServices.ManagementClient.Controls
             {
                 if (dialog.ShowDialog() == DialogResult.OK)
                 {
-
+                    this.IsPrincipalState = dialog.PrincipalState;
+                    this.SuperiorPositionID = dialog.SuperiorID;
+                    this.ForceUpdate = true;
                 }
             }
+        }
+        #endregion
+
+        #region SaveButtonClick
+        private void SaveButtonClick(object sender, EventArgs e)
+        {
+            Position p = this.CtrlPositionPropertyGrid.SelectedObject as Position;
+            new PositionHandler().Update(p, this.ForceUpdate, this.IsPrincipalState.Equals(2) ? true : false, this.SuperiorPositionID);
         }
         #endregion
     }

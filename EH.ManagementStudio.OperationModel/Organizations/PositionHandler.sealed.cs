@@ -26,8 +26,10 @@
 
 using System;
 using System.Collections.Generic;
+using EnterpriseServices.Framework.Commons;
 using EnterpriseServices.ManagementClient.Operations.Entity;
 using EnterpriseServices.SecurityService.API;
+using EnterpriseServices.SecurityService.Framework.Commons;
 using P = EnterpriseServices.SecurityService.API.OrgService.Position;
 
 namespace EnterpriseServices.ManagementClient.Operations.Organizations
@@ -42,7 +44,8 @@ namespace EnterpriseServices.ManagementClient.Operations.Organizations
     /// <para>Target Framework Version : 3.5</para>
     /// <para>此类不可继承。</para>
     /// </remarks>
-    public sealed class PositionHandler : IOrganizationObjectHandler<Position>
+    [Monitor]
+    public sealed class PositionHandler : _Object, IOrganizationObjectHandler<Position>
     {
         #region Constructor
 
@@ -141,10 +144,25 @@ namespace EnterpriseServices.ManagementClient.Operations.Organizations
             throw new NotImplementedException();
         }
 
-        public void Update(Organization org)
+        public void Update(Position org)
         {
             throw new NotImplementedException();
         }
+
+        #region Update
+        /// <summary>
+        /// 更新职位信息。
+        /// </summary>
+        /// <param name="position">职位信息。</param>
+        /// <param name="updateState">更新状态。</param>
+        /// <param name="isPrincipal">是否设置为负责人职位。</param>
+        /// <param name="superiorPositionID">汇报关系中的上级职位信息。</param>
+        [TraceOperation]
+        public void Update(Position position, bool updateState, bool isPrincipal, Guid superiorPositionID)
+        {
+            new PositionApi().Update(TransferTo(position, position.ParentUniqueID), updateState, isPrincipal, superiorPositionID);
+        }
+        #endregion
     }
 }
 

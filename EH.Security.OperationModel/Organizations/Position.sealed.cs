@@ -131,6 +131,27 @@ namespace EnterpriseServices.SecurityService.Framework.OperationModel.Organizati
             return list;
         }
         #endregion
+
+        #region Update
+        /// <summary>
+        /// 更新职位信息。
+        /// </summary>
+        /// <param name="forceUpdate"></param>
+        /// <param name="isPrincipal"></param>
+        /// <param name="superiorID"></param>
+        public void Update(bool forceUpdate, bool isPrincipal, Guid superiorID)
+        {
+            SqlCommand cmd = base.CreateCommand("Sp.UpgradePosition", CommandType.StoredProcedure,
+                base.CreateParameter("xData", new Generators.PositionXParameterGenerator()
+                {
+                    IsPrincipal = isPrincipal,
+                    ForceUpdate = forceUpdate,
+                    SuperiorPositionID = superiorID,
+                    Position = this
+                }.TransformText(), SqlDbType.Xml, ParameterDirection.Input));
+            this.ExecuteNonQuery(cmd);
+        }
+        #endregion
     }
 }
 

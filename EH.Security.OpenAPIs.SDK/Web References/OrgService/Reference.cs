@@ -42,6 +42,8 @@ namespace EnterpriseServices.SecurityService.API.OrgService {
         
         private System.Threading.SendOrPostCallback GetPositionCollectionExcludeSpecifiedOperationCompleted;
         
+        private System.Threading.SendOrPostCallback UpdatePositionOperationCompleted;
+        
         private bool useDefaultCredentialsSetExplicitly;
         
         /// <remarks/>
@@ -97,6 +99,9 @@ namespace EnterpriseServices.SecurityService.API.OrgService {
         
         /// <remarks/>
         public event GetPositionCollectionExcludeSpecifiedCompletedEventHandler GetPositionCollectionExcludeSpecifiedCompleted;
+        
+        /// <remarks/>
+        public event UpdatePositionCompletedEventHandler UpdatePositionCompleted;
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:Masterduner@Yeah.net/GetRootOrganization", RequestNamespace="urn:Masterduner@Yeah.net", ResponseNamespace="urn:Masterduner@Yeah.net", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
@@ -269,6 +274,40 @@ namespace EnterpriseServices.SecurityService.API.OrgService {
             if ((this.GetPositionCollectionExcludeSpecifiedCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
                 this.GetPositionCollectionExcludeSpecifiedCompleted(this, new GetPositionCollectionExcludeSpecifiedCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:Masterduner@Yeah.net/UpdatePosition", RequestNamespace="urn:Masterduner@Yeah.net", ResponseNamespace="urn:Masterduner@Yeah.net", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public void UpdatePosition(Position position, bool updateState, bool isPrincipal, System.Guid superiorPositionID) {
+            this.Invoke("UpdatePosition", new object[] {
+                        position,
+                        updateState,
+                        isPrincipal,
+                        superiorPositionID});
+        }
+        
+        /// <remarks/>
+        public void UpdatePositionAsync(Position position, bool updateState, bool isPrincipal, System.Guid superiorPositionID) {
+            this.UpdatePositionAsync(position, updateState, isPrincipal, superiorPositionID, null);
+        }
+        
+        /// <remarks/>
+        public void UpdatePositionAsync(Position position, bool updateState, bool isPrincipal, System.Guid superiorPositionID, object userState) {
+            if ((this.UpdatePositionOperationCompleted == null)) {
+                this.UpdatePositionOperationCompleted = new System.Threading.SendOrPostCallback(this.OnUpdatePositionOperationCompleted);
+            }
+            this.InvokeAsync("UpdatePosition", new object[] {
+                        position,
+                        updateState,
+                        isPrincipal,
+                        superiorPositionID}, this.UpdatePositionOperationCompleted, userState);
+        }
+        
+        private void OnUpdatePositionOperationCompleted(object arg) {
+            if ((this.UpdatePositionCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.UpdatePositionCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -618,6 +657,10 @@ namespace EnterpriseServices.SecurityService.API.OrgService {
             }
         }
     }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.18408")]
+    public delegate void UpdatePositionCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
 }
 
 #pragma warning restore 1591

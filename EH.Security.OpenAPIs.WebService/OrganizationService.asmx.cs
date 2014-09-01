@@ -87,5 +87,13 @@ namespace EnterpriseServices.SecurityService.API.OpenServices
             return Position.GetPositionsExcludeCurrent(thisPositionID);
         }
         #endregion
+
+        #region UpdatePosition
+        [WebMethod(Description = "更新职位信息。<br />position:职位信息<br />updateState:是否更新职位的附加信息<br />isPrincipal:是否设置为负责人职位<br />superiorPositionID:是否更新汇报关系的上级职位信息")]
+        public void UpdatePosition(Position position, bool updateState, bool isPrincipal, Guid superiorPositionID)
+        {
+            position.Update(updateState, isPrincipal, superiorPositionID);
+        }
+        #endregion
     }
 }

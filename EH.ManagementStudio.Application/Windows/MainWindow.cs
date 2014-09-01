@@ -391,12 +391,10 @@ namespace EnterpriseServices.ManagementClient.Windows
                 this.ctrlCreatePosition.Enabled = true;
                 if (this.ctrlObjectsTree.SelectedNode.Parent is OrganizationRootTreeNode)
                 {
-                    this.ctrlDisableOrgObject.Enabled = false;
                     this.ctrlRemoveOrgObject.Enabled = false;
                 }
                 else
                 {
-                    this.ctrlDisableOrgObject.Enabled = true;
                     this.ctrlRemoveOrgObject.Enabled = true;
                 }
             }
@@ -405,7 +403,6 @@ namespace EnterpriseServices.ManagementClient.Windows
                 this.ctrlCreateStaff.Enabled = true;
                 this.ctrlCreateOrgObject.Enabled = false;
                 this.ctrlCreatePosition.Enabled = false;
-                this.ctrlDisableOrgObject.Enabled = true;
                 this.ctrlRemoveOrgObject.Enabled = true;
             }
         }

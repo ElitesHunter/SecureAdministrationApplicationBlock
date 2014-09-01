@@ -72,7 +72,7 @@ namespace EnterpriseServices.ManagementClient.Operations.Organizations
         /// 更新组织机构信息。
         /// </summary>
         /// <param name="org"></param>
-        void Update(Organization org);
+        void Update(TOrganizationObject org);
         #endregion
     }
 }

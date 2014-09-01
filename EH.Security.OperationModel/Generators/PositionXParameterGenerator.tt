@@ -1,0 +1,23 @@
+﻿<#@ template language="C#" #>
+<eh:EnterpriseServices xmlns:eh="urn:Masterduner@Yeah.net">
+	<eh:SqlServerDatabase>
+		<eh:VariableDeclarations>
+			<eh:StoredProcedure Name="Sp.UpgradePosition">
+				<eh:Parameter Name="xData">
+					<eh:PositionName Value="<#= this.Position.Name #>" />
+					<eh:UniqueID Value="<#= this.Position.UniqueID #>" />
+					<eh:Enabled Value="<#= this.Position.Enabled.ToSqlValue() #>" />
+					<eh:Visibility Value="<#= this.Position.Visible.ToSqlValue() #>" />
+					<eh:Removed Value="<#= this.Position.LogicalRemovedState.ToSqlValue() #>" />
+					<eh:PrincipalSettingState>
+						<eh:State Value="<#= this.ForceUpdate ? (this.IsPrincipal ? 2 : 0) : 1 #>" />
+					</eh:PrincipalSettingState>
+					<eh:ReportLineSetting>
+						<eh:SuperiorPositionID Value="<#= this.SuperiorPositionID #>" />
+					</eh:ReportLineSetting>
+					<eh:UpdateLevel Value="<#= this.ForceUpdate ? 1 : 0 #>" />
+				</eh:Parameter>
+			</eh:StoredProcedure>
+		</eh:VariableDeclarations>
+	</eh:SqlServerDatabase>
+</eh:EnterpriseServices>

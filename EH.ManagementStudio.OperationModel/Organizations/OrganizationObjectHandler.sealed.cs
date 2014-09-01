@@ -119,7 +119,7 @@ namespace EnterpriseServices.ManagementClient.Operations.Organizations
         #endregion
 
 
-        public void Update(Entity.Organization org)
+        public void Update(OrganizationBase org)
         {
             throw new NotImplementedException();
         }

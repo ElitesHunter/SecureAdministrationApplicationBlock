@@ -78,7 +78,6 @@
             this.toolStripSeparator9 = new System.Windows.Forms.ToolStripSeparator();
             this.ctrlCreateStaff = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator10 = new System.Windows.Forms.ToolStripSeparator();
-            this.ctrlDisableOrgObject = new System.Windows.Forms.ToolStripMenuItem();
             this.ctrlRemoveOrgObject = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator11 = new System.Windows.Forms.ToolStripSeparator();
             this.ctrlRefreshOrgObject = new System.Windows.Forms.ToolStripMenuItem();
@@ -470,13 +469,12 @@
             this.toolStripSeparator9,
             this.ctrlCreateStaff,
             this.toolStripSeparator10,
-            this.ctrlDisableOrgObject,
             this.ctrlRemoveOrgObject,
             this.toolStripSeparator11,
             this.ctrlRefreshOrgObject});
             this.ctrlOrganizationObjCtxMenu.Name = "ctrlOrganizationObjCtxMenu";
             this.ctrlOrganizationObjCtxMenu.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-            this.ctrlOrganizationObjCtxMenu.Size = new System.Drawing.Size(153, 182);
+            this.ctrlOrganizationObjCtxMenu.Size = new System.Drawing.Size(153, 160);
             this.ctrlOrganizationObjCtxMenu.Opening += new System.ComponentModel.CancelEventHandler(this.OrganizationObjectCtxMenuOpening);
             // 
             // ctrlCreateOrgObject
@@ -513,12 +511,6 @@
             // 
             this.toolStripSeparator10.Name = "toolStripSeparator10";
             this.toolStripSeparator10.Size = new System.Drawing.Size(149, 6);
-            // 
-            // ctrlDisableOrgObject
-            // 
-            this.ctrlDisableOrgObject.Name = "ctrlDisableOrgObject";
-            this.ctrlDisableOrgObject.Size = new System.Drawing.Size(152, 22);
-            this.ctrlDisableOrgObject.Text = "禁用";
             // 
             // ctrlRemoveOrgObject
             // 
@@ -618,7 +610,6 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator8;
         private System.Windows.Forms.ToolStripMenuItem ctrlCreatePosition;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator9;
-        private System.Windows.Forms.ToolStripMenuItem ctrlDisableOrgObject;
         private System.Windows.Forms.ToolStripMenuItem ctrlRemoveOrgObject;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator11;
         private System.Windows.Forms.ToolStripMenuItem ctrlRefreshOrgObject;
