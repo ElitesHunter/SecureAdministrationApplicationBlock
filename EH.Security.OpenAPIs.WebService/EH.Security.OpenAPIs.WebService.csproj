@@ -48,6 +48,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AuthenticationService.asmx" />
+    <Content Include="CommonsService.asmx" />
     <Content Include="IdentityService.asmx" />
     <Content Include="OrganizationService.asmx" />
     <Content Include="ParametersService.asmx" />
@@ -66,6 +67,10 @@
     </Compile>
     <Compile Include="AuthenticationService.asmx.cs">
       <DependentUpon>AuthenticationService.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CommonsService.asmx.cs">
+      <DependentUpon>CommonsService.asmx</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="IdentityService.asmx.cs">

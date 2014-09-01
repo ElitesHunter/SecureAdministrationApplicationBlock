@@ -68,7 +68,11 @@ namespace EnterpriseServices.ManagementClient.Operations.Entity
         public string FirstName
         {
             get { return _firstName; }
-            set { _firstName = value; }
+            set
+            {
+                _firstName = value;
+                this.Name = string.Format("{0} {1}", this.LastName, this.FirstName);
+            }
         }
         #endregion
 
@@ -82,7 +86,11 @@ namespace EnterpriseServices.ManagementClient.Operations.Entity
         public string LastName
         {
             get { return _lastName; }
-            set { _lastName = value; }
+            set
+            {
+                _lastName = value;
+                this.Name = string.Format("{0} {1}", this.LastName, this.FirstName);
+            }
         }
         #endregion
 
@@ -237,6 +245,27 @@ namespace EnterpriseServices.ManagementClient.Operations.Entity
         {
         }
 
+        #endregion
+
+        #region Name
+        /// <summary>
+        /// 设置或获取姓名。
+        /// </summary>
+        [ReadOnly(true)]
+        [DisplayName("姓名")]
+        [Description("设置或获取姓名")]
+        [Category("基本属性")]
+        public override string Name
+        {
+            get
+            {
+                return base.Name;
+            }
+            set
+            {
+                base.Name = value;
+            }
+        }
         #endregion
     }
 }

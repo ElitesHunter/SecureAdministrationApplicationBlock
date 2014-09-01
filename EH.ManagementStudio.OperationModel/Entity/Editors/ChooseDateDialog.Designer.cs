@@ -92,6 +92,7 @@
             this.Name = "ChooseDateDialog";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "选择日期";
+            this.TopMost = true;
             this.Load += new System.EventHandler(this.ChooseDateDialog_Load);
             this.ctrlButtonsContainer.ResumeLayout(false);
             this.ResumeLayout(false);

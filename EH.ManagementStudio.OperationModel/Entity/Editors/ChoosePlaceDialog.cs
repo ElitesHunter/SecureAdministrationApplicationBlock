@@ -71,7 +71,7 @@ namespace EnterpriseServices.ManagementClient.Operations.Entity.Editors
         /// <param name="e"></param>
         private void OkButtonClick(object sender, EventArgs e)
         {
-            if (!object.ReferenceEquals(this.ctrlPlaceTree.SelectedNode, null))
+            if (object.ReferenceEquals(this.ctrlPlaceTree.SelectedNode, null))
             {
                 this.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             }

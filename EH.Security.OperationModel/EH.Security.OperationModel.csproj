@@ -66,6 +66,7 @@
     <Compile Include="Logging\UserBehaviorBlogBase.abstract.cs" />
     <Compile Include="Logging\UserInOutBehaviorBlog.sealed.cs" />
     <Compile Include="Logging\UserOperateBehaviorBlog.sealed.cs" />
+    <Compile Include="LogicRemovalUtils.public.cs" />
     <Compile Include="Organizations\Organization.sealed.cs" />
     <Compile Include="Organizations\OrganizationObjectBase.public.cs" />
     <Compile Include="Organizations\OrganizationObjectCategory.cs" />

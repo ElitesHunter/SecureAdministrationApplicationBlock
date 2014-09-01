@@ -27,6 +27,8 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Drawing.Design;
+using EnterpriseServices.ManagementClient.Operations.Entity.Editors;
 using EnterpriseServices.SecurityService.API;
 using EnterpriseServices.SecurityService.API.ParamsService;
 
@@ -104,6 +106,27 @@ namespace EnterpriseServices.ManagementClient.Operations.Entity
                 return result;
             }
             else return data as List<Place>;
+        }
+        #endregion
+
+        #region Value
+        /// <summary>
+        /// 设置或获取地区区域名称。
+        /// </summary>
+        [ReadOnly(true)]
+        [DisplayName("地区区域名称")]
+        [Description("地区区域名称")]
+        [Editor(typeof(ChoosePlaceEditor), typeof(UITypeEditor))]
+        public override string Value
+        {
+            get
+            {
+                return base.Value;
+            }
+            set
+            {
+                base.Value = value;
+            }
         }
         #endregion
     }

@@ -423,6 +423,34 @@ namespace EnterpriseServices.ManagementClient.Windows
             }
         }
         #endregion
+
+        #region RemoveOrganizationObjectClick
+        private void RemoveOrganizationObjectClick(object sender, EventArgs e)
+        {
+            if (DialogMethods.Ask("是否移除指定的组织机构对象？") == DialogResult.OK)
+            {
+                OrganizationBase org = this.ctrlObjectsTree.SelectedNode.Tag as OrganizationBase;
+                new UniversalOperations().LogicRemoval(org.OpenID);
+                this.ctrlObjectsTree.SelectedNode.Remove();
+            }
+        }
+        #endregion
+
+        #region CreateStaffClick
+        /// <summary>
+        /// 创建人员单击事件处理函数。
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void CreateStaffClick(object sender, EventArgs e)
+        {
+            using (StaffEditorDialog dialog = new StaffEditorDialog() { Staff = new Staff() })
+            {
+                if (dialog.ShowDialog() == DialogResult.OK)
+                { }
+            }
+        }
+        #endregion
     }
     #endregion
 }
