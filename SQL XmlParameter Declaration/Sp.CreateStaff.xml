@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<eh:EnterpriseServices xmlns:eh="urn:Masterduner@Yeah.net">
+	<eh:SqlServerDatabase>
+		<eh:VariableDeclarations>
+			<eh:StoredProcedure Name="Sp.CreateStaff">
+				<eh:Parameter Name="xData">
+					<eh:Position UniqueID=""></eh:Position>
+					<eh:BasicInfo>
+						<eh:Name LastName="" FirstName=""></eh:Name>
+						<eh:Gender Value=""></eh:Gender>
+						<eh:Birth Date="" PlaceID="" PlaceName=""></eh:Birth>
+					</eh:BasicInfo>
+					<eh:ExpandedInfo>
+						<eh:HomeAddress Value=""></eh:HomeAddress>
+						<eh:Credentials TypeID="" TypeName="" NO=""></eh:Credentials>
+						<eh:ContactMethods>
+							<eh:OfficePhone NO=""></eh:OfficePhone>
+							<eh:MobilePhone NO=""></eh:MobilePhone>
+							<eh:EmailAddress Value=""></eh:EmailAddress>
+						</eh:ContactMethods>
+						<eh:JoinInfo>
+							<eh:JoinDate Value=""></eh:JoinDate>
+							<eh:Probation InProbation="" ProbationLength="" AutomicConversion=""></eh:Probation>
+						</eh:JoinInfo>
+					</eh:ExpandedInfo>
+				</eh:Parameter>
+			</eh:StoredProcedure>
+		</eh:VariableDeclarations>
+	</eh:SqlServerDatabase>
+</eh:EnterpriseServices>

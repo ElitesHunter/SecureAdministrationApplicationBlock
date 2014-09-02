@@ -57,6 +57,10 @@ namespace EnterpriseServices.ManagementClient.Operations.Entity
         private string _mobileNO;
         private string _emailAddress;
         private Position _position;
+        private DateTime _entryDate;
+        private bool _onProbation;
+        private int _probationLength;
+        private bool _autoBecomeFullMember;
 
         #region FirstName
         /// <summary>
@@ -235,6 +239,55 @@ namespace EnterpriseServices.ManagementClient.Operations.Entity
         }
         #endregion
 
+        #region EntryDate
+        /// <summary>
+        /// 设置或获取入职日期。
+        /// </summary>
+        [Category("入职信息")]
+        [Description("设置或获取入职日期"), DisplayName("入职日期"), Editor(typeof(ChooseDateEditor), typeof(UITypeEditor))]
+        public DateTime EntryDate
+        {
+            get { return _entryDate; }
+            set { _entryDate = value; }
+        }
+        #endregion
+
+        #region OnProbation
+        /// <summary>
+        /// 设置或获取是否处于试用期。
+        /// </summary>
+        [Category("入职信息"), Description("设置或获取是否处于试用期"), DisplayName("是否试用")]
+        public bool OnProbation
+        {
+            get { return _onProbation; }
+            set { _onProbation = value; }
+        }
+        #endregion
+
+        #region ProbationLength
+        /// <summary>
+        /// 设置或获取试用期长度。
+        /// </summary>
+        [Category("入职信息"), Description("设置或获取试用期长度"), DisplayName("试用期长度(月)")]
+        public int ProbationLength
+        {
+            get { return _probationLength; }
+            set { _probationLength = value; }
+        }
+        #endregion
+
+        #region AutoBecomeFullMember
+        /// <summary>
+        /// 设置或获取是否自动转正。
+        /// </summary>
+        [Category("入职信息"), Description("设置或获取是否自动转正"), DisplayName("自动转正")]
+        public bool AutoBecomeFullMember
+        {
+            get { return _autoBecomeFullMember; }
+            set { _autoBecomeFullMember = value; }
+        }
+        #endregion
+
         #region Constructor
 
         /// <summary>
@@ -243,6 +296,7 @@ namespace EnterpriseServices.ManagementClient.Operations.Entity
         /// </summary>
         public Staff()
         {
+            this.ProbationLength = 6;
         }
 
         #endregion
