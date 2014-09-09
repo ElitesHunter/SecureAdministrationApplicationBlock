@@ -70,6 +70,7 @@ namespace EnterpriseServices.ManagementClient.Operations.Entity
         /// </summary>
         public Place()
         {
+            this.UniqueID = Guid.Empty;
         }
 
         /// <summary>
@@ -116,7 +117,7 @@ namespace EnterpriseServices.ManagementClient.Operations.Entity
         [ReadOnly(true)]
         [DisplayName("地区区域名称")]
         [Description("地区区域名称")]
-        [Editor(typeof(ChoosePlaceEditor), typeof(UITypeEditor))]
+        //[Editor(typeof(ChoosePlaceEditor), typeof(UITypeEditor))]
         public override string Value
         {
             get

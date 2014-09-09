@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.CtrlButtonsContainer = new System.Windows.Forms.Panel();
-            this.CtrlOkButton = new System.Windows.Forms.Button();
             this.CtrlCancelButton = new System.Windows.Forms.Button();
+            this.CtrlOkButton = new System.Windows.Forms.Button();
             this.CtrlStaffPropertyGrid = new System.Windows.Forms.PropertyGrid();
             this.CtrlButtonsContainer.SuspendLayout();
             this.SuspendLayout();
@@ -45,15 +45,6 @@
             this.CtrlButtonsContainer.Size = new System.Drawing.Size(379, 50);
             this.CtrlButtonsContainer.TabIndex = 0;
             // 
-            // CtrlOkButton
-            // 
-            this.CtrlOkButton.Location = new System.Drawing.Point(91, 11);
-            this.CtrlOkButton.Name = "CtrlOkButton";
-            this.CtrlOkButton.Size = new System.Drawing.Size(75, 30);
-            this.CtrlOkButton.TabIndex = 0;
-            this.CtrlOkButton.Text = "确定";
-            this.CtrlOkButton.UseVisualStyleBackColor = true;
-            // 
             // CtrlCancelButton
             // 
             this.CtrlCancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
@@ -63,6 +54,16 @@
             this.CtrlCancelButton.TabIndex = 0;
             this.CtrlCancelButton.Text = "取消(&Esc)";
             this.CtrlCancelButton.UseVisualStyleBackColor = true;
+            // 
+            // CtrlOkButton
+            // 
+            this.CtrlOkButton.Location = new System.Drawing.Point(91, 11);
+            this.CtrlOkButton.Name = "CtrlOkButton";
+            this.CtrlOkButton.Size = new System.Drawing.Size(75, 30);
+            this.CtrlOkButton.TabIndex = 0;
+            this.CtrlOkButton.Text = "确定";
+            this.CtrlOkButton.UseVisualStyleBackColor = true;
+            this.CtrlOkButton.Click += new System.EventHandler(this.OkButtonClick);
             // 
             // CtrlStaffPropertyGrid
             // 

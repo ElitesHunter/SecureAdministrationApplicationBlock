@@ -1,5 +1,7 @@
 ﻿using System;
 using EnterpriseServices.ManagementClient.Operations.Entity;
+using EnterpriseServices.ManagementClient.Commons;
+using EnterpriseServices.ManagementClient.Operations.Organizations;
 
 namespace EnterpriseServices.ManagementClient.Dialogs
 {
@@ -35,7 +37,26 @@ namespace EnterpriseServices.ManagementClient.Dialogs
         /// <param name="e"></param>
         private void DialogLoad(object sender, EventArgs e)
         {
+            this.Staff = new Staff() { CredentialsType = new CredentialsType(), BirthPlace = new Place() };
             this.CtrlStaffPropertyGrid.SelectedObject = this.Staff;
+        }
+        #endregion
+
+        #region OkButtonClick
+        /// <summary>
+        /// 确定按钮单击事件处理函数。
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void OkButtonClick(object sender, EventArgs e)
+        {
+            Staff person = this.CtrlStaffPropertyGrid.SelectedObject as Staff;
+            if (!string.IsNullOrEmpty(person.LastName) && !string.IsNullOrEmpty(person.FirstName))
+            {
+                new StaffHandler().Create(person);
+            }
+            else
+                DialogMethods.Prompt("请输入姓氏和名字！");
         }
         #endregion
     }

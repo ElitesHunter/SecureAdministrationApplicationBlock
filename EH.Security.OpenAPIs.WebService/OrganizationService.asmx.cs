@@ -95,5 +95,12 @@ namespace EnterpriseServices.SecurityService.API.OpenServices
             position.Update(updateState, isPrincipal, superiorPositionID);
         }
         #endregion
+
+        #region CreateStaff
+        [WebMethod(Description="创建人员信息<br />staff:人员信息对象实例。")]
+        public void CreateStaff(Staff person)
+        {
+        }
+        #endregion
     }
 }

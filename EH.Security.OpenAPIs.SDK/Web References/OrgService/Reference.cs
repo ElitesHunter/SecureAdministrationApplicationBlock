@@ -44,6 +44,8 @@ namespace EnterpriseServices.SecurityService.API.OrgService {
         
         private System.Threading.SendOrPostCallback UpdatePositionOperationCompleted;
         
+        private System.Threading.SendOrPostCallback CreateStaffOperationCompleted;
+        
         private bool useDefaultCredentialsSetExplicitly;
         
         /// <remarks/>
@@ -102,6 +104,9 @@ namespace EnterpriseServices.SecurityService.API.OrgService {
         
         /// <remarks/>
         public event UpdatePositionCompletedEventHandler UpdatePositionCompleted;
+        
+        /// <remarks/>
+        public event CreateStaffCompletedEventHandler CreateStaffCompleted;
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:Masterduner@Yeah.net/GetRootOrganization", RequestNamespace="urn:Masterduner@Yeah.net", ResponseNamespace="urn:Masterduner@Yeah.net", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
@@ -312,6 +317,34 @@ namespace EnterpriseServices.SecurityService.API.OrgService {
         }
         
         /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:Masterduner@Yeah.net/CreateStaff", RequestNamespace="urn:Masterduner@Yeah.net", ResponseNamespace="urn:Masterduner@Yeah.net", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public void CreateStaff(Staff person) {
+            this.Invoke("CreateStaff", new object[] {
+                        person});
+        }
+        
+        /// <remarks/>
+        public void CreateStaffAsync(Staff person) {
+            this.CreateStaffAsync(person, null);
+        }
+        
+        /// <remarks/>
+        public void CreateStaffAsync(Staff person, object userState) {
+            if ((this.CreateStaffOperationCompleted == null)) {
+                this.CreateStaffOperationCompleted = new System.Threading.SendOrPostCallback(this.OnCreateStaffOperationCompleted);
+            }
+            this.InvokeAsync("CreateStaff", new object[] {
+                        person}, this.CreateStaffOperationCompleted, userState);
+        }
+        
+        private void OnCreateStaffOperationCompleted(object arg) {
+            if ((this.CreateStaffCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.CreateStaffCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
         public new void CancelAsync(object userState) {
             base.CancelAsync(userState);
         }
@@ -352,6 +385,7 @@ namespace EnterpriseServices.SecurityService.API.OrgService {
     }
     
     /// <remarks/>
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(Staff))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Position))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Organization))]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.18408")]
@@ -514,7 +548,11 @@ namespace EnterpriseServices.SecurityService.API.OrgService {
     }
     
     /// <remarks/>
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ParameterDeclaration))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(UserCredentialsType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PlaceRegion))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(OrganizationObjectBase))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(Staff))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Position))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Organization))]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.18408")]
@@ -523,6 +561,321 @@ namespace EnterpriseServices.SecurityService.API.OrgService {
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:Masterduner@Yeah.net")]
     public partial class DbHelper {
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(UserCredentialsType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PlaceRegion))]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.18408")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:Masterduner@Yeah.net")]
+    public abstract partial class ParameterDeclaration : DbHelper {
+        
+        private System.Guid uniqueIDField;
+        
+        private string valueField;
+        
+        private string openIDField;
+        
+        private bool enabledField;
+        
+        /// <remarks/>
+        public System.Guid UniqueID {
+            get {
+                return this.uniqueIDField;
+            }
+            set {
+                this.uniqueIDField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string Value {
+            get {
+                return this.valueField;
+            }
+            set {
+                this.valueField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string OpenID {
+            get {
+                return this.openIDField;
+            }
+            set {
+                this.openIDField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public bool Enabled {
+            get {
+                return this.enabledField;
+            }
+            set {
+                this.enabledField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.18408")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:Masterduner@Yeah.net")]
+    public partial class UserCredentialsType : ParameterDeclaration {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.18408")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:Masterduner@Yeah.net")]
+    public partial class PlaceRegion : ParameterDeclaration {
+        
+        private System.Guid parentIDField;
+        
+        /// <remarks/>
+        public System.Guid ParentID {
+            get {
+                return this.parentIDField;
+            }
+            set {
+                this.parentIDField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.18408")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:Masterduner@Yeah.net")]
+    public partial class Staff : OrganizationObjectBase {
+        
+        private string lastNameField;
+        
+        private string firstNameField;
+        
+        private System.Guid firstPositionIDField;
+        
+        private Gender genderField;
+        
+        private System.DateTime birthDateField;
+        
+        private PlaceRegion birthPlaceField;
+        
+        private string residentialAddressField;
+        
+        private UserCredentialsType userCredentialsTypeField;
+        
+        private string userCredentialsNOField;
+        
+        private System.Guid firstOrganizationIDField;
+        
+        private string officePhoneNOField;
+        
+        private string mobilePhoneNOField;
+        
+        private string emailAddressField;
+        
+        private System.DateTime entryDateField;
+        
+        private bool isProbationField;
+        
+        private int probationLengthField;
+        
+        private bool autoBecomeFullMemberField;
+        
+        /// <remarks/>
+        public string LastName {
+            get {
+                return this.lastNameField;
+            }
+            set {
+                this.lastNameField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string FirstName {
+            get {
+                return this.firstNameField;
+            }
+            set {
+                this.firstNameField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public System.Guid FirstPositionID {
+            get {
+                return this.firstPositionIDField;
+            }
+            set {
+                this.firstPositionIDField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public Gender Gender {
+            get {
+                return this.genderField;
+            }
+            set {
+                this.genderField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public System.DateTime BirthDate {
+            get {
+                return this.birthDateField;
+            }
+            set {
+                this.birthDateField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public PlaceRegion BirthPlace {
+            get {
+                return this.birthPlaceField;
+            }
+            set {
+                this.birthPlaceField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string ResidentialAddress {
+            get {
+                return this.residentialAddressField;
+            }
+            set {
+                this.residentialAddressField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public UserCredentialsType UserCredentialsType {
+            get {
+                return this.userCredentialsTypeField;
+            }
+            set {
+                this.userCredentialsTypeField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string UserCredentialsNO {
+            get {
+                return this.userCredentialsNOField;
+            }
+            set {
+                this.userCredentialsNOField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public System.Guid FirstOrganizationID {
+            get {
+                return this.firstOrganizationIDField;
+            }
+            set {
+                this.firstOrganizationIDField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string OfficePhoneNO {
+            get {
+                return this.officePhoneNOField;
+            }
+            set {
+                this.officePhoneNOField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string MobilePhoneNO {
+            get {
+                return this.mobilePhoneNOField;
+            }
+            set {
+                this.mobilePhoneNOField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string EmailAddress {
+            get {
+                return this.emailAddressField;
+            }
+            set {
+                this.emailAddressField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public System.DateTime EntryDate {
+            get {
+                return this.entryDateField;
+            }
+            set {
+                this.entryDateField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public bool IsProbation {
+            get {
+                return this.isProbationField;
+            }
+            set {
+                this.isProbationField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int ProbationLength {
+            get {
+                return this.probationLengthField;
+            }
+            set {
+                this.probationLengthField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public bool AutoBecomeFullMember {
+            get {
+                return this.autoBecomeFullMemberField;
+            }
+            set {
+                this.autoBecomeFullMemberField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.18408")]
+    [System.SerializableAttribute()]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:Masterduner@Yeah.net")]
+    public enum Gender {
+        
+        /// <remarks/>
+        Man,
+        
+        /// <remarks/>
+        Woman,
     }
     
     /// <remarks/>
@@ -661,6 +1014,10 @@ namespace EnterpriseServices.SecurityService.API.OrgService {
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.18408")]
     public delegate void UpdatePositionCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.18408")]
+    public delegate void CreateStaffCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
 }
 
 #pragma warning restore 1591

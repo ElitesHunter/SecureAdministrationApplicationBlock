@@ -56,7 +56,7 @@ namespace EnterpriseServices.ManagementClient.Operations.Entity
         [ReadOnly(true)]
         [DisplayName("证件类型")]
         [Description("用户证件类型")]
-        [Editor(typeof(ChooseCredentialsTypeEditor), typeof(UITypeEditor))]
+        //[Editor(typeof(ChooseCredentialsTypeEditor), typeof(UITypeEditor))]
         public override string Value
         {
             get
@@ -78,6 +78,7 @@ namespace EnterpriseServices.ManagementClient.Operations.Entity
         /// </summary>
         public CredentialsType()
         {
+            this.UniqueID = Guid.Empty;
         }
 
         /// <summary>

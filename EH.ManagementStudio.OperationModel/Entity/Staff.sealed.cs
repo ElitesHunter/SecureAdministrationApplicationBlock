@@ -29,6 +29,7 @@ using System.ComponentModel;
 using System.Drawing.Design;
 using EnterpriseServices.Framework.Commons;
 using EnterpriseServices.ManagementClient.Operations.Entity.Editors;
+using Person = EnterpriseServices.SecurityService.API.OrgService.Staff;
 
 namespace EnterpriseServices.ManagementClient.Operations.Entity
 {
@@ -319,6 +320,44 @@ namespace EnterpriseServices.ManagementClient.Operations.Entity
             {
                 base.Name = value;
             }
+        }
+        #endregion
+
+        #region TransferTo
+        /// <summary>
+        /// 执行类型转换。
+        /// </summary>
+        /// <param name="person"></param>
+        /// <returns></returns>
+        static internal Person TransferTo(Staff person)
+        {
+            return new Person()
+            {
+                AutoBecomeFullMember = person.AutoBecomeFullMember,
+                BirthDate = person.BirthDate,
+                BirthPlace = new SecurityService.API.OrgService.PlaceRegion() { UniqueID = person.BirthPlace.UniqueID, Value = person.BirthPlace.Value },
+                Category = SecurityService.API.OrgService.OrganizationObjectCategory.Staff,
+                EmailAddress = person.EmailAddress,
+                Enabled = person.Enabled,
+                EntryDate = person.EntryDate,
+                FirstName = person.FirstName,
+                FirstPositionID = person.Position.UniqueID,
+                Gender = person.Gender == Gender.Man ? EnterpriseServices.SecurityService.API.OrgService.Gender.Man : SecurityService.API.OrgService.Gender.Woman,
+                IsProbation = person.OnProbation,
+                LastName = person.LastName,
+                LogicalRemovedState = person.HasRemoved,
+                MobilePhoneNO = person.MobileNO,
+                Name = string.Format("{0} {1}", person.LastName, person.FirstName),
+                OfficePhoneNO = person.OfficePhoneNO,
+                ParentID = person.Position.UniqueID,
+                ProbationLength = person.ProbationLength,
+                ResidentialAddress = person.ResidenceAddress,
+                UniqueID = person.UniqueID,
+                OpenID = person.OpenID,
+                UserCredentialsNO = person.CredentialsNO,
+                UserCredentialsType = new SecurityService.API.OrgService.UserCredentialsType() { UniqueID = person.CredentialsType.UniqueID, Value = person.CredentialsType.Value },
+                Visible = person.Visible
+            };
         }
         #endregion
     }

@@ -68,6 +68,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
+    <Compile Include="StaffApi.sealed.cs" />
     <Compile Include="UserInOutBehaviorTraceApi.sealed.cs" />
     <Compile Include="Web References\AuthenticationService\Reference.cs">
       <AutoGen>True</AutoGen>

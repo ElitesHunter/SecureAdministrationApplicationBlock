@@ -106,6 +106,7 @@
     <Compile Include="Organizations\OrganizationHandler.sealed.cs" />
     <Compile Include="Organizations\OrganizationObjectHandler.sealed.cs" />
     <Compile Include="Organizations\PositionHandler.sealed.cs" />
+    <Compile Include="Organizations\StaffHandler.sealed.cs" />
     <Compile Include="Principal\ClientIdentity.sealed.cs" />
     <Compile Include="Principal\ClientPrincipal.sealed.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
