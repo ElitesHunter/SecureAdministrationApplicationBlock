@@ -12,6 +12,7 @@ namespace EnterpriseServices.ManagementClient.Dialogs
     public partial class StaffEditorDialog : BaseDialog
     {
         private Staff _staff;
+        private Guid _positionID;
 
         #region Staff
         /// <summary>
@@ -21,6 +22,17 @@ namespace EnterpriseServices.ManagementClient.Dialogs
         {
             get { return _staff; }
             set { _staff = value; }
+        }
+        #endregion
+
+        #region PositionID
+        /// <summary>
+        /// 设置或获取职位标识。
+        /// </summary>
+        public Guid PositionID
+        {
+            get { return _positionID; }
+            set { _positionID = value; }
         }
         #endregion
 
@@ -37,7 +49,7 @@ namespace EnterpriseServices.ManagementClient.Dialogs
         /// <param name="e"></param>
         private void DialogLoad(object sender, EventArgs e)
         {
-            this.Staff = new Staff() { CredentialsType = new CredentialsType(), BirthPlace = new Place() };
+            this.Staff = new Staff() { CredentialsType = new CredentialsType(), BirthPlace = new Place(), Position = new Position() { UniqueID = this.PositionID } };
             this.CtrlStaffPropertyGrid.SelectedObject = this.Staff;
         }
         #endregion
@@ -54,6 +66,8 @@ namespace EnterpriseServices.ManagementClient.Dialogs
             if (!string.IsNullOrEmpty(person.LastName) && !string.IsNullOrEmpty(person.FirstName))
             {
                 new StaffHandler().Create(person);
+                this.DialogResult = System.Windows.Forms.DialogResult.OK;
+                this.Close();
             }
             else
                 DialogMethods.Prompt("请输入姓氏和名字！");

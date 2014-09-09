@@ -46,22 +46,22 @@ namespace EnterpriseServices.ManagementClient.Operations.Entity
     [Serializable, DefaultProperty("FirstName")]
     public sealed class Staff : OrganizationBase
     {
-        private string _firstName;
-        private string _lastName;
-        private Gender _gender;
-        private DateTime _birthDate;
+        private string _firstName = string.Empty;
+        private string _lastName = string.Empty;
+        private Gender _gender = Gender.Man;
+        private DateTime _birthDate = DateTime.Now.AddYears(-22);
         private Place _birthPlace;
-        private string _residenceAddress;
+        private string _residenceAddress = string.Empty;
         private CredentialsType _credentialsType;
-        private string _credentialsNO;
-        private string _officePhoneNO;
-        private string _mobileNO;
-        private string _emailAddress;
+        private string _credentialsNO = string.Empty;
+        private string _officePhoneNO = string.Empty;
+        private string _mobileNO = string.Empty;
+        private string _emailAddress = string.Empty;
         private Position _position;
-        private DateTime _entryDate;
-        private bool _onProbation;
-        private int _probationLength;
-        private bool _autoBecomeFullMember;
+        private DateTime _entryDate = DateTime.Now;
+        private bool _onProbation = true;
+        private int _probationLength = 6;
+        private bool _autoBecomeFullMember = true;
 
         #region FirstName
         /// <summary>

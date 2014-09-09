@@ -79,6 +79,7 @@ namespace EnterpriseServices.ManagementClient.Operations.Entity
         public CredentialsType()
         {
             this.UniqueID = Guid.Empty;
+            this.Value = string.Empty;
         }
 
         /// <summary>

@@ -444,7 +444,7 @@ namespace EnterpriseServices.ManagementClient.Windows
         /// <param name="e"></param>
         private void CreateStaffClick(object sender, EventArgs e)
         {
-            using (StaffEditorDialog dialog = new StaffEditorDialog() { Staff = new Staff() })
+            using (StaffEditorDialog dialog = new StaffEditorDialog() { Staff = new Staff(), PositionID = (this.ctrlObjectsTree.SelectedNode.Tag as Position).UniqueID })
             {
                 if (dialog.ShowDialog() == DialogResult.OK)
                 { }

@@ -71,6 +71,7 @@ namespace EnterpriseServices.ManagementClient.Operations.Entity
         public Place()
         {
             this.UniqueID = Guid.Empty;
+            this.Value = string.Empty;
         }
 
         /// <summary>

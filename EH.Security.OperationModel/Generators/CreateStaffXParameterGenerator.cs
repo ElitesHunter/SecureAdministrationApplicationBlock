@@ -18,9 +18,9 @@ namespace EnterpriseServices.SecurityService.Framework.OperationModel.Generators
     {
         internal virtual string TransformText()
         {
-            this.Write("<eh:EnterpriseServices xmlns=\"urn:Masterduner@Yeah.net\">\r\n\t<eh:SqlServerDatabase>" +
-                    "\r\n\t\t<eh:VariableDeclarations>\r\n\t\t\t<eh:StoredProcedure Name=\"Sp.CreateStaff\">\r\n\t\t" +
-                    "\t\t<eh:Parameter Name=\"xData\">\r\n\t\t\t\t\t<eh:Position UniqueID=\"");
+            this.Write("<eh:EnterpriseServices xmlns:eh=\"urn:Masterduner@Yeah.net\">\r\n\t<eh:SqlServerDataba" +
+                    "se>\r\n\t\t<eh:VariableDeclarations>\r\n\t\t\t<eh:StoredProcedure Name=\"Sp.CreateStaff\">\r" +
+                    "\n\t\t\t\t<eh:Parameter Name=\"xData\">\r\n\t\t\t\t\t<eh:Position UniqueID=\"");
             
             #line 7 "E:\CSharp\Customizations\人力资源管理系统\EH\EH.Security.OperationModel\Generators\CreateStaffXParameterGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(this.Person.FirstPositionID));

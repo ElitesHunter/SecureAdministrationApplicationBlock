@@ -1,5 +1,5 @@
 ﻿<#@ template language="C#" #>
-<eh:EnterpriseServices xmlns="urn:Masterduner@Yeah.net">
+<eh:EnterpriseServices xmlns:eh="urn:Masterduner@Yeah.net">
 	<eh:SqlServerDatabase>
 		<eh:VariableDeclarations>
 			<eh:StoredProcedure Name="Sp.CreateStaff">

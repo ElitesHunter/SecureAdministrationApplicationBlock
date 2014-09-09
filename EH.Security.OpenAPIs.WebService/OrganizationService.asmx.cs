@@ -100,6 +100,7 @@ namespace EnterpriseServices.SecurityService.API.OpenServices
         [WebMethod(Description="创建人员信息<br />staff:人员信息对象实例。")]
         public void CreateStaff(Staff person)
         {
+            person.Create();
         }
         #endregion
     }
