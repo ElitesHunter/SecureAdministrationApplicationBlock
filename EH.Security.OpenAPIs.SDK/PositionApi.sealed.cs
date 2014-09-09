@@ -95,6 +95,21 @@ namespace EnterpriseServices.SecurityService.API
             }
         }
         #endregion
+
+        #region GetStaffs
+        /// <summary>
+        /// 获取指定职位下的所有人员信息。
+        /// </summary>
+        /// <param name="openPositionID"></param>
+        /// <returns></returns>
+        public Staff[] GetStaffs(string openPositionID)
+        {
+            using (OrganizationService service = new OrganizationService() { Url = base.ServiceUrl })
+            {
+                return service.GetEnabledStaffs(openPositionID);
+            }
+        }
+        #endregion
     }
 }
 

@@ -214,6 +214,25 @@
       <s:element name="CreateStaffResponse">
         <s:complexType />
       </s:element>
+      <s:element name="GetEnabledStaffs">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="openID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetEnabledStaffsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetEnabledStaffsResult" type="tns:ArrayOfStaff" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfStaff">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Staff" nillable="true" type="tns:Staff" />
+        </s:sequence>
+      </s:complexType>
     </s:schema>
     <s:schema elementFormDefault="qualified" targetNamespace="http://microsoft.com/wsdl/types/">
       <s:simpleType name="guid">
@@ -271,6 +290,12 @@
   <wsdl:message name="CreateStaffSoapOut">
     <wsdl:part name="parameters" element="tns:CreateStaffResponse" />
   </wsdl:message>
+  <wsdl:message name="GetEnabledStaffsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetEnabledStaffs" />
+  </wsdl:message>
+  <wsdl:message name="GetEnabledStaffsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetEnabledStaffsResponse" />
+  </wsdl:message>
   <wsdl:portType name="OrganizationServiceSoap">
     <wsdl:operation name="GetRootOrganization">
       <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">获取根组织机构信息</wsdl:documentation>
@@ -311,6 +336,11 @@
       <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">创建人员信息&lt;br /&gt;staff:人员信息对象实例。</wsdl:documentation>
       <wsdl:input message="tns:CreateStaffSoapIn" />
       <wsdl:output message="tns:CreateStaffSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEnabledStaffs">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">获取所有启用的人员信息&lt;br /&gt;openID:职位开放标识</wsdl:documentation>
+      <wsdl:input message="tns:GetEnabledStaffsSoapIn" />
+      <wsdl:output message="tns:GetEnabledStaffsSoapOut" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="OrganizationServiceSoap" type="tns:OrganizationServiceSoap">
@@ -387,6 +417,15 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="GetEnabledStaffs">
+      <soap:operation soapAction="urn:Masterduner@Yeah.net/GetEnabledStaffs" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:binding name="OrganizationServiceSoap12" type="tns:OrganizationServiceSoap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
@@ -455,6 +494,15 @@
     </wsdl:operation>
     <wsdl:operation name="CreateStaff">
       <soap12:operation soapAction="urn:Masterduner@Yeah.net/CreateStaff" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEnabledStaffs">
+      <soap12:operation soapAction="urn:Masterduner@Yeah.net/GetEnabledStaffs" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

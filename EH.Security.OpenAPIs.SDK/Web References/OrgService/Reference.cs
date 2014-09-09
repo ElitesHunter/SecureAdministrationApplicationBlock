@@ -46,6 +46,8 @@ namespace EnterpriseServices.SecurityService.API.OrgService {
         
         private System.Threading.SendOrPostCallback CreateStaffOperationCompleted;
         
+        private System.Threading.SendOrPostCallback GetEnabledStaffsOperationCompleted;
+        
         private bool useDefaultCredentialsSetExplicitly;
         
         /// <remarks/>
@@ -107,6 +109,9 @@ namespace EnterpriseServices.SecurityService.API.OrgService {
         
         /// <remarks/>
         public event CreateStaffCompletedEventHandler CreateStaffCompleted;
+        
+        /// <remarks/>
+        public event GetEnabledStaffsCompletedEventHandler GetEnabledStaffsCompleted;
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:Masterduner@Yeah.net/GetRootOrganization", RequestNamespace="urn:Masterduner@Yeah.net", ResponseNamespace="urn:Masterduner@Yeah.net", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
@@ -341,6 +346,35 @@ namespace EnterpriseServices.SecurityService.API.OrgService {
             if ((this.CreateStaffCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
                 this.CreateStaffCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:Masterduner@Yeah.net/GetEnabledStaffs", RequestNamespace="urn:Masterduner@Yeah.net", ResponseNamespace="urn:Masterduner@Yeah.net", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public Staff[] GetEnabledStaffs(string openID) {
+            object[] results = this.Invoke("GetEnabledStaffs", new object[] {
+                        openID});
+            return ((Staff[])(results[0]));
+        }
+        
+        /// <remarks/>
+        public void GetEnabledStaffsAsync(string openID) {
+            this.GetEnabledStaffsAsync(openID, null);
+        }
+        
+        /// <remarks/>
+        public void GetEnabledStaffsAsync(string openID, object userState) {
+            if ((this.GetEnabledStaffsOperationCompleted == null)) {
+                this.GetEnabledStaffsOperationCompleted = new System.Threading.SendOrPostCallback(this.OnGetEnabledStaffsOperationCompleted);
+            }
+            this.InvokeAsync("GetEnabledStaffs", new object[] {
+                        openID}, this.GetEnabledStaffsOperationCompleted, userState);
+        }
+        
+        private void OnGetEnabledStaffsOperationCompleted(object arg) {
+            if ((this.GetEnabledStaffsCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.GetEnabledStaffsCompleted(this, new GetEnabledStaffsCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -1018,6 +1052,32 @@ namespace EnterpriseServices.SecurityService.API.OrgService {
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.18408")]
     public delegate void CreateStaffCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.18408")]
+    public delegate void GetEnabledStaffsCompletedEventHandler(object sender, GetEnabledStaffsCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.18408")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class GetEnabledStaffsCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal GetEnabledStaffsCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public Staff[] Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((Staff[])(this.results[0]));
+            }
+        }
+    }
 }
 
 #pragma warning restore 1591

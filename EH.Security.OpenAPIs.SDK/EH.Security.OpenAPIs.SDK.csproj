@@ -163,6 +163,9 @@
       <Generator>MSDiscoCodeGenerator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+    <None Include="Web References\OrgService\Staff.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
     <None Include="Web References\ParamsService\ParametersService.wsdl" />
     <None Include="Web References\ParamsService\PlaceRegion.datasource">
       <DependentUpon>Reference.map</DependentUpon>

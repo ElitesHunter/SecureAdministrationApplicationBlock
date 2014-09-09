@@ -152,6 +152,27 @@ namespace EnterpriseServices.SecurityService.Framework.OperationModel.Organizati
             this.ExecuteNonQuery(cmd);
         }
         #endregion
+
+        #region GetStaffs
+        /// <summary>
+        /// 获取指定职位的所有人员。
+        /// </summary>
+        /// <param name="openID"></param>
+        /// <returns></returns>
+        static public List<Staff> GetStaffs(string openID)
+        {
+            List<Staff> staffs = new List<Staff>();
+            DbHelper helper = new DbHelper(DbConnectionString.Current);
+            DataSet dataSet = helper.ExecuteDataSet(helper.CreateCommand("Sp.GetStaffCollection", CommandType.StoredProcedure,
+                helper.CreateParameter("openID", openID, SqlDbType.VarChar, ParameterDirection.Input)));
+            if (!object.ReferenceEquals(dataSet, null) && dataSet.Tables[0].Rows.Count > 0)
+            {
+                foreach (DataRow row in dataSet.Tables[0].Rows)
+                    staffs.Add(new Staff(row));
+            }
+            return staffs;
+        }
+        #endregion
     }
 }
 

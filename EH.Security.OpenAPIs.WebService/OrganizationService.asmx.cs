@@ -103,5 +103,18 @@ namespace EnterpriseServices.SecurityService.API.OpenServices
             person.Create();
         }
         #endregion
+
+        #region GetEnabledStaffs
+        /// <summary>
+        /// 获取所有启用的人员信息。
+        /// </summary>
+        /// <param name="openID"></param>
+        /// <returns></returns>
+        [WebMethod(Description = "获取所有启用的人员信息<br />openID:职位开放标识")]
+        public List<Staff> GetEnabledStaffs(string openID)
+        {
+            return Position.GetStaffs(openID);
+        }
+        #endregion
     }
 }

@@ -263,6 +263,16 @@ namespace EnterpriseServices.SecurityService.Framework.OperationModel.Organizati
         {
         }
 
+        /// <summary>
+        /// <para>构造函数：</para>
+        /// <para>初始化一个<see cref="Staff" />对象实例。</para>
+        /// </summary>
+        /// <param name="data"></param>
+        internal Staff(DataRow data)
+        {
+            this.InitializeInstance(data);
+        }
+
         #endregion
 
         #region InitializeInstance
@@ -276,7 +286,7 @@ namespace EnterpriseServices.SecurityService.Framework.OperationModel.Organizati
             this.LastName = base.IsDBNull(data["StaffLastName"]) ? string.Empty : data["StaffLastName"].ToString();
             this.FirstName = base.IsDBNull(data["StaffFirstName"]) ? string.Empty : data["StaffFirstName"].ToString();
             this.FirstOrganizationID = (Guid)data["StaffOwnedOrganizationID"];
-            this.Gender = (EnterpriseServices.Framework.Commons.Gender)Enum.Parse(typeof(Gender), data["StaffGender"].ToString().ToUpper());
+            this.Gender = (Gender)char.Parse(data["StaffGender"].ToString());
             this.BirthDate = base.IsDBNull(data["StaffBirthDay"]) ? DateTime.Now : (DateTime)data["StaffBirthDay"];
             this.BirthPlace = new PlaceRegion()
             {

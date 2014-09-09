@@ -359,6 +359,43 @@ namespace EnterpriseServices.ManagementClient.Operations.Entity
                 Visible = person.Visible
             };
         }
+
+        /// <summary>
+        /// 将<see cref="Person"/>转换成<see cref="Staff"/>对象实例。
+        /// </summary>
+        /// <param name="person"></param>
+        /// <returns></returns>
+        static internal Staff TransferTo(Person person)
+        {
+            return new Staff()
+            {
+                UniqueID = person.UniqueID,
+                OpenID = person.OpenID,
+                Name = person.Name,
+                LastName = person.LastName,
+                FirstName = person.FirstName,
+                AutoBecomeFullMember = person.AutoBecomeFullMember,
+                BirthDate = person.BirthDate,
+                BirthPlace = new Place() { UniqueID = person.BirthPlace.UniqueID, Value = person.BirthPlace.Value },
+                CredentialsNO = person.UserCredentialsNO,
+                CredentialsType = new CredentialsType() { UniqueID = person.UserCredentialsType.UniqueID, Value = person.UserCredentialsType.Value },
+                EmailAddress = person.EmailAddress,
+                Enabled = person.Enabled,
+                EntryDate = person.EntryDate,
+                Gender = person.Gender == SecurityService.API.OrgService.Gender.Man ? Gender.Man : Gender.Woman,
+                HasRemoved = person.LogicalRemovedState,
+                MobileNO = person.MobilePhoneNO,
+                OfficePhoneNO = person.OfficePhoneNO,
+                OnProbation = person.IsProbation,
+                ParentUniqueID = person.ParentID,
+                Position = new Position() { UniqueID = person.ParentID },
+                ProbationLength = person.ProbationLength,
+                ResidenceAddress = person.ResidentialAddress,
+                VirtualName = person.VirtualName,
+                VirtualPath = person.VirtualPath,
+                Visible = person.Visible
+            };
+        }
         #endregion
     }
 }
