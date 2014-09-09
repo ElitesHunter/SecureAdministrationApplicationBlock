@@ -27,6 +27,7 @@
 using System;
 using System.Data;
 using EnterpriseServices.Framework.Commons;
+using System.Data.SqlClient;
 
 namespace EnterpriseServices.SecurityService.Framework.OperationModel.Organizations
 {
@@ -300,6 +301,19 @@ namespace EnterpriseServices.SecurityService.Framework.OperationModel.Organizati
             DateTime probationDeadline = this.EntryDate.AddMonths(this.ProbationLength);
             if (this.AutoBecomeFullMember && (probationDeadline - DateTime.Now).TotalDays > 0 && this.Enabled && !this.LogicalRemovedState)
                 this.IsProbation = false;
+        }
+        #endregion
+
+        #region Create
+        /// <summary>
+        /// 创建人员。
+        /// </summary>
+        public override void Create()
+        {
+            string xData = new Generators.CreateStaffXParameterGenerator() { Person = this }.TransformText();
+            SqlCommand cmd = base.CreateCommand("Sp.CreateStaff", CommandType.StoredProcedure,
+                base.CreateParameter("xData", xData, SqlDbType.Xml, ParameterDirection.Input));
+            base.ExecuteNonQuery(cmd);
         }
         #endregion
     }

@@ -51,6 +51,12 @@
     </Compile>
     <Compile Include="ClientAccount.sealed.cs" />
     <Compile Include="ClientAccountCreator.sealed.cs" />
+    <Compile Include="Generators\CreateStaffXParameterGenerator.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CreateStaffXParameterGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Generators\CreateStaffXParameterGenerator.partial.cs" />
     <Compile Include="Generators\PositionXParameterGenerator.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -82,6 +88,10 @@
     <Compile Include="WinNTCredentials.sealed.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Generators\CreateStaffXParameterGenerator.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>CreateStaffXParameterGenerator.cs</LastGenOutput>
+    </None>
     <None Include="Generators\PositionXParameterGenerator.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>PositionXParameterGenerator.cs</LastGenOutput>

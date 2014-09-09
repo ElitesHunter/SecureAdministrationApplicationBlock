@@ -1,0 +1,30 @@
+﻿<#@ template language="C#" #>
+<eh:EnterpriseServices xmlns="urn:Masterduner@Yeah.net">
+	<eh:SqlServerDatabase>
+		<eh:VariableDeclarations>
+			<eh:StoredProcedure Name="Sp.CreateStaff">
+				<eh:Parameter Name="xData">
+					<eh:Position UniqueID="<#= this.Person.FirstPositionID #>" />
+					<eh:BasicInfo>
+						<eh:Name FirstName="<#= this.Person.FirstName #>" LastName="<#= this.Person.LastName #>" />
+						<eh:Gender Value="<#= (char)this.Person.Gender #>" />
+						<eh:Birth Date="<#= this.Person.BirthDate.ToString("yyyy-MM-dd") #>" PlaceID="<#= this.Person.BirthPlace.UniqueID #>" PlaceName="<#= this.Person.BirthPlace.Value #>" />
+					</eh:BasicInfo>
+					<eh:ExpandedInfo>
+						<eh:HomeAddress Value="<#= this.Person.ResidentialAddress #>" />
+						<eh:Credentials TypeID="<#= this.Person.UserCredentialsType.UniqueID #>" TypeName="<#= this.Person.UserCredentialsType.Value #>" NO="<#= this.Person.UserCredentialsNO #>" />
+						<eh:ContactMethods>
+							<eh:OfficePhone NO="<#= this.Person.OfficePhoneNO #>" />
+							<eh:MobilePhone NO="<#= this.Person.MobilePhoneNO #>" />
+							<eh:EmailAddress NO="<#= this.Person.EmailAddress #>" />
+						</eh:ContactMethods>
+						<eh:JoinInfo>
+							<eh:JoinDate Value="<#= this.Person.EntryDate.ToString("yyyy-MM-dd") #>" />
+							<eh:Probation InProbation="<#= this.Person.IsProbation.ToSqlValue() #>" ProbationLength="<#= this.Person.ProbationLength #>" AutomicConversion="<#= this.Person.AutoBecomeFullMember.ToSqlValue() #>" />
+						</eh:JoinInfo>
+					</eh:ExpandedInfo>
+				</eh:Parameter>
+			</eh:StoredProcedure>
+		</eh:VariableDeclarations>
+	</eh:SqlServerDatabase>
+</eh:EnterpriseServices>
