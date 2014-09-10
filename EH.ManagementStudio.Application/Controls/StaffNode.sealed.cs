@@ -1,17 +1,17 @@
-#region "PositionTreeNode"
+#region "StaffNode"
 
 /*
  * ####     Developer Name : Wang Yucai
  * 
  * ####     Development Tool : Microsoft VisualStudio 2010 Ultimate Edition
  * 
- * ####     Create Time : 2014-08-26 11:20:47
+ * ####     Create Time : 2014-09-10 9:53:09
  * 
  * ####     Namespace : EnterpriseServices.ManagementClient.Controls
  * 
- * ####     Type Name : PositionTreeNode
+ * ####     Type Name : StaffNode
  * 
- * ####     Full Name : EnterpriseServices.ManagementClient.Controls.PositionTreeNode
+ * ####     Full Name : EnterpriseServices.ManagementClient.Controls.StaffNode
  * 
  * ####     Machine Name : GLCHQWYCWINW7
  * 
@@ -29,32 +29,29 @@ using EnterpriseServices.ManagementClient.Operations.Entity;
 namespace EnterpriseServices.ManagementClient.Controls
 {
     /// <summary>
-    /// <para>EnterpriseServices.ManagementClient.Controls.PositionTreeNode</para>
+    /// <para>EnterpriseServices.ManagementClient.Controls.StaffNode</para>
     /// <para>
-    /// 职位树节点。
+    /// 人员树节点。
     /// </para>
     /// </summary>
     /// <remarks>
     /// <para>Target Framework Version : 3.5</para>
     /// <para>此类不可继承。</para>
     /// </remarks>
-    [EnterpriseServices.ManagementClient.Operations.TreeNodeBoundControl(typeof(PositionViewerControl))]
-    [EnterpriseServices.ManagementClient.Operations.FilterAfterExpanded(typeof(Commons.AfterPositionNodeExpanded))]
-    public sealed class PositionTreeNode : FeatureTreeNodeBase
+    public sealed class StaffNode : FeatureTreeNodeBase
     {
         #region Constructor
 
         /// <summary>
         /// <para>构造函数：</para>
-        /// <para>初始化一个<see cref="PositionTreeNode" />对象实例。</para>
+        /// <para>初始化一个<see cref="StaffNode" />对象实例。</para>
         /// </summary>
-        public PositionTreeNode(Position p)
-            : base(3, Commons.FeatureTreeNodeType.Position)
+        public StaffNode(Staff staff)
+            : base(4, Commons.FeatureTreeNodeType.Staff)
         {
-            this.Text = p.Name;
-            this.Tag = p;
-            this.ToolTipText = p.VirtualName;
-            this.Nodes.Add(new EmptyTreeNode());
+            this.Text = staff.Name;
+            this.Tag = staff;
+            this.ToolTipText = staff.VirtualName;
         }
 
         #endregion

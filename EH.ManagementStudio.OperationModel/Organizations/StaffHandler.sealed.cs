@@ -25,8 +25,10 @@
 #endregion
 
 using System;
+using System.Collections.Generic;
 using EnterpriseServices.ManagementClient.Operations.Entity;
 using EnterpriseServices.SecurityService.API;
+using Person = EnterpriseServices.SecurityService.API.OrgService.Staff;
 
 namespace EnterpriseServices.ManagementClient.Operations.Organizations
 {
@@ -64,10 +66,21 @@ namespace EnterpriseServices.ManagementClient.Operations.Organizations
             throw new NotImplementedException();
         }
 
+        #region GetSubs
+        /// <summary>
+        /// 获取指定职位的所有人员信息。
+        /// </summary>
+        /// <param name="openID"></param>
+        /// <returns></returns>
         public Staff[] GetSubs(string openID)
         {
-            throw new NotImplementedException();
+            List<Staff> list = new List<Staff>();
+            Person[] p = new PositionApi().GetStaffs(openID);
+            foreach (Person item in p)
+                list.Add(Staff.TransferTo(item));
+            return list.ToArray();
         }
+        #endregion
 
         public void Update(Staff org)
         {

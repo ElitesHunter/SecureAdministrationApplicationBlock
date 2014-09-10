@@ -73,6 +73,7 @@
     </Compile>
     <Compile Include="Commons\AfterOrgNodeExpanded.sealed.cs" />
     <Compile Include="Commons\AfterOrgRootNodeExpanded.sealed.cs" />
+    <Compile Include="Commons\AfterPositionNodeExpanded.sealed.cs" />
     <Compile Include="Commons\DialogMethods.static.cs" />
     <Compile Include="Commons\EditorAction.cs" />
     <Compile Include="Commons\FeatureTreeNodeType.cs" />
@@ -112,6 +113,7 @@
     </Compile>
     <Compile Include="Controls\PositionTreeNode.sealed.cs" />
     <Compile Include="Controls\RootTreeNode.sealed.cs" />
+    <Compile Include="Controls\StaffNode.sealed.cs" />
     <Compile Include="Dialogs\BaseDialog.cs">
       <SubType>Form</SubType>
     </Compile>

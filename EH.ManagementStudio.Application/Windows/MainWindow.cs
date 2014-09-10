@@ -375,8 +375,10 @@ namespace EnterpriseServices.ManagementClient.Windows
                 this.ctrlObjectsTree.SelectedNode.Nodes.Clear();
                 new AfterOrgNodeExpanded() { BoundContextMenu = this.ctrlOrganizationObjCtxMenu }.Execute(this.ctrlObjectsTree.SelectedNode);
             }
-            else
+            else if(this.ctrlObjectsTree.SelectedNode is PositionTreeNode)
             {
+                this.ctrlObjectsTree.SelectedNode.Nodes.Clear();
+                new AfterPositionNodeExpanded() { BoundContextMenu = this.ctrlStaffCtxMenu }.Execute(this.ctrlObjectsTree.SelectedNode);
             }
         }
         #endregion

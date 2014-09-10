@@ -26,8 +26,8 @@
 
 using System;
 using System.Data;
-using EnterpriseServices.Framework.Commons;
 using System.Data.SqlClient;
+using EnterpriseServices.Framework.Commons;
 
 namespace EnterpriseServices.SecurityService.Framework.OperationModel.Organizations
 {

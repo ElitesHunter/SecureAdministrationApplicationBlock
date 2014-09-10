@@ -1,6 +1,6 @@
 ﻿using System;
-using EnterpriseServices.ManagementClient.Operations.Entity;
 using EnterpriseServices.ManagementClient.Commons;
+using EnterpriseServices.ManagementClient.Operations.Entity;
 using EnterpriseServices.ManagementClient.Operations.Organizations;
 
 namespace EnterpriseServices.ManagementClient.Dialogs

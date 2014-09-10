@@ -81,6 +81,8 @@
             this.ctrlRemoveOrgObject = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator11 = new System.Windows.Forms.ToolStripSeparator();
             this.ctrlRefreshOrgObject = new System.Windows.Forms.ToolStripMenuItem();
+            this.ctrlStaffCtxMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.ctrlRemoveStaff = new System.Windows.Forms.ToolStripMenuItem();
             this.ctrlMainFeaturesMenu.SuspendLayout();
             this.ctrlFeaturesToolmenu.SuspendLayout();
             this.ctrlStatusControlsPanel.SuspendLayout();
@@ -90,6 +92,7 @@
             this.ctrlSplitContainer.SuspendLayout();
             this.ctrlOrganizationRootCtxMenu.SuspendLayout();
             this.ctrlOrganizationObjCtxMenu.SuspendLayout();
+            this.ctrlStaffCtxMenu.SuspendLayout();
             this.SuspendLayout();
             // 
             // ctrlMainFeaturesMenu
@@ -532,6 +535,19 @@
             this.ctrlRefreshOrgObject.Text = "刷新";
             this.ctrlRefreshOrgObject.Click += new System.EventHandler(this.RefreshOrganizationObjectClick);
             // 
+            // ctrlStaffCtxMenu
+            // 
+            this.ctrlStaffCtxMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ctrlRemoveStaff});
+            this.ctrlStaffCtxMenu.Name = "ctrlStaffCtxMenu";
+            this.ctrlStaffCtxMenu.Size = new System.Drawing.Size(180, 26);
+            // 
+            // ctrlRemoveStaff
+            // 
+            this.ctrlRemoveStaff.Name = "ctrlRemoveStaff";
+            this.ctrlRemoveStaff.Size = new System.Drawing.Size(179, 22);
+            this.ctrlRemoveStaff.Text = "移除此人(&Remove)";
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 19F);
@@ -559,6 +575,7 @@
             this.ctrlSplitContainer.ResumeLayout(false);
             this.ctrlOrganizationRootCtxMenu.ResumeLayout(false);
             this.ctrlOrganizationObjCtxMenu.ResumeLayout(false);
+            this.ctrlStaffCtxMenu.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -617,5 +634,7 @@
         private System.Windows.Forms.ToolStripMenuItem ctrlRefreshOrgObject;
         private System.Windows.Forms.ToolStripMenuItem ctrlCreateStaff;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator10;
+        private System.Windows.Forms.ContextMenuStrip ctrlStaffCtxMenu;
+        private System.Windows.Forms.ToolStripMenuItem ctrlRemoveStaff;
     }
 }

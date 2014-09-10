@@ -24,7 +24,6 @@
 
 #endregion
 
-using System;
 using EnterpriseServices.SecurityService.Framework.OperationModel.Organizations;
 
 namespace EnterpriseServices.SecurityService.Framework.OperationModel.Generators
