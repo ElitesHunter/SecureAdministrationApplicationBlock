@@ -38,6 +38,7 @@ namespace EnterpriseServices.ManagementClient.Controls
     /// <para>Target Framework Version : 3.5</para>
     /// <para>此类不可继承。</para>
     /// </remarks>
+    [Operations.TreeNodeBoundControl(typeof(StaffViewerControl))]
     public sealed class StaffNode : FeatureTreeNodeBase
     {
         #region Constructor

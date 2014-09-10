@@ -114,6 +114,12 @@
     <Compile Include="Controls\PositionTreeNode.sealed.cs" />
     <Compile Include="Controls\RootTreeNode.sealed.cs" />
     <Compile Include="Controls\StaffNode.sealed.cs" />
+    <Compile Include="Controls\StaffViewerControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\StaffViewerControl.Designer.cs">
+      <DependentUpon>StaffViewerControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Dialogs\BaseDialog.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -190,6 +196,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\PositionViewerControl.resx">
       <DependentUpon>PositionViewerControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\StaffViewerControl.resx">
+      <DependentUpon>StaffViewerControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Dialogs\BaseDialog.resx">
       <DependentUpon>BaseDialog.cs</DependentUpon>

@@ -254,6 +254,7 @@ namespace EnterpriseServices.ManagementClient.Windows
                         {
                             BaseControl ctrl = Activator.CreateInstance(ctrlType) as BaseControl;
                             ctrl.Tag = e.Node;
+                            ctrl.BoundTreeNode = e.Node;
                             TabPage page = new TabPage(ctrl.GetDescriptionInTabContainer());
                             page.Controls.Add(ctrl);
                             this.ctrlObjectTabContainer.TabPages.Add(page);

@@ -540,13 +540,14 @@
             this.ctrlStaffCtxMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.ctrlRemoveStaff});
             this.ctrlStaffCtxMenu.Name = "ctrlStaffCtxMenu";
-            this.ctrlStaffCtxMenu.Size = new System.Drawing.Size(180, 26);
+            this.ctrlStaffCtxMenu.Size = new System.Drawing.Size(180, 48);
             // 
             // ctrlRemoveStaff
             // 
             this.ctrlRemoveStaff.Name = "ctrlRemoveStaff";
             this.ctrlRemoveStaff.Size = new System.Drawing.Size(179, 22);
             this.ctrlRemoveStaff.Text = "移除此人(&Remove)";
+            this.ctrlRemoveStaff.Click += new System.EventHandler(this.RemoveOrganizationObjectClick);
             // 
             // MainWindow
             // 
