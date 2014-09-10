@@ -120,6 +120,12 @@
     <Compile Include="Controls\StaffViewerControl.Designer.cs">
       <DependentUpon>StaffViewerControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Dialogs\AccountEditorDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\AccountEditorDialog.Designer.cs">
+      <DependentUpon>AccountEditorDialog.cs</DependentUpon>
+    </Compile>
     <Compile Include="Dialogs\BaseDialog.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -199,6 +205,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\StaffViewerControl.resx">
       <DependentUpon>StaffViewerControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\AccountEditorDialog.resx">
+      <DependentUpon>AccountEditorDialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Dialogs\BaseDialog.resx">
       <DependentUpon>BaseDialog.cs</DependentUpon>

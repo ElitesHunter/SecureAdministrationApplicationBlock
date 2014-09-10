@@ -32,8 +32,8 @@
             this.CtrlVPathContainer = new System.Windows.Forms.Panel();
             this.CtrlVPathDescriptor = new System.Windows.Forms.Label();
             this.CtrlButtonsContainer = new System.Windows.Forms.Panel();
-            this.CtrlSaveButton = new System.Windows.Forms.Button();
             this.CtrlAdvancedButton = new System.Windows.Forms.Button();
+            this.CtrlSaveButton = new System.Windows.Forms.Button();
             this.CtrlStaffPropertyGrid = new System.Windows.Forms.PropertyGrid();
             this.CtrlVPathContainer.SuspendLayout();
             this.CtrlButtonsContainer.SuspendLayout();
@@ -69,6 +69,16 @@
             this.CtrlButtonsContainer.Size = new System.Drawing.Size(660, 50);
             this.CtrlButtonsContainer.TabIndex = 8;
             // 
+            // CtrlAdvancedButton
+            // 
+            this.CtrlAdvancedButton.Location = new System.Drawing.Point(95, 10);
+            this.CtrlAdvancedButton.Name = "CtrlAdvancedButton";
+            this.CtrlAdvancedButton.Size = new System.Drawing.Size(75, 30);
+            this.CtrlAdvancedButton.TabIndex = 1;
+            this.CtrlAdvancedButton.Text = "高级(&A)";
+            this.CtrlAdvancedButton.UseVisualStyleBackColor = true;
+            this.CtrlAdvancedButton.Click += new System.EventHandler(this.AdvanceButtonClick);
+            // 
             // CtrlSaveButton
             // 
             this.CtrlSaveButton.Image = ((System.Drawing.Image)(resources.GetObject("CtrlSaveButton.Image")));
@@ -80,15 +90,6 @@
             this.CtrlSaveButton.Text = "保存变更";
             this.CtrlSaveButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.CtrlSaveButton.UseVisualStyleBackColor = true;
-            // 
-            // CtrlAdvancedButton
-            // 
-            this.CtrlAdvancedButton.Location = new System.Drawing.Point(95, 10);
-            this.CtrlAdvancedButton.Name = "CtrlAdvancedButton";
-            this.CtrlAdvancedButton.Size = new System.Drawing.Size(75, 30);
-            this.CtrlAdvancedButton.TabIndex = 1;
-            this.CtrlAdvancedButton.Text = "高级(&A)";
-            this.CtrlAdvancedButton.UseVisualStyleBackColor = true;
             // 
             // CtrlStaffPropertyGrid
             // 

@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using EnterpriseServices.ManagementClient.Operations.Entity;
+using EnterpriseServices.ManagementClient.Dialogs;
 
 namespace EnterpriseServices.ManagementClient.Controls
 {
@@ -47,6 +48,17 @@ namespace EnterpriseServices.ManagementClient.Controls
             this.SetDescription(this.Person.Name);
             this.CtrlVPathDescriptor.Text = this.Person.VirtualPath;
             this.CtrlStaffPropertyGrid.SelectedObject = this.Person;
+        }
+        #endregion
+
+        #region AdvanceButtonClick
+        private void AdvanceButtonClick(object sender, EventArgs e)
+        {
+            using (AccountEditorDialog dialog = new AccountEditorDialog() { OpenID = this.Person.OpenID })
+            {
+                if (dialog.ShowDialog() == DialogResult.OK)
+                { }
+            }
         }
         #endregion
     }
