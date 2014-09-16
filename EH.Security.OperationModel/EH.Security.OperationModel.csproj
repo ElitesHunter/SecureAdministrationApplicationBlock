@@ -49,6 +49,9 @@
     <Compile Include="..\EH.Security.AssemblyInfo.cs">
       <Link>Properties\EH.Security.AssemblyInfo.cs</Link>
     </Compile>
+    <Compile Include="Accounts\AccountBase.public.cs" />
+    <Compile Include="Accounts\AccountExpandoProperty.sealed.cs" />
+    <Compile Include="Accounts\ExpirationPolicy.cs" />
     <Compile Include="ClientAccount.sealed.cs" />
     <Compile Include="ClientAccountCreator.sealed.cs" />
     <Compile Include="Generators\CreateStaffXParameterGenerator.cs">
