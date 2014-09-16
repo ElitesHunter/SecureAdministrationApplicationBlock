@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<eh:EnterpriseServices xmlns:eh="urn:Masterduner@Yeah.net">
+	<eh:SqlServerDatabase>
+		<eh:VariableDeclarations>
+			<eh:StoredProcedure Name="Sp.CreateStaffAccount">
+				<eh:Parameter Name="xData">
+					<eh:AssociatedStaff>
+						<eh:Identification UniqueID="" OpenID=""></eh:Identification>
+					</eh:AssociatedStaff>
+					<eh:AccountBaseInfo>
+						<eh:UserName Value=""></eh:UserName>
+						<eh:Passphrase Value=""></eh:Passphrase>
+					</eh:AccountBaseInfo>
+					<eh:ExpirationPolicy>
+						<eh:Length Value=""></eh:Length>
+						<eh:Unit Value=""></eh:Unit>
+					</eh:ExpirationPolicy>
+				</eh:Parameter>
+			</eh:StoredProcedure>
+		</eh:VariableDeclarations>
+	</eh:SqlServerDatabase>
+</eh:EnterpriseServices>

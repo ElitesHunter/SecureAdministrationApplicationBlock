@@ -1,0 +1,22 @@
+﻿<#@ template language="C#" #>
+<eh:EnterpriseServices xmlns:eh="urn:Masterduner@Yeah.net">
+	<eh:SqlServerDatabase>
+		<eh:VariableDeclarations>
+			<eh:StoredProcedure Name="Sp.CreateStaffAccount">
+				<eh:Parameter Name="xData">
+					<eh:AssociatedStaff>
+						<eh:Identification UniqueID="<#= this.Instance.StaffID #>" OpenID="<#= this.Instance.StaffOpenID #>" />
+					</eh:AssociatedStaff>
+					<eh:AccountBaseInfo>
+						<eh:UserName Value="<#= this.Instance.UserName #>" />
+						<eh:Passphrase Value="<#= this.Instance.Password #>" />
+					</eh:AccountBaseInfo>
+					<eh:ExpirationPolicy>
+						<eh:Length Value="<#= this.Instance.ExpirationPolicyLength #>" />
+						<eh:Unit Value="<#= (char)this.Instance.Policy #>" />
+					</eh:ExpirationPolicy>
+				</eh:Parameter>
+			</eh:StoredProcedure>
+		</eh:VariableDeclarations>
+	</eh:SqlServerDatabase>
+</eh:EnterpriseServices>

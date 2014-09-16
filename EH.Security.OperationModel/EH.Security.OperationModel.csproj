@@ -54,6 +54,11 @@
     <Compile Include="Accounts\ExpirationPolicy.cs" />
     <Compile Include="ClientAccount.sealed.cs" />
     <Compile Include="ClientAccountCreator.sealed.cs" />
+    <Compile Include="Generators\CreateAccountXParameterGenerator.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CreateAccountXParameterGenerator.tt</DependentUpon>
+    </Compile>
     <Compile Include="Generators\CreateStaffXParameterGenerator.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -91,6 +96,10 @@
     <Compile Include="WinNTCredentials.sealed.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Generators\CreateAccountXParameterGenerator.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>CreateAccountXParameterGenerator.cs</LastGenOutput>
+    </None>
     <None Include="Generators\CreateStaffXParameterGenerator.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>CreateStaffXParameterGenerator.cs</LastGenOutput>
