@@ -48,6 +48,8 @@ namespace EnterpriseServices.SecurityService.API.OrgService {
         
         private System.Threading.SendOrPostCallback GetEnabledStaffsOperationCompleted;
         
+        private System.Threading.SendOrPostCallback GetAssociatedAccountOperationCompleted;
+        
         private bool useDefaultCredentialsSetExplicitly;
         
         /// <remarks/>
@@ -112,6 +114,9 @@ namespace EnterpriseServices.SecurityService.API.OrgService {
         
         /// <remarks/>
         public event GetEnabledStaffsCompletedEventHandler GetEnabledStaffsCompleted;
+        
+        /// <remarks/>
+        public event GetAssociatedAccountCompletedEventHandler GetAssociatedAccountCompleted;
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:Masterduner@Yeah.net/GetRootOrganization", RequestNamespace="urn:Masterduner@Yeah.net", ResponseNamespace="urn:Masterduner@Yeah.net", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
@@ -379,6 +384,35 @@ namespace EnterpriseServices.SecurityService.API.OrgService {
         }
         
         /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:Masterduner@Yeah.net/GetAssociatedAccount", RequestNamespace="urn:Masterduner@Yeah.net", ResponseNamespace="urn:Masterduner@Yeah.net", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public AccountExpandoProperty GetAssociatedAccount(string staffOpenID) {
+            object[] results = this.Invoke("GetAssociatedAccount", new object[] {
+                        staffOpenID});
+            return ((AccountExpandoProperty)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void GetAssociatedAccountAsync(string staffOpenID) {
+            this.GetAssociatedAccountAsync(staffOpenID, null);
+        }
+        
+        /// <remarks/>
+        public void GetAssociatedAccountAsync(string staffOpenID, object userState) {
+            if ((this.GetAssociatedAccountOperationCompleted == null)) {
+                this.GetAssociatedAccountOperationCompleted = new System.Threading.SendOrPostCallback(this.OnGetAssociatedAccountOperationCompleted);
+            }
+            this.InvokeAsync("GetAssociatedAccount", new object[] {
+                        staffOpenID}, this.GetAssociatedAccountOperationCompleted, userState);
+        }
+        
+        private void OnGetAssociatedAccountOperationCompleted(object arg) {
+            if ((this.GetAssociatedAccountCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.GetAssociatedAccountCompleted(this, new GetAssociatedAccountCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
         public new void CancelAsync(object userState) {
             base.CancelAsync(userState);
         }
@@ -398,7 +432,7 @@ namespace EnterpriseServices.SecurityService.API.OrgService {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.18408")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.34234")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -422,7 +456,7 @@ namespace EnterpriseServices.SecurityService.API.OrgService {
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Staff))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Position))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Organization))]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.18408")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.34234")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -563,7 +597,7 @@ namespace EnterpriseServices.SecurityService.API.OrgService {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.18408")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.34234")]
     [System.SerializableAttribute()]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:Masterduner@Yeah.net")]
     public enum OrganizationObjectCategory {
@@ -582,6 +616,8 @@ namespace EnterpriseServices.SecurityService.API.OrgService {
     }
     
     /// <remarks/>
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(AccountBase))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(AccountExpandoProperty))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(ParameterDeclaration))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(UserCredentialsType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(PlaceRegion))]
@@ -589,7 +625,7 @@ namespace EnterpriseServices.SecurityService.API.OrgService {
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Staff))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Position))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Organization))]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.18408")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.34234")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -598,9 +634,143 @@ namespace EnterpriseServices.SecurityService.API.OrgService {
     }
     
     /// <remarks/>
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(AccountExpandoProperty))]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.34234")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:Masterduner@Yeah.net")]
+    public partial class AccountBase : DbHelper {
+        
+        private System.Guid staffIDField;
+        
+        private string staffOpenIDField;
+        
+        private string userNameField;
+        
+        private string passwordField;
+        
+        private System.Guid uniqueIDField;
+        
+        /// <remarks/>
+        public System.Guid StaffID {
+            get {
+                return this.staffIDField;
+            }
+            set {
+                this.staffIDField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string StaffOpenID {
+            get {
+                return this.staffOpenIDField;
+            }
+            set {
+                this.staffOpenIDField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string UserName {
+            get {
+                return this.userNameField;
+            }
+            set {
+                this.userNameField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string Password {
+            get {
+                return this.passwordField;
+            }
+            set {
+                this.passwordField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public System.Guid UniqueID {
+            get {
+                return this.uniqueIDField;
+            }
+            set {
+                this.uniqueIDField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.34234")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:Masterduner@Yeah.net")]
+    public partial class AccountExpandoProperty : AccountBase {
+        
+        private int expirationPolicyLengthField;
+        
+        private ExpirationPolicy policyField;
+        
+        private bool isLockedField;
+        
+        /// <remarks/>
+        public int ExpirationPolicyLength {
+            get {
+                return this.expirationPolicyLengthField;
+            }
+            set {
+                this.expirationPolicyLengthField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public ExpirationPolicy Policy {
+            get {
+                return this.policyField;
+            }
+            set {
+                this.policyField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public bool IsLocked {
+            get {
+                return this.isLockedField;
+            }
+            set {
+                this.isLockedField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.34234")]
+    [System.SerializableAttribute()]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:Masterduner@Yeah.net")]
+    public enum ExpirationPolicy {
+        
+        /// <remarks/>
+        None,
+        
+        /// <remarks/>
+        MonthPolicy,
+        
+        /// <remarks/>
+        DayPolicy,
+        
+        /// <remarks/>
+        WeekPolicy,
+    }
+    
+    /// <remarks/>
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(UserCredentialsType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(PlaceRegion))]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.18408")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.34234")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -657,7 +827,7 @@ namespace EnterpriseServices.SecurityService.API.OrgService {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.18408")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.34234")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -666,7 +836,7 @@ namespace EnterpriseServices.SecurityService.API.OrgService {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.18408")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.34234")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -687,7 +857,7 @@ namespace EnterpriseServices.SecurityService.API.OrgService {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.18408")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.34234")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -900,7 +1070,7 @@ namespace EnterpriseServices.SecurityService.API.OrgService {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.18408")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.34234")]
     [System.SerializableAttribute()]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:Masterduner@Yeah.net")]
     public enum Gender {
@@ -913,7 +1083,7 @@ namespace EnterpriseServices.SecurityService.API.OrgService {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.18408")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.34234")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -1075,6 +1245,32 @@ namespace EnterpriseServices.SecurityService.API.OrgService {
             get {
                 this.RaiseExceptionIfNecessary();
                 return ((Staff[])(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.18408")]
+    public delegate void GetAssociatedAccountCompletedEventHandler(object sender, GetAssociatedAccountCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.18408")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class GetAssociatedAccountCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal GetAssociatedAccountCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public AccountExpandoProperty Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((AccountExpandoProperty)(this.results[0]));
             }
         }
     }

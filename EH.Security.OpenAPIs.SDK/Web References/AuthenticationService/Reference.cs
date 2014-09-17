@@ -27,9 +27,12 @@ namespace EnterpriseServices.SecurityService.API.AuthenticationService {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Web.Services.WebServiceBindingAttribute(Name="AuthenticationServiceSoap", Namespace="urn:Masterduner@Yeah.net")]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(DbHelper))]
     public partial class AuthenticationService : System.Web.Services.Protocols.SoapHttpClientProtocol {
         
         private System.Threading.SendOrPostCallback ExecuteWinNTAuthenticateOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback CreateStaffAccountOperationCompleted;
         
         private bool useDefaultCredentialsSetExplicitly;
         
@@ -73,6 +76,9 @@ namespace EnterpriseServices.SecurityService.API.AuthenticationService {
         public event ExecuteWinNTAuthenticateCompletedEventHandler ExecuteWinNTAuthenticateCompleted;
         
         /// <remarks/>
+        public event CreateStaffAccountCompletedEventHandler CreateStaffAccountCompleted;
+        
+        /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:Masterduner@Yeah.net/WindowsAuthentication", RequestElementName="WindowsAuthentication", RequestNamespace="urn:Masterduner@Yeah.net", ResponseElementName="WindowsAuthenticationResponse", ResponseNamespace="urn:Masterduner@Yeah.net", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         [return: System.Xml.Serialization.XmlElementAttribute("WindowsAuthenticationResult")]
         public WinNTAuthenticateStatus ExecuteWinNTAuthenticate(string userName, string ipAddress, string hostName) {
@@ -107,6 +113,34 @@ namespace EnterpriseServices.SecurityService.API.AuthenticationService {
         }
         
         /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:Masterduner@Yeah.net/CreateStaffAccount", RequestNamespace="urn:Masterduner@Yeah.net", ResponseNamespace="urn:Masterduner@Yeah.net", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public void CreateStaffAccount(AccountExpandoProperty account) {
+            this.Invoke("CreateStaffAccount", new object[] {
+                        account});
+        }
+        
+        /// <remarks/>
+        public void CreateStaffAccountAsync(AccountExpandoProperty account) {
+            this.CreateStaffAccountAsync(account, null);
+        }
+        
+        /// <remarks/>
+        public void CreateStaffAccountAsync(AccountExpandoProperty account, object userState) {
+            if ((this.CreateStaffAccountOperationCompleted == null)) {
+                this.CreateStaffAccountOperationCompleted = new System.Threading.SendOrPostCallback(this.OnCreateStaffAccountOperationCompleted);
+            }
+            this.InvokeAsync("CreateStaffAccount", new object[] {
+                        account}, this.CreateStaffAccountOperationCompleted, userState);
+        }
+        
+        private void OnCreateStaffAccountOperationCompleted(object arg) {
+            if ((this.CreateStaffAccountCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.CreateStaffAccountCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
         public new void CancelAsync(object userState) {
             base.CancelAsync(userState);
         }
@@ -126,7 +160,7 @@ namespace EnterpriseServices.SecurityService.API.AuthenticationService {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.18408")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.34234")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -171,6 +205,151 @@ namespace EnterpriseServices.SecurityService.API.AuthenticationService {
     }
     
     /// <remarks/>
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(AccountBase))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(AccountExpandoProperty))]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.34234")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:Masterduner@Yeah.net")]
+    public partial class DbHelper {
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(AccountExpandoProperty))]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.34234")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:Masterduner@Yeah.net")]
+    public partial class AccountBase : DbHelper {
+        
+        private System.Guid staffIDField;
+        
+        private string staffOpenIDField;
+        
+        private string userNameField;
+        
+        private string passwordField;
+        
+        private System.Guid uniqueIDField;
+        
+        /// <remarks/>
+        public System.Guid StaffID {
+            get {
+                return this.staffIDField;
+            }
+            set {
+                this.staffIDField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string StaffOpenID {
+            get {
+                return this.staffOpenIDField;
+            }
+            set {
+                this.staffOpenIDField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string UserName {
+            get {
+                return this.userNameField;
+            }
+            set {
+                this.userNameField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string Password {
+            get {
+                return this.passwordField;
+            }
+            set {
+                this.passwordField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public System.Guid UniqueID {
+            get {
+                return this.uniqueIDField;
+            }
+            set {
+                this.uniqueIDField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.34234")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:Masterduner@Yeah.net")]
+    public partial class AccountExpandoProperty : AccountBase {
+        
+        private int expirationPolicyLengthField;
+        
+        private ExpirationPolicy policyField;
+        
+        private bool isLockedField;
+        
+        /// <remarks/>
+        public int ExpirationPolicyLength {
+            get {
+                return this.expirationPolicyLengthField;
+            }
+            set {
+                this.expirationPolicyLengthField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public ExpirationPolicy Policy {
+            get {
+                return this.policyField;
+            }
+            set {
+                this.policyField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public bool IsLocked {
+            get {
+                return this.isLockedField;
+            }
+            set {
+                this.isLockedField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.34234")]
+    [System.SerializableAttribute()]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:Masterduner@Yeah.net")]
+    public enum ExpirationPolicy {
+        
+        /// <remarks/>
+        None,
+        
+        /// <remarks/>
+        MonthPolicy,
+        
+        /// <remarks/>
+        DayPolicy,
+        
+        /// <remarks/>
+        WeekPolicy,
+    }
+    
+    /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.18408")]
     public delegate void ExecuteWinNTAuthenticateCompletedEventHandler(object sender, ExecuteWinNTAuthenticateCompletedEventArgs e);
     
@@ -195,6 +374,10 @@ namespace EnterpriseServices.SecurityService.API.AuthenticationService {
             }
         }
     }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.18408")]
+    public delegate void CreateStaffAccountCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
 }
 
 #pragma warning restore 1591

@@ -49,6 +49,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AccountApi.sealed.cs" />
     <Compile Include="ApiServiceBase.abstract.cs" />
     <Compile Include="ClientIdentityApi.sealed.cs" />
     <Compile Include="CommonsApi.sealed.cs" />
@@ -148,6 +149,9 @@
     <None Include="Web References\IdentityService\Reference.map">
       <Generator>MSDiscoCodeGenerator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\OrgService\AccountExpandoProperty.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
     </None>
     <None Include="Web References\OrgService\Organization.datasource">
       <DependentUpon>Reference.map</DependentUpon>

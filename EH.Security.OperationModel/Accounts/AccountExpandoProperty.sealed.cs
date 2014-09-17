@@ -116,6 +116,20 @@ namespace EnterpriseServices.SecurityService.Framework.OperationModel.Accounts
             return property;
         }
         #endregion
+
+        #region Create
+        /// <summary>
+        /// 创建账户扩展属性信息。
+        /// </summary>
+        public override void Create()
+        {
+            string xData = new Generators.CreateAccountXParameterGenerator() { Instance = this }.TransformText();
+            base.ExecuteNonQuery(base.CreateCommand("Sp.CreateStaffAccount", CommandType.StoredProcedure,
+                base.CreateParameter("xData", xData, SqlDbType.Xml, ParameterDirection.Input)
+                )
+            );
+        }
+        #endregion
     }
 }
 

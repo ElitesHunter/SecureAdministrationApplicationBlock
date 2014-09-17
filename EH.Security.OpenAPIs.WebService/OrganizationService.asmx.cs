@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Web.Services;
 using EnterpriseServices.SecurityService.Framework.OperationModel.Organizations;
+using EnterpriseServices.SecurityService.Framework.OperationModel.Accounts;
 
 namespace EnterpriseServices.SecurityService.API.OpenServices
 {
@@ -114,6 +115,19 @@ namespace EnterpriseServices.SecurityService.API.OpenServices
         public List<Staff> GetEnabledStaffs(string openID)
         {
             return Position.GetStaffs(openID);
+        }
+        #endregion
+
+        #region GetAssociatedAccount
+        /// <summary>
+        /// 获取关联的账户信息。
+        /// </summary>
+        /// <param name="staffOpenID"></param>
+        /// <returns></returns>
+        [WebMethod(Description="获取关联的账户信息<br />staffOpenID:人员的开放标识")]
+        public AccountExpandoProperty GetAssociatedAccount(string staffOpenID)
+        {
+            return AccountExpandoProperty.Get(staffOpenID);
         }
         #endregion
     }

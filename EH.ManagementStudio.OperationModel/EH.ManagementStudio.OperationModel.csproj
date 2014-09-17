@@ -54,6 +54,7 @@
     <Compile Include="..\EH.ManagementStudio.AssemblyInfo.cs">
       <Link>Properties\EH.ManagementStudio.AssemblyInfo.cs</Link>
     </Compile>
+    <Compile Include="Entity\Account.sealed.cs" />
     <Compile Include="Entity\CredentialsType.sealed.cs" />
     <Compile Include="Entity\Editors\ChooseCredentialsTypeDialog.cs">
       <SubType>Form</SubType>

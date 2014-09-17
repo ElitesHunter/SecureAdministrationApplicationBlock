@@ -1,17 +1,17 @@
-#region "StaffApi"
+#region "AccountApi"
 
 /*
  * ####     Developer Name : Wang Yucai
  * 
  * ####     Development Tool : Microsoft VisualStudio 2010 Ultimate Edition
  * 
- * ####     Create Time : 2014-09-09 11:09:16
+ * ####     Create Time : 2014-09-17 9:56:36
  * 
  * ####     Namespace : EnterpriseServices.SecurityService.API
  * 
- * ####     Type Name : StaffApi
+ * ####     Type Name : AccountApi
  * 
- * ####     Full Name : EnterpriseServices.SecurityService.API.StaffApi
+ * ####     Full Name : EnterpriseServices.SecurityService.API.AccountApi
  * 
  * ####     Machine Name : GLCHQWYCWINW7
  * 
@@ -24,30 +24,31 @@
 
 #endregion
 
-using EnterpriseServices.SecurityService.API.OrgService;
+using System;
+using EnterpriseServices.SecurityService.API.AuthenticationService;
 
 namespace EnterpriseServices.SecurityService.API
 {
     /// <summary>
-    /// <para>EnterpriseServices.SecurityService.API.StaffApi</para>
+    /// <para>EnterpriseServices.SecurityService.API.AccountApi</para>
     /// <para>
-    /// Description
+    /// 用于操作用户账户的API。
     /// </para>
     /// </summary>
     /// <remarks>
     /// <para>Target Framework Version : 3.5</para>
     /// <para>此类不可继承。</para>
     /// </remarks>
-    public sealed class StaffApi : ApiServiceBase
+    public sealed class AccountApi : ApiServiceBase
     {
         #region Constructor
 
         /// <summary>
         /// <para>构造函数：</para>
-        /// <para>初始化一个<see cref="StaffApi" />对象实例。</para>
+        /// <para>初始化一个<see cref="AccountApi" />对象实例。</para>
         /// </summary>
-        public StaffApi()
-            : base("OrganizationService")
+        public AccountApi()
+            : base("AuthenticationService")
         {
         }
 
@@ -55,27 +56,19 @@ namespace EnterpriseServices.SecurityService.API
 
         #region Create
         /// <summary>
-        /// 创建人员信息。
+        /// 创建一个账户信息。
         /// </summary>
-        /// <param name="person"></param>
-        public void Create(Staff person)
+        /// <param name="account"></param>
+        public void Create(AccountExpandoProperty account)
         {
-            using (OrganizationService service = new OrganizationService() { Url = base.ServiceUrl })
+            using (AuthenticationService.AuthenticationService service = new AuthenticationService.AuthenticationService() { Url = base.ServiceUrl })
             {
-                service.CreateStaff(person);
+                service.CreateStaffAccount(account);
             }
         }
         #endregion
 
-        #region GetAssociatedAccount
-        public AccountExpandoProperty GetAssociatedAccount(string staffOpenID)
-        {
-            using (OrganizationService service = new OrganizationService() { Url = base.ServiceUrl })
-            {
-                return service.GetAssociatedAccount(staffOpenID);
-            }
-        }
-        #endregion
+
     }
 }
 

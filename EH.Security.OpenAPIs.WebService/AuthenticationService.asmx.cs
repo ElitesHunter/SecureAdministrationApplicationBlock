@@ -1,6 +1,7 @@
 ﻿using System.ComponentModel;
 using System.Web.Services;
 using EnterpriseServices.SecurityService.API.OpenServices.Results;
+using EnterpriseServices.SecurityService.Framework.OperationModel.Accounts;
 
 namespace EnterpriseServices.SecurityService.API.OpenServices
 {
@@ -27,6 +28,14 @@ namespace EnterpriseServices.SecurityService.API.OpenServices
             status.InitializeVariables(userName, ipAddress, hostName);
             status.Authenticate();
             return status;
+        }
+        #endregion
+
+        #region CreateStaffAccount
+        [WebMethod(Description = "创建一个人员账户<br />account:人员账户扩展信息")]
+        public void CreateStaffAccount(AccountExpandoProperty account)
+        {
+            account.Create();
         }
         #endregion
     }
