@@ -15,6 +15,7 @@ namespace EnterpriseServices.ManagementClient.Dialogs
         private string _openID;
         private string _staffName;
         private Guid _staffID;
+        private bool _isCreate;
 
         #region OpenID
         /// <summary>
@@ -43,6 +44,14 @@ namespace EnterpriseServices.ManagementClient.Dialogs
         }
         #endregion
 
+        #region IsCreate
+        private bool IsCreate
+        {
+            get { return _isCreate; }
+            set { _isCreate = value; }
+        }
+        #endregion
+
         public AccountEditorDialog()
         {
             InitializeComponent();
@@ -62,6 +71,7 @@ namespace EnterpriseServices.ManagementClient.Dialogs
             this.InitSelectedExpiredPolicy(account.UnitValue);
             this.CtrlExpirationCycleUnit.Enabled = this.CtrlUseExpirationPolicy.Checked;
             this.CtrlExpirationCycleLength.Enabled = this.CtrlUseExpirationPolicy.Checked;
+            this.IsCreate = account.UniqueID.Equals(Guid.Empty);
         }
         #endregion
 
@@ -84,5 +94,10 @@ namespace EnterpriseServices.ManagementClient.Dialogs
             this.CtrlExpirationCycleLength.Enabled = this.CtrlUseExpirationPolicy.Checked;
         }
         #endregion
+
+        private void CtrlOkButton_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

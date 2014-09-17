@@ -159,6 +159,7 @@
             this.CtrlOkButton.TabIndex = 6;
             this.CtrlOkButton.Text = "确定";
             this.CtrlOkButton.UseVisualStyleBackColor = true;
+            this.CtrlOkButton.Click += new System.EventHandler(this.CtrlOkButton_Click);
             // 
             // CtrlCloseButton
             // 
