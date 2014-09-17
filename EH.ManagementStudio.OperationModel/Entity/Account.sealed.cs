@@ -45,6 +45,8 @@ namespace EnterpriseServices.ManagementClient.Operations.Entity
         private bool _useExpiredPolicy;
         private int _expiredLength;
         private int _unitValue;
+        private bool _isLocked;
+        private Guid _uniqueID;
 
         #region UserName
         public string UserName
@@ -86,6 +88,14 @@ namespace EnterpriseServices.ManagementClient.Operations.Entity
         }
         #endregion
 
+        #region IsLocked
+        public bool IsLocked
+        {
+            get { return _isLocked; }
+            set { _isLocked = value; }
+        }
+        #endregion
+
         #region Constructor
 
         /// <summary>
@@ -96,6 +106,35 @@ namespace EnterpriseServices.ManagementClient.Operations.Entity
         {
         }
 
+        #endregion
+
+        #region TransferTo
+        /// <summary>
+        /// 类型转换。
+        /// </summary>
+        /// <param name="account"></param>
+        /// <returns></returns>
+        static public Account TransferTo(EnterpriseServices.SecurityService.API.OrgService.AccountExpandoProperty account)
+        {
+            return new Account()
+            {
+                UserName = account.UserName,
+                Passphrase = account.Password,
+                ExpiredLength = account.ExpirationPolicyLength,
+                UnitValue = (int)(char)account.Policy,
+                UseExpiredPolicy = !(account.Policy == EnterpriseServices.SecurityService.API.OrgService.ExpirationPolicy.None),
+                IsLocked = account.IsLocked,
+                UniqueID = account.UniqueID
+            };
+        }
+        #endregion
+
+        #region UniqueID
+        public Guid UniqueID
+        {
+            get { return _uniqueID; }
+            set { _uniqueID = value; }
+        }
         #endregion
     }
 }

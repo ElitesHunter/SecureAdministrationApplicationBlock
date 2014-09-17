@@ -30,6 +30,7 @@ using System.Drawing.Design;
 using EnterpriseServices.Framework.Commons;
 using EnterpriseServices.ManagementClient.Operations.Entity.Editors;
 using Person = EnterpriseServices.SecurityService.API.OrgService.Staff;
+using EnterpriseServices.SecurityService.API;
 
 namespace EnterpriseServices.ManagementClient.Operations.Entity
 {
@@ -395,6 +396,18 @@ namespace EnterpriseServices.ManagementClient.Operations.Entity
                 VirtualPath = person.VirtualPath,
                 Visible = person.Visible
             };
+        }
+        #endregion
+
+        #region GetAssociatedAccount
+        /// <summary>
+        /// 获取关联的账户信息。
+        /// </summary>
+        /// <param name="openID"></param>
+        /// <returns></returns>
+        static public Account GetAssociatedAccount(string openID)
+        {
+            return Account.TransferTo(new StaffApi().GetAssociatedAccount(openID));
         }
         #endregion
     }

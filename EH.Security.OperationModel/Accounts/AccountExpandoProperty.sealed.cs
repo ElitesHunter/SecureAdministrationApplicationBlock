@@ -89,6 +89,11 @@ namespace EnterpriseServices.SecurityService.Framework.OperationModel.Accounts
             if (data.Rows.Count.Equals(0))
             {
                 this.UniqueID = Guid.Empty;
+                this.IsLocked = false;
+                this.Policy = ExpirationPolicy.None;
+                this.ExpirationPolicyLength = 0;
+                this.UserName = string.Empty;
+                this.Password = string.Empty;
             }
             else
             {

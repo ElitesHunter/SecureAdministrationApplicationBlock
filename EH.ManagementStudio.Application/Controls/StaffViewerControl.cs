@@ -54,7 +54,7 @@ namespace EnterpriseServices.ManagementClient.Controls
         #region AdvanceButtonClick
         private void AdvanceButtonClick(object sender, EventArgs e)
         {
-            using (AccountEditorDialog dialog = new AccountEditorDialog() { OpenID = this.Person.OpenID })
+            using (AccountEditorDialog dialog = new AccountEditorDialog() { OpenID = this.Person.OpenID, StaffID = this.Person.UniqueID })
             {
                 if (dialog.ShowDialog() == DialogResult.OK)
                 { }

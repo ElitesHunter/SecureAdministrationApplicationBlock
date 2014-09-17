@@ -34,11 +34,11 @@
             this.CtrlPasswordDescriptor = new System.Windows.Forms.Label();
             this.CtrlPasswordInput = new System.Windows.Forms.TextBox();
             this.CtrlExpirationControlsGroup = new System.Windows.Forms.GroupBox();
-            this.CtrlUseExpirationPolicy = new System.Windows.Forms.CheckBox();
-            this.CtrlExpirationCycleLengthDescriptor = new System.Windows.Forms.Label();
-            this.CtrlExpirationCycleLength = new System.Windows.Forms.NumericUpDown();
-            this.CtrlExpirationCycleUnit = new System.Windows.Forms.ComboBox();
             this.CtrlDescriptionText = new System.Windows.Forms.Label();
+            this.CtrlExpirationCycleUnit = new System.Windows.Forms.ComboBox();
+            this.CtrlExpirationCycleLength = new System.Windows.Forms.NumericUpDown();
+            this.CtrlExpirationCycleLengthDescriptor = new System.Windows.Forms.Label();
+            this.CtrlUseExpirationPolicy = new System.Windows.Forms.CheckBox();
             this.CtrlOkButton = new System.Windows.Forms.Button();
             this.CtrlCloseButton = new System.Windows.Forms.Button();
             this.CtrlUnlockButton = new System.Windows.Forms.Button();
@@ -94,38 +94,14 @@
             this.CtrlExpirationControlsGroup.TabStop = false;
             this.CtrlExpirationControlsGroup.Text = "口令过期策略";
             // 
-            // CtrlUseExpirationPolicy
+            // CtrlDescriptionText
             // 
-            this.CtrlUseExpirationPolicy.AutoSize = true;
-            this.CtrlUseExpirationPolicy.Checked = true;
-            this.CtrlUseExpirationPolicy.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.CtrlUseExpirationPolicy.Location = new System.Drawing.Point(26, 36);
-            this.CtrlUseExpirationPolicy.Name = "CtrlUseExpirationPolicy";
-            this.CtrlUseExpirationPolicy.Size = new System.Drawing.Size(158, 23);
-            this.CtrlUseExpirationPolicy.TabIndex = 0;
-            this.CtrlUseExpirationPolicy.Text = "强制使用口令过期策略";
-            this.CtrlUseExpirationPolicy.UseVisualStyleBackColor = true;
-            // 
-            // CtrlExpirationCycleLengthDescriptor
-            // 
-            this.CtrlExpirationCycleLengthDescriptor.AutoSize = true;
-            this.CtrlExpirationCycleLengthDescriptor.Location = new System.Drawing.Point(22, 76);
-            this.CtrlExpirationCycleLengthDescriptor.Name = "CtrlExpirationCycleLengthDescriptor";
-            this.CtrlExpirationCycleLengthDescriptor.Size = new System.Drawing.Size(22, 19);
-            this.CtrlExpirationCycleLengthDescriptor.TabIndex = 1;
-            this.CtrlExpirationCycleLengthDescriptor.Text = "每";
-            // 
-            // CtrlExpirationCycleLength
-            // 
-            this.CtrlExpirationCycleLength.Location = new System.Drawing.Point(50, 74);
-            this.CtrlExpirationCycleLength.Name = "CtrlExpirationCycleLength";
-            this.CtrlExpirationCycleLength.Size = new System.Drawing.Size(61, 25);
-            this.CtrlExpirationCycleLength.TabIndex = 2;
-            this.CtrlExpirationCycleLength.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
+            this.CtrlDescriptionText.AutoSize = true;
+            this.CtrlDescriptionText.Location = new System.Drawing.Point(181, 76);
+            this.CtrlDescriptionText.Name = "CtrlDescriptionText";
+            this.CtrlDescriptionText.Size = new System.Drawing.Size(113, 19);
+            this.CtrlDescriptionText.TabIndex = 4;
+            this.CtrlDescriptionText.Text = "更改一次登录口令";
             // 
             // CtrlExpirationCycleUnit
             // 
@@ -140,14 +116,39 @@
             this.CtrlExpirationCycleUnit.Size = new System.Drawing.Size(58, 27);
             this.CtrlExpirationCycleUnit.TabIndex = 3;
             // 
-            // CtrlDescriptionText
+            // CtrlExpirationCycleLength
             // 
-            this.CtrlDescriptionText.AutoSize = true;
-            this.CtrlDescriptionText.Location = new System.Drawing.Point(181, 76);
-            this.CtrlDescriptionText.Name = "CtrlDescriptionText";
-            this.CtrlDescriptionText.Size = new System.Drawing.Size(113, 19);
-            this.CtrlDescriptionText.TabIndex = 4;
-            this.CtrlDescriptionText.Text = "更改一次登录口令";
+            this.CtrlExpirationCycleLength.Location = new System.Drawing.Point(50, 74);
+            this.CtrlExpirationCycleLength.Name = "CtrlExpirationCycleLength";
+            this.CtrlExpirationCycleLength.Size = new System.Drawing.Size(61, 25);
+            this.CtrlExpirationCycleLength.TabIndex = 2;
+            this.CtrlExpirationCycleLength.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // CtrlExpirationCycleLengthDescriptor
+            // 
+            this.CtrlExpirationCycleLengthDescriptor.AutoSize = true;
+            this.CtrlExpirationCycleLengthDescriptor.Location = new System.Drawing.Point(22, 76);
+            this.CtrlExpirationCycleLengthDescriptor.Name = "CtrlExpirationCycleLengthDescriptor";
+            this.CtrlExpirationCycleLengthDescriptor.Size = new System.Drawing.Size(22, 19);
+            this.CtrlExpirationCycleLengthDescriptor.TabIndex = 1;
+            this.CtrlExpirationCycleLengthDescriptor.Text = "每";
+            // 
+            // CtrlUseExpirationPolicy
+            // 
+            this.CtrlUseExpirationPolicy.AutoSize = true;
+            this.CtrlUseExpirationPolicy.Checked = true;
+            this.CtrlUseExpirationPolicy.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.CtrlUseExpirationPolicy.Location = new System.Drawing.Point(26, 36);
+            this.CtrlUseExpirationPolicy.Name = "CtrlUseExpirationPolicy";
+            this.CtrlUseExpirationPolicy.Size = new System.Drawing.Size(158, 23);
+            this.CtrlUseExpirationPolicy.TabIndex = 0;
+            this.CtrlUseExpirationPolicy.Text = "强制使用口令过期策略";
+            this.CtrlUseExpirationPolicy.UseVisualStyleBackColor = true;
+            this.CtrlUseExpirationPolicy.CheckedChanged += new System.EventHandler(this.CtrlUseExpirationPolicy_CheckedChanged);
             // 
             // CtrlOkButton
             // 
