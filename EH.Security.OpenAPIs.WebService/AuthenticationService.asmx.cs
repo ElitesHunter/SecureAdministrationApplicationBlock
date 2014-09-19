@@ -33,9 +33,9 @@ namespace EnterpriseServices.SecurityService.API.OpenServices
 
         #region CreateStaffAccount
         [WebMethod(Description = "创建一个人员账户<br />account:人员账户扩展信息")]
-        public void CreateStaffAccount(AccountExpandoProperty account)
+        public int CreateStaffAccount(AccountExpandoProperty account)
         {
-            account.Create();
+            return account.Create();
         }
         #endregion
     }

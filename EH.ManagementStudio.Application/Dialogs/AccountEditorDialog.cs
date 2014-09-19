@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Windows.Forms;
+using EnterpriseServices.ManagementClient.Commons;
 using EnterpriseServices.ManagementClient.Operations.Entity;
 
 namespace EnterpriseServices.ManagementClient.Dialogs
@@ -16,6 +10,7 @@ namespace EnterpriseServices.ManagementClient.Dialogs
         private string _staffName;
         private Guid _staffID;
         private bool _isCreate;
+        private Guid _accountID;
 
         #region OpenID
         /// <summary>
@@ -52,6 +47,14 @@ namespace EnterpriseServices.ManagementClient.Dialogs
         }
         #endregion
 
+        #region AccountID
+        private Guid AccountID
+        {
+            get { return _accountID; }
+            set { _accountID = value; }
+        }
+        #endregion
+
         public AccountEditorDialog()
         {
             InitializeComponent();
@@ -72,6 +75,7 @@ namespace EnterpriseServices.ManagementClient.Dialogs
             this.CtrlExpirationCycleUnit.Enabled = this.CtrlUseExpirationPolicy.Checked;
             this.CtrlExpirationCycleLength.Enabled = this.CtrlUseExpirationPolicy.Checked;
             this.IsCreate = account.UniqueID.Equals(Guid.Empty);
+            this.AccountID = account.UniqueID;
         }
         #endregion
 
@@ -95,9 +99,53 @@ namespace EnterpriseServices.ManagementClient.Dialogs
         }
         #endregion
 
+        #region CtrlOkButton_Click
         private void CtrlOkButton_Click(object sender, EventArgs e)
         {
-
+            if (this.ValidateControlsValue())
+            {
+                int state = this.CreateAccount().Create(this.StaffID, this.OpenID);
+                if (state.Equals(0))
+                {
+                    this.DialogResult = System.Windows.Forms.DialogResult.OK;
+                    this.Close();
+                }
+                else DialogMethods.Prompt("用户名已存在，请重新指定！");
+            }
         }
+        #endregion
+
+        #region ValidateControlsValue
+        private bool ValidateControlsValue()
+        {
+            if (string.IsNullOrEmpty(this.CtrlUserNameInput.Text))
+            {
+                DialogMethods.Prompt("请输入账户名！");
+                return false;
+            }
+            if (string.IsNullOrEmpty(this.CtrlPasswordInput.Text))
+            {
+                DialogMethods.Prompt("请输入密码！");
+                return false;
+            }
+            return true;
+        }
+        #endregion
+
+        #region CreateAccount
+        private Account CreateAccount()
+        {
+            return new Account()
+            {
+                UniqueID = this.AccountID,
+                UserName = this.CtrlUserNameInput.Text,
+                Passphrase = this.CtrlPasswordInput.Text,
+                UseExpiredPolicy = this.CtrlUseExpirationPolicy.Checked,
+                UnitValue = this.CtrlExpirationCycleUnit.SelectedIndex,
+                ExpiredLength = (int)this.CtrlExpirationCycleLength.Value,
+                IsLocked = this.CtrlUnlockButton.Enabled
+            };
+        }
+        #endregion
     }
 }

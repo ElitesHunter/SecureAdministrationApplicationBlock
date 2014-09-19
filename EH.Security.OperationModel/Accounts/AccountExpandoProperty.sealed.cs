@@ -26,6 +26,7 @@
 
 using System;
 using System.Data;
+using System.Data.SqlClient;
 using EnterpriseServices.Framework.Commons.Data;
 
 namespace EnterpriseServices.SecurityService.Framework.OperationModel.Accounts
@@ -126,13 +127,15 @@ namespace EnterpriseServices.SecurityService.Framework.OperationModel.Accounts
         /// <summary>
         /// 创建账户扩展属性信息。
         /// </summary>
-        public override void Create()
+        public new int Create()
         {
             string xData = new Generators.CreateAccountXParameterGenerator() { Instance = this }.TransformText();
-            base.ExecuteNonQuery(base.CreateCommand("Sp.CreateStaffAccount", CommandType.StoredProcedure,
-                base.CreateParameter("xData", xData, SqlDbType.Xml, ParameterDirection.Input)
-                )
-            );
+            SqlCommand cmd = base.CreateCommand("Sp.CreateStaffAccount", CommandType.StoredProcedure,
+                base.CreateParameter("xData", xData, SqlDbType.Xml, ParameterDirection.Input),
+                base.CreateParameter("state", 0, SqlDbType.Int, ParameterDirection.Output)
+                );
+            base.ExecuteNonQuery(cmd);
+            return (int)cmd.Parameters["@state"].Value;
         }
         #endregion
     }

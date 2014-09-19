@@ -114,9 +114,10 @@ namespace EnterpriseServices.SecurityService.API.AuthenticationService {
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:Masterduner@Yeah.net/CreateStaffAccount", RequestNamespace="urn:Masterduner@Yeah.net", ResponseNamespace="urn:Masterduner@Yeah.net", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public void CreateStaffAccount(AccountExpandoProperty account) {
-            this.Invoke("CreateStaffAccount", new object[] {
+        public int CreateStaffAccount(AccountExpandoProperty account) {
+            object[] results = this.Invoke("CreateStaffAccount", new object[] {
                         account});
+            return ((int)(results[0]));
         }
         
         /// <remarks/>
@@ -136,7 +137,7 @@ namespace EnterpriseServices.SecurityService.API.AuthenticationService {
         private void OnCreateStaffAccountOperationCompleted(object arg) {
             if ((this.CreateStaffAccountCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
-                this.CreateStaffAccountCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+                this.CreateStaffAccountCompleted(this, new CreateStaffAccountCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -377,7 +378,29 @@ namespace EnterpriseServices.SecurityService.API.AuthenticationService {
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.18408")]
-    public delegate void CreateStaffAccountCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
+    public delegate void CreateStaffAccountCompletedEventHandler(object sender, CreateStaffAccountCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.18408")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class CreateStaffAccountCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal CreateStaffAccountCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public int Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((int)(this.results[0]));
+            }
+        }
+    }
 }
 
 #pragma warning restore 1591

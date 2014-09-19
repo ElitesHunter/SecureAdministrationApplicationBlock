@@ -29,8 +29,8 @@ using System.ComponentModel;
 using System.Drawing.Design;
 using EnterpriseServices.Framework.Commons;
 using EnterpriseServices.ManagementClient.Operations.Entity.Editors;
-using Person = EnterpriseServices.SecurityService.API.OrgService.Staff;
 using EnterpriseServices.SecurityService.API;
+using Person = EnterpriseServices.SecurityService.API.OrgService.Staff;
 
 namespace EnterpriseServices.ManagementClient.Operations.Entity
 {

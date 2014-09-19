@@ -24,7 +24,6 @@
 
 #endregion
 
-using System;
 using EnterpriseServices.SecurityService.API.AuthenticationService;
 
 namespace EnterpriseServices.SecurityService.API
@@ -59,11 +58,11 @@ namespace EnterpriseServices.SecurityService.API
         /// 创建一个账户信息。
         /// </summary>
         /// <param name="account"></param>
-        public void Create(AccountExpandoProperty account)
+        public int Create(AccountExpandoProperty account)
         {
             using (AuthenticationService.AuthenticationService service = new AuthenticationService.AuthenticationService() { Url = base.ServiceUrl })
             {
-                service.CreateStaffAccount(account);
+                return service.CreateStaffAccount(account);
             }
         }
         #endregion

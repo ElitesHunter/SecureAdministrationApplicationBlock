@@ -25,6 +25,7 @@
 #endregion
 
 using System;
+using EnterpriseServices.SecurityService.API;
 
 namespace EnterpriseServices.ManagementClient.Operations.Entity
 {
@@ -127,6 +128,38 @@ namespace EnterpriseServices.ManagementClient.Operations.Entity
                 UniqueID = account.UniqueID
             };
         }
+
+        public EnterpriseServices.SecurityService.API.AuthenticationService.AccountExpandoProperty TransferTo(Guid staffID, string openID)
+        {
+            return new SecurityService.API.AuthenticationService.AccountExpandoProperty()
+            {
+                UniqueID = this.UniqueID,
+                UserName = this.UserName,
+                Password = this.Passphrase,
+                Policy = this.GetPolicy(),
+                ExpirationPolicyLength = this.ExpiredLength,
+                IsLocked = this.IsLocked,
+                StaffID = staffID,
+                StaffOpenID = openID
+            };
+        }
+        #endregion
+
+        #region GetPolicy
+        private EnterpriseServices.SecurityService.API.AuthenticationService.ExpirationPolicy GetPolicy()
+        {
+            EnterpriseServices.SecurityService.API.AuthenticationService.ExpirationPolicy policy = SecurityService.API.AuthenticationService.ExpirationPolicy.None;
+            if (this.UseExpiredPolicy)
+            {
+                switch (this.UnitValue)
+                {
+                    case 0: policy = SecurityService.API.AuthenticationService.ExpirationPolicy.MonthPolicy; break;
+                    case 1: policy = SecurityService.API.AuthenticationService.ExpirationPolicy.WeekPolicy; break;
+                    case 2: policy = SecurityService.API.AuthenticationService.ExpirationPolicy.DayPolicy; break;
+                }
+            }
+            return policy;
+        }
         #endregion
 
         #region UniqueID
@@ -134,6 +167,13 @@ namespace EnterpriseServices.ManagementClient.Operations.Entity
         {
             get { return _uniqueID; }
             set { _uniqueID = value; }
+        }
+        #endregion
+
+        #region Create
+        public int Create(Guid staffID,string staffOpenID)
+        {
+            return new AccountApi().Create(this.TransferTo(staffID, staffOpenID));
         }
         #endregion
     }
