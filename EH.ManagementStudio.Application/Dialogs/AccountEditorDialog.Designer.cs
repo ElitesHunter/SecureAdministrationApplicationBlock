@@ -152,7 +152,6 @@
             // 
             // CtrlOkButton
             // 
-            this.CtrlOkButton.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.CtrlOkButton.Location = new System.Drawing.Point(46, 218);
             this.CtrlOkButton.Name = "CtrlOkButton";
             this.CtrlOkButton.Size = new System.Drawing.Size(50, 30);
@@ -194,7 +193,6 @@
             // 
             // AccountEditorDialog
             // 
-            this.AcceptButton = this.CtrlOkButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.CtrlCloseButton;

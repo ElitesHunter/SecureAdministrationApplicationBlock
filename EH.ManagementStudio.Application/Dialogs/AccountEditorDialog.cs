@@ -104,13 +104,16 @@ namespace EnterpriseServices.ManagementClient.Dialogs
         {
             if (this.ValidateControlsValue())
             {
-                int state = this.CreateAccount().Create(this.StaffID, this.OpenID);
-                if (state.Equals(0))
+                if (this.AccountID.Equals(Guid.Empty))
                 {
-                    this.DialogResult = System.Windows.Forms.DialogResult.OK;
-                    this.Close();
+                    int state = this.CreateAccount().Create(this.StaffID, this.OpenID);
+                    if (state.Equals(0))
+                    {
+                        this.DialogResult = System.Windows.Forms.DialogResult.OK;
+                        this.Close();
+                    }
+                    else DialogMethods.Prompt("用户名已存在，请重新指定！");
                 }
-                else DialogMethods.Prompt("用户名已存在，请重新指定！");
             }
         }
         #endregion
