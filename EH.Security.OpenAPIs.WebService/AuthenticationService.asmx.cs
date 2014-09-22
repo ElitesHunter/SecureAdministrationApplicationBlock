@@ -47,5 +47,13 @@ namespace EnterpriseServices.SecurityService.API.OpenServices
             AccountBase.UpdatePass(accountID, password);
         }
         #endregion
+
+        #region UnlockAccount
+        [WebMethod(Description="解锁账户。<br/> accountID:账户的标识。")]
+        public void UnlockAccount(Guid accountID)
+        {
+            AccountBase.UnLock(accountID);
+        }
+        #endregion
     }
 }

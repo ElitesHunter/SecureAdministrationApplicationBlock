@@ -119,6 +119,18 @@ namespace EnterpriseServices.SecurityService.Framework.OperationModel.Accounts
                 );
         }
         #endregion
+
+        #region UnLock
+        static public void UnLock(Guid accountID)
+        {
+            DbHelper helper = new DbHelper(DbConnectionString.Current);
+            helper.ExecuteNonQuery(
+                    helper.CreateCommand("Sp.UnlockAccount", CommandType.StoredProcedure,
+                        helper.CreateParameter("accountID", accountID, SqlDbType.UniqueIdentifier, ParameterDirection.Input)
+                    )
+                );
+        }
+        #endregion
     }
 }
 

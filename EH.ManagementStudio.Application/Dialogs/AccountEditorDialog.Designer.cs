@@ -181,6 +181,7 @@
             this.CtrlUnlockButton.Text = "解锁";
             this.CtrlUnlockButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.CtrlUnlockButton.UseVisualStyleBackColor = true;
+            this.CtrlUnlockButton.Click += new System.EventHandler(this.CtrlUnlockButton_Click);
             // 
             // CtrlResetPassword
             // 

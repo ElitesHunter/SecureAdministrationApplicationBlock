@@ -76,6 +76,7 @@ namespace EnterpriseServices.ManagementClient.Dialogs
             this.CtrlExpirationCycleLength.Enabled = this.CtrlUseExpirationPolicy.Checked;
             this.IsCreate = account.UniqueID.Equals(Guid.Empty);
             this.AccountID = account.UniqueID;
+            this.CtrlResetPassword.Enabled = !this.AccountID.Equals(Guid.Empty);
         }
         #endregion
 
@@ -159,6 +160,14 @@ namespace EnterpriseServices.ManagementClient.Dialogs
                 Account.UpdatePassword(this.AccountID, "abc123");
                 this.Close();
             }
+        }
+        #endregion
+
+        #region CtrlUnlockButton_Click
+        private void CtrlUnlockButton_Click(object sender, EventArgs e)
+        {
+            Account.UnLock(this.AccountID);
+            this.Close();
         }
         #endregion
     }

@@ -183,6 +183,13 @@ namespace EnterpriseServices.ManagementClient.Operations.Entity
             new AccountApi().UpdatePassword(accID, newPass);
         }
         #endregion
+
+        #region UnLock
+        static public void UnLock(Guid accountID)
+        {
+            new AccountApi().UnLock(accountID);
+        }
+        #endregion
     }
 }
 

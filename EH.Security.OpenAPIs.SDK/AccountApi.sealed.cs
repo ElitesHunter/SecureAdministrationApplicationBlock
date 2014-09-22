@@ -77,6 +77,16 @@ namespace EnterpriseServices.SecurityService.API
             }
         }
         #endregion
+
+        #region UnLock
+        public void UnLock(Guid accID)
+        {
+            using (AuthenticationService.AuthenticationService service = new AuthenticationService.AuthenticationService() { Url = base.ServiceUrl})
+            {
+                service.UnlockAccount(accID);
+            }
+        }
+        #endregion
     }
 }
 
