@@ -73,6 +73,17 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="UpdatePassphrase">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="accountID" type="s1:guid" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdatePassphraseResponse">
+        <s:complexType />
+      </s:element>
     </s:schema>
     <s:schema elementFormDefault="qualified" targetNamespace="http://microsoft.com/wsdl/types/">
       <s:simpleType name="guid">
@@ -94,6 +105,12 @@
   <wsdl:message name="CreateStaffAccountSoapOut">
     <wsdl:part name="parameters" element="tns:CreateStaffAccountResponse" />
   </wsdl:message>
+  <wsdl:message name="UpdatePassphraseSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdatePassphrase" />
+  </wsdl:message>
+  <wsdl:message name="UpdatePassphraseSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdatePassphraseResponse" />
+  </wsdl:message>
   <wsdl:portType name="AuthenticationServiceSoap">
     <wsdl:operation name="ExecuteWinNTAuthenticate">
       <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">userName:登录到Windows的当前用户名。&lt;br /&gt;ipAddress:当前主机的IP地址。&lt;br /&gt;hostName:当前主机在网络中的名称。</wsdl:documentation>
@@ -104,6 +121,11 @@
       <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">创建一个人员账户&lt;br /&gt;account:人员账户扩展信息</wsdl:documentation>
       <wsdl:input message="tns:CreateStaffAccountSoapIn" />
       <wsdl:output message="tns:CreateStaffAccountSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePassphrase">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">修改账户密码&lt;br /&gt;accountID:账户标识&lt;br /&gt;password：新的账户密码</wsdl:documentation>
+      <wsdl:input message="tns:UpdatePassphraseSoapIn" />
+      <wsdl:output message="tns:UpdatePassphraseSoapOut" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="AuthenticationServiceSoap" type="tns:AuthenticationServiceSoap">
@@ -126,6 +148,15 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="UpdatePassphrase">
+      <soap:operation soapAction="urn:Masterduner@Yeah.net/UpdatePassphrase" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:binding name="AuthenticationServiceSoap12" type="tns:AuthenticationServiceSoap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
@@ -140,6 +171,15 @@
     </wsdl:operation>
     <wsdl:operation name="CreateStaffAccount">
       <soap12:operation soapAction="urn:Masterduner@Yeah.net/CreateStaffAccount" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePassphrase">
+      <soap12:operation soapAction="urn:Masterduner@Yeah.net/UpdatePassphrase" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

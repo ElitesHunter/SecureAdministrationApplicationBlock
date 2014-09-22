@@ -150,5 +150,16 @@ namespace EnterpriseServices.ManagementClient.Dialogs
             };
         }
         #endregion
+
+        #region CtrlResetPassword_Click
+        private void CtrlResetPassword_Click(object sender, EventArgs e)
+        {
+            if (DialogMethods.Ask("是否将账户口令重置为 abc123 ?") == System.Windows.Forms.DialogResult.OK)
+            {
+                Account.UpdatePassword(this.AccountID, "abc123");
+                this.Close();
+            }
+        }
+        #endregion
     }
 }

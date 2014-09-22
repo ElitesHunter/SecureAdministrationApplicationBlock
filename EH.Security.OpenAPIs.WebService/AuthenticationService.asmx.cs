@@ -2,6 +2,7 @@
 using System.Web.Services;
 using EnterpriseServices.SecurityService.API.OpenServices.Results;
 using EnterpriseServices.SecurityService.Framework.OperationModel.Accounts;
+using System;
 
 namespace EnterpriseServices.SecurityService.API.OpenServices
 {
@@ -36,6 +37,14 @@ namespace EnterpriseServices.SecurityService.API.OpenServices
         public int CreateStaffAccount(AccountExpandoProperty account)
         {
             return account.Create();
+        }
+        #endregion
+
+        #region UpdatePassphrase
+        [WebMethod(Description="修改账户密码<br />accountID:账户标识<br />password：新的账户密码")]
+        public void UpdatePassphrase(Guid accountID, string password)
+        {
+            AccountBase.UpdatePass(accountID, password);
         }
         #endregion
     }

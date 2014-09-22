@@ -176,6 +176,13 @@ namespace EnterpriseServices.ManagementClient.Operations.Entity
             return new AccountApi().Create(this.TransferTo(staffID, staffOpenID));
         }
         #endregion
+
+        #region UpdatePassword
+        static public void UpdatePassword(Guid accID,string newPass)
+        {
+            new AccountApi().UpdatePassword(accID, newPass);
+        }
+        #endregion
     }
 }
 

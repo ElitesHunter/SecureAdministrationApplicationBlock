@@ -190,6 +190,7 @@
             this.CtrlResetPassword.TabIndex = 6;
             this.CtrlResetPassword.Text = "重置口令";
             this.CtrlResetPassword.UseVisualStyleBackColor = true;
+            this.CtrlResetPassword.Click += new System.EventHandler(this.CtrlResetPassword_Click);
             // 
             // AccountEditorDialog
             // 

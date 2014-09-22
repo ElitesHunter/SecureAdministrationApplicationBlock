@@ -25,6 +25,7 @@
 #endregion
 
 using EnterpriseServices.SecurityService.API.AuthenticationService;
+using System;
 
 namespace EnterpriseServices.SecurityService.API
 {
@@ -67,7 +68,15 @@ namespace EnterpriseServices.SecurityService.API
         }
         #endregion
 
-
+        #region UpdatePassword
+        public void UpdatePassword(Guid accountID, string newPassword)
+        {
+            using (AuthenticationService.AuthenticationService service = new AuthenticationService.AuthenticationService() { Url = base.ServiceUrl })
+            {
+                service.UpdatePassphrase(accountID, newPassword);
+            }
+        }
+        #endregion
     }
 }
 

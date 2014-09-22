@@ -26,6 +26,7 @@
 
 using System;
 using EnterpriseServices.Framework.Commons.Data;
+using System.Data;
 
 namespace EnterpriseServices.SecurityService.Framework.OperationModel.Accounts
 {
@@ -103,6 +104,19 @@ namespace EnterpriseServices.SecurityService.Framework.OperationModel.Accounts
         #region Create
         public virtual void Create()
         {
+        }
+        #endregion
+
+        #region UpdatePass
+        static public void UpdatePass(Guid accountID, string newPassword)
+        {
+            DbHelper helper = new DbHelper(DbConnectionString.Current);
+            helper.ExecuteNonQuery(
+                    helper.CreateCommand("Sp.ChangePassword", CommandType.StoredProcedure,
+                        helper.CreateParameter("accountID", accountID, SqlDbType.UniqueIdentifier, ParameterDirection.Input),
+                        helper.CreateParameter("newPass", newPassword, SqlDbType.VarChar, ParameterDirection.Input)
+                        )
+                );
         }
         #endregion
     }
