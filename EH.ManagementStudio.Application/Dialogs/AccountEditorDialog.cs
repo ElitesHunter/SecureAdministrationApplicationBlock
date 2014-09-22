@@ -77,6 +77,7 @@ namespace EnterpriseServices.ManagementClient.Dialogs
             this.IsCreate = account.UniqueID.Equals(Guid.Empty);
             this.AccountID = account.UniqueID;
             this.CtrlResetPassword.Enabled = !this.AccountID.Equals(Guid.Empty);
+            this.CtrlUserNameInput.Enabled = account.UniqueID.Equals(Guid.Empty);
         }
         #endregion
 
