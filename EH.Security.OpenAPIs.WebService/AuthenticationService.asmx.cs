@@ -41,7 +41,7 @@ namespace EnterpriseServices.SecurityService.API.OpenServices
         #endregion
 
         #region UpdatePassphrase
-        [WebMethod(Description="修改账户密码<br />accountID:账户标识<br />password：新的账户密码")]
+        [WebMethod(Description = "修改账户密码<br />accountID:账户标识<br />password：新的账户密码")]
         public void UpdatePassphrase(Guid accountID, string password)
         {
             AccountBase.UpdatePass(accountID, password);
@@ -49,7 +49,7 @@ namespace EnterpriseServices.SecurityService.API.OpenServices
         #endregion
 
         #region UnlockAccount
-        [WebMethod(Description="解锁账户。<br/> accountID:账户的标识。")]
+        [WebMethod(Description = "解锁账户。<br/> accountID:账户的标识。")]
         public void UnlockAccount(Guid accountID)
         {
             AccountBase.UnLock(accountID);
@@ -57,7 +57,7 @@ namespace EnterpriseServices.SecurityService.API.OpenServices
         #endregion
 
         #region UpdateAccount
-        [WebMethod(Description="更新账户信息<br />account:账户信息")]
+        [WebMethod(Description = "更新账户信息<br />account:账户信息")]
         public void UpdateAccount(AccountExpandoProperty account)
         {
             account.Update();

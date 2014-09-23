@@ -28,12 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(StaffViewerControl));
             this.CtrlVPathContainer = new System.Windows.Forms.Panel();
             this.CtrlVPathDescriptor = new System.Windows.Forms.Label();
             this.CtrlButtonsContainer = new System.Windows.Forms.Panel();
             this.CtrlAdvancedButton = new System.Windows.Forms.Button();
-            this.CtrlSaveButton = new System.Windows.Forms.Button();
             this.CtrlStaffPropertyGrid = new System.Windows.Forms.PropertyGrid();
             this.CtrlVPathContainer.SuspendLayout();
             this.CtrlButtonsContainer.SuspendLayout();
@@ -62,7 +60,6 @@
             // 
             this.CtrlButtonsContainer.BackColor = System.Drawing.Color.White;
             this.CtrlButtonsContainer.Controls.Add(this.CtrlAdvancedButton);
-            this.CtrlButtonsContainer.Controls.Add(this.CtrlSaveButton);
             this.CtrlButtonsContainer.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.CtrlButtonsContainer.Location = new System.Drawing.Point(20, 355);
             this.CtrlButtonsContainer.Name = "CtrlButtonsContainer";
@@ -71,25 +68,13 @@
             // 
             // CtrlAdvancedButton
             // 
-            this.CtrlAdvancedButton.Location = new System.Drawing.Point(95, 10);
+            this.CtrlAdvancedButton.Location = new System.Drawing.Point(10, 10);
             this.CtrlAdvancedButton.Name = "CtrlAdvancedButton";
             this.CtrlAdvancedButton.Size = new System.Drawing.Size(75, 30);
             this.CtrlAdvancedButton.TabIndex = 1;
             this.CtrlAdvancedButton.Text = "高级(&A)";
             this.CtrlAdvancedButton.UseVisualStyleBackColor = true;
             this.CtrlAdvancedButton.Click += new System.EventHandler(this.AdvanceButtonClick);
-            // 
-            // CtrlSaveButton
-            // 
-            this.CtrlSaveButton.Image = ((System.Drawing.Image)(resources.GetObject("CtrlSaveButton.Image")));
-            this.CtrlSaveButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.CtrlSaveButton.Location = new System.Drawing.Point(8, 10);
-            this.CtrlSaveButton.Name = "CtrlSaveButton";
-            this.CtrlSaveButton.Size = new System.Drawing.Size(80, 30);
-            this.CtrlSaveButton.TabIndex = 0;
-            this.CtrlSaveButton.Text = "保存变更";
-            this.CtrlSaveButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.CtrlSaveButton.UseVisualStyleBackColor = true;
             // 
             // CtrlStaffPropertyGrid
             // 
@@ -123,7 +108,6 @@
         private System.Windows.Forms.Panel CtrlVPathContainer;
         private System.Windows.Forms.Label CtrlVPathDescriptor;
         private System.Windows.Forms.Panel CtrlButtonsContainer;
-        private System.Windows.Forms.Button CtrlSaveButton;
         private System.Windows.Forms.Button CtrlAdvancedButton;
         private System.Windows.Forms.PropertyGrid CtrlStaffPropertyGrid;
     }

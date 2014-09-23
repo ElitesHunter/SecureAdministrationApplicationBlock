@@ -10,9 +10,9 @@
 namespace EnterpriseServices.SecurityService.Framework.OperationModel.Generators
 {
     using EnterpriseServices.SecurityService.Framework.OperationModel.Accounts;
-    
-    
-    #line 1 "E:\CSharp\Customizations\人力资源管理系统\EH\EH.Security.OperationModel\Generators\CreateAccountXParameterGenerator.tt"
+
+
+#line 1 "E:\CSharp\Customizations\人力资源管理系统\EH\EH.Security.OperationModel\Generators\CreateAccountXParameterGenerator.tt"
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "10.0.0.0")]
     internal partial class CreateAccountXParameterGenerator : CreateAccountXParameterGeneratorBase
     {
@@ -33,58 +33,58 @@ namespace EnterpriseServices.SecurityService.Framework.OperationModel.Generators
 				<eh:Parameter Name=""xData"">
 					<eh:AssociatedStaff>
 						<eh:Identification UniqueID=""");
-            
-            #line 8 "E:\CSharp\Customizations\人力资源管理系统\EH\EH.Security.OperationModel\Generators\CreateAccountXParameterGenerator.tt"
+
+#line 8 "E:\CSharp\Customizations\人力资源管理系统\EH\EH.Security.OperationModel\Generators\CreateAccountXParameterGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(this.Instance.StaffID));
-            
-            #line default
-            #line hidden
+
+#line default
+#line hidden
             this.Write("\" OpenID=\"");
-            
-            #line 8 "E:\CSharp\Customizations\人力资源管理系统\EH\EH.Security.OperationModel\Generators\CreateAccountXParameterGenerator.tt"
+
+#line 8 "E:\CSharp\Customizations\人力资源管理系统\EH\EH.Security.OperationModel\Generators\CreateAccountXParameterGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(this.Instance.StaffOpenID));
-            
-            #line default
-            #line hidden
+
+#line default
+#line hidden
             this.Write("\" />\r\n\t\t\t\t\t</eh:AssociatedStaff>\r\n\t\t\t\t\t<eh:AccountBaseInfo>\r\n\t\t\t\t\t\t<eh:UserName V" +
                     "alue=\"");
-            
-            #line 11 "E:\CSharp\Customizations\人力资源管理系统\EH\EH.Security.OperationModel\Generators\CreateAccountXParameterGenerator.tt"
+
+#line 11 "E:\CSharp\Customizations\人力资源管理系统\EH\EH.Security.OperationModel\Generators\CreateAccountXParameterGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(this.Instance.UserName));
-            
-            #line default
-            #line hidden
+
+#line default
+#line hidden
             this.Write("\" />\r\n\t\t\t\t\t\t<eh:Passphrase Value=\"");
-            
-            #line 12 "E:\CSharp\Customizations\人力资源管理系统\EH\EH.Security.OperationModel\Generators\CreateAccountXParameterGenerator.tt"
+
+#line 12 "E:\CSharp\Customizations\人力资源管理系统\EH\EH.Security.OperationModel\Generators\CreateAccountXParameterGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(this.Instance.Password));
-            
-            #line default
-            #line hidden
+
+#line default
+#line hidden
             this.Write("\" />\r\n\t\t\t\t\t</eh:AccountBaseInfo>\r\n\t\t\t\t\t<eh:ExpirationPolicy>\r\n\t\t\t\t\t\t<eh:Length Va" +
                     "lue=\"");
-            
-            #line 15 "E:\CSharp\Customizations\人力资源管理系统\EH\EH.Security.OperationModel\Generators\CreateAccountXParameterGenerator.tt"
+
+#line 15 "E:\CSharp\Customizations\人力资源管理系统\EH\EH.Security.OperationModel\Generators\CreateAccountXParameterGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(this.Instance.ExpirationPolicyLength));
-            
-            #line default
-            #line hidden
+
+#line default
+#line hidden
             this.Write("\" />\r\n\t\t\t\t\t\t<eh:Unit Value=\"");
-            
-            #line 16 "E:\CSharp\Customizations\人力资源管理系统\EH\EH.Security.OperationModel\Generators\CreateAccountXParameterGenerator.tt"
+
+#line 16 "E:\CSharp\Customizations\人力资源管理系统\EH\EH.Security.OperationModel\Generators\CreateAccountXParameterGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture((char)this.Instance.Policy));
-            
-            #line default
-            #line hidden
+
+#line default
+#line hidden
             this.Write("\" />\r\n\t\t\t\t\t</eh:ExpirationPolicy>\r\n\t\t\t\t</eh:Parameter>\r\n\t\t\t</eh:StoredProcedure>\r" +
                     "\n\t\t</eh:VariableDeclarations>\r\n\t</eh:SqlServerDatabase>\r\n</eh:EnterpriseServices" +
                     ">");
             return this.GenerationEnvironment.ToString();
         }
     }
-    
-    #line default
-    #line hidden
+
+#line default
+#line hidden
     #region Base class
     /// <summary>
     /// Base class for this transformation
@@ -184,7 +184,7 @@ namespace EnterpriseServices.SecurityService.Framework.OperationModel.Generators
             }
             // If we're starting off, or if the previous text ended with a newline,
             // we have to append the current indent first.
-            if (((this.GenerationEnvironment.Length == 0) 
+            if (((this.GenerationEnvironment.Length == 0)
                         || this.endsWithNewline))
             {
                 this.GenerationEnvironment.Append(this.currentIndentField);
@@ -302,7 +302,7 @@ namespace EnterpriseServices.SecurityService.Framework.OperationModel.Generators
         /// </summary>
         internal class ToStringInstanceHelper
         {
-            private System.IFormatProvider formatProviderField  = global::System.Globalization.CultureInfo.InvariantCulture;
+            private System.IFormatProvider formatProviderField = global::System.Globalization.CultureInfo.InvariantCulture;
             /// <summary>
             /// Gets or sets format provider to be used by ToStringWithCulture method.
             /// </summary>
@@ -310,13 +310,13 @@ namespace EnterpriseServices.SecurityService.Framework.OperationModel.Generators
             {
                 get
                 {
-                    return this.formatProviderField ;
+                    return this.formatProviderField;
                 }
                 set
                 {
                     if ((value != null))
                     {
-                        this.formatProviderField  = value;
+                        this.formatProviderField = value;
                     }
                 }
             }

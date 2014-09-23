@@ -83,6 +83,8 @@
             this.ctrlRefreshOrgObject = new System.Windows.Forms.ToolStripMenuItem();
             this.ctrlStaffCtxMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.ctrlRemoveStaff = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator12 = new System.Windows.Forms.ToolStripSeparator();
+            this.ctrlMoveStaff = new System.Windows.Forms.ToolStripMenuItem();
             this.ctrlMainFeaturesMenu.SuspendLayout();
             this.ctrlFeaturesToolmenu.SuspendLayout();
             this.ctrlStatusControlsPanel.SuspendLayout();
@@ -538,9 +540,11 @@
             // ctrlStaffCtxMenu
             // 
             this.ctrlStaffCtxMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.ctrlRemoveStaff});
+            this.ctrlRemoveStaff,
+            this.toolStripSeparator12,
+            this.ctrlMoveStaff});
             this.ctrlStaffCtxMenu.Name = "ctrlStaffCtxMenu";
-            this.ctrlStaffCtxMenu.Size = new System.Drawing.Size(180, 48);
+            this.ctrlStaffCtxMenu.Size = new System.Drawing.Size(180, 76);
             // 
             // ctrlRemoveStaff
             // 
@@ -548,6 +552,17 @@
             this.ctrlRemoveStaff.Size = new System.Drawing.Size(179, 22);
             this.ctrlRemoveStaff.Text = "移除此人(&Remove)";
             this.ctrlRemoveStaff.Click += new System.EventHandler(this.RemoveOrganizationObjectClick);
+            // 
+            // toolStripSeparator12
+            // 
+            this.toolStripSeparator12.Name = "toolStripSeparator12";
+            this.toolStripSeparator12.Size = new System.Drawing.Size(176, 6);
+            // 
+            // ctrlMoveStaff
+            // 
+            this.ctrlMoveStaff.Name = "ctrlMoveStaff";
+            this.ctrlMoveStaff.Size = new System.Drawing.Size(179, 22);
+            this.ctrlMoveStaff.Text = "移动到(&Move)";
             // 
             // MainWindow
             // 
@@ -637,5 +652,7 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator10;
         private System.Windows.Forms.ContextMenuStrip ctrlStaffCtxMenu;
         private System.Windows.Forms.ToolStripMenuItem ctrlRemoveStaff;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator12;
+        private System.Windows.Forms.ToolStripMenuItem ctrlMoveStaff;
     }
 }

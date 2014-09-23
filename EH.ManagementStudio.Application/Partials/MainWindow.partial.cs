@@ -146,7 +146,7 @@ namespace EnterpriseServices.ManagementClient.Windows
                 case FeatureTreeNodeType.OrganizationsRoot:
                     ctxMenu = this.ctrlOrganizationObjCtxMenu;
                     break;
-                case FeatureTreeNodeType.Staff:
+                case FeatureTreeNodeType.Position:
                     ctxMenu = this.ctrlStaffCtxMenu;
                     break;
             }

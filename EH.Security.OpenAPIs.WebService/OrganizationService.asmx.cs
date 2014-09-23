@@ -98,7 +98,7 @@ namespace EnterpriseServices.SecurityService.API.OpenServices
         #endregion
 
         #region CreateStaff
-        [WebMethod(Description="创建人员信息<br />staff:人员信息对象实例。")]
+        [WebMethod(Description = "创建人员信息<br />staff:人员信息对象实例。")]
         public void CreateStaff(Staff person)
         {
             person.Create();
@@ -124,7 +124,7 @@ namespace EnterpriseServices.SecurityService.API.OpenServices
         /// </summary>
         /// <param name="staffOpenID"></param>
         /// <returns></returns>
-        [WebMethod(Description="获取关联的账户信息<br />staffOpenID:人员的开放标识")]
+        [WebMethod(Description = "获取关联的账户信息<br />staffOpenID:人员的开放标识")]
         public AccountExpandoProperty GetAssociatedAccount(string staffOpenID)
         {
             return AccountExpandoProperty.Get(staffOpenID);
