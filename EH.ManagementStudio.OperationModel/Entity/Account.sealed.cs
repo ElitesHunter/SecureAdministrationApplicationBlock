@@ -190,6 +190,13 @@ namespace EnterpriseServices.ManagementClient.Operations.Entity
             new AccountApi().UnLock(accountID);
         }
         #endregion
+
+        #region Update
+        public void Update()
+        {
+            new AccountApi().Update(this.TransferTo(Guid.Empty, string.Empty));
+        }
+        #endregion
     }
 }
 

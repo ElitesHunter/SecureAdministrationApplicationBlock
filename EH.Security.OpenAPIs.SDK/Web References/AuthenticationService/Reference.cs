@@ -38,6 +38,8 @@ namespace EnterpriseServices.SecurityService.API.AuthenticationService {
         
         private System.Threading.SendOrPostCallback UnlockAccountOperationCompleted;
         
+        private System.Threading.SendOrPostCallback UpdateAccountOperationCompleted;
+        
         private bool useDefaultCredentialsSetExplicitly;
         
         /// <remarks/>
@@ -87,6 +89,9 @@ namespace EnterpriseServices.SecurityService.API.AuthenticationService {
         
         /// <remarks/>
         public event UnlockAccountCompletedEventHandler UnlockAccountCompleted;
+        
+        /// <remarks/>
+        public event UpdateAccountCompletedEventHandler UpdateAccountCompleted;
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:Masterduner@Yeah.net/WindowsAuthentication", RequestElementName="WindowsAuthentication", RequestNamespace="urn:Masterduner@Yeah.net", ResponseElementName="WindowsAuthenticationResponse", ResponseNamespace="urn:Masterduner@Yeah.net", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
@@ -206,6 +211,34 @@ namespace EnterpriseServices.SecurityService.API.AuthenticationService {
             if ((this.UnlockAccountCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
                 this.UnlockAccountCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:Masterduner@Yeah.net/UpdateAccount", RequestNamespace="urn:Masterduner@Yeah.net", ResponseNamespace="urn:Masterduner@Yeah.net", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public void UpdateAccount(AccountExpandoProperty account) {
+            this.Invoke("UpdateAccount", new object[] {
+                        account});
+        }
+        
+        /// <remarks/>
+        public void UpdateAccountAsync(AccountExpandoProperty account) {
+            this.UpdateAccountAsync(account, null);
+        }
+        
+        /// <remarks/>
+        public void UpdateAccountAsync(AccountExpandoProperty account, object userState) {
+            if ((this.UpdateAccountOperationCompleted == null)) {
+                this.UpdateAccountOperationCompleted = new System.Threading.SendOrPostCallback(this.OnUpdateAccountOperationCompleted);
+            }
+            this.InvokeAsync("UpdateAccount", new object[] {
+                        account}, this.UpdateAccountOperationCompleted, userState);
+        }
+        
+        private void OnUpdateAccountOperationCompleted(object arg) {
+            if ((this.UpdateAccountCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.UpdateAccountCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -477,6 +510,10 @@ namespace EnterpriseServices.SecurityService.API.AuthenticationService {
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.18408")]
     public delegate void UnlockAccountCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.18408")]
+    public delegate void UpdateAccountCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
 }
 
 #pragma warning restore 1591

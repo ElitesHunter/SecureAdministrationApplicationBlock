@@ -1,8 +1,8 @@
-﻿using System.ComponentModel;
+﻿using System;
+using System.ComponentModel;
 using System.Web.Services;
 using EnterpriseServices.SecurityService.API.OpenServices.Results;
 using EnterpriseServices.SecurityService.Framework.OperationModel.Accounts;
-using System;
 
 namespace EnterpriseServices.SecurityService.API.OpenServices
 {
@@ -53,6 +53,14 @@ namespace EnterpriseServices.SecurityService.API.OpenServices
         public void UnlockAccount(Guid accountID)
         {
             AccountBase.UnLock(accountID);
+        }
+        #endregion
+
+        #region UpdateAccount
+        [WebMethod(Description="更新账户信息<br />account:账户信息")]
+        public void UpdateAccount(AccountExpandoProperty account)
+        {
+            account.Update();
         }
         #endregion
     }

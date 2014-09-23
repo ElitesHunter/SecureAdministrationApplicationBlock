@@ -24,8 +24,8 @@
 
 #endregion
 
-using EnterpriseServices.SecurityService.API.AuthenticationService;
 using System;
+using EnterpriseServices.SecurityService.API.AuthenticationService;
 
 namespace EnterpriseServices.SecurityService.API
 {
@@ -81,9 +81,19 @@ namespace EnterpriseServices.SecurityService.API
         #region UnLock
         public void UnLock(Guid accID)
         {
-            using (AuthenticationService.AuthenticationService service = new AuthenticationService.AuthenticationService() { Url = base.ServiceUrl})
+            using (AuthenticationService.AuthenticationService service = new AuthenticationService.AuthenticationService() { Url = base.ServiceUrl })
             {
                 service.UnlockAccount(accID);
+            }
+        }
+        #endregion
+
+        #region Update
+        public void Update(AccountExpandoProperty account)
+        {
+            using (AuthenticationService.AuthenticationService service = new AuthenticationService.AuthenticationService() { Url = base.ServiceUrl })
+            {
+                service.UpdateAccount(account);
             }
         }
         #endregion

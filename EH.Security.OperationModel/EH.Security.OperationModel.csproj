@@ -71,6 +71,11 @@
       <DependentUpon>PositionXParameterGenerator.tt</DependentUpon>
     </Compile>
     <Compile Include="Generators\PositionXParameterGenerator.partial.cs" />
+    <Compile Include="Generators\UpgradeAccountXParameterGenerator.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UpgradeAccountXParameterGenerator.tt</DependentUpon>
+    </Compile>
     <Compile Include="Generators\WinNTAuthencationXParameterGenerator.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -107,6 +112,10 @@
     <None Include="Generators\PositionXParameterGenerator.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>PositionXParameterGenerator.cs</LastGenOutput>
+    </None>
+    <None Include="Generators\UpgradeAccountXParameterGenerator.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>UpgradeAccountXParameterGenerator.cs</LastGenOutput>
     </None>
     <None Include="Generators\WinNTAuthencationXParameterGenerator.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>

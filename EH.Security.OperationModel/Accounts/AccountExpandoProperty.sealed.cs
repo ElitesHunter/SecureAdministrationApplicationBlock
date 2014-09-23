@@ -138,6 +138,18 @@ namespace EnterpriseServices.SecurityService.Framework.OperationModel.Accounts
             return (int)cmd.Parameters["@state"].Value;
         }
         #endregion
+
+        #region Update
+        public void Update()
+        {
+            string xData = new Generators.UpgradeAccountXParameterGenerator() { Instance = this }.TransformText();
+            this.ExecuteNonQuery(
+                    this.CreateCommand("Sp.UpgradeStaffAccount", CommandType.StoredProcedure,
+                        this.CreateParameter("xData", xData, SqlDbType.Xml, ParameterDirection.Input)
+                    )
+                );
+        }
+        #endregion
     }
 }
 

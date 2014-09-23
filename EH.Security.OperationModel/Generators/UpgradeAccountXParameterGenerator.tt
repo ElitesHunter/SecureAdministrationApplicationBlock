@@ -1,0 +1,19 @@
+﻿<#@ template language="C#" #>
+<eh:EnterpriseServices xmlns:eh="urn:Masterduner@Yeah.net">
+	<eh:SqlServerDatabase>
+		<eh:VariableDeclarations>
+			<eh:StoredProcedure Name="Sp.UpgradeStaffAccount">
+				<eh:Parameter Name="xData">
+					<eh:UniqueID Value="<#= this.Instance.UniqueID #>" />
+					<eh:AccountBaseInfo>
+						<eh:Passphrase Value="<#= this.Instance.Password #>" />
+					</eh:AccountBaseInfo>
+					<eh:ExpirationPolicy>
+						<eh:Length Value="<#= this.Instance.ExpirationPolicyLength #>" />
+						<eh:Unit Value="<#= (char)this.Instance.Policy #>" />
+					</eh:ExpirationPolicy>
+				</eh:Parameter>
+			</eh:StoredProcedure>
+		</eh:VariableDeclarations>
+	</eh:SqlServerDatabase>
+</eh:EnterpriseServices>
