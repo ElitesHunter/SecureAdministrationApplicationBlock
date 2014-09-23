@@ -104,9 +104,9 @@ namespace EnterpriseServices.ManagementClient.Dialogs
         #region CtrlOkButton_Click
         private void CtrlOkButton_Click(object sender, EventArgs e)
         {
-            if (this.ValidateControlsValue())
+            if (this.AccountID.Equals(Guid.Empty))
             {
-                if (this.AccountID.Equals(Guid.Empty))
+                if (this.ValidateControlsValue())
                 {
                     int state = this.CreateAccount().Create(this.StaffID, this.OpenID);
                     if (state.Equals(0))
@@ -116,6 +116,12 @@ namespace EnterpriseServices.ManagementClient.Dialogs
                     }
                     else DialogMethods.Prompt("用户名已存在，请重新指定！");
                 }
+            }
+            else
+            {
+                this.CreateAccount().Update();
+                this.DialogResult = System.Windows.Forms.DialogResult.OK;
+                this.Close();
             }
         }
         #endregion
